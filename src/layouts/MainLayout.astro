@@ -1,0 +1,29 @@
+---
+// src/components/MainLayout.astro
+import '../styles/global.css'
+import Header from '../partials/Header.astro';
+import Footer from '../partials/Footer.astro';
+
+
+const { title, lang , t } = Astro.props;
+---
+
+<html lang={lang}>
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} >
+<title>
+  {title ? `${title} | ${t?.site?.name || 'Kea Partners'}` : t?.site?.name || 'Kea Partners'}
+</title>
+</head>
+<body class="flex flex-col min-h-screen bg-brand-50">
+        <Header lang={lang} t={t} />
+        <main class="flex-1">
+            <slot />
+        </main>
+        <Footer lang={lang} t={t} />
+        <script src="/src/scripts/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "site": {
+    "name": "KEA Partners",
+    "description": "Knowledge page about real estate"
+  },
+  "nav": {
+    "home": "Home",
+    "category": "Category",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Partner Resource Center"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

@@ -1,0 +1,19 @@
+---
+import { icons } from '../assets/icons';
+
+interface Props {
+    iconKey: string;
+    width?: number;
+    height?: number;
+    class?: string;
+}
+
+const { iconKey, width = 34, height = 34, class: className = '' } = Astro.props;
+const IconComponent = icons[iconKey] ?? null;
+---
+
+{IconComponent ? (
+<IconComponent width={width} height={height} class={className} />
+    ) : (
+<p>SVG icon not found: {iconKey}</p>
+    )}

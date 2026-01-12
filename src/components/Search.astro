@@ -1,0 +1,102 @@
+---
+import SvgIcon from "./SvgIcon.astro";
+
+---
+<!-- Search -->
+<div class="search mb-4">
+    <form id="search-form">
+        <label for="default-search-main" class="text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+        <div class="relative">
+            <input type="search" name="q" id="default-search-main" autocomplete="off" class="block p-4 pr-14 truncate w-full text-base text-brand-500 bg-gray-50 rounded-3xl border border-gray-300 focus-visible:outline-none" placeholder="Buscar por desarrollo, recurso o palabra clave..." required/>
+            <button type="submit" class="flex absolute inset-y-0 right-0 items-center pr-3 text-white " aria-label="Search submit button">
+                <span class="w-10 h-10 bg-[#CFAB76] rounded-full flex items-center justify-center">
+                    <SvgIcon iconKey="SearchTopicsIcon" width={34} height={34}/>
+                </span>
+            </button>
+            <ul id="suggestions-main" class="absolute left-0 right-0 mt-1 bg-white border rounded shadow hidden max-h-60 overflow-y-auto z-10"></ul>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    import Fuse from "fuse.js";
+    import items from "../data/searchIndex.json";
+
+    const formSearch = document.getElementById("search-form");
+    const input = document.getElementById("default-search-main");
+    const suggestions = document.getElementById("suggestions-main");
+
+    let FUSE_OPTIONS = {
+        includeScore: true,
+        threshold: 0.4,
+        shouldSort: true,
+        keys: [
+            {
+                name: "type",
+                weight: 1,
+            },
+            {
+                name: "title",
+                weight: 0.75,
+            },
+            {
+                name: "description",
+                weight: 0.5,
+            }
+        ]
+    }
+    let SEARCH_DATA = items;
+    let lang = "es";
+
+    const params = new URLSearchParams(window.location.search);
+    const queryParam = params.get("q");
+
+    const fuse = new Fuse(SEARCH_DATA, FUSE_OPTIONS);
+
+    // Manejar el submit del formulario
+    formSearch.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const query = input.value.trim();
+        if (query) {
+            window.location.href = `/search?q=${encodeURIComponent(query)}`;
+
+        }
+    });
+
+    input.addEventListener("input", () => {
+        const query = input.value.trim();
+
+        if (!query) {
+            suggestions.innerHTML = "";
+            suggestions.classList.add("hidden");
+            return;
+        }
+
+        const results = fuse.search(query).map(r => r.item);
+
+        suggestions.innerHTML = results.length
+            ? results.map(item => `
+          <li>
+            <a href="/${lang}/${item.slug}" class="block px-4 py-2 hover:bg-gray-100">
+              <span class="text-xs uppercase text-gray-500">${item.type}</span><br>
+              <strong>${item.title}</strong>
+              <p class="text-sm text-gray-600">${item.description}</p>
+            </a>
+          </li>
+        `).join("")
+            : `<li class="p-2 text-gray-500">No se encontraron resultados</li>`;
+
+        suggestions.classList.remove("hidden");
+    });
+
+    input.addEventListener("blur", () => {
+        setTimeout(() => suggestions.classList.add("hidden"), 150);
+    });
+
+    // Si existe, asignarlo al input
+    if (queryParam) {
+        input.value = queryParam;
+    }
+
+</script>

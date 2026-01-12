@@ -1,0 +1,15 @@
+{
+  "site": {
+    "name": "KEA Partners",
+    "description": "Centro de recursos para partners"
+  },
+  "nav": {
+    "home": "Knowledge Center",
+    "category": "Categoría",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "dev": "Desarrollado con ❤️ y Astro"
+  }
+}

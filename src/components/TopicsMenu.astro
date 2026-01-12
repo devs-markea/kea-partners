@@ -1,0 +1,143 @@
+---
+import Search from "./Search.astro";
+import SvgIcon from "./SvgIcon.astro";
+---
+<!-- Topics Menu -->
+<div id="side-topics-menu" class="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-brand-50 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 px-6 py-6 sm:z-10 md:px-0 md:py-0 md:static md:translate-x-0 md:max-w-none md:block md:h-auto md:w-3/12">
+    <div class="w-full flex justify-end md:hidden">
+        <button id="close-topics-menu" class="p-2 rounded-md text-gray-700 hover:bg-gray-100 mb-4">
+            <svg class="w-5 h-5 text-black" stroke="currentColor" viewBox="0 0 20 20" fill="none">
+                <path d="M1 1L19 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 19L19 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+    <div class="search mb-4">
+        <form id="search-form-topics">
+            <div class="relative">
+                <input
+                        type="search"
+                        id="default-search-topics"
+                        placeholder="Search"
+                        autocomplete="off"
+                        class="block py-3 px-4 pr-12 w-full text-sm text-brand-500 bg-gray-50 rounded-3xl border border-gray-300 focus:ring-brand-400 focus:border-brand-400 focus-visible:outline-none"
+                />
+                <button type="submit" class="flex absolute inset-y-0 right-0 items-center pr-3 text-brand-700 text-opacity-60" aria-label="Search submit button">
+                    <SvgIcon iconKey="SearchTopicsIcon" width={34} height={34}/>
+                </button>
+            </div>
+            <ul id="suggestions-topics-menu" class="absolute left-0 right-0 mt-1 bg-white border rounded shadow hidden max-h-60 overflow-y-auto z-10"></ul>
+        </form>
+    </div>
+
+    <!-- Material Comercial -->
+    <div class="mb-4">
+        <button class="w-full flex justify-between items-center text-black text-base py-2" data-submenu="menu-topics">
+            Material Comercial
+            <svg class="submenu-icon w-4 h-4 text-brand-400 transition-transform duration-200 mr-6" stroke="currentColor" viewBox="0 0 16 16" fill="none">
+                <path d="M13 5.5L8 10.5L3 5.5" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="submenu-container max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out pl-6 space-y-1" id="submenu-menu-topics">
+            <a href="/faena-tulum/material-comercial/brochure" class="block text-base font-light text-gray-700 truncate">Brochures digitales y descargables (PDF)</a>
+            <a href="/faena-tulum/material-comercial/contenido" class="block text-base font-light text-gray-700 truncate">Kit esencial para redes sociales</a>
+            <a href="/faena-tulum/preguntas-frecuentes" class="block text-base font-light text-gray-700 truncate">Preguntas frecuentes sobre Faena Tulum</a>
+            <a href="/faena-tulum/siteplan" class="block text-base font-light text-gray-700 truncate">Planos, renders y tablas de precios actualizadas</a>
+        </div>
+    </div>
+
+    <!-- Contenido para Redes Sociales -->
+    <div class="mb-4">
+        <button class="w-full flex justify-between items-center text-black text-base py-2" data-submenu="menu-topics-content">
+            Contenido para Redes Sociales
+            <svg class="submenu-icon w-4 h-4 text-brand-400 transition-transform duration-200 mr-6" stroke="currentColor" viewBox="0 0 16 16" fill="none">
+                <path d="M13 5.5L8 10.5L3 5.5" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="submenu-container max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out pl-6 space-y-1" id="submenu-menu-topics-content">
+            <a href="/faena-tulum/contenido-para-redes-sociales/kit-redes-sociales" class="block text-base font-light text-gray-700 truncate">Kit esencial para redes sociales</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    import Fuse from "fuse.js";
+    import items from "../data/searchIndex.json";
+
+    const formSearch = document.getElementById("search-form-topics");
+    const input = document.getElementById("default-search-topics");
+    const suggestions = document.getElementById("suggestions-topics-menu");
+
+    let FUSE_OPTIONS = {
+        includeScore: true,
+        threshold: 0.4,
+        shouldSort: true,
+        keys: [
+            {
+                name: "type",
+                weight: 1,
+            },
+            {
+                name: "title",
+                weight: 0.75,
+            },
+            {
+                name: "description",
+                weight: 0.5,
+            }
+        ]
+    }
+    let SEARCH_DATA = items;
+    let lang = "es";
+
+    const params = new URLSearchParams(window.location.search);
+    const queryParam = params.get("q");
+
+    const fuse = new Fuse(SEARCH_DATA, FUSE_OPTIONS);
+
+    // Manejar el submit del formulario
+    formSearch.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const query = input.value.trim();
+        if (query) {
+            window.location.href = `/search?q=${encodeURIComponent(query)}`;
+
+        }
+    });
+
+    input.addEventListener("input", () => {
+        const query = input.value.trim();
+
+        if (!query) {
+            suggestions.innerHTML = "";
+            suggestions.classList.add("hidden");
+            return;
+        }
+
+        const results = fuse.search(query).map(r => r.item);
+
+        suggestions.innerHTML = results.length
+            ? results.map(item => `
+          <li>
+            <a href="/${lang}/${item.slug}" class="block px-4 py-2 hover:bg-gray-100">
+              <span class="text-xs uppercase text-gray-500">${item.type}</span><br>
+              <strong>${item.title}</strong>
+              <p class="text-sm text-gray-600">${item.description}</p>
+            </a>
+          </li>
+        `).join("")
+            : `<li class="p-2 text-gray-500">No se encontraron resultados</li>`;
+
+        suggestions.classList.remove("hidden");
+    });
+
+    input.addEventListener("blur", () => {
+        setTimeout(() => suggestions.classList.add("hidden"), 150);
+    });
+
+    // Si existe, asignarlo al input
+    if (queryParam) {
+        input.value = queryParam;
+    }
+
+</script>

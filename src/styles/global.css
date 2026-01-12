@@ -1,0 +1,138 @@
+/* El archivo base.css inyectado por defecto de la integración */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost/Jost-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost/Jost-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost/Jost-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost/Jost-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost/Jost-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aghato';
+    src: url('../fonts/agatho/Agatho-Light.otf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aghato';
+    src: url('/fonts/agatho/Agatho-Regular.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aghato';
+    src: url('/fonts/agatho/Agatho-Medium.otf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aghato';
+    src: url('/fonts/agatho/Agatho-Narrow.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* --- General Reset y tipografía --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-brand-50 text-brand-600 font-jost font-light leading-relaxed;
+}
+
+/* --- Contenedor central --- */
+.container {
+    @apply max-w-6xl mx-auto px-4;
+}
+
+/* --- Títulos --- */
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900;
+}
+
+h1 { @apply text-4xl md:text-5xl mb-4; }
+h2 { @apply text-3xl md:text-4xl mb-3; }
+h3 { @apply text-2xl md:text-3xl mb-2; }
+
+/* --- Párrafos --- */
+p {
+    @apply m-0 text-base;
+}
+
+/* --- Listas --- */
+
+
+/* --- Caja genérica --- */
+
+
+/* --- Inputs y selects --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    @apply w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+/* --- Botón básico --- */
+.btn {
+    @apply inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200;
+}
+
+/* --- Links --- */
+
+/*--- Slide Menu ---*/
+.submenu-open {
+    max-height: 500px; /* suficiente para el contenido */
+    opacity: 1;
+}
+
+.submenu-icon {
+    transform-origin: center;
+}
+

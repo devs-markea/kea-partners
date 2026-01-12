@@ -1,0 +1,57 @@
+---
+import {Image} from "astro:assets";
+import { images } from "../../../assets/images";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import en from '../../../locales/en.json';
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import TopicsMenu from "../../../components/TopicsMenu.astro";
+
+const breadcrumbItems = [
+    { name: 'Home', url: '/' },
+    { name: 'Faena Tulum', url: '/faena-tulum' },
+    { name: 'Material Comercial' }, // última, sin link
+];
+
+---
+<MainLayout title="Home" lang="es" t={en}>
+
+
+    <!-- Hero -->
+    <section class="relative py-16 md:py-28">
+        <Image class="absolute inset-0 w-full h-full object-cover" src={images.BannerFaena} alt="Faena Tulum" quality={90}  loading="eager"/>
+        <div class="absolute inset-0 w-full h-full bg-black/50"></div>
+        <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
+            <h1  class="text-[32px] md:text-5xl text-brand-50 font-aghato font-medium uppercase md:mt-5 mb-0">Faena Tulum</h1>
+        </div>
+    </section>
+    <section class="mb-16 min-h-[calc(80vh-88px)]">
+        <div class="container">
+            <div class="pt-6 pb-7">
+                <Breadcrumb items={breadcrumbItems} />
+            </div>
+            <div class="flex flex-col md:flex-row gap-12">
+                <TopicsMenu />
+                <div class="w-full md:w-9/12">
+                    <div class="articles">
+                        <div class="flex justify-start gap-1 mb-2 md:hidden">
+                            <button id="menu-topics-toggle" class="flex items-center">
+                                <span class="text-base text-brand-700 underline font-normal">Explorar temas</span>
+                                <svg class="w-3 h-3 mx-1 text-brand-400" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.125 2.25L7.875 6L4.125 9.75" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
+                        <div class="heading mb-8">
+                            <h2 class="text-2xl text-brand-700 font-aghato font-medium mb-4">Material Comercial</h2>
+                        </div>
+                        <div class="cards-articles grid grid-cols-1 md:grid-cols-2 auto-rows-min gap-y-6 gap-x-8">
+                            <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link="/faena-tulum/material-comercial/brochure"/>
+                            <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link="/faena-tulum/preguntas-frecuentes"/>
+                            <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link="/faena-tulum/renders"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</MainLayout>

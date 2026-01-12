@@ -1,0 +1,33 @@
+---
+interface BreadcrumbItem {
+    name: string;
+    url?: string; // opcional, la última no tiene link
+}
+
+interface Props {
+    items: BreadcrumbItem[];
+}
+
+const {items} = Astro.props;
+---
+
+<nav class="text-sm md:text-base" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-1 md:space-x-3">
+        {items.map((item, index) => (
+                <li class="flex items-center flex-shrink-0 max-w-[100px] md:max-w-full overflow-hidden" key={index}>
+                    {item.url && index !== items.length - 1 ? (
+                            <a href={item.url} class="text-brand-700 font-normal truncate whitespace-nowrap block">
+                                {item.name}
+                            </a>
+                    ) : (
+                            <span class="text-brand-700 text-opacity-60 truncate overflow-hidden whitespace-nowrap max-w-[20px] md:max-w-none block">{item.name}</span>
+                    )}
+
+                    {index !== items.length - 1 && (
+                            <svg class="w-3 h-3 mx-1 text-brand-400 flex-shrink-0" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.125 2.25L7.875 6L4.125 9.75" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    )}
+                </li>
+        ))}
+    </ol>
+</nav>
+

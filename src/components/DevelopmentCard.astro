@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import { images } from "../assets/images";
+
+interface Props {
+    link: string;
+    src: keyof typeof images;
+    alt: string;
+}
+
+const { src, alt, link } = Astro.props;
+const imgSrc = images[src];
+---
+
+<div class="border border-gray-200  rounded-xl p-8 basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)]">
+    <a href={link}>
+        <Image src={imgSrc} alt={alt} quality={90} loading="eager" />
+    </a>
+</div>

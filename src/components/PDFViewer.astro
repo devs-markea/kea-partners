@@ -1,0 +1,28 @@
+---
+const { src} = Astro.props;
+---
+<div id="pdf-container">
+    <iframe id="pdf-iframe"
+            src={src}
+            style="width: 100%; height: 40vh; border: none;"></iframe>
+</div>
+
+    <script client:load>
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        const container = document.getElementById('pdf-container');
+        const iframe = document.getElementById('pdf-iframe');
+        const pdfUrl = iframe.src;
+
+        if (isSafari) {
+            container.innerHTML = `
+                <div>
+                <p class="mb-5">
+                    Para una mejor experiencia en Safari, haga clic en el botón para abrir el documento en una nueva pestaña.
+                </p>
+                <div class="text-center flex justify-center">
+                    <a class="text-base font-normal bg-brand-200 rounded-3xl text-brand-50 px-4 py-2" href="${pdfUrl}" target="_blank" >Abrir PDF en una nueva pestaña</a>
+                </div>
+            </div>
+            `;
+        }
+    </script>

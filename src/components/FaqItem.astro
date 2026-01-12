@@ -1,0 +1,41 @@
+---
+interface Props {
+    title: string,
+    text: string;
+}
+
+const { title, text } = Astro.props;
+---
+<div id="containerFaq" class="w-full">
+    <button type="button"
+            class="w-full flex justify-between items-center py-3 text-left text-brand-700 transition"
+            onclick="toggleAccordion(this)">
+        <span class="text-base font-medium text-brand-700 w-4/5">{title}</span>
+        <svg class="w-5 h-5 transition-transform duration-200" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 5.5L8 10.5L3 5.5" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <div class="max-h-0 overflow-hidden transition-all duration-300">
+        <div class="pb-2">
+            <p class="text-base font-normal text-brand-700">{text}</p>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    function toggleAccordion(button) {
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+        const isOpen = panel.style.maxHeight && panel.style.maxHeight !== "0px";
+
+        document.querySelectorAll('#containerFaq > div').forEach(p => {
+            p.style.maxHeight = null;
+            p.previousElementSibling.querySelector('svg').style.transform = "";
+        });
+
+        if (!isOpen) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            icon.style.transform = "rotate(180deg)";
+        }
+    }
+</script>

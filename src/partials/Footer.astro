@@ -1,0 +1,16 @@
+---
+// src/components/Footer.astro
+const { t } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-brand-400 text-white font-normal">
+    <div class="container py-6 flex flex-col md:flex-row justify-between items-center">
+        <p>&copy; {currentYear} KEA Realtors {t.footer.rights}.</p>
+        <div class="social flex-col justify-between items-center gap-4 md:flex-row hidden md:flex">
+            <a href="/" class="block text-base font-normal text-brand-50">Sitio web</a>
+            <a href="/" class="block text-base font-normal text-brand-50">Facebook</a>
+            <a href="/" class="block text-base font-normal text-brand-50">Instagram</a>
+        </div>
+    </div>
+</footer>

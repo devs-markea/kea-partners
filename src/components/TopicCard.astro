@@ -1,0 +1,26 @@
+---
+interface Props {
+    title: string;
+    items: string[];
+    href: string;
+}
+
+const { title, items, href } = Astro.props;
+---
+
+<div class="flex flex-col w-full flex-1 justify-between border border-gray-200 rounded-xl min-h-[275px] p-4">
+    <div>
+        <h3 class="text-brand-700 font-aghato font-medium text-xl mb-4">{title}</h3>
+        <ul class="list-none space-y-1 mb-10 font-light">
+            {items.map(item => (
+                    <li key={item} class="flex items-start">
+                        <span class="mr-2 text-brand-700">-</span>
+                        <span class="text-brand-700">{item}</span>
+                    </li>
+            ))}
+        </ul>
+    </div>
+    <div class="flex justify-end">
+        <a href={href} class="text-base text-brand-700 underline font-normal">Explorar temas</a>
+    </div>
+</div>

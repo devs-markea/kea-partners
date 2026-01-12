@@ -1,0 +1,27 @@
+---
+const { menu } = Astro.props;
+---
+
+<div id="overlay" class="fixed inset-0 bg-black/30 hidden z-40"></div>
+
+<div id="side-menu" class="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-white -translate-x-full transition-transform duration-300 shadow-lg z-50 p-6 space-y-4 hidden">
+    <button id="close-menu" class="mb-4 p-2 rounded-md text-gray-700 hover:bg-gray-100">✕</button>
+
+    {menu.map(cat => (
+            <div key={cat.title}>
+                <button class="w-full flex justify-between items-center text-gray-700 text-lg py-2 font-semibold" data-submenu={cat.title}>
+                    {cat.title}
+                    <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="submenu-container max-h-0 overflow-hidden opacity-0 transition-all duration-300 pl-4 space-y-1" id={`submenu-${cat.title}`}>
+                    {cat.subcategories.map(sub => (
+                            <a href={`/resources/es/${cat.title.toLowerCase()}/${sub.title.toLowerCase()}`} class="block text-gray-700 text-opacity-80">{sub.title}</a>
+                    ))}
+                </div>
+            </div>
+    ))}
+</div>
+
+
