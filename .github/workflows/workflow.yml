@@ -44,14 +44,14 @@ jobs:
           passphrase: ${{ secrets.SITEGROUND_SSH_PASSPHRASE }}
           port: ${{ secrets.SITEGROUND_PORT }}
           script: |
-            if [ -d "/www/staging.rodrigos66.sg-host.com/public_html_backup" ]; then
-              rm -rf /www/staging.rodrigos66.sg-host.com/public_html_backup
+            if [ -d "www/staging.rodrigos66.sg-host.com/public_html_backup" ]; then
+              rm -rf www/staging.rodrigos66.sg-host.com/public_html_backup
             fi
-            if [ -d "/www/staging.rodrigos66.sg-host.com/public_html" ]; then
-              cp -r /www/staging.rodrigos66.sg-host.com/public_html /www/staging.rodrigos66.sg-host.com/public_html_backup
+            if [ -d "www/staging.rodrigos66.sg-host.com/public_html" ]; then
+              cp -r www/staging.rodrigos66.sg-host.com/public_html www/staging.rodrigos66.sg-host.com/public_html_backup
             fi
             
-            mkdir -p /www/staging.rodrigos66.sg-host.com/temp_deploy
+            mkdir -p www/staging.rodrigos66.sg-host.com/temp_deploy
 
       - name: Upload files
         uses: appleboy/scp-action@v0.1.4
@@ -62,7 +62,7 @@ jobs:
           passphrase: ${{ secrets.SITEGROUND_SSH_PASSPHRASE }}
           port: ${{ secrets.SITEGROUND_PORT }}
           source: "deploy.tar.gz"
-          target: "/www/staging.rodrigos66.sg-host.com/temp_deploy/"
+          target: "www/staging.rodrigos66.sg-host.com/temp_deploy/"
 
       - name: Extract files
         uses: appleboy/ssh-action@v0.1.7
@@ -74,7 +74,7 @@ jobs:
           port: ${{ secrets.SITEGROUND_PORT }}
           script: |
             set -e
-            cd /www/staging.rodrigos66.sg-host.com/temp_deploy
+            cd www/staging.rodrigos66.sg-host.com/temp_deploy
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
             
