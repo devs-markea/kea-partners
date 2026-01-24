@@ -1,0 +1,83 @@
+{
+  "development": [
+    {
+      "name": "",
+      "alt": "Faena Tulum",
+      "src": "Faena",
+      "link": "faena-tulum",
+      "hasPadding": false
+    },
+    {
+      "name": "",
+      "alt": "StRegis",
+      "src": "StRegis",
+      "link": "/",
+      "hasPadding": false
+    },
+    {
+      "name": "",
+      "alt": "Nautica",
+      "src": "Nautica",
+      "link": "/",
+      "hasPadding": true
+    },
+    {
+      "name": "",
+      "alt": "Marietta",
+      "src": "Marietta",
+      "link": "/",
+      "hasPadding": false
+    },
+    {
+      "name": "",
+      "alt": "Mayaliah",
+      "src": "Mayaliah",
+      "link": "/",
+      "hasPadding": false
+    },
+    {
+      "name": "",
+      "alt": "GranViaDelMar",
+      "src": "GranViaDelMar",
+      "link": "/",
+      "hasPadding": false
+    },
+    {
+      "name": "",
+      "alt": "TheRitz",
+      "src": "TheRitz",
+      "link": "/",
+      "hasPadding": false
+    }
+  ],
+  "faqs": [
+    {
+      "title": "¿Dónde puedo acceder al material publicitario de los desarrollos?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Necesito firmar algún contrato o convenio para poder vender?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Cómo sé qué propiedades están disponibles y actualizadas?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Qué comisión se paga por cada venta?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Cómo y cuándo se pagan las comisiones?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Puedo solicitar acompañamiento en visitas con mis clientes?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Puedo usar los materiales en mis redes sociales o campañas?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿Qué debo hacer si un cliente que atendí ya aparece en seguimiento por otro asesor?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },{
+      "title": "¿A quién contacto si tengo dudas o necesito soporte personalizado?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    }
+  ]
+}

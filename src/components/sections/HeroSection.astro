@@ -1,0 +1,17 @@
+---
+import Search from "../Search.astro"
+const {t} = Astro.props
+---
+<section class="bg-brand-400 py-16 md:py-24">
+    <div class="container mx-auto flex flex-col items-center">
+        <div class="flex flex-col items-center text-center md:w-7/12">
+            <h1  class="text-[32px] text-brand-50 font-aghato font-medium mb-8 md:text-5xl">{t.site.description}</h1>
+            <div class="search mb-5 w-10/12 md:w-7/12">
+                <Search/>
+            </div>
+            <div class="introduction md:ml-[44px]">
+                <p class="text-brand-50">{t.site.subdescription}</p>
+            </div>
+        </div>
+    </div>
+</section>
