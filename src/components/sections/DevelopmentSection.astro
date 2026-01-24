@@ -2,7 +2,9 @@
 import DevelopmentCard from "../../components/DevelopmentCard.astro";
 import data from "../../data/data.json";
 const { development } = data;
-const {t} = Astro.props
+const {t, lang} = Astro.props
+const basePath = lang === 'en' ? '/en' : '';
+const withLang = (path) => `${basePath}${path}`;
 ---
 
 <section class="pt-11 pb-16 md:pt-16 md:pb-20">
@@ -20,7 +22,7 @@ const {t} = Astro.props
                                     key={item.id ?? item.src}
                                     alt={item.alt}
                                     src={item.src}
-                                    link={item.link}
+                                    link={withLang(item.link)}
                                     hasPadding={item.hasPadding}
                             />
                     ))}
