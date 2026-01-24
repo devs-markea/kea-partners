@@ -11,7 +11,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 // import Search from "../components/Search.astro";
 import items from "../data/searchIndex.json";
 import Fuse from "fuse.js";
-import es from '../locales/es.json';
+import en from '../locales/en.json';
 import Search from "../components/Search.astro";
 import {floorToDivide} from "pdfjs-dist/types/web/ui_utils";
 
@@ -74,7 +74,7 @@ const breadcrumbItems = [
 const totalResults = results.length;
 ---
 
-<MainLayout title="Buscar" lang="es" t={es}>
+<MainLayout title="Buscar" lang="es" t={en}>
 
     <!-- Hero -->
     <section class="bg-[#E2E2E2] py-16 md:py-24">

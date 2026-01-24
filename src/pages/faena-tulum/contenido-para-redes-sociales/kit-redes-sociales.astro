@@ -1,13 +1,12 @@
 ---
-import {Image} from "astro:assets";
-import { images } from "../../../assets/images";
-import { faenaTulumArts } from "../../../assets/images/arts/faena-tulum";
 import MainLayout from "../../../layouts/MainLayout.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import TopicsMenu from "../../../components/TopicsMenu.astro";
-import en from '../../../locales/en.json';
+import es from '../../../locales/es.json';
 import Breadcrumb from "../../../components/Breadcrumb.astro";
-
+import HeroFaenaTulumSection from "../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import ResourcesSocialMediaSection
+    from "../../../components/sections/faena-tulum/contenido-para-redes-sociales/ResourcesSocialMediaSection.astro";
 
 const breadcrumbItems = [
     { name: 'Categorias', url: '/' },
@@ -15,94 +14,11 @@ const breadcrumbItems = [
     { name: 'Contenido para Redes Sociales', url: '/faena-tulum/contenido-para-redes-sociales' },
     { name: 'Kit esencial para redes sociales' },
 ];
-
 ---
-<MainLayout title="Home" lang="es" t={en}>
+<MainLayout title="Home" lang="es" t={es}>
     <!-- Hero -->
-    <section class="relative py-16 md:py-28">
-        <Image class="absolute inset-0 w-full h-full object-cover" src={images.BannerFaena} alt="Faena Tulum" quality={90}  loading="eager"/>
-        <div class="absolute inset-0 w-full h-full bg-black/50"></div>
-        <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
-            <h1  class="text-[32px] md:text-5xl text-brand-50 font-aghato font-medium uppercase md:mt-5 mb-0">Faena Tulum</h1>
-        </div>
-    </section>
-    <section class="mb-16 min-h-[calc(80vh-88px)]">
-        <div class="container">
-            <div class="pt-6 pb-7">
-                <Breadcrumb items={breadcrumbItems} />
-            </div>
-            <div class="flex flex-col md:flex-row gap-12">
-                <TopicsMenu />
-                <div class="w-full md:w-9/12">
-                    <div class="flex justify-between gap-1 pt-6 pb-7">
-                        <h2 class="text-base font-aghato text-brand-700 underline font-medium m-0">Kit esencial para redes sociales</h2>
-                        <button id="menu-topics-toggle" class="flex items-center md:hidden">
-                            <span class="text-base text-brand-700 underline font-normal">Explorar temas</span>
-                            <svg class="w-3 h-3 mx-1 text-brand-400" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.125 2.25L7.875 6L4.125 9.75" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </button>
-                    </div>
-                    <div class="article">
-                        <div class="heading mb-8">
-                            <h3 class="text-xl text-brand-700 font-jost font-medium mb-4">Brochures digitales y descargables (PDF)</h3>
-                        </div>
-                        <div class="content text-brand-700">
-                            <p class="text-base font-normal mb-4">
-                                Descubre la visión detrás de Faena Tulum, un desarrollo de clase mundial que fusiona arte, cultura y naturaleza en una experiencia de vida única.
-                            </p>
-
-                            <p class="text-base font-normal mb-4">
-                                Los siguientes artes promocionales han sido diseñados para ayudarte a comunicar la esencia del proyecto con claridad y elegancia. Cada pieza resalta un aspecto distinto de Faena Tulum desde su diseño arquitectónico y estilo de vida, hasta sus oportunidades de inversión.
-                            </p>
-
-                            <p class="text-base font-normal mb-4">
-                                Utiliza estos materiales en tus canales de comunicación y redes sociales para inspirar a posibles compradores y posicionarte como un referente confiable de este extraordinario desarrollo.
-                            </p>
-
-                            <div class="promotional-arts">
-                                <div class="mb-6">
-                                    <div class="flex gap-4">
-                                        <div class="w-1/2 bg-gray-100 p-4">
-                                            <Image class="w-full h-full object-cover" src={faenaTulumArts.artOne} alt="Faena Tulum" quality={90}  loading="eager"/>
-                                        </div>
-
-                                        <div class="w-1/2 bg-gray-200 p-4">
-                                            <div class="flex flex-col gap-6 text-brand-700 text-base">
-                                                <h3 class="text-base font-semibold">Art 1 (Façade + from $715,000 USD)</h3>
-                                                <span class="text-base font-semibold">Copy sugerido:</span>
-                                                <p class="font-normal">🏡 Faena Tulum, the most visionary project in the Riviera Maya, is now available.</p>
-                                                <p class="font-normal">Starting at $715,000 USD, secure your place in a world-class development by Alan Faena.</p>
-                                                <p class="font-normal">🚀 An investment designed for growth and exclusivity.</p>
-                                                <p class="font-normal"> #FaenaTulum #InvestInTulum #LuxuryRealEstate #AlanFaena #RivieraMaya</p>
-                                            </div>
-                                            <button class="text-brand-700 px-4 py-2 rounded-lg underline hover:!no-underline">
-
-                                            </button>
-                                            <button onclick="copiarFaenaTulum()" class="text-brand-700 px-4 py-2 rounded-lg underline hover:!no-underline ">
-                                                Copiar Copy
-                                            </button>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="heading mb-5">
-                        <h2 class="text-xl text-brand-700 font-medium mb-4">Artículos relacionados</h2>
-                    </div>
-                    <div class="cards-articles grid grid-cols-1 md:grid-cols-2 auto-rows-min gap-y-6 gap-x-8">
-                        <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link="/faena-tulum/material-comercial/brochure"/>
-                        <ArticleCard class="" title="Kit esencial para redes sociales" link="/faena-tulum/contenido/kit-redes-sociales"/>
-                        <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link="/faena-tulum/preguntas-frecuentes"/>
-                        <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link="/faena-tulum/renders"/>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
+    <HeroFaenaTulumSection />
+    <ResourcesSocialMediaSection breadcrumbItems = {breadcrumbItems} />
 </MainLayout>
 
 <script is:inline>

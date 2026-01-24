@@ -1,0 +1,17 @@
+---
+const {t} = Astro.props;
+---
+<section class="pt-14 pb-14 md:pt-20 md:pb-28">
+    <div class="container mx-auto flex flex-col items-center">
+        <div class="border border-gray-200 rounded-xl py-8 px-6 flex flex-col items-center text-center">
+            <h3 class="text-[32px] text-brand-700 font-aghato font-medium mb-5">{t.bannerHelper.title}</h3>
+            <p class="text-brand-700 font-normal mb-5">{t.bannerHelper.description}</p>
+            <div class="w-full flex justify-center mb-5">
+                <a href={t.bannerHelper.btn.url} class="px-5 py-2 bg-brand-300 text-brand-50 font-normal rounded-[2rem] hover:bg-brand-300 hover:bg-opacity-90 transition-colors duration-300 text-center uppercase mb-1">
+                    {t.bannerHelper.btn.title}
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>

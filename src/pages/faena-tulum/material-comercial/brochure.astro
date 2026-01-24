@@ -5,9 +5,11 @@ import MainLayout from "../../../layouts/MainLayout.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import TopicsMenu from "../../../components/TopicsMenu.astro";
 import PdfViewer from "../../../components/PDFViewer.astro";
-import en from '../../../locales/en.json';
+import es from '../../../locales/es.json';
 import Breadcrumb from "../../../components/Breadcrumb.astro";
-
+import HeroFaenaTulumSection from "../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import ResourcesBrochuresSection
+    from "../../../components/sections/faena-tulum/material-comercial/ResourcesBrochuresSection.astro";
 
 const breadcrumbItems = [
     { name: 'Categorias', url: '/' },
@@ -15,80 +17,9 @@ const breadcrumbItems = [
     { name: 'Material Comercial', url: '/faena-tulum/material-comercial' },
     { name: 'Brochure digitales y descargables' },
 ];
-
 ---
-<MainLayout title="Home" lang="es" t={en}>
+<MainLayout title="Home" lang="es" t={es} >
     <!-- Hero -->
-    <section class="relative py-16 md:py-28">
-        <Image class="absolute inset-0 w-full h-full object-cover" src={images.BannerFaena} alt="Faena Tulum" quality={90}  loading="eager"/>
-        <div class="absolute inset-0 w-full h-full bg-black/50"></div>
-        <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
-            <h1  class="text-[32px] md:text-5xl text-brand-50 font-aghato font-medium uppercase md:mt-5 mb-0">Faena Tulum</h1>
-        </div>
-    </section>
-    <section class="mb-16 min-h-[calc(80vh-88px)]">
-        <div class="container">
-            <div class="pt-6 pb-7">
-                <Breadcrumb items={breadcrumbItems} />
-            </div>
-            <div class="flex flex-col md:flex-row gap-12">
-                <TopicsMenu />
-                <div class="w-full md:w-9/12">
-                    <div class="flex justify-between gap-1 pt-6 pb-7">
-                        <h2 class="text-base font-aghato text-brand-700 underline font-medium m-0">Material Comercial</h2>
-                        <button id="menu-topics-toggle" class="flex items-center md:hidden">
-                            <span class="text-base text-brand-700 underline font-normal">Explorar temas</span>
-                            <svg class="w-3 h-3 mx-1 text-brand-400" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.125 2.25L7.875 6L4.125 9.75" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </button>
-                    </div>
-                    <div class="article">
-                        <div class="heading mb-8">
-                            <h3 class="text-xl text-brand-700 font-jost font-medium mb-4">Brochures digitales y descargables (PDF)</h3>
-                        </div>
-                        <div class="content text-brand-700">
-                            <p class="text-base font-normal mb-4">
-                                Descarga el brochure oficial de Faena Tulum, un proyecto residencial exclusivo ubicado en la Riviera Maya. Conoce todos los detalles sobre su arquitectura, amenidades, master plan y formas de inversión.
-                            </p>
-
-                            <h4 class="text-base font-medium mb-4">Incluye:</h4>
-                            <ul class="list-disc ml-5 mb-4">
-                                <li>Renders e imágenes del desarrollo</li>
-                                <li>Tipologías de unidades</li>
-                                <li>Planos generales</li>
-                                <li>Información de inversión y retorno proyectado</li>
-                                <li>Contacto y datos comerciales</li>
-                            </ul>
-
-                            <div class="brochure-pdf">
-                                <p class="text-base font-medium mb-6">Descargar brochure</p>
-                                <div class="mb-6">
-                                    <button class="flex items-center text-base font-normal text-brand-50 bg-brand-200 rounded-3xl px-4 py-2 w-auto">
-                                        <svg class="w-4 h-4 text-brand-50 mr-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 11V12.5C2 12.8978 2.15804 13.2794 2.43934 13.5607C2.72064 13.842 3.10218 14 3.5 14H12.5C12.8978 14 13.2794 13.842 13.5607 13.5607C13.842 13.2794 14 12.8978 14 12.5V11M11 8L8 11M8 11L5 8M8 11V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        <span class="truncate m-w-[500px]">Descargar PDF - Brochure Faena Tulum</span>
-                                    </button>
-                                </div>
-                                <div class="brochure-preview mb-6">
-                                    <p class="text-base font-medium mb-4">Vista previa</p>
-                                    <PdfViewer src="/pdf/es-brochure-nautica.pdf" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="heading mb-5">
-                        <h2 class="text-xl text-brand-700 font-medium mb-4">Artículos relacionados</h2>
-                    </div>
-                    <div class="cards-articles grid grid-cols-1 md:grid-cols-2 auto-rows-min gap-y-6 gap-x-8">
-                        <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link="/faena-tulum/material-comercial/brochure"/>
-                        <ArticleCard class="" title="Kit esencial para redes sociales" link="/faena-tulum/contenido/kit-redes-sociales"/>
-                        <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link="/faena-tulum/preguntas-frecuentes"/>
-                        <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link="/faena-tulum/renders"/>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
+    <HeroFaenaTulumSection />
+    <ResourcesBrochuresSection breadcrumbItems = {breadcrumbItems} lang="es"/>
 </MainLayout>

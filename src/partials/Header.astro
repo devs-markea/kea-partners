@@ -1,75 +1,136 @@
 ---
-// src/components/Header.astro
-
 import SvgIcon from "../components/SvgIcon.astro";
-import {images} from "../assets/images";
-import {Image} from "astro:assets";
+import { images } from "../assets/images";
+import { Image } from "astro:assets";
+
 const { lang, t } = Astro.props;
-const switchLang = lang === 'es' ? 'en' : 'es';
+
+/**
+ * REAL project convention:
+ * - Spanish → /
+ * - English → /en
+ */
+const basePath = lang === "en" ? "/en" : "";
+
+/**
+ * Normalize paths and avoid // or /en//
+ */
+const resolveUrl = (url) =>
+    `${basePath}${url}`.replace(/\/{2,}/g, "/");
+
+/**
+ * Language switch (if enabled later)
+ */
+const switchLang = lang === "es" ? "en" : "es";
+const switchLangUrl = lang === "es" ? "/en" : "/";
 ---
 <!-- Overlay -->
 <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
 <header class="bg-brand-400 text-brand-50 shadow-md sticky top-0 z-40">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
+
+        <!-- Logo -->
         <div class="flex items-center justify-center md:gap-5">
-            <a href='/'>
-                <Image class="w-[86px] md:w-[100px] h-auto" src={images.Logo} alt="Kea Realtors" quality={90}  loading="eager"/>
+            <a href={basePath || "/"}>
+                <Image
+                        class="w-[86px] md:w-[100px] h-auto"
+                        src={images.Logo}
+                        alt="Kea Realtors"
+                        quality={90}
+                        loading="eager"
+                />
             </a>
-            <p class="text-base font-medium tracking-[10%] m-0 hidden md:block">{t.nav.home.toUpperCase()}</p>
+            <p class="text-base font-medium tracking-[10%] m-0 hidden md:block">
+                {t.nav.title.toUpperCase()}
+            </p>
         </div>
 
+        <!-- Desktop Nav -->
         <nav class="hidden md:block">
             <ul class="flex gap-6 text-brand-50">
-                <li><a href="/" class="hover:text-blue-600 tracking-[10%]">{t.nav.home}</a></li>
-                <li><a href="/categoria" class="hover:text-blue-600 tracking-[10%]">{t.nav.category}</a></li>
-                <li><a href="/contacto" class="hover:text-blue-600 tracking-[10%]">{t.nav.contact}</a></li>
-                <li><a href="/contacto" class="px-5 py-2 bg-brand-300 rounded-[2rem] hover:bg-brand-300 hover:bg-opacity-90 transition-colors duration-300 text-center font-normal tracking-[10%] uppercase">{t.nav.contact}</a></li>
+                <li>
+                    <a href={resolveUrl(t.nav.home.url)} class="hover:text-blue-600 tracking-[10%]">
+                        {t.nav.home.label}
+                    </a>
+                </li>
+
+                <li>
+                    <a href={resolveUrl(t.nav.category.url)} class="hover:text-blue-600 tracking-[10%]">
+                        {t.nav.category.label}
+                    </a>
+                </li>
+
+                <li>
+                    <a href={resolveUrl(t.nav.faq.url)} class="hover:text-blue-600 tracking-[10%]">
+                        {t.nav.faq.label}
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                            href={resolveUrl(t.nav.contact.url)}
+                            class="px-5 py-2 bg-brand-300 rounded-[2rem] hover:bg-opacity-90 transition-colors duration-300 text-center font-normal tracking-[10%] uppercase"
+                    >
+                        {t.nav.contact.label}
+                    </a>
+                </li>
             </ul>
         </nav>
 
-        <!-- Language Switch -->
-        <!--<a href={`/${switchLang}`} class="ml-4 border rounded px-3 py-1 hover:bg-gray-100 hidden">-->
-        <!--    {switchLang.toUpperCase()}-->
-        <!--</a>-->
+        <!-- Mobile Button -->
         <button class="block md:hidden" id="menu-toggle">
-            <SvgIcon iconKey="HamburgerIcon" width={34} height={34}/>
+            <SvgIcon iconKey="HamburgerIcon" width={34} height={34} />
         </button>
 
     </div>
 </header>
 
-<!-- Menú lateral -->
-<div id="side-menu" class="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-brand-50 transform -translate-x-full transition-transform duration-200 ease-in-out z-50 p-6 space-y-4 md:hidden">
+<!-- Mobile Menu -->
+<div
+        id="side-menu"
+        class="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-brand-50 transform -translate-x-full transition-transform duration-200 ease-in-out z-50 p-6 space-y-4 md:hidden"
+>
     <div class="w-full flex justify-end">
         <button id="close-menu" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
-            <svg class="w-5 h-5 text-black" stroke="currentColor" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-5 h-5 text-black" stroke="currentColor" viewBox="0 0 20 20" fill="none">
                 <path d="M1 1L19 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M1 19L19 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </button>
     </div>
-    <a href="#" class="block text-[2rem] font-normal text-black">Inicio</a>
+
+    <a href={resolveUrl(t.nav.home.url)} class="block text-[2rem] font-normal text-black">
+        {t.nav.home.label}
+    </a>
+
     <div>
-        <button class="w-full flex justify-between items-center text-black text-[2rem] py-2" data-submenu="main-menu">
-            Categorías
-            <svg class="submenu-icon w-6 h-6 text-brand-400 transition-transform duration-200 mr-6" stroke="currentColor" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button
+                class="w-full flex justify-between items-center text-black text-[2rem] py-2"
+                data-submenu="main-menu"
+        >
+            {t.nav.category.label}
+            <svg class="submenu-icon w-6 h-6 text-brand-400 transition-transform duration-200 mr-6" stroke="currentColor" viewBox="0 0 16 16" fill="none">
                 <path d="M13 5.5L8 10.5L3 5.5" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-
         </button>
-        <div class="submenu-container max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out pl-6 space-y-1" id="submenu-main-menu">
-            <a href="/" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">Faena Tulum</a>
-            <a href="#" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">ST Regis</a>
-            <a href="#" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">Nautica Residences</a>
-            <a href="#" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">Marietta</a>
-            <a href="#" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">Mayaliah</a>
-            <a href="#" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">Gran Vía Del Mar</a>
-            <a href="#" class="block text-[1.75rem] font-light text-gray-700 text-opacity-60 truncate w-max-[150px]">The Ritz-Carlton Residences</a>
 
+        <div class="submenu-container max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out pl-6 space-y-1">
+            <a href={resolveUrl("/faena-tulum")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">Faena Tulum</a>
+            <a href={resolveUrl("/st-regis")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">St. Regis</a>
+            <a href={resolveUrl("/nautica")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">Nautica Residences</a>
+            <a href={resolveUrl("/marietta")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">Marietta</a>
+            <a href={resolveUrl("/mayaliah")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">Mayaliah</a>
+            <a href={resolveUrl("/gran-via-del-mar")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">Gran Vía del Mar</a>
+            <a href={resolveUrl("/ritz-carlton")} class="block text-[1.75rem] font-light text-gray-700 text-opacity-60">The Ritz-Carlton Residences</a>
         </div>
     </div>
-    <a href="#" class="block text-[2rem] font-light text-black">FAQS</a>
-    <a href="#" class="block text-[2rem] font-light text-black">Contacto</a>
+
+    <a href={resolveUrl(t.nav.faq.url)} class="block text-[2rem] font-light text-black">
+        {t.nav.faq.label}
+    </a>
+
+    <a href={resolveUrl(t.nav.contact.url)} class="block text-[2rem] font-light text-black">
+        {t.nav.contact.label}
+    </a>
 </div>
-
-

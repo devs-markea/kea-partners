@@ -6,14 +6,37 @@ interface Props {
     link: string;
     src: keyof typeof images;
     alt: string;
+    hasPadding?: boolean;
 }
 
-const { src, alt, link } = Astro.props;
+const {
+    src,
+    alt,
+    link,
+    hasPadding = true,
+} = Astro.props;
+
+// Resolución segura del asset
 const imgSrc = images[src];
+
+if (!imgSrc) {
+    throw new Error(`Image key "${src}" not found in images map`);
+}
 ---
 
-<div class="border border-gray-200  rounded-xl p-8 basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)]">
-    <a href={link}>
-        <Image src={imgSrc} alt={alt} quality={90} loading="eager" />
+<div class="flex items-center justify-center border border-gray-200 rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[180px]">
+    <a
+            href={link}
+            class={`w-full h-full flex items-center justify-center ${
+                hasPadding ? "p-10" : ""
+            }`}
+    >
+        <Image
+                class="w-1/2 h-auto m-auto"
+                src={imgSrc}
+                alt={alt}
+                quality={90}
+                loading="eager"
+        />
     </a>
 </div>

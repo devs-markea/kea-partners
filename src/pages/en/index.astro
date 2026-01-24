@@ -1,0 +1,26 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import en from '../../locales/en.json';
+import SvgIcon from "../../components/SvgIcon.astro";
+import {Image} from "astro:assets";
+import { images } from "../../assets/images";
+import Search from "../../components/Search.astro";
+import DevelopmentCard2 from "../../components/DevelopmentCard2.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import DevelopmentSection from "../../components/sections/DevelopmentSection.astro";
+import FaqSection from "../../components/sections/FaqSection.astro";
+import BannerHelperSection from "../../components/sections/BannerHelperSection.astro";
+
+const lang = "en";
+---
+
+<MainLayout title="Home" lang={lang} t={en}>
+    <!-- Hero -->
+    <HeroSection t={en}/>
+    <!-- Developments -->
+    <DevelopmentSection t={en}/>
+    <!-- FAQs -->
+   <FaqSection t={en}/>
+    <!-- Banner -->
+    <BannerHelperSection t={en}>
+</MainLayout>
