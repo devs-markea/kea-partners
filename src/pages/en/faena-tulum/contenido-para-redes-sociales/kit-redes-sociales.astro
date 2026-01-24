@@ -8,7 +8,6 @@ import HeroFaenaTulumSection from "../../../../components/sections/faena-tulum/H
 import ResourcesSocialMediaSection
     from "../../../../components/sections/faena-tulum/contenido-para-redes-sociales/ResourcesSocialMediaSection.astro";
 
-
 const breadcrumbItems = [
     { name: 'Category', url: '/en/' },
     { name: 'Faena Tulum', url: '/en/faena-tulum' },
@@ -19,7 +18,7 @@ const breadcrumbItems = [
 <MainLayout title="Home" lang="en" t={en}>
     <!-- Hero -->
     <HeroFaenaTulumSection />
-    <ResourcesSocialMediaSection breadcrumbItems = {breadcrumbItems} />
+    <ResourcesSocialMediaSection breadcrumbItems = {breadcrumbItems} lang="en"/>
 </MainLayout>
 
 <script is:inline>
