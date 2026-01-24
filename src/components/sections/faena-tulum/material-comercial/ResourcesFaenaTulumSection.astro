@@ -4,7 +4,9 @@ import Breadcrumb from "../../../Breadcrumb.astro";
 import TopicsMenu from "../../../TopicsMenu.astro";
 import ArticleCard from "../../../ArticleCard.astro";
 
-const { breadcrumbItems } = Astro.props;
+const { breadcrumbItems, lang } = Astro.props;
+const basePath = lang === 'en' ? '/en' : '';
+const withLang = (path) => `${basePath}${path}`;
 ---
 
 <section class="mb-16 min-h-[calc(80vh-88px)]">
@@ -26,9 +28,9 @@ const { breadcrumbItems } = Astro.props;
                         <h2 class="text-2xl text-brand-700 font-aghato font-medium mb-4">Material Comercial</h2>
                     </div>
                     <div class="cards-articles grid grid-cols-1 md:grid-cols-2 auto-rows-min gap-y-6 gap-x-8">
-                        <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link="faena-tulum/material-comercial/brochure"/>
-                        <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link="faena-tulum/preguntas-frecuentes"/>
-                        <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link="faena-tulum/renders"/>
+                        <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link={withLang("/faena-tulum/material-comercial/brochure")}/>
+                        <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link={withLang("/faena-tulum/preguntas-frecuentes")}/>
+                        <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link={withLang("/faena-tulum/renders")}/>
                     </div>
                 </div>
             </div>

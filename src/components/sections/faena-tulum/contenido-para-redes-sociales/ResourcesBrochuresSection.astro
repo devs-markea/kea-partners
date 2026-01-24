@@ -2,7 +2,9 @@
 import Breadcrumb from "../../../Breadcrumb.astro";
 import TopicsMenu from "../../../TopicsMenu.astro";
 import ArticleCard from "../../../ArticleCard.astro";
-const {breadcrumbItems} = Astro.props;
+const {breadcrumbItems, lang} = Astro.props;
+const basePath = lang === 'en' ? '/en' : '';
+const withLang = (path) => `${basePath}${path}`;
 ---
 <section class="mb-16 min-h-[calc(80vh-88px)]">
     <div class="container">
@@ -23,7 +25,7 @@ const {breadcrumbItems} = Astro.props;
                         <h2 class="text-2xl text-brand-700 font-aghato font-medium mb-4">Contenido para Redes Sociales</h2>
                     </div>
                     <div class="cards-articles grid grid-cols-1 md:grid-cols-2 auto-rows-min gap-y-6 gap-x-8">
-                        <ArticleCard class="" title="Kit esencial para redes sociales" link="/faena-tulum/contenido-para-redes-sociales/kit-redes-sociales"/>
+                        <ArticleCard class="" title="Kit esencial para redes sociales" link={withLang("/faena-tulum/contenido-para-redes-sociales/kit-redes-sociales")}/>
                     </div>
                 </div>
             </div>
