@@ -1,0 +1,32 @@
+---
+import {Image} from "astro:assets";
+import { images } from "../../../assets/images";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import en from '../../../locales/en.json';
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import TopicCard from "../../../components/TopicCard.astro";
+import HeroFaenaTulumSection from "../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import ContentResourceFaenaTulumSection
+    from "../../../components/sections/faena-tulum/ContentResourceFaenaTulumSection.astro";
+
+const breadcrumb = en.breadcrumb;
+const breadcrumbItems = [
+    { name: breadcrumb.label, url: '/en/' },
+    { name: 'Faena Tulum' } // última, sin link
+];
+
+const commercialMaterial = [
+    "Brochure",
+    "Renders",
+    "Siteplan",
+];
+const content = [
+    "Kit esencial para redes sociales"
+];
+---
+<MainLayout title="Home" lang="en" t={en}>
+    <!-- Hero -->
+    <HeroFaenaTulumSection />
+    <ContentResourceFaenaTulumSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} t={en}  />
+</MainLayout>

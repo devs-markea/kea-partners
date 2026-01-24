@@ -1,0 +1,30 @@
+---
+import Breadcrumb from "../../Breadcrumb.astro";
+import ArticleCard from "../../ArticleCard.astro";
+import TopicCard from "../../TopicCard.astro";
+const { breadcrumbItems, commercialMaterial, content, t } = Astro.props;
+
+---
+<section class="mb-16 md:mb-[124px] min-h-[calc(80vh-88px)]">
+    <div class="container">
+        <div class="pt-6 pb-5">
+            <Breadcrumb items={breadcrumbItems} />
+        </div>
+        <div class="articles">
+            <div class="heading mb-5">
+                <h2 class="text-xl text-brand-700 font-aghato font-medium mb-4">{t.content.articleFeatured}</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 auto-rows-min mb-8 gap-y-6 gap-x-8">
+                <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link="faena-tulum/material-comercial/brochure"/>
+                <ArticleCard class="" title="Reels y videos cortos listos para publicar" link="faena-tulum/material-comercial/contenido"/>
+                <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link="faena-tulum/preguntas-frecuentes"/>
+                <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link="faena-tulum/renders"/>
+            </div>
+            <hr class="border-gray-200 mb-8">
+            <div class="cards-topics grid grid-cols-1 md:grid-cols-3 auto-rows-min gap-y-6 gap-x-8">
+                <TopicCard title="Material comercial" items={commercialMaterial} href="faena-tulum/material-comercial/" />
+                <TopicCard title="Contenido" items={content} href="faena-tulum/contenido" />
+            </div>
+        </div>
+    </div>
+</section>
