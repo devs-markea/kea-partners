@@ -1,0 +1,97 @@
+name: deploy-main
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Create deploy file
+        run: |
+          set -e
+
+          # Limpiar residuos previos
+          rm -rf public deploy.tar.gz
+
+          # Astro genera el build en dist/
+          mkdir -p public
+          cp -r dist/* public/
+
+          # Crear paquete de despliegue
+          tar -czf deploy.tar.gz public
+
+      - name: Backup on hosting web old
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.KEA_PARTNERS_HOST }}
+          username: ${{ secrets.KEA_PARTNERS_USERNAME }}
+          key: ${{ secrets.KEA_PARTNERS_SSH_KEY }}
+          passphrase: ${{ secrets.KEA_PARTNERS_SSH_PASSPHRASE }}
+          port: ${{ secrets.KEA_PARTNERS_PORT }}
+          script: |
+            if [ -d "www/partners.kearealtors.com/public_html_backup" ]; then
+              rm -rf www/partners.kearealtors.com/public_html_backup
+            fi
+            if [ -d "www/partners.kearealtors.com/public_html" ]; then
+              cp -r www/partners.kearealtors.com/public_html www/partners.kearealtors.com/public_html_backup
+            fi
+            
+            mkdir -p www/partners.kearealtors.com/temp_deploy
+
+      - name: Upload files
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.KEA_PARTNERS_HOST }}
+          username: ${{ secrets.KEA_PARTNERS_USERNAME }}
+          key: ${{ secrets.KEA_PARTNERS_SSH_KEY }}
+          passphrase: ${{ secrets.KEA_PARTNERS_SSH_PASSPHRASE }}
+          port: ${{ secrets.KEA_PARTNERS_PORT }}
+          source: "deploy.tar.gz"
+          target: "www/partners.kearealtors.com/temp_deploy/"
+
+      - name: Extract files
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.KEA_PARTNERS_HOST }}
+          username: ${{ secrets.KEA_PARTNERS_USERNAME }}
+          key: ${{ secrets.KEA_PARTNERS_SSH_KEY }}
+          passphrase: ${{ secrets.KEA_PARTNERS_SSH_PASSPHRASE }}
+          port: ${{ secrets.KEA_PARTNERS_PORT }}
+          script: |
+            set -e
+            cd www/partners.kearealtors.com/temp_deploy
+            tar -xzf deploy.tar.gz
+            rm deploy.tar.gz
+            
+            if [ ! -d "../public_html" ]; then
+              mkdir -p ../public_html
+            fi
+            
+            # Copiar el public
+            rm -rf ../public_html/*
+            cp -r public/* ../public_html/
+            
+             # Copiar archivos persistentes desde rsfile
+            if [ -f "../rsfile/index.php" ]; then
+              cp ../rsfile/index.php ../public_html/
+            fi
+
+            if [ -f "../rsfile/robots.txt" ]; then
+              cp ../rsfile/robots.txt ../public_html/
+            fi
+
