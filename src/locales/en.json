@@ -1,17 +1,68 @@
 {
   "site": {
     "name": "KEA Partners",
-    "description": "Knowledge page about real estate"
+    "description": "Partner resource center",
+    "subdescription": "Find everything you need to promote our developments: brochures, artwork, availability, and more."
   },
   "nav": {
-    "home": "Home",
-    "category": "Category",
-    "contact": "Contact"
+    "title": "KNOWLEDGE CENTER",
+    "home": {
+      "label": "Home",
+      "url": "/"
+    },
+    "category": {
+      "label": "Category",
+      "url": "#development"
+    },
+    "contact": {
+      "label": "Contact",
+      "url": "tel:+52"
+    },
+    "faq": {
+      "label": "FAQs",
+      "url": "#faq"
+    }
   },
-  "hero": {
-    "title": "Partner Resource Center"
+  "development": {
+    "title": "Developments",
+    "description": "Select the development you are interested in to access all available resources: data sheets, pricing, brochures, social media content, and more.",
+    "none": "No data available"
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "none": "No frequently asked questions available"
+  },
+  "bannerHelper": {
+    "title": "We are here to help",
+    "description": "Our team is ready to assist you with any questions or requirements. Contact us and receive immediate support.",
+    "btn": {
+      "title": "Talk to us",
+      "url": "/publica"
+    }
   },
   "footer": {
-    "rights": "All rights reserved"
+    "socialMedia": {
+      "web": {
+        "title": "Website",
+        "url": "/"
+      },
+      "fb": {
+        "title": "Facebook",
+        "url": "https://www.facebook.com/share/1Bzw8CzMaJ/?mibextid=wwXIfr"
+      },
+      "ig": {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/kearealtors"
+      }
+    },
+    "rights": "All rights reserved",
+    "dev": "Developed with ❤️ and Astro"
+  },
+  "breadcrumb": {
+    "label": "Category"
+  },
+  "content": {
+    "articleRelation": "Related article",
+    "articleFeatured": "Featured articles"
   }
 }

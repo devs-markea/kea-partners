@@ -4,101 +4,22 @@ import es from '../locales/es.json';
 import SvgIcon from "../components/SvgIcon.astro";
 import {Image} from "astro:assets";
 import { images } from "../assets/images";
-import FaqItem from "../components/FaqItem.astro";
 import Search from "../components/Search.astro";
+import DevelopmentCard2 from "../components/DevelopmentCard2.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import DevelopmentSection from "../components/sections/DevelopmentSection.astro";
+import FaqSection from "../components/sections/FaqSection.astro";
+import BannerHelperSection from "../components/sections/BannerHelperSection.astro";
 
 const lang = "es";
 ---
-
 <MainLayout title="Home" lang={lang} t={es}>
     <!-- Hero -->
-    <section class="bg-brand-400 py-16 md:py-24">
-        <div class="container mx-auto flex flex-col items-center">
-            <div class="flex flex-col items-center text-center md:w-7/12">
-                <h1  class="text-[32px] text-brand-50 font-aghato font-medium mb-8 md:text-5xl">{es.site.description}</h1>
-                <div class="search mb-5 w-10/12 md:w-7/12">
-                    <Search/>
-                </div>
-                <div class="introduction md:ml-[44px]">
-                    <p class="text-brand-50">Encuentra todo lo necesario para promocionar nuestros desarrollos: brochures, artes, disponibilidades y más.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <HeroSection t={es}/>
     <!-- Developments -->
-    <section class="pt-11 pb-16 md:pt-16 md:pb-20">
-        <div class="container mx-auto flex flex-col items-start">
-            <div class="development-heading mb-4">
-                <h2 class="text-[32px] text-brand-700 font-aghato font-medium m-0">Desarrollos</h2>
-            </div>
-            <div class="development-paragraph mb-6">
-                <p class="text-brand-700 font-normal">Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.</p>
-            </div>
-            <div class="developments-cards flex justify-start items-stretch flex-wrap gap-4">
-                <div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">
-                    <a href="/faena-tulum">
-                        <Image class="w-1/2 h-auto m-auto" src={images.Faena} alt="Faena Tulum" quality={90}  loading="eager"/>
-                    </a>
-                </div>
-                <!--<div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">-->
-                <!--    <a href="/">-->
-                <!--        <Image class="w-1/2 h-auto m-auto" src={images.StRegis} alt="The St. Regis" quality={90}  loading="eager"/>-->
-                <!--    </a>-->
-                <!--</div>-->
-                <!--<div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">-->
-                <!--    <a href="/">-->
-                <!--        <Image class="w-1/4 h-auto m-auto" src={images.Nautica} alt="Nautica Residences" quality={90}  loading="eager"/>-->
-                <!--    </a>-->
-                <!--</div>-->
-                <!--<div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">-->
-                <!--    <a href="/">-->
-                <!--        <Image class="w-1/2 m-auto h-auto" src={images.Marietta} alt="Marietta" quality={90}  loading="eager"/>-->
-                <!--    </a>-->
-                <!--</div>-->
-                <!--<div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">-->
-                <!--    <a href="/">-->
-                <!--        <Image class="w-3/4 m-auto h-auto" src={images.Mayaliah} alt="Marietta" quality={90}  loading="eager"/>-->
-                <!--    </a>-->
-                <!--</div>-->
-                <!--<div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">-->
-                <!--    <a href="/">-->
-                <!--        <Image class="w-1/2 m-auto h-auto" src={images.GranViaDelMar} alt="Marietta" quality={90}  loading="eager"/>-->
-                <!--    </a>-->
-                <!--</div>-->
-                <!--<div class="flex items-center justify-center border border-gray-200  rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[150px]">-->
-                <!--    <a href="/">-->
-                <!--        <Image class="w-3/4 m-auto h-auto" src={images.TheRitz} alt="Marietta" quality={90}  loading="eager"/>-->
-                <!--    </a>-->
-                <!--</div>-->
-            </div>
-        </div>
-    </section>
+    <DevelopmentSection t={es} lang="es"/>
     <!-- FAQs -->
-    <section class="bg-brand-300 bg-opacity-10 pb-14 pt-14">
-        <div class="container mx-auto flex flex-col items-center">
-            <div class="faqs-title mb-12">
-                <h2 class="m-0 text-[32px] text-brand-700 font-aghato font-medium">Preguntas Frecuentes</h2>
-            </div>
-            <!-- Accordion -->
-            <div class="w-full">
-                <FaqItem title="¿Dónde puedo acceder al material publicitario de los desarrollos?" text="Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."/>
-                <FaqItem title="¿Necesito firmar algún contrato o convenio para poder vender?" text="Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."/>
-            </div>
-        </div>
-    </section>
+    <FaqSection t={es} />
     <!-- Banner -->
-    <section class="pt-14 pb-14 md:pt-20 md:pb-28">
-        <div class="container mx-auto flex flex-col items-center">
-            <div class="border border-gray-200 rounded-xl py-8 px-6 flex flex-col items-center text-center">
-                <h3 class="text-[32px] text-brand-700 font-aghato font-medium mb-5">Estamos para ayudarte</h3>
-                <p class="text-brand-700 font-normal mb-5">Nuestro equipo está listo para ayudarte con cualquier duda o requerimiento. Escríbenos y recibe soporte inmediato.</p>
-                <div class="w-full flex justify-center mb-5">
-                    <a href="/public" class="px-5 py-2 bg-brand-300 text-brand-50 font-normal rounded-[2rem] hover:bg-brand-300 hover:bg-opacity-90 transition-colors duration-300 text-center uppercase mb-1">
-                        Habla con nosotros
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    <BannerHelperSection t={es}/>
 </MainLayout>

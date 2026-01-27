@@ -1,0 +1,38 @@
+---
+import MainLayout from "../../../../layouts/MainLayout.astro";
+import ArticleCard from "../../../../components/ArticleCard.astro";
+import TopicsMenu from "../../../../components/TopicsMenu.astro";
+import en from '../../../../locales/en.json';
+import Breadcrumb from "../../../../components/Breadcrumb.astro";
+import HeroFaenaTulumSection from "../../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import ResourcesSocialMediaSection
+    from "../../../../components/sections/faena-tulum/contenido-para-redes-sociales/ResourcesSocialMediaSection.astro";
+
+const breadcrumbItems = [
+    { name: 'Category', url: '/en/' },
+    { name: 'Faena Tulum', url: '/en/faena-tulum' },
+    { name: 'Social Media Content', url: '/en/faena-tulum/contenido-para-redes-sociales' },
+    { name: 'Essential kit for social media' },
+];
+---
+<MainLayout title="Home" lang="en" t={en}>
+    <!-- Hero -->
+    <HeroFaenaTulumSection />
+    <ResourcesSocialMediaSection breadcrumbItems = {breadcrumbItems} lang="en"/>
+</MainLayout>
+
+<script is:inline>
+    function copiarFaenaTulum() {
+        const texto = `Art 1 (Façade + from $715,000 USD)
+
+🏡 Faena Tulum, the most visionary project in the Riviera Maya, is now available.
+
+Starting at $715,000 USD, secure your place in a world-class development by Alan Faena.
+
+🚀 An investment designed for growth and exclusivity.
+
+#FaenaTulum #InvestInTulum #LuxuryRealEstate #AlanFaena #RivieraMaya`;
+
+        navigator.clipboard.writeText(texto);
+    }
+</script>

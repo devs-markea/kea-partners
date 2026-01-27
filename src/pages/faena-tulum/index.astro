@@ -2,14 +2,19 @@
 import {Image} from "astro:assets";
 import { images } from "../../assets/images";
 import MainLayout from "../../layouts/MainLayout.astro";
-import en from '../../locales/en.json';
+import es from '../../locales/es.json';
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 import TopicCard from "../../components/TopicCard.astro";
+import HeroFaenaTulumSection from "../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import ContentResourceFaenaTulumSection
+    from "../../components/sections/faena-tulum/ContentResourceFaenaTulumSection.astro";
+
+const breadcrumb = es.breadcrumb;
 
 const breadcrumbItems = [
-    { name: 'Home', url: '/' },
-    { name: 'Faena Tulum' }, // última, sin link
+    { name: breadcrumb.label, url: '/' },
+    { name: 'Faena Tulum' } // última, sin link
 ];
 
 const commercialMaterial = [
@@ -22,37 +27,8 @@ const content = [
     "Kit esencial para redes sociales"
 ];
 ---
-<MainLayout title="Home" lang="es" t={en}>
+<MainLayout title="Home" lang="es" t={es}>
     <!-- Hero -->
-    <section class="relative py-16 md:py-28">
-        <Image class="absolute inset-0 w-full h-full object-cover" src={images.BannerFaena} alt="Faena Tulum" quality={90}  loading="eager"/>
-        <div class="absolute inset-0 w-full h-full bg-black/50"></div>
-        <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
-            <h1  class="text-[32px] md:text-5xl text-brand-50 font-aghato font-medium uppercase md:mt-5 mb-0">Faena Tulum</h1>
-        </div>
-    </section>
-    <section class="mb-16 md:mb-[124px] min-h-[calc(80vh-88px)]">
-        <div class="container">
-            <div class="pt-6 pb-5">
-                <Breadcrumb items={breadcrumbItems} />
-            </div>
-            <div class="articles">
-                <div class="heading mb-5">
-                    <h2 class="text-xl text-brand-700 font-aghato font-medium mb-4">Articulos destacados</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 auto-rows-min mb-8 gap-y-6 gap-x-8">
-                    <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link="/faena-tulum/material-comercial/brochure"/>
-                    <ArticleCard class="" title="Reels y videos cortos listos para publicar" link="/faena-tulum/material-comercial/contenido"/>
-                    <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link="/faena-tulum/preguntas-frecuentes"/>
-                    <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link="/faena-tulum/renders"/>
-                </div>
-                <hr class="border-gray-200 mb-8">
-                <div class="cards-topics grid grid-cols-1 md:grid-cols-3 auto-rows-min gap-y-6 gap-x-8">
-                    <TopicCard title="Material comercial" items={commercialMaterial} href="/faena-tulum/material-comercial/" />
-                    <TopicCard title="Contenido" items={content} href="/faena-tulum/contenido" />
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <HeroFaenaTulumSection />
+    <ContentResourceFaenaTulumSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} t={es} lang="es" />
 </MainLayout>

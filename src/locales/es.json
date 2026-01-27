@@ -1,15 +1,69 @@
 {
   "site": {
     "name": "KEA Partners",
-    "description": "Centro de recursos para partners"
+    "description": "Centro de recursos para partners",
+    "subdescription": "Encuentra todo lo necesario para promocionar nuestros desarrollos: brochures, artes, disponibilidades y más."
   },
   "nav": {
-    "home": "Knowledge Center",
-    "category": "Categoría",
-    "contact": "Contacto"
+    "title":"KNOWLEDGE CENTER",
+    "home": {
+      "label": "Inicio",
+      "url": "/"
+    },
+    "category": {
+      "label": "Categoría",
+      "url": "#development"
+    },
+    "contact": {
+      "label": "Contacto",
+      "url": "tel:+52"
+    },
+    "faq": {
+      "label": "FAQS",
+      "url": "#faq"
+    }
   },
+  "development": {
+    "title": "Desarrollos",
+    "description": "Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
+    "none": "No hay datos disponibles"
+  },
+  "faqs" : {
+    "title": "Preguntas Frecuentes",
+    "none": "No hay preguntas frecuentes disponibles"
+  },
+  "bannerHelper": {
+  "title": "Estamos para ayudarte",
+  "description": "Nuestro equipo está listo para ayudarte con cualquier duda o requerimiento. Escríbenos y recibe soporte inmediato.",
+  "btn": {
+    "title": "Habla con nosotros",
+    "url": "/publica"
+  }
+},
   "footer": {
+    "socialMedia": {
+      "web": {
+        "title": "Sitio web",
+        "url": "/"
+      },
+      "fb": {
+        "title": "Facebook",
+        "url": "https://www.facebook.com/share/1Bzw8CzMaJ/?mibextid=wwXIfr"
+      },
+      "ig": {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/kearealtors"
+      }
+    },
     "rights": "Todos los derechos reservados",
     "dev": "Desarrollado con ❤️ y Astro"
+  },
+  "breadcrumb": {
+    "label": "Categoria"
+  },
+  "content": {
+    "articleRelation": "Articulo relacionado",
+    "articleFeatured": "Articulos destacados"
   }
+
 }

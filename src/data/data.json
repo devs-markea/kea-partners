@@ -1,0 +1,107 @@
+{
+  "development": [
+    {
+      "id": "dev-faena-tulum",
+      "name": "",
+      "alt": "Faena Tulum",
+      "src": "Faena",
+      "link": "/faena-tulum",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-st-regis",
+      "name": "",
+      "alt": "St. Regis",
+      "src": "StRegis",
+      "link": "/st-regis",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-nautica",
+      "name": "",
+      "alt": "Nautica",
+      "src": "Nautica",
+      "link": "/nautica",
+      "hasPadding": true
+    },
+    {
+      "id": "dev-marietta",
+      "name": "",
+      "alt": "Marietta",
+      "src": "Marietta",
+      "link": "/marietta",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-mayaliah",
+      "name": "",
+      "alt": "Mayaliah",
+      "src": "Mayaliah",
+      "link": "/mayaliah",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-gran-via-del-mar",
+      "name": "",
+      "alt": "Gran Via del Mar",
+      "src": "GranViaDelMar",
+      "link": "/gran-via-del-mar",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-the-ritz",
+      "name": "",
+      "alt": "The Ritz",
+      "src": "TheRitz",
+      "link": "/the-ritz",
+      "hasPadding": false
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-material-publicitario",
+      "title": "¿Dónde puedo acceder al material publicitario de los desarrollos?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-contrato-venta",
+      "title": "¿Necesito firmar algún contrato o convenio para poder vender?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-disponibilidad-propiedades",
+      "title": "¿Cómo sé qué propiedades están disponibles y actualizadas?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-comisiones",
+      "title": "¿Qué comisión se paga por cada venta?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-pago-comisiones",
+      "title": "¿Cómo y cuándo se pagan las comisiones?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-acompanamiento-visitas",
+      "title": "¿Puedo solicitar acompañamiento en visitas con mis clientes?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-uso-materiales",
+      "title": "¿Puedo usar los materiales en mis redes sociales o campañas?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-conflicto-clientes",
+      "title": "¿Qué debo hacer si un cliente que atendí ya aparece en seguimiento por otro asesor?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    },
+    {
+      "id": "faq-soporte",
+      "title": "¿A quién contacto si tengo dudas o necesito soporte personalizado?",
+      "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+---
+
+import Breadcrumb from "../../../Breadcrumb.astro";
+import TopicsMenu from "../../../TopicsMenu.astro";
+import ArticleCard from "../../../ArticleCard.astro";
+
+const { breadcrumbItems, lang } = Astro.props;
+const basePath = lang === 'en' ? '/en' : '';
+const withLang = (path) => `${basePath}${path}`;
+---
+
+<section class="mb-16 min-h-[calc(80vh-88px)]">
+    <div class="container">
+        <div class="pt-6 pb-7">
+            <Breadcrumb items={breadcrumbItems} />
+        </div>
+        <div class="flex flex-col md:flex-row gap-12">
+            <TopicsMenu />
+            <div class="w-full md:w-9/12">
+                <div class="articles">
+                    <div class="flex justify-start gap-1 mb-2 md:hidden">
+                        <button id="menu-topics-toggle" class="flex items-center">
+                            <span class="text-base text-brand-700 underline font-normal">Explorar temas</span>
+                            <svg class="w-3 h-3 mx-1 text-brand-400" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.125 2.25L7.875 6L4.125 9.75" stroke="#053F47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </div>
+                    <div class="heading mb-8">
+                        <h2 class="text-2xl text-brand-700 font-aghato font-medium mb-4">Material Comercial</h2>
+                    </div>
+                    <div class="cards-articles grid grid-cols-1 md:grid-cols-2 auto-rows-min gap-y-6 gap-x-8">
+                        <ArticleCard class="" title="Brochures digitales y descargables (PDF)" link={withLang("/faena-tulum/material-comercial/brochure")}/>
+                        <ArticleCard class="" title="Preguntas frecuentes sobre Faena Tulum" link={withLang("/faena-tulum/preguntas-frecuentes")}/>
+                        <ArticleCard class="" title="Planos, renders y tablas de precios actualizadas" link={withLang("/faena-tulum/renders")}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
