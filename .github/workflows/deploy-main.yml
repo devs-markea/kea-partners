@@ -87,10 +87,6 @@ jobs:
             cp -r public/* ../public_html/
             
              # Copiar archivos persistentes desde rsfile
-            if [ -f "../rsfile/index.php" ]; then
-              cp ../rsfile/index.php ../public_html/
-            fi
-
             if [ -f "../rsfile/robots.txt" ]; then
               cp ../rsfile/robots.txt ../public_html/
             fi
