@@ -6,7 +6,7 @@ import en from '../../../../locales/en.json';
 import Breadcrumb from "../../../../components/Breadcrumb.astro";
 import ArticleCard from "../../../../components/ArticleCard.astro";
 import TopicsMenu from "../../../../components/TopicsMenu.astro";
-import HeroFaenaTulumSection from "../../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import HeroArticleSection from "../../../../components/sections/article/HeroArticleSection.js";
 import ResourcesBrochuresSection
     from "../../../../components/sections/faena-tulum/contenido-para-redes-sociales/ResourcesBrochuresSection.astro";
 
@@ -18,6 +18,6 @@ const breadcrumbItems = [
 ---
 <MainLayout title="Home" lang="en" t={en}>
     <!-- Hero -->
-    <HeroFaenaTulumSection />
+    <HeroArticleSection />
     <ResourcesBrochuresSection breadcrumbItems = {breadcrumbItems} lang="en"/>
 </MainLayout>

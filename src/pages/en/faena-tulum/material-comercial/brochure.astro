@@ -3,7 +3,7 @@ import {Image} from "astro:assets";
 import { images } from "../../../../assets/images";
 import MainLayout from "../../../../layouts/MainLayout.astro";
 import en from '../../../../locales/en.json';
-import HeroFaenaTulumSection from "../../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
+import HeroArticleSection from "../../../../components/sections/article/HeroArticleSection.js";
 import ResourcesBrochuresSection
     from "../../../../components/sections/faena-tulum/material-comercial/ResourcesBrochuresSection.astro";
 import Breadcrumb from "../../../../components/Breadcrumb.astro";
@@ -17,6 +17,6 @@ const breadcrumbItems = [
 ---
 <MainLayout title="Home" lang="en" t={en}>
     <!-- Hero -->
-    <HeroFaenaTulumSection />
+    <HeroArticleSection />
     <ResourcesBrochuresSection breadcrumbItems = {breadcrumbItems} lang="en"/>
 </MainLayout>

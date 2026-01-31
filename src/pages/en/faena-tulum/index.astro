@@ -2,17 +2,17 @@
 import {Image} from "astro:assets";
 import { images } from "../../../assets/images";
 import MainLayout from "../../../layouts/MainLayout.astro";
-import en from '../../../locales/en.json';
+import common from '../../../data/i18n/en/common.json';
+import article from '../../../data/i18n/en/article.json';
 import Breadcrumb from "../../../components/Breadcrumb.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import TopicCard from "../../../components/TopicCard.astro";
-import HeroFaenaTulumSection from "../../../components/sections/faena-tulum/HeroFaenaTulumSection.astro";
-import ContentResourceFaenaTulumSection
-    from "../../../components/sections/faena-tulum/ContentResourceFaenaTulumSection.astro";
+import HeroArticleSection from "../../../components/sections/article/HeroArticleSection.astro";
+import ResourceArticleSection
+    from "../../../components/sections/article/ResourceArticleSection.astro";
 
-const breadcrumb = en.breadcrumb;
 const breadcrumbItems = [
-    { name: breadcrumb.label, url: '/en/' },
+    { name: 'Category', url: '/en/' },
     { name: 'Faena Tulum' } // última, sin link
 ];
 
@@ -25,8 +25,8 @@ const content = [
     "Kit esencial para redes sociales"
 ];
 ---
-<MainLayout title="Home" lang="en" t={en}>
+<MainLayout title="Home" lang="en" t={common}>
     <!-- Hero -->
-    <HeroFaenaTulumSection />
-    <ContentResourceFaenaTulumSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} t={en} lang="en"/>
+    <HeroArticleSection />
+    <ResourceArticleSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} t={article} lang="en"/>
 </MainLayout>

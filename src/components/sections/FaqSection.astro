@@ -1,8 +1,9 @@
 ---
 import FaqItem from "../../components/FaqItem.astro";
 import data from "../../data/data.json";
-const { faqs } = data;
 const {t} = Astro.props;
+const faqs = t.faqs.faq_item;
+
 ---
 <section class="bg-brand-300 bg-opacity-10 pb-14 pt-14">
     <div class="container mx-auto flex flex-col items-center">
