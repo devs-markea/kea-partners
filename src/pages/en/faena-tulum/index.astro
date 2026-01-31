@@ -10,6 +10,8 @@ import TopicCard from "../../../components/TopicCard.astro";
 import HeroArticleSection from "../../../components/sections/article/HeroArticleSection.astro";
 import ResourceArticleSection
     from "../../../components/sections/article/ResourceArticleSection.astro";
+import Data from "../../../data/i18n/es/faena-tulum.json";
+import Article from "../../../data/i18n/es/article.json";
 
 const breadcrumbItems = [
     { name: 'Category', url: '/en/' },
@@ -27,6 +29,6 @@ const content = [
 ---
 <MainLayout title="Home" lang="en" t={common}>
     <!-- Hero -->
-    <HeroArticleSection />
-    <ResourceArticleSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} t={article} lang="en"/>
+    <HeroArticleSection t={Data} lang="en"/>
+    <ResourceArticleSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} article={Data} tArticle={Article} lang="eN" />
 </MainLayout>
