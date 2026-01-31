@@ -1,6 +1,15 @@
 {
   "development": [
     {
+      "id": "dev-marietta",
+      "name": "",
+      "alt": "Marietta",
+      "src": "Marietta",
+      "link": "/marietta-isla-mujeres",
+      "hasPadding": false
+    }
+  ],"resort_branded_residences": [
+    {
       "id": "dev-faena-tulum",
       "name": "",
       "alt": "Faena Tulum",
@@ -21,42 +30,18 @@
       "name": "",
       "alt": "Nautica",
       "src": "Nautica",
-      "link": "/nautica",
+      "link": "/nautica-residences-cancun",
       "hasPadding": true
-    },
-    {
-      "id": "dev-marietta",
-      "name": "",
-      "alt": "Marietta",
-      "src": "Marietta",
-      "link": "/marietta",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-mayaliah",
-      "name": "",
-      "alt": "Mayaliah",
-      "src": "Mayaliah",
-      "link": "/mayaliah",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-gran-via-del-mar",
-      "name": "",
-      "alt": "Gran Via del Mar",
-      "src": "GranViaDelMar",
-      "link": "/gran-via-del-mar",
-      "hasPadding": false
     },
     {
       "id": "dev-the-ritz",
       "name": "",
       "alt": "The Ritz",
       "src": "TheRitz",
-      "link": "/the-ritz",
+      "link": "/ritz-carlton-riviera-maya",
       "hasPadding": false
     }
-  ],
+],
   "faqs": [
     {
       "id": "faq-material-publicitario",

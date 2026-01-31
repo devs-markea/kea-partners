@@ -1,0 +1,34 @@
+---
+import {Image} from "astro:assets";
+import { images } from "../../assets/images";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Common from '../../data/i18n/es/common.json';
+import Data from '../../data/i18n/es/mayakoba.json';
+import Article from '../../data/i18n/es/article.json';
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import TopicCard from "../../components/TopicCard.astro";
+import HeroArticleSection from "../../components/sections/article/HeroArticleSection.astro";
+import ResourceArticleSection
+    from "../../components/sections/article/ResourceArticleSection.astro";
+
+const breadcrumbItems = [
+    { name: 'Categoria', url: '/' },
+    { name: Data.title } // última, sin link
+];
+
+const commercialMaterial = [
+    "Brochure",
+    "Renders",
+    "Siteplan",
+];
+
+const content = [
+    "Kit esencial para redes sociales"
+];
+---
+<MainLayout title="Home" lang="es" t={Common}>
+    <!-- Hero -->
+    <HeroArticleSection t={Data} lang="es" />
+    <ResourceArticleSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} article={Data} tArticle={Article} lang="es" />
+</MainLayout>
