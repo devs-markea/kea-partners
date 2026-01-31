@@ -9,6 +9,7 @@ import TopicsMenu from "../../../components/TopicsMenu.astro";
 import HeroArticleSection from "../../../components/sections/article/HeroArticleSection.astro";
 import ResourcesBrochuresSection
     from "../../../components/sections/faena-tulum/contenido-para-redes-sociales/ResourcesBrochuresSection.astro";
+import Data from "../../../data/i18n/es/faena-tulum.json";
 
 const breadcrumbItems = [
     { name: 'Categorias', url: '/' },
@@ -18,7 +19,7 @@ const breadcrumbItems = [
 ---
 <MainLayout title="Home" lang="es" t={es}>
     <!-- Hero -->
-    <HeroArticleSection />
+    <HeroArticleSection t={Data} lang="es"/>
     <ResourcesBrochuresSection breadcrumbItems = {breadcrumbItems} lang="es"/>
 
 </MainLayout>
