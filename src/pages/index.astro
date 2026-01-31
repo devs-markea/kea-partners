@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import es from '../locales/es.json';
+import home from '../data/i18n/es/home.json';
+import common from '../data/i18n/es/common.json';
 import SvgIcon from "../components/SvgIcon.astro";
 import {Image} from "astro:assets";
 import { images } from "../assets/images";
@@ -10,16 +11,20 @@ import HeroSection from "../components/sections/HeroSection.astro";
 import DevelopmentSection from "../components/sections/DevelopmentSection.astro";
 import FaqSection from "../components/sections/FaqSection.astro";
 import BannerHelperSection from "../components/sections/BannerHelperSection.astro";
+import ResontBrandedResedentsSection from "../components/sections/ResontBrandedResedentsSection.astro";
 
 const lang = "es";
 ---
-<MainLayout title="Home" lang={lang} t={es}>
+<MainLayout title="Home" lang={lang} t={common}>
     <!-- Hero -->
-    <HeroSection t={es}/>
+    <HeroSection t={home}/>
+    <!-- Resont Branded Resedents  -->
+    <ResontBrandedResedentsSection t={home} lang="es"/>
     <!-- Developments -->
-    <DevelopmentSection t={es} lang="es"/>
+
+    <DevelopmentSection t={home} lang="es"/>
     <!-- FAQs -->
-    <FaqSection t={es} />
+    <FaqSection t={home} />
     <!-- Banner -->
-    <BannerHelperSection t={es}/>
+    <BannerHelperSection t={home}/>
 </MainLayout>

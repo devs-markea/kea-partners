@@ -21,7 +21,7 @@ import SvgIcon from "./SvgIcon.astro";
 
 <script>
     import Fuse from "fuse.js";
-    import items from "../data/searchIndex.json";
+    import items from "../data/search/documents/Development.json";
 
     const formSearch = document.getElementById("search-form");
     const input = document.getElementById("default-search-main");
@@ -78,7 +78,7 @@ import SvgIcon from "./SvgIcon.astro";
         suggestions.innerHTML = results.length
             ? results.map(item => `
           <li>
-            <a href="/${lang}/${item.slug}" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="${item.slug}" class="block px-4 py-2 hover:bg-gray-100" target="_blank">
               <span class="text-xs uppercase text-gray-500">${item.type}</span><br>
               <strong>${item.title}</strong>
               <p class="text-sm text-gray-600">${item.description}</p>
