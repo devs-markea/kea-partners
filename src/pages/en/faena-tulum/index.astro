@@ -3,15 +3,14 @@ import {Image} from "astro:assets";
 import { images } from "../../../assets/images";
 import MainLayout from "../../../layouts/MainLayout.astro";
 import common from '../../../data/i18n/en/common.json';
-import article from '../../../data/i18n/en/article.json';
+import Data from '../../../data/i18n/en/faena-tulum.json';
+import Article from '../../../data/i18n/en/article.json';
 import Breadcrumb from "../../../components/Breadcrumb.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import TopicCard from "../../../components/TopicCard.astro";
 import HeroArticleSection from "../../../components/sections/article/HeroArticleSection.astro";
 import ResourceArticleSection
     from "../../../components/sections/article/ResourceArticleSection.astro";
-import Data from "../../../data/i18n/es/faena-tulum.json";
-import Article from "../../../data/i18n/es/article.json";
 
 const breadcrumbItems = [
     { name: 'Category', url: '/en/' },
@@ -30,5 +29,5 @@ const content = [
 <MainLayout title="Home" lang="en" t={common}>
     <!-- Hero -->
     <HeroArticleSection t={Data} lang="en"/>
-    <ResourceArticleSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} article={Data} tArticle={Article} lang="eN" />
+    <ResourceArticleSection breadcrumbItems = {breadcrumbItems} commercialMaterial = {commercialMaterial} content = {content} article={Data} tArticle={Article} lang="en" />
 </MainLayout>

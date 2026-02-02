@@ -7,6 +7,30 @@
       "src": "Marietta",
       "link": "/marietta-isla-mujeres",
       "hasPadding": false
+    },
+    {
+      "id": "dev-bay-view",
+      "name": "",
+      "alt": "BayViewGrand",
+      "src": "BayView",
+      "link": "/bay-view-grand-residences",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-one-laguna",
+      "name": "",
+      "alt": "OneLaguna",
+      "src": "OneLaguna",
+      "link": "/one-laguna-residences-cancun",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-inna",
+      "name": "",
+      "alt": "InnaBeach",
+      "src": "Inna",
+      "link": "/inna-beach-condos",
+      "hasPadding": false
     }
   ],"resort_branded_residences": [
     {
@@ -39,6 +63,30 @@
       "alt": "The Ritz",
       "src": "TheRitz",
       "link": "/ritz-carlton-riviera-maya",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-aflora",
+      "name": "",
+      "alt": "Aflora",
+      "src": "Aflora",
+      "link": "/aflora-residences-tulum",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-mgallery",
+      "name": "",
+      "alt": "Mgallery",
+      "src": "Mgallery",
+      "link": "/mgallery-residences-tulum",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-thompson",
+      "name": "",
+      "alt": "Thompson",
+      "src": "Thompson",
+      "link": "/thompson",
       "hasPadding": false
     }
 ],
