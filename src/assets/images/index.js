@@ -20,6 +20,13 @@ import StregisBanner from './stregis-banner.png';
 import ThompsonBanner from './thompson-banner.png';
 import InnaBanner from './inna-banner.png';
 
+import Aflora from './alfora.png';
+import BayView from './bay-view-grand.png';
+import Inna from './inna-beach-condos.png';
+import Mgallery from './MGallery.png';
+import OneLaguna from './one-laguna.png';
+import Thompson from './thompson.png';
+
 export const images = {
     Logo: Logo,
     Faena: Faena,
@@ -41,5 +48,12 @@ export const images = {
     RitzBanner: RitzBanner,
     StregisBanner: StregisBanner,
     ThompsonBanner: ThompsonBanner,
-    InnaBanner: InnaBanner
+    InnaBanner: InnaBanner,
+
+    Aflora: Aflora,
+    BayView: BayView,
+    Inna: Inna,
+    Mgallery: Mgallery,
+    OneLaguna: OneLaguna,
+    Thompson: Thompson,
 };
