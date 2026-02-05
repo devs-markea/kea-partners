@@ -9,7 +9,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import ArticleCard from "../components/ArticleCard.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 // import Search from "../components/Search.astro";
-import items from "../data/search/documents/Development.json";
+import items from "../data/search/documents/development.json";
 import Fuse from "fuse.js";
 import en from '../locales/en.json';
 import Search from "../components/Search.astro";
@@ -46,12 +46,20 @@ let fuseOptions = {
             weight: 1,
         },
         {
-            name: "title",
+            name: "destination",
             weight: 0.75,
         },
         {
-            name: "description",
+            name: "microDestination",
             weight: 0.5,
+        },
+        {
+            name: "title",
+            weight: 0.25,
+        },
+        {
+            name: "description",
+            weight: 0.1,
         }
     ]
 }

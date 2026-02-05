@@ -2,10 +2,10 @@
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Brochures",
     "description": "Brochures oficiales de Faena Tulum con información general del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1P2OJpPMn1HP-gD6LMJSCr90_VApW0FkK?usp=drive_link"
@@ -13,21 +13,32 @@
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Fact Sheet",
     "description": "Fact Sheet de Faena Tulum con datos técnicos y especificaciones clave del desarrollo.",
-    "slug": "https://drive.google.com/drive/folders/12sybFIHxqG1ktwytZyL8WT3Y_aWCxSKu?usp=drive_link"
+    "slug": "https://drive.google.com/drive/folders/1GEOzJM9hL__FXLhatIIz6ZNJNtcsu5S9?usp=drive_link"
   },
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
+    "title": "Renders",
+    "description": "Renders oficiales de Faena Tulum que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1r50U3VP5uU90jellzsF-KKsVCEZlEHI9?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "faena",
+    "destination": "México",
+    "microDestination": "Tulum",
+    "project": "Faena Tulum",
+    "category": "Branded Residences",
     "title": "Price Ranges",
     "description": "Rangos de precios de Faena Tulum para referencia comercial de las residencias.",
     "slug": "https://drive.google.com/drive/folders/12sybFIHxqG1ktwytZyL8WT3Y_aWCxSKu?usp=drive_link"
@@ -35,10 +46,10 @@
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Contenido RRSS",
     "description": "Material digital de Faena Tulum diseñado para uso en redes sociales.",
     "slug": "https://drive.google.com/drive/u/7/folders/1QyD7YLqhBLBOTA6Te7xbT1B7cBlCI0nn"
@@ -46,10 +57,10 @@
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Videos",
     "description": "Videos oficiales de Faena Tulum que presentan el concepto y estilo de vida del proyecto.",
     "slug": "https://drive.google.com/drive/u/7/folders/1r6UrJhxnnajq5Zhjr39t4oSmI3iORFCk?usp=drive_link"
@@ -57,10 +68,10 @@
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Master Plan",
     "description": "Master Plan de Faena Tulum con la distribución general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1UbI1H53jni41IHsyCXiBK5CRtwtfNE6g?usp=drive_link"
@@ -68,10 +79,10 @@
   {
     "type": "Artículo",
     "image": "faena",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Faena Tulum",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Ubicacion",
     "description": "Ubicación geográfica de Faena Tulum con referencia directa en Google Maps.",
     "slug": "https://maps.app.goo.gl/j3tRgPNsygv5cBDT9"
@@ -80,10 +91,10 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Brochures",
     "description": "Brochures oficiales de MGallery Residences con información general del desarrollo y sus residencias.",
     "slug": "https://drive.google.com/drive/folders/1CFLFXnTSOz-dxUtfXXD7Sb1ijaVvhIkh?usp=drive_link"
@@ -91,10 +102,10 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Fact Sheet",
     "description": "Fact Sheet de MGallery Residences con datos técnicos, especificaciones clave y resumen del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1jKsg6tqgWgWt7cE_5W-R4puu4I8KaogF?usp=drive_link"
@@ -102,10 +113,21 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
+    "title": "Renders",
+    "description": "Renders oficiales de Mgallery que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1SSt-_QZW6XGdaHq5FbkhMb_fti07_AMR?usp=drive_link"
+  },
+  {
+    "type": "Artículo",
+    "image": "mgallery",
+    "destination": "México",
+    "microDestination": "Tulum",
+    "project": "Mgallery",
+    "category": "Branded Residences",
     "title": "Price Ranges",
     "description": "Rangos de precios de MGallery Residences para referencia comercial de las unidades disponibles.",
     "slug": "https://drive.google.com/drive/folders/1pbYlMFKhVyFOaIUROBpVM3d_ccRrJBKe?usp=drive_link"
@@ -113,10 +135,10 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Contenido RRSS",
     "description": "Contenido digital de MGallery Residences desarrollado para campañas y publicaciones en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1J_KzFRXDXrKP_Ggz2CbuaUXDPXiMy6rQ?usp=drive_link"
@@ -124,10 +146,10 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Videos",
     "description": "Videos oficiales de MGallery Residences que muestran el concepto, diseño y estilo de vida del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1oVGjO3Jn7Shg-f-niU254bg2drf-N4GV?usp=drive_link"
@@ -135,10 +157,10 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Ubicacion",
     "description": "Ubicación geográfica de MGallery Residences con acceso directo a su localización en Google Maps.",
     "slug": "https://maps.app.goo.gl/M5Fe5kj3vSMVm9jn6"
@@ -146,10 +168,10 @@
   {
     "type": "Artículo",
     "image": "mgallery",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Mgallery",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Master Plan",
     "description": "Master Plan de MGallery Residences con la distribución general del desarrollo y sus áreas principales.",
     "slug": "https://drive.google.com/drive/folders/1OoNoNVWw7tZfaYTh5yBMFoCHyDH3OHys?usp=drive_link"
@@ -158,10 +180,10 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
     "title": "Brochures",
     "description": "Brochures oficiales de Aflora Residences con información general del proyecto residencial.",
     "slug": "https://drive.google.com/drive/folders/1ThSuIF6aFBFg5Ejq7swob2D-BvDiYyPk?usp=drive_link"
@@ -169,10 +191,10 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
     "title": "Fact Sheet",
     "description": "Fact Sheet de Aflora Residences con datos técnicos y especificaciones clave del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1K61DrEv09OSFN2HIPWHMSJQ6osqbc2Tv?usp=drive_link"
@@ -180,10 +202,21 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
+    "title": "Renders",
+    "description": "Renders oficiales de Aflora que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1r50U3VP5uU90jellzsF-KKsVCEZlEHI9?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "aflora",
+    "destination": "México",
+    "microDestination": "Tulum",
+    "project": "Aflora",
+    "category": "High-End & Resort Living",
     "title": "Price Ranges",
     "description": "Rangos de precios de Aflora Residences como referencia comercial de las unidades disponibles.",
     "slug": "https://drive.google.com/drive/folders/1SnGVuPnpeK07t_IbgBmS8wjDet3SR1fX?usp=sharing"
@@ -191,10 +224,10 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
     "title": "Contenido RRSS",
     "description": "Contenido digital de Aflora Residences diseñado para comunicación y difusión en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1jhz2xNLGlshZaZrSxVjgB3GXGD-RhpCs?usp=drive_link"
@@ -202,10 +235,10 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
     "title": "Videos",
     "description": "Videos oficiales de Aflora Residences que presentan el concepto y estilo del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/179hctfuQ5plhNt75Ep_1CcpanwLW29jH?usp=drive_link"
@@ -213,10 +246,10 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
     "title": "Ubicacion",
     "description": "Ubicación de Aflora Residences con acceso directo a su localización en Google Maps.",
     "slug": "https://maps.app.goo.gl/3yBeuRXFGdFP5M8f6"
@@ -224,10 +257,10 @@
   {
     "type": "Artículo",
     "image": "aflora",
-    "destionation": "México",
-    "micro-destionation": "Tulum",
+    "destination": "México",
+    "microDestination": "Tulum",
     "project": "Aflora",
-    "category": "",
+    "category": "High-End & Resort Living",
     "title": "Master Plan",
     "description": "Master Plan de Aflora Residences con la distribución general del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1qnAIsorrZJwEbeFh8favutkCwBA_CWnS?usp=drive_link"
@@ -235,10 +268,10 @@
 
   {  "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Brochures",
     "description": "Brochures oficiales de The Ritz-Carlton Residences con información general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1vpPEiquXRa054NHpsEoa9dVvf4O-vuoV?usp=drive_link"
@@ -246,10 +279,10 @@
   {
     "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Fact Sheet",
     "description": "Fact Sheet de The Ritz-Carlton Residences con datos técnicos y especificaciones clave del proyecto.",
     "slug": "https://drive.google.com/drive/folders/10eNF2pr1I0lwYGCsUnqvrpAs1rLpboSl?usp=drive_link"
@@ -257,10 +290,21 @@
   {
     "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
+    "title": "Renders",
+    "description": "Renders oficiales de Ritz Carlton que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1HIKnqGVCGc6qf_cWnOZ38tdhoZLTb6fi?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "ritz",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
+    "project": "Ritz Carlton",
+    "category": "Branded Residences",
     "title": "Price Ranges",
     "description": "Rangos de precios de The Ritz-Carlton Residences como referencia comercial de las residencias.",
     "slug": "https://drive.google.com/drive/folders/1FVGW45KYrEYpgQR8FbFkpYCNeUhbvKFB?usp=sharing"
@@ -268,10 +312,10 @@
   {
     "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Contenido RRSS",
     "description": "Contenido digital de The Ritz-Carlton Residences desarrollado para comunicación en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/17qINBqiwVS5-ArVxoQfWKBoUZVQaJCiH?usp=drive_link"
@@ -279,10 +323,10 @@
   {
     "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Videos",
     "description": "Videos oficiales de The Ritz-Carlton Residences que presentan el diseño y estilo de vida del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1veVETUqDQWKj4yFPhJd4kFyQHaZu2GZ9?usp=drive_link"
@@ -290,10 +334,10 @@
   {
     "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Ubicacion",
     "description": "Ubicación de The Ritz-Carlton Residences con acceso directo a su localización en Google Maps.",
     "slug": "https://maps.app.goo.gl/BhMLpxA2MMLFfvZy9"
@@ -301,10 +345,10 @@
   {
     "type": "Artículo",
     "image": "ritz",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "Ritz Carlton",
-    "category": "Resort & Branded Residences",
+    "category": "Branded Residences",
     "title": "Master Plan",
     "description": "Master Plan de The Ritz-Carlton Residences con la distribución general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1nMo7KxYtSZj36w8iLWWnDfgTRJGow7rK?usp=drive_link"
@@ -313,8 +357,8 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
     "category": "Branded Residences",
     "title": "Brochures",
@@ -324,10 +368,10 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
-    "category": "Branded Residences",
+    "category": "High-End & Resort Living",
     "title": "Fact Sheet",
     "description": "Fact Sheet de The Reserve at Mayakoba con datos técnicos y especificaciones clave del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1kL5eHzqEG0FF2mZqz39VRpSjd_JEonuU?usp=drive_link"
@@ -335,8 +379,19 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
+    "project": "The Reserve Mayakoba",
+    "category": "High-End & Resort Living",
+    "title": "Renders",
+    "description": "Renders oficiales de The Reserve Mayakoba que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/17vKzhB65xLNQUvpSSHzazOqda8A2zl0m?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "mayakoba",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
     "category": "Branded Residences",
     "title": "Price Ranges",
@@ -346,8 +401,8 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
     "category": "Branded Residences",
     "title": "Contenido RRSS",
@@ -357,8 +412,8 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
     "category": "Branded Residences",
     "title": "Videos",
@@ -368,8 +423,8 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
     "category": "Branded Residences",
     "title": "Ubicacion",
@@ -379,8 +434,8 @@
   {
     "type": "Artículo",
     "image": "mayakoba",
-    "destionation": "México",
-    "micro-destionation": "Riviera Maya",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
     "project": "The Reserve Mayakoba",
     "category": "Branded Residences",
     "title": "Master Plan",
@@ -391,10 +446,10 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Brochures",
     "description": "Brochures oficiales de The St. Regis Residences con información general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1emPuvoGz2XZWIdLBJoWS4BRXtO1JLr4T?usp=drive_link"
@@ -402,10 +457,10 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Fact Sheet",
     "description": "Fact Sheet de The St. Regis Residences con datos técnicos y especificaciones clave del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1N-WeCHfsfyneu6COa75kQTZK9ii7QVcg?usp=drive_link"
@@ -413,10 +468,21 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
+    "title": "Renders",
+    "description": "Renders oficiales de St regis que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1nCPRkP40TWaq9HgF49vfo-_D_6WoGhcy?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "stregis",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Price Ranges",
     "description": "Rangos de precios de The St. Regis Residences como referencia comercial de las unidades.",
     "slug": "https://drive.google.com/drive/folders/1aD0mdd9PbcA40srZVmoqTsm9D-GXt5Hm?usp=sharing"
@@ -424,10 +490,10 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Contenido RRSS",
     "description": "Contenido digital de The St. Regis Residences desarrollado para comunicación en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1KD08n_PBRDRbRtB5Hnz4yRUXwQKa1bk2?usp=drive_link"
@@ -435,10 +501,10 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Videos",
     "description": "Videos oficiales de The St. Regis Residences que presentan el concepto y estilo de vida del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1nejd3W85Ra16FYGCwf96V9WOc8NYjTyu?usp=drive_link"
@@ -446,10 +512,10 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Ubicacion",
     "description": "Ubicación de The St. Regis Residences con acceso directo a Google Maps.",
     "slug": "https://maps.app.goo.gl/gXBxvMNkMaJinmTF7"
@@ -457,10 +523,10 @@
   {
     "type": "Artículo",
     "image": "stregis",
-    "destionation": "México",
-    "micro-destionation": "Costa Mujeres",
-    "project": "St regis",
-    "category": "Resort & Residences",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "St Regis Costa Mujeres",
+    "category": "Branded Residences",
     "title": "Master Plan",
     "description": "Master Plan de The St. Regis Residences con la distribución general del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1jFOf8neV92y9IAMOlscXodJK5xeJuFyA?usp=drive_link"
@@ -469,10 +535,10 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Brochures",
     "description": "Brochures oficiales de Marietta Isla Mujeres con información general del desarrollo residencial.",
     "slug": "https://drive.google.com/drive/folders/14vUfSey688c84hlaatrfCdpHvqQIdjgf?usp=drive_link"
@@ -480,10 +546,10 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Fact Sheet",
     "description": "Fact Sheet de Marietta Isla Mujeres con datos técnicos y especificaciones clave del proyecto.",
     "slug": "https://drive.google.com/drive/folders/18MOhWpiSBd1HuUJqeL62q31zJNe2YwZc?usp=drive_link"
@@ -491,10 +557,21 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
+    "title": "Renders",
+    "description": "Renders oficiales de Marietta que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1SsTCVDYoWnVLYGKuZgQDLmPB_8PbungG?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "marietta",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
+    "project": "Marietta",
+    "category": "High-End & Resort Living",
     "title": "Price Ranges",
     "description": "Rangos de precios de Marietta Isla Mujeres como referencia comercial de las residencias.",
     "slug": "https://drive.google.com/drive/folders/1MUq48kSWYwN8r5-dX68ND3n0YPUmKHuG?usp=sharing"
@@ -502,10 +579,10 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Contenido RRSS",
     "description": "Contenido digital de Marietta Isla Mujeres desarrollado para comunicación en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1dU4oT0FaYpml-1YtyRVR9sBVob22wXNi?usp=drive_link"
@@ -513,10 +590,10 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Videos",
     "description": "Videos oficiales de Marietta Isla Mujeres que presentan el concepto y estilo de vida del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1za47_-DBml031wplObpMpNkDpcOMCkE-?usp=drive_link"
@@ -524,10 +601,10 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Ubicacion",
     "description": "Ubicación de Marietta Isla Mujeres con acceso directo a Google Maps.",
     "slug": "https://maps.app.goo.gl/65gbXpTFnhj5NoJKA"
@@ -535,10 +612,10 @@
   {
     "type": "Artículo",
     "image": "marietta",
-    "destionation": "México",
-    "micro-destionation": "Isla Mujeres",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
     "project": "Marietta",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Master Plan",
     "description": "Master Plan de Marietta Isla Mujeres con la distribución general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1sMPHWauDbEgc4ojkfUK9nhkjV_XhVzA-?usp=drive_link"
@@ -547,9 +624,9 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Brochures",
     "description": "Brochures oficiales de Thompson Residences con información general del desarrollo.",
@@ -558,9 +635,9 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Fact Sheet",
     "description": "Fact Sheet de Thompson Residences con datos técnicos y especificaciones clave del proyecto.",
@@ -569,9 +646,20 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
+    "category": "Branded Residences",
+    "title": "Renders",
+    "description": "Renders oficiales de Thompson Puerto Cancún que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/16gSpOJtW1yvWGkNhdYEDryDKTsOjSesO?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Price Ranges",
     "description": "Rangos de precios de Thompson Residences como referencia comercial de las unidades disponibles.",
@@ -580,9 +668,9 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Contenido RRSS",
     "description": "Contenido digital de Thompson Residences desarrollado para comunicación en redes sociales.",
@@ -591,9 +679,9 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Videos",
     "description": "Videos oficiales de Thompson Residences que presentan el concepto y estilo de vida del desarrollo.",
@@ -602,9 +690,9 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Ubicacion",
     "description": "Ubicación de Thompson Residences con acceso directo a Google Maps.",
@@ -613,9 +701,9 @@
   {
     "type": "Artículo",
     "image": "thompson",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
-    "project": "Thompson",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Thompson Puerto Cancún",
     "category": "Branded Residences",
     "title": "Master Plan",
     "description": "Master Plan de Thompson Residences con la distribución general del proyecto.",
@@ -625,10 +713,10 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Brochures",
     "description": "Brochures oficiales de Bay View Grand Residences con información general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1YS_mwBvrgPZsZpRMmq7iM5LM_rAtqAYJ?usp=drive_link"
@@ -636,10 +724,10 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Fact Sheet",
     "description": "Fact Sheet de Bay View Grand Residences con datos técnicos y especificaciones del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1hf-jSippgYLyDBUulaM_mfThUMyC__wI?usp=sharing"
@@ -647,10 +735,21 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
+    "title": "Renders",
+    "description": "Renders oficiales de Bay View Grand que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1rBhWodfCqiJsb5d1-XF-16K1QPE_6sd5?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "bayview",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Bay View Grand",
+    "category": "High-End & Resort Living",
     "title": "Price Ranges",
     "description": "Rangos de precios de Bay View Grand Residences como referencia comercial.",
     "slug": "https://drive.google.com/drive/folders/1QNSpVh00VVSFYqTx3_bZRJ1r5jIl71AA?usp=drive_link"
@@ -658,10 +757,10 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Contenido RRSS",
     "description": "Material digital de Bay View Grand Residences para comunicación en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1To3_5RidnmIlEvfVIW5BsuCsMAnwSPN1?usp=drive_link"
@@ -669,10 +768,10 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Videos",
     "description": "Videos oficiales de Bay View Grand Residences que muestran el proyecto y estilo de vida.",
     "slug": "https://drive.google.com/drive/folders/17nZJMJwq2hi7bHdQRXAOudwU2VRRDZPF?usp=drive_link"
@@ -680,10 +779,10 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Ubicacion",
     "description": "Ubicación de Bay View Grand Residences con acceso directo a Google Maps.",
     "slug": "https://maps.app.goo.gl/QKxG6bBW2rJGzfak6"
@@ -691,10 +790,10 @@
   {
     "type": "Artículo",
     "image": "bayview",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Bay View Grand",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Master Plan",
     "description": "Master Plan de Bay View Grand Residences con la distribución general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1ofSTCw9COvC1JYh2HoKWntZvNNjM9plu?usp=drive_link"
@@ -703,10 +802,10 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Brochures",
     "description": "Brochures oficiales de One Laguna Residences con información general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1t07NdlkeRrXh1pTr5BIsCt6haxCbknj-?usp=drive_link"
@@ -714,10 +813,10 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Fact Sheet",
     "description": "Fact Sheet de One Laguna Residences con especificaciones técnicas y detalles clave del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1rGQC4cRkwHAf2WZoYNftGcp7iNc3HhD4?usp=drive_link"
@@ -725,10 +824,21 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
+    "title": "Renders",
+    "description": "Renders oficiales de One Laguna que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1kquofYUgkVUI65AHmpMkPywubYItTtQw?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "onelaguna",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "One Laguna",
+    "category": "High-End & Resort Living",
     "title": "Price Ranges",
     "description": "Rangos de precios de One Laguna Residences como referencia comercial.",
     "slug": "https://drive.google.com/drive/folders/13ZMTxMNvvmyUVeyaEQVC-jqZN4GOXcQC?usp=sharing"
@@ -736,10 +846,10 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Contenido RRSS",
     "description": "Material digital de One Laguna Residences para difusión y comunicación en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1AZ2VLGK7YRA-t2GBPkILeb2spLxkpS1A?usp=drive_link"
@@ -747,10 +857,10 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Videos",
     "description": "Videos oficiales de One Laguna Residences que muestran el concepto, diseño y estilo de vida del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1oORPkC9ppjD8GSOZ04toh1qMn-QAVln9?usp=sharing"
@@ -758,10 +868,10 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Ubicacion",
     "description": "Ubicación de One Laguna Residences en Puerto Cancún con acceso directo a Google Maps.",
     "slug": "https://maps.app.goo.gl/Z6NbdD3RQbtmGNKA6"
@@ -769,10 +879,10 @@
   {
     "type": "Artículo",
     "image": "onelaguna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "One Laguna",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Master Plan",
     "description": "Master Plan de One Laguna Residences con la distribución general y conceptual del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1TZdLBnuAyLzAjL1G0oK8ZvsgBorQ014s?usp=drive_link"
@@ -781,8 +891,8 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Brochures",
@@ -792,8 +902,8 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Fact Sheet",
@@ -803,8 +913,19 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
+    "project": "Náutica",
+    "category": "Branded Residences",
+    "title": "Renders",
+    "description": "Renders oficiales de Náutica que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1iz8kssOUV-KD8-nmnkooVNdO8IA8PX5w?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "nautica",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Price Ranges",
@@ -814,8 +935,8 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Contenido RRSS",
@@ -825,8 +946,8 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Videos",
@@ -836,8 +957,8 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Master Plan",
@@ -847,8 +968,8 @@
   {
     "type": "Artículo",
     "image": "nautica",
-    "destionation": "México",
-    "micro-destionation": "Puerto Cancún",
+    "destination": "México",
+    "microDestination": "Puerto Cancún",
     "project": "Náutica",
     "category": "Branded Residences",
     "title": "Ubicacion",
@@ -859,10 +980,10 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Brochures",
     "description": "Brochures oficiales de INNA Beach Condos con información general del desarrollo y su propuesta residencial.",
     "slug": "https://drive.google.com/drive/folders/1cxbqQ25MTGcfUXWAfFWvqsO-bmsiFjO8?usp=drive_link"
@@ -870,10 +991,10 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Fact Sheet",
     "description": "Fact Sheet de INNA Beach Condos con datos técnicos, amenidades y características clave del proyecto.",
     "slug": "https://drive.google.com/drive/folders/1rcbn3YY06gzV9KN0FqgLJz7q0W5TFYvK?usp=drive_link"
@@ -881,10 +1002,21 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
+    "title": "Renders",
+    "description": "Renders oficiales de Inna Beach Condos que muestran el diseño arquitectónico y los espacios del desarrollo.",
+    "slug": "https://drive.google.com/drive/folders/1aMGIj0lHXdm0Bs_UU_NDrbiEDw4WfUD2?usp=sharing"
+  },
+  {
+    "type": "Artículo",
+    "image": "inna",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
+    "project": "Inna Beach Condos",
+    "category": "High-End & Resort Living",
     "title": "Price Ranges",
     "description": "Rangos de precios de INNA Beach Condos como referencia comercial del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/140YMKykcDhB3KQuOXsKuf5P8YgwztW_y?usp=sharing"
@@ -892,10 +1024,10 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Contenido RRSS",
     "description": "Contenido digital de INNA Beach Condos para campañas y comunicación en redes sociales.",
     "slug": "https://drive.google.com/drive/folders/1T_ouSyhibX4khy4bDFeca11_IJkklCSx?usp=drive_link"
@@ -903,10 +1035,10 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Videos",
     "description": "Videos de INNA Beach Condos que muestran el concepto, ubicación y estilo de vida del proyecto.",
     "slug": "https://drive.google.com/file/d/168qJ51WBLOO9oOpg3jFmJn72SQj1Z9m3/view?usp=sharing"
@@ -914,10 +1046,10 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Ubicacion",
     "description": "Ubicación exacta de INNA Beach Condos en Puerto Morelos con acceso a Google Maps.",
     "slug": "https://maps.app.goo.gl/a6qrpMoFY9tYAyv79"
@@ -925,20 +1057,190 @@
   {
     "type": "Artículo",
     "image": "inna",
-    "destionation": "México",
-    "micro-destionation": "Puerto Morelos",
+    "destination": "México",
+    "microDestination": "Puerto Morelos",
     "project": "Inna Beach Condos",
-    "category": "Private Residences",
+    "category": "High-End & Resort Living",
     "title": "Master Plan",
     "description": "Master Plan de INNA Beach Condos con la distribución general del desarrollo.",
     "slug": "https://drive.google.com/drive/folders/1sFxgjVTWwG2SoEkkEx0hXdJIGAz8k9ua?usp=drive_link"
   },
-
-
-
-
-
-
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Brochures",
+      "description": "Brochures oficiales de Marea Missoni con información general del desarrollo y su concepto de branded residences.",
+      "slug": "https://drive.google.com/drive/folders/1E-mP5SWup_XF6a-3VCaMs5dVOqJ9gpJv?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Fact Sheet",
+      "description": "Fact Sheet de Marea Missoni con especificaciones técnicas, amenidades y detalles clave del proyecto.",
+      "slug": "https://drive.google.com/drive/folders/12NTLgg0rA4cAOwEh6BlBDci-jWFWtpxW?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Renders",
+      "description": "Renders oficiales de Marea Missoni que muestran el diseño arquitectónico y los espacios del desarrollo.",
+      "slug": "https://drive.google.com/drive/folders/1hQ6K5llBVqJaOpIvhyobmxJwarOFsfrN?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Price Ranges",
+      "description": "Rangos de precios de Marea Missoni como referencia comercial del proyecto en Costa del Sol.",
+      "slug": "https://drive.google.com/drive/folders/1JYcgW_LYTEfgEVVVF47kljDAR8hLW4oe?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Contenido RRSS",
+      "description": "Contenido digital de Marea Missoni para campañas y comunicación en redes sociales.",
+      "slug": "https://drive.google.com/drive/folders/1MiOB1O1IRTNggmQYWWBUbSctuCNa55hh?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Videos",
+      "description": "Videos de Marea Missoni que presentan el concepto, la ubicación y el estilo de vida del desarrollo.",
+      "slug": "https://drive.google.com/drive/folders/1MkreBISv2gsk2ug8arNhNK2V6aHTvY2q?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Ubicacion",
+      "description": "Ubicación exacta de Marea Missoni en Costa del Sol con acceso directo a Google Maps.",
+      "slug": "https://maps.app.goo.gl/MopyKtMfZ89x3XLG6"
+    },
+    {
+      "type": "Artículo",
+      "image": "mareamissoni",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "MAREA MISSONI",
+      "category": "Branded Residences",
+      "title": "Master Plan",
+      "description": "Master Plan de Marea Missoni con la distribución general y planeación del desarrollo.",
+      "slug": "https://drive.google.com/drive/folders/189mJZOp_UblePHclHm9mqgJ90YXGrH8h?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Brochures",
+      "description": "Brochures oficiales de Tierra Viva Lamborghini con información general del desarrollo y su concepto de branded residences.",
+      "slug": "https://drive.google.com/drive/folders/1ZyN3k2LrDpYBq1J4VjpEGrly1v8wTre7?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Fact Sheet",
+      "description": "Fact Sheet de Tierra Viva Lamborghini con especificaciones técnicas, amenidades y detalles clave del proyecto.",
+      "slug": "https://drive.google.com/drive/folders/1to_6cUIzPfE2BTKUzh3JBaO1UwfOZvz6?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Renders",
+      "description": "Renders oficiales de Tierra Viva Lamborghini que muestran el diseño arquitectónico y los espacios del desarrollo.",
+      "slug": "https://drive.google.com/drive/folders/1KIznqZanMGyNCjffqU8rcyOAxoFGTI-Q?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Price Ranges",
+      "description": "Rangos de precios de Tierra Viva Lamborghini como referencia comercial del desarrollo en Costa del Sol.",
+      "slug": "https://drive.google.com/drive/folders/1z-fPpqN9YLPhy1gP9yWat3My632FHkjz?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Contenido RRSS",
+      "description": "Contenido digital de Tierra Viva Lamborghini para campañas y comunicación en redes sociales.",
+      "slug": "https://drive.google.com/drive/folders/1pO6yFDDfFzKgmWm1ESeAQ0kC98KdO1Ns?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Videos",
+      "description": "Videos de Tierra Viva Lamborghini que presentan el concepto, la ubicación y el estilo de vida del desarrollo.",
+      "slug": "https://drive.google.com/drive/folders/1ax_BQ5F9MxQdTOeNwkdFvoDaBkSI5B6z?usp=drive_link"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Ubicacion",
+      "description": "Ubicación exacta de Tierra Viva Lamborghini en Costa del Sol con acceso directo a Google Maps.",
+      "slug": "https://maps.app.goo.gl/5pyYJ64Kcc7YyEKs6"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierraviva",
+      "destination": "Spain",
+      "microDestination": "Costa del Sol",
+      "project": "TIERRA VIVA LAMBORGHINI",
+      "category": "Branded Residences",
+      "title": "Master Plan",
+      "description": "Master Plan de Tierra Viva Lamborghini con la distribución general y planeación del desarrollo.",
+      "slug": "https://drive.google.com/drive/folders/1U2KpwOpsGPM4S9hCNtVSlw1I5YCEXUoT?usp=drive_link"
+    },
 
   {
     "type": "Artículo",
