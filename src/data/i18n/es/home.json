@@ -4,13 +4,13 @@
     "description": "Centro de recursos para partners",
     "subdescription": "Encuentra todo lo necesario para promocionar nuestros desarrollos: brochures, artes, disponibilidades y más."
   },
-  "development": {
-    "title": "Desarrollos",
-    "description": "Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
+  "highEndResortLiving": {
+    "title": "High-End & Resort Living",
+    "description": "Selecciona el High-End & Resort Living de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
     "none": "No hay datos disponibles"
   },
-  "resort_branded_residences": {
-    "title": "Resort & Branded Residences",
+  "brandedResidences": {
+    "title": "Branded Residences",
     "description": "Residencias de lujo integradas a resorts de marca que combinan diseño exclusivo, servicios hoteleros de alto nivel y un estilo de vida sofisticado",
     "none": "No hay datos disponibles"
   },

@@ -1,5 +1,5 @@
 {
-  "development": [
+  "highEndResortLiving": [
     {
       "id": "dev-marietta",
       "name": "",
@@ -31,8 +31,17 @@
       "src": "Inna",
       "link": "/inna-beach-condos",
       "hasPadding": false
+    },
+    {
+      "id": "dev-aflora",
+      "name": "",
+      "alt": "Aflora",
+      "src": "Aflora",
+      "link": "/aflora-residences-tulum",
+      "hasPadding": false
     }
-  ],"resort_branded_residences": [
+  ],
+  "brandedResidences": [
     {
       "id": "dev-faena-tulum",
       "name": "",
@@ -63,14 +72,6 @@
       "alt": "The Ritz",
       "src": "TheRitz",
       "link": "/ritz-carlton-riviera-maya",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-aflora",
-      "name": "",
-      "alt": "Aflora",
-      "src": "Aflora",
-      "link": "/aflora-residences-tulum",
       "hasPadding": false
     },
     {

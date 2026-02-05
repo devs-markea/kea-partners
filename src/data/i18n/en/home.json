@@ -6,11 +6,11 @@
   },
   "development": {
     "title": "Developments",
-    "description": "Select the development you are interested in to access all available resources: data sheets, pricing, brochures, social media content, and more.",
+    "description": "Select the High-End & Resort Living you are interested in to access all available resources: data sheets, pricing, brochures, social media content, and more.",
     "none": "No data available"
   },
-  "resort_branded_residences": {
-    "title": "Resort & Branded Residences",
+  "brandedResidences": {
+    "title": "Branded Residences",
     "description": "Luxury residences integrated into branded resorts that combine exclusive design, high-end hotel services, and a sophisticated lifestyle.",
     "none": "No data available"
   },

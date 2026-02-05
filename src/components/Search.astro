@@ -21,7 +21,7 @@ import SvgIcon from "./SvgIcon.astro";
 
 <script>
     import Fuse from "fuse.js";
-    import items from "../data/search/documents/Development.json";
+    import items from "../data/search/documents/development.json";
 
     const formSearch = document.getElementById("search-form");
     const input = document.getElementById("default-search-main");
@@ -37,12 +37,19 @@ import SvgIcon from "./SvgIcon.astro";
                 weight: 1,
             },
             {
-                name: "title",
+                name: "destination",
                 weight: 0.75,
             },
             {
-                name: "description",
+                name: "microDestination",
                 weight: 0.5,
+            },        {
+                name: "title",
+                weight: 0.25,
+            },
+            {
+                name: "description",
+                weight: 0.1,
             }
         ]
     }
