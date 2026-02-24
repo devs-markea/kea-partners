@@ -1,0 +1,48 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import HeroArticleSection from "../../components/sections/article/HeroArticleSection.astro";
+
+import Common from '../../data/i18n/es/common.json';
+import DestinationData from '../../data/i18n/es/branded-residences.json';
+import DevelopmentsData from '../../data/i18n/es/developments.json';
+import DestinationSection from "../../components/sections/article/DestinationSection.astro";
+
+export async function getStaticPaths() {
+    return DestinationData.listBrandedResidents.map((destination) => ({
+        params: { slug: destination.brandedResidentUrl },
+        props: { destination }
+    }));
+}
+
+const { destination } = Astro.props;
+
+// Normalizamos la estructura para que el componente no cambie
+const heroData = {
+    title: destination.brandedResidentName,
+    bannerKey: destination.brandedResidentBanner,
+    alt: destination.brandedResidentAlt
+};
+// Breadcrumb dinámico
+const breadcrumbItems = [
+    { name: 'Inicio', url: '/' },
+    { name: 'Branded Residences', url: '' },
+    { name: destination.brandedResidentName }
+];
+const currentSlug = destination.brandedResidentUrl;
+
+const filteredDevelopments = DevelopmentsData.listDevelopments.filter(
+    (dev) => dev.developmentGroup === currentSlug
+);
+
+
+
+---
+
+<MainLayout title={heroData.title} lang="es" t={Common}>
+    <HeroArticleSection t={heroData} lang="es" />
+    <DestinationSection
+            breadcrumbItems={breadcrumbItems}
+            developments={filteredDevelopments}
+            lang="es"
+    />
+</MainLayout>

@@ -4,13 +4,82 @@
     "description": "Centro de recursos para partners",
     "subdescription": "Encuentra todo lo necesario para promocionar nuestros desarrollos: brochures, artes, disponibilidades y más."
   },
-  "development": {
-    "title": "Desarrollos",
-    "description": "Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
+  "highEndResortLiving": {
+    "title": "High-End & Resort Living",
+    "description": "Selecciona el High-End & Resort Living de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
     "none": "No hay datos disponibles"
   },
-  "resort_branded_residences": {
-    "title": "Resort & Branded Residences",
+
+  "highlights_title": "Destinos",
+  "highlights_subtitle": "Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
+  "highlights_destinations": [
+    {
+      "destination": "riviera_maya",
+      "destination_img": "top-destination-riviera-maya",
+      "destination_title": "Riviera Maya",
+      "destination_description": "3 propiedades",
+      "destination_url": "riviera-maya"
+    },
+    {
+      "destination": "miami",
+      "destination_img": "top-destination-miami",
+      "destination_title": "Miami",
+      "destination_description": "2 propiedades",
+      "destination_url": "miami"
+    },
+    {
+      "destination": "cancun",
+      "destination_img": "top-destination-cancun",
+      "destination_title": "Cancún",
+      "destination_description": "5 propiedades",
+      "destination_url": "cancun"
+    },
+    {
+      "destination": "costa_mujeres",
+      "destination_img": "top-destination-costa-mujeres",
+      "destination_title": "Costa Mujeres",
+      "destination_description": "1 propiedad",
+      "destination_url": "costa-mujeres"
+    },
+    {
+      "destination": "isla_mujeres",
+      "destination_img": "top-destination-isla-mujeres",
+      "destination_title": "Isla Mujeres",
+      "destination_description": "1 propiedad",
+      "destination_url": "isla-mujeres"
+    },
+    {
+      "destination": "tulum",
+      "destination_img": "top-destination-tulum",
+      "destination_title": "Tulum",
+      "destination_description": "3 propiedades",
+      "destination_url": "tulum"
+    },
+    {
+      "destination": "costa_del_sol",
+      "destination_img": "top-destination-marbella-costa-del-sol",
+      "destination_title": "Costa del Sol",
+      "destination_description": "1 propiedad",
+      "destination_url": "costa-del-sol"
+    },
+    {
+      "destination": "mexico_city",
+      "destination_img": "top-destination-mexico-city",
+      "destination_title": "Ciudad de México",
+      "destination_description": "1 propiedad",
+      "destination_url": "ciudad-de-mexico"
+    },
+    {
+      "destination": "dubai",
+      "destination_img": "top-destination-dubai",
+      "destination_title": "Dubai",
+      "destination_description": "1 propiedad",
+      "destination_url": "dubai"
+    }
+  ],
+
+  "brandedResidences": {
+    "title": "Branded Residences",
     "description": "Residencias de lujo integradas a resorts de marca que combinan diseño exclusivo, servicios hoteleros de alto nivel y un estilo de vida sofisticado",
     "none": "No hay datos disponibles"
   },
@@ -21,50 +90,60 @@
       {
         "id": "faq-material-publicitario",
         "title": "¿Dónde puedo acceder al material publicitario de los desarrollos?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Puedes acceder a todo el material publicitario actualizado (brochures, renders, fichas técnicas y presentaciones) a través del Sitio de Parters de KEA Realtors. En caso de no encontrar algún material específico, puedes solicitarlo directamente al equipo comercial."
       },
       {
-        "id": "faq-contrato-venta",
+        "id": "faq-contrato-convenio",
         "title": "¿Necesito firmar algún contrato o convenio para poder vender?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Sí. Para poder comercializar los desarrollos es necesario contar con un convenio de colaboración firmado con KEA Realtors, el cual establece los lineamientos, comisiones y proceso de pago."
       },
       {
         "id": "faq-disponibilidad-propiedades",
         "title": "¿Cómo sé qué propiedades están disponibles y actualizadas?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "La disponibilidad de las propiedades se actualiza constantemente dentro del Sitio de Partners. Siempre se recomienda confirmar disponibilidad antes de presentar una opción a tu cliente."
       },
       {
-        "id": "faq-comisiones",
+        "id": "faq-comision-venta",
         "title": "¿Qué comisión se paga por cada venta?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "La comisión varía según el desarrollo y se especifica claramente en la información comercial de cada proyecto. Ante cualquier duda, puedes confirmarlo con el equipo comercial."
       },
       {
         "id": "faq-pago-comisiones",
         "title": "¿Cómo y cuándo se pagan las comisiones?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Las comisiones se pagan una vez que el cliente haya cumplido con las condiciones establecidas en el contrato (anticipo, firma y/o escrituración, según el proyecto). Los tiempos y formas de pago se detallan en cada convenio."
       },
       {
         "id": "faq-acompanamiento-visitas",
         "title": "¿Puedo solicitar acompañamiento en visitas con mis clientes?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Sí. Puedes solicitar acompañamiento para visitas presenciales o virtuales con tus clientes, coordinándolo previamente con el equipo de KEA Realtors."
       },
       {
-        "id": "faq-uso-materiales",
+        "id": "faq-uso-material-redes",
         "title": "¿Puedo usar los materiales en mis redes sociales o campañas?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Sí, puedes utilizar el material autorizado para promoción en redes sociales y campañas digitales, siempre respetando la identidad de marca y sin modificar los contenidos oficiales."
       },
       {
-        "id": "faq-conflicto-clientes",
+        "id": "faq-cliente-duplicado",
         "title": "¿Qué debo hacer si un cliente que atendí ya aparece en seguimiento por otro asesor?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Debes reportar el caso de inmediato al equipo de soporte, proporcionando la información del cliente y el historial de contacto, para que se revise y se determine la asignación correcta."
       },
       {
-        "id": "faq-soporte",
+        "id": "faq-contacto-soporte",
         "title": "¿A quién contacto si tengo dudas o necesito soporte personalizado?",
-        "text": "Dentro de este Centro de Recursos encontrarás un repositorio organizado por desarrollo. Ahí podrás descargar brochures, presentaciones, fichas técnicas, videos, contenido para redes sociales y más. También puedes solicitar material personalizado si lo necesitas."
+        "text": "Con la Dirección Comercial (Michel Garay) o  directamente con tu asesor interno asignado."
       }
     ]
   },
+  "broker_name": "Rodrigo Setién",
+  "broker_occupation": "Founder & CEO",
+  "broker_phone": "Teléfono",
+  "broker_phone_display":"+521 998 126 4494",
+  "broker_phone_number": "+5219981264494",
+
+  "form_subtitle": "HABLA CON NOSOTROS",
+  "form_title": "Estamos para apoyarte",
+  "form_description":"Nuestro equipo está listo para ayudarte con cualquier duda o requerimiento. Escríbenos y recibe soporte inmediato.",
+
   "bannerHelper": {
     "title": "Estamos para ayudarte",
     "description": "Nuestro equipo está listo para ayudarte con cualquier duda o requerimiento. Escríbenos y recibe soporte inmediato.",

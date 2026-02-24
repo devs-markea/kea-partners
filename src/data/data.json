@@ -1,5 +1,5 @@
 {
-  "development": [
+  "highEndResortLiving": [
     {
       "id": "dev-marietta",
       "name": "",
@@ -31,39 +31,6 @@
       "src": "Inna",
       "link": "/inna-beach-condos",
       "hasPadding": false
-    }
-  ],"resort_branded_residences": [
-    {
-      "id": "dev-faena-tulum",
-      "name": "",
-      "alt": "Faena Tulum",
-      "src": "Faena",
-      "link": "/faena-tulum",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-st-regis",
-      "name": "",
-      "alt": "St. Regis",
-      "src": "StRegis",
-      "link": "/st-regis",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-nautica",
-      "name": "",
-      "alt": "Nautica",
-      "src": "Nautica",
-      "link": "/nautica-residences-cancun",
-      "hasPadding": true
-    },
-    {
-      "id": "dev-the-ritz",
-      "name": "",
-      "alt": "The Ritz",
-      "src": "TheRitz",
-      "link": "/ritz-carlton-riviera-maya",
-      "hasPadding": false
     },
     {
       "id": "dev-aflora",
@@ -72,13 +39,47 @@
       "src": "Aflora",
       "link": "/aflora-residences-tulum",
       "hasPadding": false
+    }
+  ],
+  "brandedResidences": [
+    {
+      "id": "dev-faena-tulum",
+      "name": "",
+      "alt": "Faena Tulum",
+      "src": "Faena",
+      "link": "faena-tulum",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-st-regis",
+      "name": "",
+      "alt": "St. Regis",
+      "src": "StRegis",
+      "link": "st-regis",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-nautica",
+      "name": "",
+      "alt": "Nautica",
+      "src": "Nautica",
+      "link": "nautica-residences-cancun",
+      "hasPadding": true
+    },
+    {
+      "id": "dev-the-ritz",
+      "name": "",
+      "alt": "The Ritz",
+      "src": "TheRitz",
+      "link": "ritz-carlton-riviera-maya",
+      "hasPadding": false
     },
     {
       "id": "dev-mgallery",
       "name": "",
       "alt": "Mgallery",
       "src": "Mgallery",
-      "link": "/mgallery-residences-tulum",
+      "link": "mgallery-residences-tulum",
       "hasPadding": false
     },
     {
@@ -86,7 +87,7 @@
       "name": "",
       "alt": "Thompson",
       "src": "Thompson",
-      "link": "/thompson",
+      "link": "thompson",
       "hasPadding": false
     }
 ],

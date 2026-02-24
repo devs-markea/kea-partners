@@ -18,7 +18,9 @@ module.exports = {
                 },
             fontFamily: {
                 jost: ['Jost', 'sans-serif'],
-                aghato: ['Aghato', 'sans-serif']
+                aghato: ['Aghato', 'sans-serif'],
+                cormorant: ['"Cormorant Garamond"', 'serif'],
+                cormorantInfant: ['"Cormorant Infant"', 'serif'],
             },
         },
     },

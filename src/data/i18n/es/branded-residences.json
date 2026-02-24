@@ -1,0 +1,104 @@
+{
+  "listBrandedResidents": [
+    {
+      "brandedResidentId": "dev-st-regis",
+      "brandedResidentName": "St. Regis",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "St. Regis",
+      "brandedResidentSrc": "IconBrandedResidenceStRegis",
+      "brandedResidentUrl": "st-regis",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-the-ritz",
+      "brandedResidentName": "The Ritz",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "The Ritz",
+      "brandedResidentSrc": "IconBrandedResidenceRitzCarlton",
+      "brandedResidentUrl": "ritz-carlton",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-faena",
+      "brandedResidentName": "Faena",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Faena",
+      "brandedResidentSrc": "IconBrandedResidenceFaena",
+      "brandedResidentUrl": "faena",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-thompson",
+      "brandedResidentName": "Thompson",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Thompson",
+      "brandedResidentSrc": "IconBrandedResidenceThompson",
+      "brandedResidentUrl": "thompson",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-mgallery",
+      "brandedResidentName": "Mgallery",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Mgallery",
+      "brandedResidentSrc": "IconBrandedResidenceMgallery",
+      "brandedResidentUrl": "mgallery-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-nautica",
+      "brandedResidentName": "Nautica",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Nautica",
+      "brandedResidentSrc": "IconBrandedResidenceNautica",
+      "brandedResidentUrl": "nautica-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-pagani",
+      "brandedResidentName": "Pagani",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Pagani",
+      "brandedResidentSrc": "IconBrandedResidencePagani",
+      "brandedResidentUrl": "pagani-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-trump-tower",
+      "brandedResidentName": "Trump Tower",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Trump Tower",
+      "brandedResidentSrc": "IconBrandedResidenceTrumpTower",
+      "brandedResidentUrl": "trump-tower-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-missoni",
+      "brandedResidentName": "Missoni",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Missoni",
+      "brandedResidentSrc": "IconBrandedResidenceMissoni",
+      "brandedResidentUrl": "missoni-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-lamborghini",
+      "brandedResidentName": "Lamborghini",
+      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentAlt": "Lamborghini",
+      "brandedResidentSrc": "IconBrandedResidenceLamborghini",
+      "brandedResidentUrl": "lamborghini-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    }
+  ]
+}

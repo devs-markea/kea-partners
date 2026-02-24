@@ -21,7 +21,7 @@ import SvgIcon from "./SvgIcon.astro";
 
 <script>
     import Fuse from "fuse.js";
-    import items from "../data/search/documents/Development.json";
+    import items from "../data/search/documents/development.json";
 
     const formSearch = document.getElementById("search-form");
     const input = document.getElementById("default-search-main");
@@ -33,16 +33,27 @@ import SvgIcon from "./SvgIcon.astro";
         shouldSort: true,
         keys: [
             {
+                name: "project",
+                weight: 1.2,
+            },
+            {
                 name: "type",
                 weight: 1,
             },
             {
-                name: "title",
+                name: "destination",
                 weight: 0.75,
             },
             {
-                name: "description",
+                name: "microDestination",
                 weight: 0.5,
+            },        {
+                name: "title",
+                weight: 0.25,
+            },
+            {
+                name: "description",
+                weight: 0.1,
             }
         ]
     }
@@ -73,7 +84,37 @@ import SvgIcon from "./SvgIcon.astro";
             return;
         }
 
-        const results = fuse.search(query).map(r => r.item);
+        const rawResults = fuse.search(query);
+        const itemsFound = rawResults.map(r => r.item);
+
+        const normalizedQuery = query.toLowerCase();
+
+// Buscar artículo principal de Recursos
+        const mainResourceArticle = itemsFound.find(item =>
+            item.title?.toLowerCase() === "recursos" &&
+            item.type?.toLowerCase() === "pagina de recursos" &&
+            item.project?.toLowerCase().includes(normalizedQuery)
+        );
+
+// Otros artículos del mismo proyecto
+        const relatedProjectArticles = itemsFound.filter(item =>
+            item.project?.toLowerCase().includes(normalizedQuery) &&
+            item !== mainResourceArticle
+        );
+
+// Resto
+        const otherArticles = itemsFound.filter(item =>
+            item !== mainResourceArticle &&
+            !item.project?.toLowerCase().includes(normalizedQuery)
+        );
+
+// Orden final
+        const results = [
+            ...(mainResourceArticle ? [mainResourceArticle] : []),
+            ...relatedProjectArticles,
+            ...otherArticles
+        ];
+
 
         suggestions.innerHTML = results.length
             ? results.map(item => `

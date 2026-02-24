@@ -9,7 +9,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import ArticleCard from "../components/ArticleCard.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 // import Search from "../components/Search.astro";
-import items from "../data/search/documents/Development.json";
+import items from "../data/search/documents/development.json";
 import Fuse from "fuse.js";
 import en from '../locales/en.json';
 import Search from "../components/Search.astro";
@@ -42,16 +42,28 @@ let fuseOptions = {
     shouldSort: true,
     keys: [
         {
+            name: "project",
+            weight: 1.2,
+        },
+        {
             name: "type",
             weight: 1,
         },
         {
-            name: "title",
+            name: "destination",
             weight: 0.75,
         },
         {
-            name: "description",
+            name: "microDestination",
             weight: 0.5,
+        },
+        {
+            name: "title",
+            weight: 0.25,
+        },
+        {
+            name: "description",
+            weight: 0.1,
         }
     ]
 }
@@ -60,7 +72,42 @@ const fuse = new Fuse(items, fuseOptions);
 
 const fuseDevelopment = new Fuse(imagesArray, fuseOptionsDevelopment);
 
-const results = query ? fuse.search(query).map(result => result.item) : [];
+const rawResults = query ? fuse.search(query) : [];
+
+let results = [];
+
+if (query) {
+    const itemsFound = rawResults.map(result => result.item);
+
+    const normalizedQuery = query.toLowerCase();
+
+    // Buscar artículo principal de Recursos del proyecto
+    const mainResourceArticle = itemsFound.find(item =>
+        item.title?.toLowerCase() === "recursos" &&
+        item.type?.toLowerCase() === "pagina de recursos" &&
+        item.project?.toLowerCase().includes(normalizedQuery)
+    );
+
+    // Buscar otros artículos del mismo proyecto
+    const relatedProjectArticles = itemsFound.filter(item =>
+        item.project?.toLowerCase().includes(normalizedQuery) &&
+        item !== mainResourceArticle
+    );
+
+    // Resto de artículos
+    const otherArticles = itemsFound.filter(item =>
+        item !== mainResourceArticle &&
+        !item.project?.toLowerCase().includes(normalizedQuery)
+    );
+
+    // Construcción final ordenada
+    results = [
+        ...(mainResourceArticle ? [mainResourceArticle] : []),
+        ...relatedProjectArticles,
+        ...otherArticles
+    ];
+}
+
 
 const developmentResults = query ? fuseDevelopment.search(query).map(result => result.item) : [];
 
