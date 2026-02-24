@@ -1,0 +1,33 @@
+{
+  "destinations_title": "",
+  "listDestinations": [
+    {
+      "destinationTitle": "Tulum",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerTulum",
+      "destinationAlt": "Tulum",
+      "destinationUrl": "tulum"
+    },
+    {
+      "destinationTitle": "Riviera Maya",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerRivieraMaya",
+      "destinationAlt": "Riviera Maya",
+      "destinationUrl": "riviera-maya"
+    },
+    {
+      "destinationTitle": "Cancun",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerCancun",
+      "destinationAlt": "Cancun",
+      "destinationUrl": "cancun"
+    },
+    {
+      "destinationTitle": "Cancun",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerCancun",
+      "destinationAlt": "Cancun",
+      "destinationUrl": "cancun"
+    }
+  ]
+}

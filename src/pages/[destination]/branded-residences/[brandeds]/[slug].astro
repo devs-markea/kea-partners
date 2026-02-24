@@ -1,0 +1,60 @@
+---
+import MainLayout from "../../../../layouts/MainLayout.astro";
+import HeroBannerSection from "../../../../components/sections/HeroBannerSection.astro";
+import ResourceArticleSection from "../../../../components/sections/article/ResourceArticleSection.astro";
+import DestinationData from '../../../../data/i18n/es/branded-residences.json';
+import Common from '../../../../data/i18n/es/common.json';
+import DevelopmentsData from '../../../../data/i18n/es/developments.json';
+import Article from "../../../../data/i18n/es/article.json";
+
+export async function getStaticPaths() {
+    return DevelopmentsData.listDevelopments
+        .filter(dev => dev.developmentCategory !== "high-end-resort")
+        .map(dev => ({
+            params: {
+                destination: dev.developmentDestination,
+                brandeds: dev.developmentGroup,
+                slug: dev.developmentLink
+            },
+            props: { dev }
+        }));
+}
+
+const { dev } = Astro.props;
+
+const heroData = {
+    title: dev.developmentName,
+    bannerKey: dev.developmentBanner,
+    alt: dev.developmentAlt
+};
+
+const modules = import.meta.glob('../../../../data/i18n/es/*.json');
+const Data = await modules[
+    `../../../../data/i18n/es/${dev.developmentContent}.json`
+    ]();
+// Buscar coincidencia entre developmentGroup y brandedResidentUrl
+const matchedGroup = DestinationData.listBrandedResidents.find(
+    (item) => item.brandedResidentUrl === dev.developmentGroup
+);
+
+// Variable global para usar en breadcrumb
+const nameGroup = matchedGroup?.brandedResidentName || dev.developmentGroup;
+
+const breadcrumbItems = [
+    { name: 'Inicio', url: '/' },
+    { name: dev.developmentDestination },
+    { name: 'Branded Residences' },
+    { name: nameGroup },
+    { name: dev.developmentName }
+];
+---
+<MainLayout title={heroData.title} lang="es" t={Common}>
+    <HeroBannerSection t={heroData} lang="es" />
+
+    <ResourceArticleSection
+            breadcrumbItems={breadcrumbItems}
+            article={Data}
+            tArticle={Article}
+            lang="es"
+    />
+</MainLayout>
