@@ -1,34 +1,36 @@
 import Logo from './logo-brand.png';
 
+//Banner Development
 
-import BannerFaena from '../images/banner/developments/banner-faena-tulum.png';
 import BannerNautica from '../images/banner/developments/nautica-banner.png';
-import BannerOneLaguna from '../images/banner/developments/onelaguna-banner.png';
-import BannerAflora from '../images/banner/developments/aflora-banner.png';
-import BannerBayView from '../images/banner/developments/bayviewgrand-banner.png';
-import BannerMarietta from '../images/banner/developments/marietta-banner.png';
 import BannerMayakoba from '../images/banner/developments/mayakoba-banner.png';
 import BannerMgallery from '../images/banner/developments/mgallery-banner.png';
 import BannerRitz from '../images/banner/developments/ritz-banner.png';
-import BannerStregis from '../images/banner/developments/stregis-banner.png';
 import BannerThompson from './thompson-banner.png';
-import BannerInna from '../images/banner/developments/inna-banner.png';
 
-import Aflora from '../images/Logo/developments/alfora.png';
-import BayView from '../images/Logo/developments/bay-view-grand.png';
-import Inna from '../images/Logo/developments/inna-beach-condos.png';
+import BannerOneLaguna from '../images/banner/developments/banner-one-laguna.png';
+import BannerAflora from '../images/banner/developments/banner-aflora.png';
+import BannerBayView from '../images/banner/developments/banner-bay-view-grand.png';
+import BannerFaena from '../images/banner/developments/banner-faena-tulum.png';
+import BannerStregis from '../images/banner/developments/banner-st-regis-costa-mujeres.png';
+import BannerInna from '../images/banner/developments/banner-inna.png';
+import BannerMarietta from '../images/banner/developments/banner-marietta.png';
+import BannerGranViaMar from '../images/banner/developments/banner-marietta.png';
+
+import Aflora from '../images/Logo/developments/icon-developments-aflora.png';
+import BayView from '../images/Logo/developments/icon-developments-bay-view-grand.png';
+import Inna from '../images/Logo/developments/icon-developments-inna.png';
 import Mgallery from '../images/Logo/developments/MGallery.png';
-import OneLaguna from '../images/Logo/developments/one-laguna.png';
+import OneLaguna from '../images/Logo/developments/icon-developments-one-laguna.png';
 import Thompson from '../images/Logo/developments/thompson.png';
 import Faena from '../images/Logo/developments/faena.png';
-import StRegis from '../images/Logo/developments/st-regis.png';
 import Nautica from '../images/Logo/developments/nautica.png';
-import Marietta from '../images/Logo/developments/marietta.png';
-import GranViaDelMar from '../images/Logo/developments/gran-via-del-mar.png';
+import Marietta from '../images/Logo/developments/icon-developments-marietta.png';
+import GranViaDelMar from '../images/Logo/developments/icon-developments-gran-via-mar.png';
 import Mayaliah from '../images/Logo/developments/mayaliah.png';
 import TheRitz from './the-ritz-residences.png';
 
-
+//Destinos
 import BannerTulum from '../images/banner/destinations/banner-tulum.png';
 import BannerCancun from '../images/banner/destinations/banner-cancun.png';
 import BannerRivieraMaya from '../images/banner/destinations/banner-riviera.png';
@@ -36,10 +38,10 @@ import BannerMexicoCity from '../images/banner/destinations/banner-mexico-city.p
 import BannerDubai from '../images/banner/destinations/banner-dubai.png';
 import BannerCostaMujeres from '../images/banner/destinations/banner-costa-mujeres.png';
 import BannerCostaSol from '../images/banner/destinations/banner-costa-sol.png';
-import BannerIslaMujeres from '../images/banner/destinations/banner-islas-mujeres.png';
-import BannerMiami from '../images/banner/destinations/banner-islas-mujeres.png';
+import BannerIslaMujeres from '../images/banner/destinations/banner-isla-mujeres.png';
+import BannerMiami from '../images/banner/destinations/banner-miami.png';
 
-import BannerStRegis from '../images/banner/branded-residneces/banner-stregis.png';
+import BannerStRegis from '../images/banner/branded-residneces/banner-st-regis.png';
 
 import IconBrandedResidenceStRegis from '../images/Logo/branded-residences/icon-branded-residences-stregis.png';
 import IconBrandedResidenceFaena from '../images/Logo/branded-residences/icon-branded-residences-faena.png';
@@ -52,17 +54,21 @@ import IconBrandedResidenceRitzCarlton from '../images/Logo/branded-residences/i
 import IconBrandedResidenceThompson from '../images/Logo/branded-residences/icon-branded-residences-thompson.png';
 import IconBrandedResidenceTrumpTower from '../images/Logo/branded-residences/icon-branded-residences-trump-tower.png';
 
+import IconDevelopmentThe1428 from '../images/Logo/developments/icon-developments-the-1428.png';
+import IconDevelopmentStRegisKanai from '../images/Logo/developments/icon-developments-st-regis-riviera-maya.png';
+import IconDevelopmentStRegisCostaMujeres from '../images/Logo/developments/icon-developments-st-regis-costa-mujeres.png';
+import IconDevelopmentRitzCarlton from '../images/Logo/developments/icon-developments-the-ritz-carlton.png';
+
 export const images = {
     Logo: Logo,
     Faena: Faena,
-    StRegis: StRegis,
     Nautica: Nautica,
     Marietta: Marietta,
     GranViaDelMar: GranViaDelMar,
     Mayaliah: Mayaliah,
     TheRitz: TheRitz,
-    BannerFaena: BannerFaena,
 
+    BannerFaena: BannerFaena,
     BannerNautica: BannerNautica,
     BannerOneLaguna: BannerOneLaguna,
     BannerAflora: BannerAflora,
@@ -103,6 +109,13 @@ export const images = {
     IconBrandedResidenceRitzCarlton: IconBrandedResidenceRitzCarlton,
     IconBrandedResidenceThompson: IconBrandedResidenceThompson,
     IconBrandedResidenceTrumpTower: IconBrandedResidenceTrumpTower,
+
+    IconDevelopmentThe1428: IconDevelopmentThe1428,
+    IconDevelopmentStRegisKanai: IconDevelopmentStRegisKanai,
+    IconDevelopmentStRegisCostaMujeres: IconDevelopmentStRegisCostaMujeres,
+    IconDevelopmentRitzCarlton: IconDevelopmentRitzCarlton,
+
+    BannerGranViaMar: BannerGranViaMar,
 
 
 };
