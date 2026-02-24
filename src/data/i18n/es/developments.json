@@ -41,7 +41,7 @@
       "developmentLocation": "Riviera Maya",
       "developmentGroup": "ritz-carlton",
       "developmentCategory": "branded-residences",
-      "developmentSrc": "Faena",
+      "developmentSrc": "IconDevelopmentRitzCarlton",
       "developmentLink": "ritz-carlton-riviera-maya",
       "developmentHasPadding": false,
       "developmentHasZoom": true
@@ -56,7 +56,7 @@
       "developmentLocation": "Costa Mujeres",
       "developmentGroup": "st-regis",
       "developmentCategory": "branded-residences",
-      "developmentSrc": "Faena",
+      "developmentSrc": "IconDevelopmentStRegisCostaMujeres",
       "developmentLink": "st-regis",
       "developmentHasPadding": false,
       "developmentHasZoom": false
@@ -71,7 +71,7 @@
       "developmentLocation": "Riviera Maya",
       "developmentGroup": "st-regis",
       "developmentCategory": "branded-residences",
-      "developmentSrc": "Faena",
+      "developmentSrc": "IconDevelopmentStRegisKanai",
       "developmentLink": "st-regis-kanai",
       "developmentHasPadding": false,
       "developmentHasZoom": false
@@ -277,15 +277,15 @@
     {
       "developmentId": "dev-gran-via-mar-tenerife",
       "developmentName": "Gran Via Al Mar Tenerife",
-      "developmentBanner": "BannerMayakoba",
+      "developmentBanner": "BannerGranViaMar",
       "developmentContent": "gran-via-del-mar-tenerife",
       "developmentAlt": "Gran Via Al Mar Tenerife",
       "developmentDestination": "puerto-morelos",
       "developmentLocation": "Puerto Morelos",
       "developmentCategory": "high-end-resort",
-      "developmentSrc": "Aflora",
+      "developmentSrc": "GranViaDelMar",
       "developmentLink": "gran-via-del-mar-tenerife",
-      "developmentHasPadding": false,
+      "developmentHasPadding": true,
       "developmentHasZoom": false
     },
     {
@@ -297,7 +297,7 @@
       "developmentDestination": "miami",
       "developmentLocation": "Brickell",
       "developmentCategory": "high-end-resort",
-      "developmentSrc": "Aflora",
+      "developmentSrc": "IconDevelopmentThe1428",
       "developmentLink": "the-1428-residences-miami-brickell",
       "developmentHasPadding": false,
       "developmentHasZoom": false
