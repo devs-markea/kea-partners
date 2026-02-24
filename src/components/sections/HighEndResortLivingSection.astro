@@ -1,39 +1,54 @@
 ---
 import DevelopmentCard from "../../components/DevelopmentCard.astro";
-import data from "../../data/data.json";
-const { highEndResortLiving } = data;
-const {t, lang} = Astro.props
+import data from "../../data/i18n/es/developments.json";
+
+const { listDevelopments } = data;
+const { t, lang } = Astro.props;
+
 const basePath = lang === 'en' ? '/en' : '';
-const withLang = (path) => `${basePath}${path}`;
+//const withLang = (path) => `/category/${basePath}${path}`;
+const withLang = (path) => `/high-end-and-resort-living/${basePath}${path}`;
+
+const category = "high-end-resort";
+
+const filteredDevelopments = listDevelopments?.filter(
+    (item) => item.developmentCategory === category
+);
 ---
 
 <section class="pt-11 pb-16 md:pt-16 md:pb-20">
     <div class="container mx-auto flex flex-col items-start">
         <div class="development-heading mb-4">
-            <h2 class="text-[32px] text-brand-700 font-aghato font-medium m-0" id="development">{t.highEndResortLiving.title}</h2>
+            <h2 class="text-[32px] text-brand-700 font-aghato font-medium m-0" id="development">
+                {t.highEndResortLiving.title}
+            </h2>
         </div>
+
         <div class="development-paragraph mb-6">
-            <p class="text-brand-700 font-normal">{t.highEndResortLiving.description}</p>
+            <p class="text-brand-700 font-normal">
+                {t.highEndResortLiving.description}
+            </p>
         </div>
-        {highEndResortLiving && highEndResortLiving.length > 0 ? (
+
+        {filteredDevelopments && filteredDevelopments.length > 0 ? (
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    {highEndResortLiving.map((item) => (
+                    {filteredDevelopments.map((item) => (
                             <DevelopmentCard
-                                    key={item.id ?? item.src}
-                                    alt={item.alt}
-                                    src={item.src}
-                                    link={withLang(item.link)}
-                                    hasPadding={item.hasPadding}
+                                    key={item.developmentId ?? item.developmentSrc}
+                                    alt={item.developmentAlt}
+                                    src={item.developmentSrc}
+                                    link={`/${item.developmentDestination}${withLang(item.developmentLink)}`}
+                                    hasPadding={item.developmentHasPadding}
+                                    hasZoom={item.developmentHasZoom}
                             />
                     ))}
                 </div>
         ) : (
                 <div class="flex justify-center min-h-[40vh]">
                     <h1 class="text-2xl font-semibold text-center">
-                        {t.development.none}
+                        {t.brandedResidences.none}
                     </h1>
                 </div>
         )}
-
     </div>
 </section>

@@ -1,5 +1,218 @@
 [
   {
+    "type": "Pagina de Recursos",
+    "image": "faena",
+    "destination": "México",
+    "microDestination": "Tulum",
+    "project": "Faena Tulum",
+    "category": "Branded Residences",
+    "title": "Recursos",
+    "description": "Recursos oficiales de Faena Tulum con información general del proyecto.",
+    "slug": "/tulum/branded-residences/faena/faena-tulum"
+  },
+  {
+    "type": "Pagina de Recursos",
+    "image": "aflora",
+    "destination": "México",
+    "microDestination": "Tulum",
+    "project": "Aflora",
+    "category": "High End & Resort Living",
+    "title": "Recursos",
+    "description": "Recursos oficiales de Aflora con información general del proyecto.",
+    "slug": "/tulum/high-end-and-resort-living/aflora-residences-tulum"
+  },
+  {
+    "type": "Pagina de Recursos",
+    "image": "mgallery",
+    "destination": "México",
+    "microDestination": "Tulum",
+    "project": "Mgallery",
+    "category": "Branded Residences",
+    "title": "Recursos",
+    "description": "Recursos oficiales de Mgallery con información general del proyecto.",
+    "slug": "/tulum/branded-residences/mgallery-residences/mgallery-residences-tulum"
+  },{
+    "type": "Pagina de Recursos",
+    "image": "ritz-carlton",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
+    "project": "Ritz Carlton",
+    "category": "Branded Residences",
+    "title": "Recursos",
+    "description": "Recursos oficiales de Ritz Carlton con información general del proyecto.",
+    "slug": "/riviera-maya/branded-residences/ritz-carlton/ritz-carlton-riviera-maya"
+  },{
+    "type": "Pagina de Recursos",
+    "image": "the-reserve-mayakoba",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
+    "project": "The Reserve Mayakoba",
+    "category": "High End & Resort Living",
+    "title": "Recursos",
+    "description": "Recursos oficiales de The Reserve Mayakoba con información general del proyecto.",
+    "slug": "/riviera-maya/high-end-and-resort-living/the-reserve-mayakoba-residences"
+  },{
+    "type": "Pagina de Recursos",
+    "image": "st-regis-kanai",
+    "destination": "México",
+    "microDestination": "Riviera Maya",
+    "project": "The St-regis Kanai",
+    "category": "Branded Residences",
+    "title": "Recursos",
+    "description": "Recursos oficiales de The St-regis Kanai con información general del proyecto.",
+    "slug": "/riviera-maya/branded-residences/st-regis/st-regis-kanai"
+  },{
+    "type": "Pagina de Recursos",
+    "image": "st-regis-costa-mujeres",
+    "destination": "México",
+    "microDestination": "Costa Mujeres",
+    "project": "The St-regis Costa Mujeres",
+    "category": "Branded Residences",
+    "title": "Recursos",
+    "description": "Recursos oficiales de The St-regis Costa Mujeres con información general del proyecto.",
+    "slug": "/costa-mujeres/branded-residences/st-regis/st-regis"
+  },{
+    "type": "Pagina de Recursos",
+    "image": "marietta",
+    "destination": "México",
+    "microDestination": "Isla Mujeres",
+    "project": "Marietta",
+    "category": "High End & Resort Living",
+    "title": "Recursos",
+    "description": "Recursos oficiales de Marietta con información general del proyecto.",
+    "slug": "/isla-mujeres/high-end-and-resort-living/marietta-isla-mujeres"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "thompson-puerto-cancun",
+  "destination": "México",
+  "microDestination": "cancun",
+  "project": "Thompson Puerto Cancun",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Thompson Puerto Cancun con información general del proyecto.",
+  "slug": "/cancun/branded-residences/thompson/thompson"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "bay-view-grand",
+  "destination": "México",
+  "microDestination": "cancun",
+  "project": "Bay View Grand",
+  "category": "High End & Resort Living",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Bay View Grand con información general del proyecto.",
+  "slug": "/cancun/high-end-and-resort-living/bay-view-grand-residences"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "one-laguna",
+  "destination": "México",
+  "microDestination": "cancun",
+  "project": "One Laguna",
+  "category": "High End & Resort Living",
+  "title": "Recursos",
+  "description": "Recursos oficiales de One Laguna con información general del proyecto.",
+  "slug": "/cancun/high-end-and-resort-living/one-laguna-residences-cancun"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "nautica-cancun",
+  "destination": "México",
+  "microDestination": "cancun",
+  "project": "Nautica",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Nautica con información general del proyecto.",
+  "slug": "/cancun/high-end-and-resort-living/one-laguna-residences-cancun"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "inna-beach-condos",
+  "destination": "México",
+  "microDestination": "Puerto Morelos",
+  "project": "Inna Beach Condos",
+  "category": "High End & Resort Living",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Inna Beach Condos con información general del proyecto.",
+  "slug": "/riviera-maya/high-end-and-resort-living/inna-beach-condos"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "gran-via-del-mar-tenerife",
+  "destination": "México",
+  "microDestination": "Puerto Morelos",
+  "project": "Gran Via del Mar Tenerife",
+  "category": "High End & Resort Living",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Gran Via del Mar Tenerife con información general del proyecto.",
+  "slug": "/puerto-morelos/high-end-and-resort-living/gran-via-del-mar-tenerife"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "thompson-mexico-city",
+  "destination": "México",
+  "microDestination": "Ciudad de Mexico",
+  "project": "Thompson Mexico City",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Thompson Mexico City con información general del proyecto.",
+  "slug": "/ciudad-de-mexico/branded-residences/thompson/thompson-residences-mexico-city"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "the-1428",
+  "destination": "Miami",
+  "microDestination": "Brickell",
+  "project": "The 1428",
+  "category": "High End & Resort Living",
+  "title": "Recursos",
+  "description": "Recursos oficiales de The 1428 con información general del proyecto.",
+  "slug": "/miami/high-end-and-resort-living/the-1428-residences-miami-brickell"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "faena-miami",
+  "destination": "Miami",
+  "microDestination": "Brickell",
+  "project": "Faena Miami",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Faena Miami con información general del proyecto.",
+  "slug": "/miami/branded-residences/faena/faena-residences-miami-brickell"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "pagani-da-vinci-tower",
+  "destination": "Dubai",
+  "microDestination": "",
+  "project": "Pagani Da Vinci Tower",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Pagani Da Vinci Tower con información general del proyecto.",
+  "slug": "/dubai/branded-residences/pagani-residences/pagani"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "trump-tower",
+  "destination": "Dubai",
+  "microDestination": "",
+  "project": "Trump Tower",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Trump Tower con información general del proyecto.",
+  "slug": "/dubai/branded-residences/trump-tower-residences/trump-tower-residences"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "marea-missoni",
+  "destination": "España",
+  "microDestination": "Costa del Sol",
+  "project": "Marea Missoni",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Marea Missoni con información general del proyecto.",
+  "slug": "/costa-del-sol/branded-residences/missoni-residences/marea-residences-missoni"
+  },{
+    "type": "Pagina de Recursos",
+  "image": "tierra-viva-lamborghini",
+  "destination": "España",
+  "microDestination": "Costa del Sol",
+  "project": "Tierra Viva Lamborghini",
+  "category": "Branded Residences",
+  "title": "Recursos",
+  "description": "Recursos oficiales de Tierra Viva Lamborghini con información general del proyecto.",
+  "slug": "/costa-del-sol/branded-residences/lamborghini-residences/tierra-viva-lamborghini-residences"
+  },
+  {
     "type": "Artículo",
     "image": "faena",
     "destination": "México",

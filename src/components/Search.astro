@@ -33,6 +33,10 @@ import SvgIcon from "./SvgIcon.astro";
         shouldSort: true,
         keys: [
             {
+                name: "project",
+                weight: 1.2,
+            },
+            {
                 name: "type",
                 weight: 1,
             },
@@ -80,7 +84,37 @@ import SvgIcon from "./SvgIcon.astro";
             return;
         }
 
-        const results = fuse.search(query).map(r => r.item);
+        const rawResults = fuse.search(query);
+        const itemsFound = rawResults.map(r => r.item);
+
+        const normalizedQuery = query.toLowerCase();
+
+// Buscar artículo principal de Recursos
+        const mainResourceArticle = itemsFound.find(item =>
+            item.title?.toLowerCase() === "recursos" &&
+            item.type?.toLowerCase() === "pagina de recursos" &&
+            item.project?.toLowerCase().includes(normalizedQuery)
+        );
+
+// Otros artículos del mismo proyecto
+        const relatedProjectArticles = itemsFound.filter(item =>
+            item.project?.toLowerCase().includes(normalizedQuery) &&
+            item !== mainResourceArticle
+        );
+
+// Resto
+        const otherArticles = itemsFound.filter(item =>
+            item !== mainResourceArticle &&
+            !item.project?.toLowerCase().includes(normalizedQuery)
+        );
+
+// Orden final
+        const results = [
+            ...(mainResourceArticle ? [mainResourceArticle] : []),
+            ...relatedProjectArticles,
+            ...otherArticles
+        ];
+
 
         suggestions.innerHTML = results.length
             ? results.map(item => `

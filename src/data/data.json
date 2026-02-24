@@ -47,7 +47,7 @@
       "name": "",
       "alt": "Faena Tulum",
       "src": "Faena",
-      "link": "/faena-tulum",
+      "link": "faena-tulum",
       "hasPadding": false
     },
     {
@@ -55,7 +55,7 @@
       "name": "",
       "alt": "St. Regis",
       "src": "StRegis",
-      "link": "/st-regis",
+      "link": "st-regis",
       "hasPadding": false
     },
     {
@@ -63,7 +63,7 @@
       "name": "",
       "alt": "Nautica",
       "src": "Nautica",
-      "link": "/nautica-residences-cancun",
+      "link": "nautica-residences-cancun",
       "hasPadding": true
     },
     {
@@ -71,7 +71,7 @@
       "name": "",
       "alt": "The Ritz",
       "src": "TheRitz",
-      "link": "/ritz-carlton-riviera-maya",
+      "link": "ritz-carlton-riviera-maya",
       "hasPadding": false
     },
     {
@@ -79,7 +79,7 @@
       "name": "",
       "alt": "Mgallery",
       "src": "Mgallery",
-      "link": "/mgallery-residences-tulum",
+      "link": "mgallery-residences-tulum",
       "hasPadding": false
     },
     {
@@ -87,7 +87,7 @@
       "name": "",
       "alt": "Thompson",
       "src": "Thompson",
-      "link": "/thompson",
+      "link": "thompson",
       "hasPadding": false
     }
 ],

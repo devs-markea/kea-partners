@@ -4,11 +4,80 @@
     "description": "Partner resource center",
     "subdescription": "Find everything you need to promote our developments: brochures, artwork, availability, and more."
   },
-  "development": {
+  "highEndResortLiving": {
     "title": "Developments",
     "description": "Select the High-End & Resort Living you are interested in to access all available resources: data sheets, pricing, brochures, social media content, and more.",
     "none": "No data available"
   },
+
+  "highlights_title": "Discover Luxury Real Estate in World-Class Destinations",
+  "highlights_subtitle": "Explore Premier Destinations",
+  "highlights_destinations": [
+    {
+      "destination": "riviera_maya",
+      "destination_img": "top-destination-riviera-maya",
+      "destination_title": "Riviera Maya",
+      "destination_description": "3 properties",
+      "destination_url": "riviera-maya"
+    },
+    {
+      "destination": "miami",
+      "destination_img": "top-destination-miami",
+      "destination_title": "Miami",
+      "destination_description": "2 properties",
+      "destination_url": "miami"
+    },
+    {
+      "destination": "cancun",
+      "destination_img": "top-destination-cancun",
+      "destination_title": "Cancún",
+      "destination_description": "5 properties",
+      "destination_url": "cancun"
+    },
+    {
+      "destination": "costa_mujeres",
+      "destination_img": "top-destination-costa-mujeres",
+      "destination_title": "Costa Mujeres",
+      "destination_description": "1 property",
+      "destination_url": "costa-mujeres"
+    },
+    {
+      "destination": "isla_mujeres",
+      "destination_img": "top-destination-isla-mujeres",
+      "destination_title": "Isla Mujeres",
+      "destination_description": "1 property",
+      "destination_url": "isla-mujeres"
+    },
+    {
+      "destination": "tulum",
+      "destination_img": "top-destination-tulum",
+      "destination_title": "Tulum",
+      "destination_description": "3 properties",
+      "destination_url": "tulum"
+    },
+    {
+      "destination": "costa_del_sol",
+      "destination_img": "top-destination-marbella-costa-del-sol",
+      "destination_title": "Costa del Sol",
+      "destination_description": "1 property",
+      "destination_url": "costa-del-sol"
+    },
+    {
+      "destination": "mexico_city",
+      "destination_img": "top-destination-mexico-city",
+      "destination_title": "Mexico City",
+      "destination_description": "1 property",
+      "destination_url": "mexico-city"
+    },
+    {
+      "destination": "dubai",
+      "destination_img": "top-destination-dubai",
+      "destination_title": "Dubai",
+      "destination_description": "1 property",
+      "destination_url": "dubai"
+    }
+  ],
+
   "brandedResidences": {
     "title": "Branded Residences",
     "description": "Luxury residences integrated into branded resorts that combine exclusive design, high-end hotel services, and a sophisticated lifestyle.",

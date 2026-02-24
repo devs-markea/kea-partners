@@ -12,6 +12,8 @@ import HighEndResortLivingSection from "../components/sections/HighEndResortLivi
 import FaqSection from "../components/sections/FaqSection.astro";
 import BannerHelperSection from "../components/sections/BannerHelperSection.astro";
 import BrandedResidencesSection from "../components/sections/BrandedResidencesSection.astro";
+import SectionExplorePremierDestinations from "../components/sections/SectionExplorePremierDestinations.astro";
+import FormSection from "../components/sections/FormSection.astro";
 
 const lang = "es";
 ---
@@ -19,6 +21,7 @@ const lang = "es";
     <!-- Hero -->
     <HeroSection t={home}/>
     <!-- Resont Branded Resedents  -->
+    <SectionExplorePremierDestinations t={home} lang="es"/>
     <BrandedResidencesSection t={home} lang="es"/>
     <!-- Developments -->
 
@@ -26,5 +29,5 @@ const lang = "es";
     <!-- FAQs -->
     <FaqSection t={home} />
     <!-- Banner -->
-    <BannerHelperSection t={home}/>
+    <FormSection t={home}/>
 </MainLayout>
