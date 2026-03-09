@@ -35,12 +35,14 @@ const Data = await modules[
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
-    { name: dev.developmentDestination },
+    { name: dev.developmentDestination
+            ?.replace(/-/g, " ")
+            .replace(/\b\w/g, c => c.toUpperCase()) },
     { name: 'High-End And Resort Living' },
     { name: dev.developmentName }
 ];
 ---
-<MainLayout title={heroData.title} lang="es" t={Common}>
+<MainLayout title="KEA Partners"lang="es" t={Common}>
     <HeroBannerSection t={heroData} lang="es" />
 
     <ResourceArticleSection

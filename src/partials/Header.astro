@@ -56,13 +56,13 @@ const switchLangUrl = lang === "es" ? "/en" : "/";
                 </li>
 
                 <li>
-                    <a href={resolveUrl(t.nav.category.url)} class="hover:text-blue-600 tracking-[10%]">
+                    <a href={"/" + resolveUrl(t.nav.category.url)} class="hover:text-blue-600 tracking-[10%]">
                         {t.nav.category.label}
                     </a>
                 </li>
 
                 <li>
-                    <a href={resolveUrl(t.nav.faq.url)} class="hover:text-blue-600 tracking-[10%]">
+                    <a href={"/" + resolveUrl(t.nav.faq.url)} class="hover:text-blue-600 tracking-[10%]">
                         {t.nav.faq.label}
                     </a>
                 </li>
