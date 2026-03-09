@@ -1,6 +1,6 @@
 {
   "nav": {
-  "title":"KNOWLEDGE CENTER",
+  "title":"",
   "home": {
     "label": "Inicio",
     "url": "/"
@@ -22,7 +22,7 @@
     "socialMedia": {
       "web": {
         "title": "Sitio web",
-        "url": "/"
+        "url": "https://kearealtors.com/"
       },
       "fb": {
         "title": "Facebook",

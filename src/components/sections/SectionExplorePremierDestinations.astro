@@ -28,18 +28,15 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
         <div class="flex justify-center">
             <div class="w-full">
 
-                <!-- Header al mismo nivel que las cards -->
-                <div class="flex items-center justify-between mb-12">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 ">
                     <h2 class="title">
                         {t.highlights_title}
                     </h2>
 
-                    <div class="subtitle">
+                    <div class="subtitle mt-2 md:mt-0">
                         {t.highlights_subtitle}
                     </div>
                 </div>
-
-
 
                 <!-- Content -->
                 <div class="destinations">
@@ -312,9 +309,10 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
         margin: 0 32px 32px 32px;
         background-color: rgba(255, 255, 255, 0.95);
         border-radius: 4px;
-        padding: 18px;
+        padding: 14px;
         z-index: 1;
     }
+
 
     .highlights .destinations .top-destination .content .float-card .heading {
         margin-bottom: 6px;
@@ -335,44 +333,77 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
         letter-spacing: 5%;
         margin: 0;
     }
-    /* Highlights Desktop Styles */
+    /* Highlights Styles */
+
+    /* Ajuste tipográfico */
     .highlights .subtitle span {
         font-size: 14px;
     }
 
+    /* FLOAT CARD - estado por defecto (mobile activo) */
+    /* Mobile: tarjeta visible */
     .highlights .destinations .top-destination .content .float-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transform: translateY(48px);
-        margin: 0 32px;
-        transition: transform 0.3s ease;
+        transform: translateY(0);
     }
 
-    .highlights .destinations .top-destination:hover .content::before {
-        background-color: transparent;
-    } .highlights .destinations .top-destination:hover .float-card {
-          transform: translateY(-32px);
-      }
+    /* Desktop */
+    @media (min-width: 768px) {
+
+        .highlights .destinations .top-destination .content .float-card {
+            transform: translateY(48px);
+            transition: transform 0.3s ease;
+        }
+
+        .highlights .destinations .top-destination:hover .float-card {
+            transform: translateY(-32px);
+        }
+
+        .highlights .destinations .top-destination .content .float-card {
+            margin: 0 32px 02px 32px;
+        }
+
+
+    }
     .title {
         font-family: 'Cormorant Garamond', serif;
         width: 20%;
-        font-weight: 500;       /* Medium */
-        font-style: normal;     /* Medium no es font-style, es weight */
+        font-weight: 500;
         font-size: 32px;
-        line-height: 1;         /* 100% */
-        letter-spacing: 0;      /* 0% */
+        line-height: 1;
+        letter-spacing: 0;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .subtitle {
         font-family: 'Jost', sans-serif;
-        width: 65%;
-        font-weight: 400;        /* Regular */
-        font-style: normal;      /* Regular */
+        width: 100%;
+        font-weight: 400;
         font-size: 16px;
-        line-height: 1;          /* 100% */
-        letter-spacing: 0;       /* 0% */
-        color: #6B7280;
+        line-height: 1;
+        color: #464648;
         text-align: justify;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @media (min-width: 768px) {
+
+        .title {
+            padding-left: 16px;
+            padding-right: 16px;
+            margin: 0;
+        }
+
+        .subtitle {
+            width: 65%;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-bottom: 0;
+        }
+
+    }
+    .destinations {
+        padding: 16px;
     }
 </style>

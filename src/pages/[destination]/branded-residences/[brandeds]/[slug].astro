@@ -42,13 +42,15 @@ const nameGroup = matchedGroup?.brandedResidentName || dev.developmentGroup;
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
-    { name: dev.developmentDestination },
+    { name: dev.developmentDestination
+            ?.replace(/-/g, " ")
+            .replace(/\b\w/g, c => c.toUpperCase()) },
     { name: 'Branded Residences' },
     { name: nameGroup },
     { name: dev.developmentName }
-];
+]; //heroData.title
 ---
-<MainLayout title={heroData.title} lang="es" t={Common}>
+<MainLayout title="KEA Partners" lang="es" t={Common}>
     <HeroBannerSection t={heroData} lang="es" />
 
     <ResourceArticleSection
