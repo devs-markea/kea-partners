@@ -1,0 +1,13 @@
+---
+import {images} from "../../../assets/images";
+import {Image} from "astro:assets";
+const {t, lang } = Astro.props;
+const bannerImage = images[t.bannerKey];
+---
+<section class="relative py-16 md:py-28">
+    <Image class="absolute inset-0 w-full h-full object-cover" src={bannerImage} alt={t.alt} quality={90}  loading="eager"/>
+    <div class="absolute inset-0 w-full h-full bg-black/50"></div>
+    <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
+        <h1  class="text-[32px] md:text-5xl text-brand-50 font-aghato font-medium uppercase md:mt-5 mb-0">{t.title}</h1>
+    </div>
+</section>

@@ -1,0 +1,657 @@
+---
+import Image from "astro/components/Image.astro";
+import brokerImage from "../../assets/images/broken/broker-rodrigo-setien.webp";
+
+const { t, lang, developmentName } = Astro.props;
+const KEY_GOOGLE = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+const siteTag = '';
+---
+
+<section id="sectionForm" class="section-form mt-16">
+    <div class="w-full px-5 mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
+        <div class="flex flex-wrap -mx-3">
+            <div class="w-full lg:w-10/12 mx-auto px-3">
+                <div class="flex flex-wrap -mx-3 md:pl-1">
+
+                    <!-- BROKER COLUMN -->
+                    <div class="w-full lg:w-5/12 px-3">
+                        <div class="broker-container lg:flex lg:justify-start">
+                            <div class="broker-person relative">
+                                <div class="photo-broker">
+                                    <div class="photo-broker__background">
+                                        <Image src={brokerImage} alt="Rodrigo Setién" class="broker-img" />
+                                    </div>
+                                </div>
+                                <div class="bottom-contact">
+                                    <h3>{t['broker_name']}</h3>
+                                    <p>{t['broker_occupation']}</p>
+                                    <div class="spacer-top"></div>
+                                    <a class="broker-cta" href={`tel:${t['broker_phone_number']}`}>
+                                        <span class="hidden lg:inline-block pe-1">{t['broker_phone']}</span>
+                                        <span>{t['broker_phone_display']}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORM COLUMN -->
+                    <div class="w-full lg:w-7/12 px-3">
+                        <div class="heading-form">
+                            <span>{t['form_subtitle']}</span>
+                            <h2>{t['form_title']}</h2>
+                            <p>{t['form_description']}</p>
+                        </div>
+                        <form id="contactForm" method="POST" class="space-y-4" novalidate>
+                            <!-- NAME -->
+                            <input type="hidden" name="tag" id="siteTag" value={siteTag} />
+
+                            <div class="flex flex-col gap-4 lg:flex-row">
+                               <div class="flex-1">
+                                   <input type="text" name="name" id="name" required placeholder="Nombre"
+                                          class="w-full border border-gray-300 rounded-lg px-4 py-3"/>
+                                   <p class="text-red-500 text-sm mt-1 hidden" id="nameError">
+                                       El nombre es obligatorio.
+                                   </p>
+                               </div>
+                                <div class="flex-1">
+                                   <input type="text" name="lastname" id="lastname" required placeholder="Apellido"
+                                          class="w-full border border-gray-300 rounded-lg px-4 py-3"/>
+                                   <p class="text-red-500 text-sm mt-1 hidden" id="lastnameError">
+                                       El apellido es obligatorio.
+                                   </p>
+                               </div>
+                            </div>
+
+                            <!-- EMAIL + PHONE -->
+                            <div class="flex flex-col gap-4 lg:flex-row">
+                                <div class="flex-1">
+                                    <input type="email" name="email" id="email" required placeholder="Correo electrónico"
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3"/>
+                                    <p class="text-red-500 text-sm mt-1 hidden" id="emailError">
+                                        Ingresa un correo electrónico válido.
+                                    </p>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="tel" name="phone" id="phone" required placeholder="Número telefónico"
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3"/>
+                                    <p class="text-red-500 text-sm mt-1 hidden" id="phoneError">
+                                        El número telefónico es obligatorio.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- MESSAGE -->
+                            <div>
+                            <textarea name="message" id="message" rows="4" required placeholder="Escribe aquí tu mensaje"
+                                      class="w-full border border-gray-300 rounded-lg px-4 py-3"></textarea>
+                                <p class="text-red-500 text-sm mt-1 hidden" id="messageError">
+                                    El mensaje es obligatorio.
+                                </p>
+                            </div>
+
+                            <!-- BUTTON + MESSAGES -->
+                            <div>
+                                <button type="submit" id="submitBtn" class="flex items-center justify-center w-[175px] h-[44px] px-4 py-3 gap-2 bg-brand-400 text-white text-sm font-medium rounded-[100px] transition duration-300 hover:opacity-90">
+                                    Enviar
+                                </button>
+                                <div>
+                                    <p id="formSuccess" class="hidden text-green-600 mt-2">¡Mensaje enviado correctamente!</p>
+                                    <p id="formError" class="hidden text-red-600 mt-2">Hubo un error, intenta de nuevo.</p>
+                                    <p id="formRateLimit" class="hidden text-red-600 mt-2">Has alcanzado el límite de envíos. Intenta de nuevo más tarde.</p>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-4">
+                                    Este sitio está protegido por reCAPTCHA. Aplican la
+                                    <a href="https://policies.google.com/privacy" target="_blank" class="underline">Política de Privacidad</a>
+                                    y los
+                                    <a href="https://policies.google.com/terms" target="_blank" class="underline">Términos de Servicio</a>
+                                    de Google.
+                                </p>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+</script>
+<!-- reCAPTCHA: cargar script con tu site key -->
+<script src={`https://www.google.com/recaptcha/api.js?render=${KEY_GOOGLE}`}></script>
+
+<script define:vars={{ KEY_GOOGLE }}>
+    window.addEventListener("load", () => {
+
+        // Ocultar badge
+        const badge = document.querySelector(".grecaptcha-badge");
+        if (badge) {
+            badge.style.setProperty("visibility", "hidden", "important");
+            badge.style.setProperty("opacity", "0", "important");
+            badge.style.setProperty("width", "0", "important");
+            badge.style.setProperty("height", "0", "important");
+        }
+
+        const form = document.getElementById("contactForm");
+        if (!form) return;
+
+        const successEl = document.getElementById("formSuccess");
+        const errorEl = document.getElementById("formError");
+        const submitBtn = document.getElementById("submitBtn");
+        const rateLimitEl = document.getElementById("formRateLimit");
+
+        const fields = [
+            { input: form.name, error: document.getElementById("nameError") },
+            { input: form.lastname, error: document.getElementById("lastnameError") },
+            { input: form.email, error: document.getElementById("emailError"), validator: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) },
+            { input: form.phone, error: document.getElementById("phoneError") },
+            { input: form.message, error: document.getElementById("messageError") },
+        ];
+
+        fields.forEach(f => {
+            f.input.addEventListener("input", () => {
+                if (f.input.value.trim() && (!f.validator || f.validator(f.input.value))) {
+                    f.error.classList.add("hidden");
+                }
+            });
+        });
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+            fields.forEach(f => {
+                if (!f.input.value.trim() || (f.validator && !f.validator(f.input.value))) {
+                    f.error.classList.remove("hidden");
+                    isValid = false;
+                } else {
+                    f.error.classList.add("hidden");
+                }
+            });
+
+            if (!isValid) return;
+
+            successEl?.classList.add("hidden");
+            errorEl?.classList.add("hidden");
+            rateLimitEl?.classList.add("hidden");
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Verificando...";
+
+            try {
+                // grecaptcha.ready garantiza que reCAPTCHA esté completamente cargado
+                const recaptchaToken = await new Promise((resolve, reject) => {
+                    grecaptcha.ready(async () => {
+                        try {
+                            const token = await grecaptcha.execute(KEY_GOOGLE, { action: "contact_form" });
+                            resolve(token);
+                        } catch (err) {
+                            reject(err);
+                        }
+                    });
+                });
+
+                const response = await fetch("https://kearealtors.com/api/submit-contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        name: form.name.value,
+                        lastname: form.lastname.value,
+                        email: form.email.value,
+                        phone: form.phone.value,
+                        message: form.message.value,
+                        tag: form.tag.value,
+                        recaptchaToken,
+                    }),
+                });
+
+                if (response.status === 429) {
+                    rateLimitEl.textContent = "Has alcanzado el límite de envíos. Intenta de nuevo más tarde.";
+                    rateLimitEl?.classList.remove("hidden");
+                    return;
+                }
+
+                let data = null;
+                try { data = await response.json(); } catch {}
+
+                if (response.ok && data?.success) {
+                    form.reset();
+                    successEl?.classList.remove("hidden");
+                } else if (data?.error) {
+                    errorEl.textContent = "Hubo un error, intenta de nuevo o mas tarde.";
+                    errorEl?.classList.remove("hidden");
+                } else {
+                    errorEl.textContent = "Hubo un error, intenta de nuevo.";
+                    errorEl?.classList.remove("hidden");
+                }
+
+            } catch (err) {
+                errorEl.textContent = "Hubo un error, intenta de nuevo.";
+                errorEl?.classList.remove("hidden");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Send Request";
+            }
+        });
+    });
+</script>
+
+<!-- ...tu <style> sin cambios... -->
+<style>
+/* Contact Form Section */
+.section-form {
+    margin-bottom: 126px;
+    }
+
+.broker-person {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    }
+
+.broker-person .photo-broker {
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+    }
+
+.photo-broker__background {
+    position: relative;
+    top: 4px;
+    }
+
+.photo-broker__background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    z-index: -1;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4px;
+    border-radius: 16px 16px 0 8px;
+    }
+
+.heading-form {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    }
+
+.heading-form span {
+    color: var(--secondary-900);
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 5%;
+    margin-bottom: 4px;
+    }
+
+.heading-form h2 {
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 5%;
+    color: var(--neutral-900);
+    margin-bottom: 16px;
+    }
+
+.heading-form p {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 5%;
+    color: var(--neutral-900);
+    line-height: 24px;
+    }
+
+.bottom-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 4px 16px 4px 148px;
+    border-radius: 0 8px 8px 8px;
+    position: relative;
+    background-color: #FFF;
+    width: 100%;
+    margin-right: 0;
+    }
+
+.bottom-contact:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    background-color: var(--secondary-900);
+    z-index: -1;
+    box-shadow: 0 0 8px var(--neutral-300);
+    border-radius: 0 8px 8px 8px;
+    }
+
+.broker-person .bottom-contact h3 {
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--neutral-900);
+    margin-bottom: 4px;
+    }
+
+.broker-person .bottom-contact p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--neutral-900);
+    margin-bottom: 4px;
+    }
+
+.broker-person .bottom-contact .spacer-top {
+    width: 100%;
+    height: 1px;
+    background-color: var(--neutral-300);
+    margin-bottom: 4px;
+    }
+
+.broker-person .bottom-contact .broker-cta {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 32px;
+    color: var(--neutral-900);
+    }
+
+.broker-person .bottom-contact .broker-cta > span:last-child {
+    text-decoration: underline;
+    }
+
+/* Desktop styles (992px and up) */
+@media (min-width: 992px) {
+
+    .pointer-events {
+        pointer-events: auto;
+    }
+
+    /* Hero Desktop Styles */
+    .hero.-type-11 .hero__title {
+        font-size: 40px;
+        line-height: 44px;
+    }
+
+    .hero.-type-11 .hero__subtitle > p:first-child {
+        font-size: 20px;
+    }
+
+
+    .hero.-type-11 .hero__bg img {
+        object-position: 0%;
+    }
+
+    .hero.-type-11 .hero__slider .hero__content .hero__information {
+        width: 45%;
+    }
+
+    .feature .heading {
+        margin-bottom: 20px;
+    }
+
+    .badge-wta {
+        display: block;
+        width: 100px;
+        height: 100px;
+        margin-right: 16px;
+    }
+
+    /* Feature Desktop Styles */
+    .feature .heading h2 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .feature-image {
+        display: flex;
+        justify-content: end;
+        max-width: 85%;
+        margin-right: 0;
+    }
+
+    .floating-border::before {
+        content: '';
+        position: absolute;
+        top: 32px;
+        bottom: -32px;
+        left: 32px;
+        right: -32px;
+        border: 1px solid var(--secondary-900);
+        border-radius: 8px;
+    }
+
+    .banner .hero-content h2 {
+        font-size: 24px;
+    }
+
+    .schedule-call .schedule-call__container h2 {
+        font-size: 24px;
+    }
+
+    .schedule-call__container .button {
+        font-weight: 500 !important;
+    }
+
+    .amenities-heading .amenities-heading__content span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .amenities-heading .amenities-heading__content h2 {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .models-heading span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .models-heading h2 {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .heading-form span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Amenities */
+    .amenities-swiper__content .amenities-swiper__image {
+        width: 100%;
+        height: 450px;
+    }
+
+    /* Discovery a New Way of Life */
+    .section-featured {
+        display: flex;
+        margin-bottom: 254px;
+    }
+
+    .featured__container-main {
+        width: 50%;
+    }
+
+    .featured-discover {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10rem;
+        width: 60%;
+    }
+
+    .featured-discover span {
+        font-size: 14px;
+    }
+
+    .featured-discover h2 {
+        font-size: 32px;
+    }
+
+    .image-main {
+        width: 100%;
+        height: 466px;
+    }
+
+    .image-second {
+        position: absolute;
+        width: 324px;
+        right: -16px;
+        bottom: 0;
+        margin-bottom: -8rem;
+    }
+
+    .featured__container-second:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #F7F4F0;
+        z-index: -1;
+        border-radius: 16px 0 0 16px;
+        left: 0;
+        margin-left: -14rem;
+    }
+
+    .featured__container-second {
+        top: 0;
+        left: 0;
+        width: 50%;
+        padding: 0;
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .featured-faena-residences {
+        width: 60%;
+    }
+
+    .amenities-heading .amenities-heading__content {
+        margin: 0 auto;
+    }
+
+    .payment-methods__img {
+        width: 50%;
+    }
+
+    /* Payments */
+    .highlights .heading h2 {
+        font-size: 28px;
+    }
+
+    .listing-financing .listing-financing__card h3 {
+        font-size: 28px;
+    }
+
+    .listing-financing .listing-financing__card span {
+        font-size: 16px;
+    }
+
+    /* Development Realtor */
+    .z-md-1 {
+        z-index: 1 !important;
+    }
+
+    .developer-realtor {
+        background-color: #F7F4F0;
+        padding: 64px 0;
+        margin-bottom: 100px;
+    }
+
+    .developer-realtor__heading {
+        background-color: var(--primary-900);
+        padding: 40px 32px;
+        border-radius: 8px;
+        position: absolute;
+        left: -2rem;
+        bottom: -128px;
+        right: 0;
+    }
+
+    .developer-realtor__image {
+        position: relative;
+        top: 0;
+    }
+
+    .developer-realtor__image img {
+        border-radius: 16px;
+        width: 100% !important;
+        height: 450px;
+        object-fit: cover;
+        object-position: right;
+    }
+
+    .developer-realtor__heading::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+        bottom: -8px;
+        left: 32px;
+        right: -8px;
+        border: 1px solid var(--secondary-900);
+        border-left: none;
+        border-radius: 0 8px 8px 0;
+        z-index: -1;
+    }
+
+    /* Section Form */
+    .heading-form {
+        margin-top: 48px;
+    }
+
+    .broker-person .photo-broker {
+        width: 314px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .broker-person {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .bottom-contact {
+        align-items: center;
+        padding: 20px 16px;
+    }
+
+    .photo-broker__background {
+        top: 0;
+    }
+
+    .broker-person .bottom-contact h3 {
+        font-family: var(--font-secondary), sans-serif;
+        font-size: 24px;
+    }
+
+    .broker-person .bottom-contact p {
+        font-size: 16px;
+    }
+
+    .broker-person .bottom-contact .broker-cta {
+        font-size: 16px;
+    }
+
+    .photo-broker__background::after {
+        border-radius: 16px 16px 0 0;
+        margin-top: 4rem;
+        margin-right: 16px;
+        margin-bottom: 0;
+    }
+}
+</style>
+

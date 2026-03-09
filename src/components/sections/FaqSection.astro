@@ -1,13 +1,14 @@
 ---
 import FaqItem from "../../components/FaqItem.astro";
 import data from "../../data/data.json";
-const { faqs } = data;
 const {t} = Astro.props;
+const faqs = t.faqs.faq_item;
+
 ---
-<section class="bg-brand-300 bg-opacity-10 pb-14 pt-14">
+<section id="faq" class="scroll-mt-24 bg-brand-300 bg-opacity-10 pb-14 pt-14">
     <div class="container mx-auto flex flex-col items-center">
         <div class="faqs-title mb-12">
-            <h2 class="m-0 text-[32px] text-brand-700 font-aghato font-medium" id="faq">{t.faqs.title}</h2>
+            <h2 class="m-0 text-[32px] text-brand-700 font-aghato font-medium" >{t.faqs.title}</h2>
         </div>
         {faqs.length > 0 ? (
                 <div class="w-full">

@@ -1,0 +1,39 @@
+{
+  "nav": {
+  "title":"",
+  "home": {
+    "label": "Inicio",
+    "url": "/"
+  },
+  "category": {
+    "label": "Categoría",
+    "url": "#development"
+  },
+  "contact": {
+    "label": "Contacto",
+    "url": "tel:+52"
+  },
+  "faq": {
+    "label": "FAQS",
+    "url": "#faq"
+  }
+},
+  "footer": {
+    "socialMedia": {
+      "web": {
+        "title": "Sitio web",
+        "url": "https://kearealtors.com/"
+      },
+      "fb": {
+        "title": "Facebook",
+        "url": "https://www.facebook.com/share/1Bzw8CzMaJ/?mibextid=wwXIfr"
+      },
+      "ig": {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/kearealtors"
+      }
+    },
+    "rights": "Todos los derechos reservados",
+    "dev": "Desarrollado con ❤️ y Astro"
+  }
+}

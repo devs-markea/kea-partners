@@ -1,0 +1,46 @@
+---
+import Breadcrumb from "../../Breadcrumb.astro";
+import ArticleCard from "../../ArticleCard.astro";
+import TopicCard from "../../TopicCard.astro";
+import DevelopmentCard from "../../DevelopmentCard.astro";
+const { breadcrumbItems, developments, lang } = Astro.props;
+
+---
+<section class="mb-16 md:mb-[124px] min-h-[calc(80vh-88px)]">
+    <div class="container">
+        <div class="pt-6 pb-5">
+            <Breadcrumb items={breadcrumbItems} />
+        </div>
+        <div class="articles">
+            {developments && developments.length > 0 ? (
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        {developments.map((item) => {
+                            const link =
+                                item.developmentCategory === "branded-residences"
+                                    ? `/${item.developmentDestination}/branded-residences/${item.developmentGroup}/${item.developmentLink}`
+                                    : item.developmentCategory === "high-end-resort"
+                                        ? `/${item.developmentDestination}/high-end-and-resort-living/${item.developmentLink}`
+                                        : `/${item.developmentDestination}/${item.developmentLink}`;
+
+                            return (
+                                    <DevelopmentCard
+                                            key={item.developmentId}
+                                            alt={item.developmentAlt}
+                                            src={item.developmentSrc}
+                                            link={link}
+                                            hasPadding={item.developmentHasPadding}
+                                    />
+                            );
+                        })}
+                    </div>
+            ) : (
+                    <div class="flex justify-center min-h-[40vh]">
+                        <h1 class="text-2xl font-semibold text-center">
+                            No hay desarrollos disponibles para este destino
+                        </h1>
+                    </div>
+            )}
+        </div>
+
+    </div>
+</section>

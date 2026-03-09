@@ -1,11 +1,53 @@
 {
-  "development": [
+  "highEndResortLiving": [
+    {
+      "id": "dev-marietta",
+      "name": "",
+      "alt": "Marietta",
+      "src": "Marietta",
+      "link": "/marietta-isla-mujeres",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-bay-view",
+      "name": "",
+      "alt": "BayViewGrand",
+      "src": "BayView",
+      "link": "/bay-view-grand-residences",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-one-laguna",
+      "name": "",
+      "alt": "OneLaguna",
+      "src": "OneLaguna",
+      "link": "/one-laguna-residences-cancun",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-inna",
+      "name": "",
+      "alt": "InnaBeach",
+      "src": "Inna",
+      "link": "/inna-beach-condos",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-aflora",
+      "name": "",
+      "alt": "Aflora",
+      "src": "Aflora",
+      "link": "/aflora-residences-tulum",
+      "hasPadding": false
+    }
+  ],
+  "brandedResidences": [
     {
       "id": "dev-faena-tulum",
       "name": "",
       "alt": "Faena Tulum",
       "src": "Faena",
-      "link": "/faena-tulum",
+      "link": "faena-tulum",
       "hasPadding": false
     },
     {
@@ -13,7 +55,7 @@
       "name": "",
       "alt": "St. Regis",
       "src": "StRegis",
-      "link": "/st-regis",
+      "link": "st-regis",
       "hasPadding": false
     },
     {
@@ -21,42 +63,34 @@
       "name": "",
       "alt": "Nautica",
       "src": "Nautica",
-      "link": "/nautica",
+      "link": "nautica-residences-cancun",
       "hasPadding": true
-    },
-    {
-      "id": "dev-marietta",
-      "name": "",
-      "alt": "Marietta",
-      "src": "Marietta",
-      "link": "/marietta",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-mayaliah",
-      "name": "",
-      "alt": "Mayaliah",
-      "src": "Mayaliah",
-      "link": "/mayaliah",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-gran-via-del-mar",
-      "name": "",
-      "alt": "Gran Via del Mar",
-      "src": "GranViaDelMar",
-      "link": "/gran-via-del-mar",
-      "hasPadding": false
     },
     {
       "id": "dev-the-ritz",
       "name": "",
       "alt": "The Ritz",
       "src": "TheRitz",
-      "link": "/the-ritz",
+      "link": "ritz-carlton-riviera-maya",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-mgallery",
+      "name": "",
+      "alt": "Mgallery",
+      "src": "Mgallery",
+      "link": "mgallery-residences-tulum",
+      "hasPadding": false
+    },
+    {
+      "id": "dev-thompson",
+      "name": "",
+      "alt": "Thompson",
+      "src": "Thompson",
+      "link": "thompson",
       "hasPadding": false
     }
-  ],
+],
   "faqs": [
     {
       "id": "faq-material-publicitario",

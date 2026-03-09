@@ -7,6 +7,7 @@ interface Props {
     src: keyof typeof images;
     alt: string;
     hasPadding?: boolean;
+    hasZoom?: boolean;
 }
 
 const {
@@ -14,9 +15,9 @@ const {
     alt,
     link,
     hasPadding = true,
+    hasZoom = false,
 } = Astro.props;
 
-// Resolución segura del asset
 const imgSrc = images[src];
 
 if (!imgSrc) {
@@ -24,15 +25,17 @@ if (!imgSrc) {
 }
 ---
 
-<div class="flex items-center justify-center border border-gray-200 rounded-xl basis-[calc(50%-0.5rem)] md:basis-[calc(16.666%-0.5rem)] min-h-[180px]">
+<div class="w-full min-w-0 h-[190px] grid place-items-center border border-gray-200 rounded-xl overflow-hidden">
     <a
             href={link}
-            class={`w-full h-full flex items-center justify-center ${
+            class={`grid place-items-center w-full h-full ${
                 hasPadding ? "p-10" : ""
             }`}
     >
         <Image
-                class="w-1/2 h-auto m-auto"
+                class={`max-w-full max-h-full object-contain ${
+                    hasZoom ? "scale-125" : ""
+                }`}
                 src={imgSrc}
                 alt={alt}
                 quality={90}

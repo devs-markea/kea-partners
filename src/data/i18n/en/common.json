@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "title": "KNOWLEDGE CENTER",
+    "home": {
+      "label": "Home",
+      "url": "/"
+    },
+    "category": {
+      "label": "Category",
+      "url": "#development"
+    },
+    "contact": {
+      "label": "Contact",
+      "url": "tel:+52"
+    },
+    "faq": {
+      "label": "FAQs",
+      "url": "#faq"
+    }
+  },
+  "footer": {
+    "socialMedia": {
+      "web": {
+        "title": "Website",
+        "url": "/"
+      },
+      "fb": {
+        "title": "Facebook",
+        "url": "https://www.facebook.com/share/1Bzw8CzMaJ/?mibextid=wwXIfr"
+      },
+      "ig": {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/kearealtors"
+      }
+    },
+    "rights": "All rights reserved",
+    "dev": "Developed with ❤️ and Astro"
+  }
+}

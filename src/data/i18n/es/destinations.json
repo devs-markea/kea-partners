@@ -1,0 +1,69 @@
+{
+  "destinationsTitle": "Pagina de destinos",
+  "destinationsContent": "Pagina de destinos",
+  "listDestinations": [
+    {
+      "destinationTitle": "Tulum",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerFaena",
+      "destinationAlt": "Tulum",
+      "destinationUrl": "tulum"
+    },
+    {
+      "destinationTitle": "Riviera Maya",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerRivieraMaya",
+      "destinationAlt": "Riviera Maya",
+      "destinationUrl": "riviera-maya"
+    },
+    {
+      "destinationTitle": "Cancun",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerCancun",
+      "destinationAlt": "Cancun",
+      "destinationUrl": "cancun"
+    },
+    {
+      "destinationTitle": "Ciudad de México",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerMexicoCity",
+      "destinationAlt": "Ciudad de México",
+      "destinationUrl": "ciudad-de-mexico"
+    },
+    {
+      "destinationTitle": "Costa del Sol",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerCostaSol",
+      "destinationAlt": "Costa del Sol",
+      "destinationUrl": "costa-del-sol"
+    },
+    {
+      "destinationTitle": "Costa Mujeres",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerCostaMujeres",
+      "destinationAlt": "Costa Mujeres",
+      "destinationUrl": "costa-mujeres"
+    },
+    {
+      "destinationTitle": "Dubai",
+      "destinationLocation": "Emiratos Árabes",
+      "destinationBannerKey": "BannerDubai",
+      "destinationAlt": "Dubai",
+      "destinationUrl": "dubai"
+    },
+    {
+      "destinationTitle": "Islas Mujeres",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerIslaMujeres",
+      "destinationAlt": "Islas Mujeres",
+      "destinationUrl": "isla-mujeres"
+    },
+    {
+      "destinationTitle": "Miami",
+      "destinationLocation": "Estados Unidos",
+      "destinationBannerKey": "BannerMiami",
+      "destinationAlt": "Miami",
+      "destinationUrl": "miami"
+    }
+  ]
+}

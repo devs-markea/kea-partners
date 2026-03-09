@@ -1,0 +1,59 @@
+{
+  "developments_list": [
+    {
+      "developmentId": "dev-marietta",
+      "developmentName": "Marietta",
+      "developmentAlt": "Marietta",
+      "developmentDestination": "isla-mujeres",
+      "developmentLocation": "Isla Mujeres",
+      "developmentCategory": "hightResort",
+      "developmentSrc": "Marietta",
+      "developmentLink": "/marietta-isla-mujeres",
+      "developmentHasPadding": false
+    },
+    {
+      "developmentId": "dev-bay-view",
+      "developmentName": "Bay View Grand",
+      "developmentAlt": "BayViewGrand",
+      "developmentDestination": "cancun",
+      "developmentlocation": "Cancún",
+      "developmentCategory": "hightResort",
+      "developmentSrc": "BayView",
+      "developmentLink": "/bay-view-grand-residences",
+      "developmentHasPadding": false
+    },
+    {
+      "developmentId": "dev-one-laguna",
+      "developmentName": "",
+      "developmentAlt": "OneLaguna",
+      "developmentDestination": "cancun",
+      "developmentLocation": "Cancún",
+      "developmentCategory": "hightResort",
+      "developmentSrc": "OneLaguna",
+      "developmentLink": "/one-laguna-residences-cancun",
+      "developmentHasPadding": false
+    },
+    {
+      "developmentId": "dev-inna",
+      "developmentName": "",
+      "developmentAlt": "InnaBeach",
+      "developmentDestination": "riviera-maya",
+      "developmentLocation": "Riviera Maya",
+      "developmentCategory": "hightResort",
+      "developmentSrc": "Inna",
+      "developmentLink": "/inna-beach-condos",
+      "developmentHasPadding": false
+    },
+    {
+      "developmentId": "dev-aflora",
+      "developmentName": "",
+      "developmentAlt": "Aflora",
+      "developmentDestination": "tulum",
+      "developmentLocation": "Tulum",
+      "developmentCategory": "hightResort",
+      "developmentSrc": "Aflora",
+      "developmentLink": "/aflora-residences-tulum",
+      "developmentHasPadding": false
+    }
+  ]
+}

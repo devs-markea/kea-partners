@@ -1,0 +1,73 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+import HeroArticleSection from "../../../components/sections/article/HeroArticleSection.astro";
+import DestinationSection from "../../../components/sections/article/DestinationSection.astro";
+import DestinationData from '../../../data/i18n/es/branded-residences.json';
+
+import Common from '../../../data/i18n/es/common.json';
+import DevelopmentsData from '../../../data/i18n/es/developments.json';
+
+export async function getStaticPaths() {
+
+    const branded = DevelopmentsData.listDevelopments
+        .filter(dev => dev.developmentCategory === "branded-residences");
+
+    // combinaciones únicas destino + grupo
+    const uniqueGroups = [
+        ...new Set(
+            branded.map(dev => `${dev.developmentDestination}::${dev.developmentGroup}`)
+        )
+    ];
+
+    return uniqueGroups.map(item => {
+        const [destination, group] = item.split("::");
+
+        return {
+            params: {
+                destination,
+                slug: group
+            },
+            props: {
+                destination,
+                group
+            }
+        };
+    });
+}
+
+const { destination, group } = Astro.props;
+
+// 🔥 FILTRO CORRECTO
+const relatedDevelopments = DevelopmentsData.listDevelopments.filter(
+    dev =>
+        dev.developmentCategory === "branded-residences" &&
+        dev.developmentDestination === destination &&
+        dev.developmentGroup === group
+);
+
+if (relatedDevelopments.length === 0) {
+    throw new Error("Group not found");
+}
+
+const heroData = {
+    title: group,
+    bannerKey: relatedDevelopments[0].developmentBanner,
+    alt: group
+};
+
+const breadcrumbItems = [
+    { name: 'Inicio', url: '/' },
+    { name: destination },
+    { name: 'Branded Residences' },
+    { name: group }
+];
+---
+<MainLayout title="KEA Partners" lang="es" t={Common}>
+    <HeroArticleSection t={heroData} lang="es" />
+
+    <DestinationSection
+            breadcrumbItems={breadcrumbItems}
+            developments={relatedDevelopments}
+            lang="es"
+    />
+</MainLayout>

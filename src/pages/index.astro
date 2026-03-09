@@ -1,25 +1,33 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import es from '../locales/es.json';
+import home from '../data/i18n/es/home.json';
+import common from '../data/i18n/es/common.json';
 import SvgIcon from "../components/SvgIcon.astro";
 import {Image} from "astro:assets";
 import { images } from "../assets/images";
 import Search from "../components/Search.astro";
 import DevelopmentCard2 from "../components/DevelopmentCard2.astro";
 import HeroSection from "../components/sections/HeroSection.astro";
-import DevelopmentSection from "../components/sections/DevelopmentSection.astro";
+import HighEndResortLivingSection from "../components/sections/HighEndResortLivingSection.astro";
 import FaqSection from "../components/sections/FaqSection.astro";
 import BannerHelperSection from "../components/sections/BannerHelperSection.astro";
+import BrandedResidencesSection from "../components/sections/BrandedResidencesSection.astro";
+import SectionExplorePremierDestinations from "../components/sections/SectionExplorePremierDestinations.astro";
+import FormSection from "../components/sections/FormSection.astro";
 
 const lang = "es";
 ---
-<MainLayout title="Home" lang={lang} t={es}>
+<MainLayout title="KEA Partners" lang={lang} t={common}>
     <!-- Hero -->
-    <HeroSection t={es}/>
+    <HeroSection t={home}/>
+    <!-- Resont Branded Resedents  -->
+    <SectionExplorePremierDestinations t={home} lang="es"/>
+    <BrandedResidencesSection t={home} lang="es"/>
     <!-- Developments -->
-    <DevelopmentSection t={es} lang="es"/>
+
+    <HighEndResortLivingSection t={home} lang="es"/>
     <!-- FAQs -->
-    <FaqSection t={es} />
+    <FaqSection t={home} />
     <!-- Banner -->
-    <BannerHelperSection t={es}/>
+    <FormSection t={home}/>
 </MainLayout>

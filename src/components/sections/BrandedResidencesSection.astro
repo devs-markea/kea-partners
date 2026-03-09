@@ -1,0 +1,40 @@
+---
+import DevelopmentCard from "../../components/DevelopmentCard.astro";
+import data from "../../data/i18n/es/branded-residences.json";
+const { listBrandedResidents } = data;
+const {t, lang} = Astro.props
+const basePath = lang === 'en' ? '/en' : '';
+const withLang = (path) => `/branded-residences/${basePath}${path}`;
+---
+
+<section class="pb-16  md:pb-1">
+    <div class="container mx-auto flex flex-col items-start">
+        <div class="development-heading mb-4">
+            <h2 class="text-[32px] text-brand-700 font-aghato font-medium m-0" id="resort_branded_residences">{t.brandedResidences.title}</h2>
+        </div>
+        <div class="development-paragraph mb-6">
+            <p class="text-brand-700 font-normal">{t.brandedResidences.description}</p>
+        </div>
+        {listBrandedResidents && listBrandedResidents.length > 0 ? (
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 w-full">
+                    {listBrandedResidents.map((item) => (
+                            <DevelopmentCard
+                                    key={item.brandedResidentId ?? item.brandedResidentSrc}
+                                    alt={item.brandedResidentAlt}
+                                    src={item.brandedResidentSrc}
+                                    link={withLang(item.brandedResidentUrl)}
+                                    hasPadding={item.brandedResidentHasPadding}
+                                    hasZoom={item.brandedResidentHasZoom}
+                            />
+                    ))}
+                </div>
+        ) : (
+                <div class="flex justify-center min-h-[40vh]">
+                    <h1 class="text-2xl font-semibold text-center">
+                        {t.development.none}
+                    </h1>
+                </div>
+        )}
+
+    </div>
+</section>

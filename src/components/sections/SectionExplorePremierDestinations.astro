@@ -1,0 +1,409 @@
+---
+import TopDestinationCard from "../TopDestinationCard.astro";
+
+
+const { t, lang } = Astro.props;
+
+const basePath = lang === "en" ? "/en" : "";
+const withLang = (path) => `${basePath}/${path}`;
+
+const images = import.meta.glob(
+    "/src/assets/images/destinations/*.webp",
+    { eager: true }
+);
+
+const destinations = [...t.highlights_destinations].sort((a, b) =>
+    a.destination_title.localeCompare(b.destination_title, undefined, {
+        sensitivity: "base",
+        numeric: true
+    })
+);
+
+
+---
+
+<section class="section-highlights pt-11 md:pt-16">
+    <div class="highlights container mx-auto px-5 md:px-8">
+
+        <div class="flex justify-center">
+            <div class="w-full">
+
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 ">
+                    <h2 class="title">
+                        {t.highlights_title}
+                    </h2>
+
+                    <div class="subtitle mt-2 md:mt-0">
+                        {t.highlights_subtitle}
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="destinations">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            {destinations.map((destination) => {
+                                const imagePath = `/src/assets/images/destinations/${destination.destination_img}.webp`;
+                                const imageModule = images[imagePath];
+                                const image = imageModule?.default;
+
+                                if (!image) {
+                                    console.error("Imagen no encontrada:", imagePath);
+                                    return null;
+                                }
+
+                                return (
+                                        <div class="swiper-slide w-auto">
+                                            <TopDestinationCard
+                                                    src={image}
+                                                    alt={destination.destination_title}
+                                                    title={destination.destination_title}
+                                                    subtitle={destination.destination_description}
+                                                    url={withLang(destination.destination_url)}
+                                            />
+                                        </div>
+                                );
+                            })}
+                        </div>
+
+                        <div class="swiper-pagination-destinations mt-8 flex justify-center"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/pagination';
+    import 'swiper/css/navigation';
+
+    function swiperDestinations() {
+        const el = document.querySelector('.destinations .swiper');
+        if (!el) return;
+
+        new Swiper(el, {
+            modules: [Navigation, Pagination, Autoplay],
+
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centerInsufficientSlides: true,
+
+            breakpoints: {
+                320: { slidesPerView: 1, spaceBetween: 15 },
+                768: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 30 }
+            },
+
+            pagination: {
+                el: '.swiper-pagination-destinations',
+                clickable: true,
+                type: 'bullets'
+            },
+
+            navigation: true,
+            grabCursor: true,
+            speed: 500,
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true
+            },
+
+            mousewheel: {
+                forceToAxis: true
+            },
+
+            on: {
+                init() {
+                    this.el.classList.add('swiper-loaded');
+                },
+                slideChange() {
+                    document.dispatchEvent(
+                        new CustomEvent('swiperSlideChange', {
+                            detail: {
+                                activeIndex: this.activeIndex,
+                                slides: this.slides.length
+                            }
+                        })
+                    );
+                }
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', swiperDestinations);
+    } else {
+        swiperDestinations();
+    }
+</script>
+
+<style is:global>
+    /* Styles Swiper*/
+    .swiper-pagination-destinations{
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+    }
+    .swiper-pagination-destinations .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: var(--neutral-500);
+        opacity: 0.8;
+        border-radius: 50%;
+        margin: 0 6px !important;
+        transition: all 0.3s ease;
+    }
+    .swiper-pagination-destinations .swiper-pagination-bullet-active {
+        width: 24px;
+        height: 8px;
+        background: var(--secondary-900);
+        opacity: 1;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    .swiper-pagination-destinations .swiper-pagination-bullet,
+    .swiper-pagination-destinations .swiper-pagination-bullet-active {
+        transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .hero__bullets{
+        position: absolute;
+        display: flex;
+        align-items: baseline;
+        color: white;
+        flex-direction: row;
+        top: unset;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    .hero__bullets .numeric-indicator__nav {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .hero__bullets .numeric-indicator__nav #current-slide {
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .swiper-pagination-hero{
+        display: flex;
+        justify-content: center;
+        padding-left: 40px;
+    }
+    .swiper-pagination-hero .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: var(--neutral-500);
+        opacity: 0.8;
+        border-radius: 50%;
+        margin: 0 6px !important;
+        transition: all 0.3s ease;
+    }
+    .swiper-pagination-hero .swiper-pagination-bullet-active {
+        width: 24px;
+        height: 8px;
+        background: white;
+        opacity: 1;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    .swiper-pagination-hero .swiper-pagination-bullet,
+    .swiper-pagination-hero .swiper-pagination-bullet-active {
+        transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* Menu Mobile */
+    .-translate-x-full {
+        transform: translateX(-100%);
+    }
+
+    .show-menu {
+        transform: translateX(0);
+    }
+
+    .with-transition {
+        transition: transform 0.3s ease-in-out;
+    }
+    /* Section Highlights - Explore Premier Destinations */
+
+
+    .section-highlights {
+        margin-bottom: 126px;
+    }
+
+    .highlights .subtitle {
+       /* text-align: center;*/
+    }
+
+    .highlights .heading {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .highlights .heading h2 {
+        font-family: var(--font-secondary), sans-serif;
+        font-size: 28px;
+        color: var(--neutral-900);
+        font-weight: 400;
+        line-height: 32px;
+    }
+
+    .highlights .subtitle span {
+        font-size: 12px;
+        letter-spacing: 10%;
+        color: var(--secondary-900);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    .highlights .destinations .top-destination {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .highlights .destinations .top-destination img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .highlights .destinations .top-destination .content::before {
+        content: '';
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+
+    .highlights .destinations .top-destination .content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        text-align: center;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+
+    .highlights .destinations .top-destination .content .float-card {
+        position: relative;
+        margin: 0 32px 32px 32px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 4px;
+        padding: 14px;
+        z-index: 1;
+    }
+
+
+    .highlights .destinations .top-destination .content .float-card .heading {
+        margin-bottom: 6px;
+    }
+
+    .highlights .destinations .top-destination .content .heading h3 {
+        font-family: var(--font-secondary), sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .highlights .destinations .top-destination .content .paragraph p {
+        color: var(--secondary-900);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 5%;
+        margin: 0;
+    }
+    /* Highlights Styles */
+
+    /* Ajuste tipográfico */
+    .highlights .subtitle span {
+        font-size: 14px;
+    }
+
+    /* FLOAT CARD - estado por defecto (mobile activo) */
+    /* Mobile: tarjeta visible */
+    .highlights .destinations .top-destination .content .float-card {
+        transform: translateY(0);
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+
+        .highlights .destinations .top-destination .content .float-card {
+            transform: translateY(48px);
+            transition: transform 0.3s ease;
+        }
+
+        .highlights .destinations .top-destination:hover .float-card {
+            transform: translateY(-32px);
+        }
+
+        .highlights .destinations .top-destination .content .float-card {
+            margin: 0 32px 02px 32px;
+        }
+
+
+    }
+    .title {
+        font-family: 'Cormorant Garamond', serif;
+        width: 20%;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 1;
+        letter-spacing: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .subtitle {
+        font-family: 'Jost', sans-serif;
+        width: 100%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1;
+        color: #464648;
+        text-align: justify;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @media (min-width: 768px) {
+
+        .title {
+            padding-left: 16px;
+            padding-right: 16px;
+            margin: 0;
+        }
+
+        .subtitle {
+            width: 65%;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-bottom: 0;
+        }
+
+    }
+    .destinations {
+        padding: 16px;
+    }
+</style>
