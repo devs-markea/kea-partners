@@ -33,10 +33,10 @@
     },
     {
       "developmentId": "dev-ritz-carlton",
-      "developmentName": "The Ritz-Carlton Residences",
+      "developmentName": "Ritz-Carlton Residences Riviera Maya",
       "developmentBanner": "BannerDevelopmentRitzCarlton",
       "developmentContent": "ritz-carlton",
-      "developmentAlt": "The Ritz-Carlton Residences",
+      "developmentAlt": "Ritz-Carlton Residences Riviera Maya",
       "developmentDestination": "riviera-maya",
       "developmentLocation": "Riviera Maya",
       "developmentGroup": "ritz-carlton",
@@ -62,10 +62,10 @@
       "developmentHasZoom": false
     },    {
       "developmentId": "dev-thompson-puerto-cancun",
-      "developmentName": "Thompson Residences",
+      "developmentName": "Thompson Residences Puerto Cancun",
       "developmentBanner": "BannerDevelopmentThompsonPuertoCancun",
       "developmentContent": "thompson-puerto-cancun",
-      "developmentAlt": "Thompson Residences",
+      "developmentAlt": "Thompson Residences Puerto Cancun",
       "developmentDestination": "cancun",
       "developmentLocation": "Cancun",
       "developmentGroup": "thompson",
@@ -118,10 +118,10 @@
       "developmentHasZoom": false
     },{
       "developmentId": "dev-trump-tower",
-      "developmentName": "Trump Tower",
+      "developmentName": "Trump Tower Dubai",
       "developmentBanner": "BannerDevelopmentTrumpTower",
       "developmentContent": "trump-tower",
-      "developmentAlt": "Trump Tower",
+      "developmentAlt": "Trump Tower Dubai",
       "developmentDestination": "dubai",
       "developmentLocation": "",
       "developmentGroup": "trump-tower-residences",
@@ -133,7 +133,7 @@
     },{
       "developmentId": "dev-marea-missoni",
       "developmentName": "Marea Missoni",
-      "developmentBanner": "BannerFaena",
+      "developmentBanner": "BannerDevelopmentMissoni",
       "developmentContent": "marea-missoni",
       "developmentAlt": "Marea Missoni",
       "developmentDestination": "costa-del-sol",
