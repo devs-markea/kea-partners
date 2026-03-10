@@ -1,5 +1,6 @@
 import Logo from './logo-brand.png';
 
+
 //Banner Development
 
 import BannerNautica from '../images/banner/developments/nautica-banner.png';
@@ -16,6 +17,17 @@ import BannerStregis from '../images/banner/developments/banner-st-regis-costa-m
 import BannerInna from '../images/banner/developments/banner-inna.png';
 import BannerMarietta from '../images/banner/developments/banner-marietta.png';
 import BannerGranViaMar from '../images/banner/developments/banner-marietta.png';
+import BannerDevelopmentDaVinci from '../images/banner/developments/banner-da-vinci-tower-residences.png';
+import BannerDevelopmentFaenaMiami from '../images/banner/developments/banner-faena-miami-residences.png';
+import BannerDevelopmentMgallery from '../images/banner/developments/banner-mgallery-residences.png';
+import BannerDevelopmentNauticaCancun from '../images/banner/developments/banner-nautica-cancun-residences.png';
+import BannerDevelopmentThompsonPuertoCancun from '../images/banner/developments/banner-thompson-puerto-cancun-residences.png';
+import BannerDevelopmentThompsonMexicoCity from '../images/banner/developments/banner-thompson-mexico-city-residences.png';
+import BannerDevelopmentTierraViva from '../images/banner/developments/banner-tierra-viva-residences.png';
+import BannerDevelopmentTrumpTower from '../images/banner/developments/banner-trump-tower-residences.png';
+import BannerDevelopmentRitzCarlton from '../images/banner/developments/banner-ritz-carlton-residences.png';
+
+
 
 import Aflora from '../images/Logo/developments/icon-developments-aflora.png';
 import BayView from '../images/Logo/developments/icon-developments-bay-view-grand.png';
@@ -41,8 +53,6 @@ import BannerCostaSol from '../images/banner/destinations/banner-costa-sol.png';
 import BannerIslaMujeres from '../images/banner/destinations/banner-isla-mujeres.png';
 import BannerMiami from '../images/banner/destinations/banner-miami.png';
 
-import BannerStRegis from '../images/banner/branded-residneces/banner-st-regis.png';
-
 import IconBrandedResidenceStRegis from '../images/Logo/branded-residences/icon-branded-residences-stregis.png';
 import IconBrandedResidenceFaena from '../images/Logo/branded-residences/icon-branded-residences-faena.png';
 import IconBrandedResidenceLamborghini from '../images/Logo/branded-residences/icon-branded-residences-lamborghini.png';
@@ -58,6 +68,32 @@ import IconDevelopmentThe1428 from '../images/Logo/developments/icon-development
 import IconDevelopmentStRegisKanai from '../images/Logo/developments/icon-developments-st-regis-riviera-maya.png';
 import IconDevelopmentStRegisCostaMujeres from '../images/Logo/developments/icon-developments-st-regis-costa-mujeres.png';
 import IconDevelopmentRitzCarlton from '../images/Logo/developments/icon-developments-the-ritz-carlton.png';
+import IconDevelopmentDaVinci from '../images/Logo/developments/icon-developments-davinvi-pagani-residences.png';
+import IconDevelopmentFaenaMiami from '../images/Logo/developments/icon-developments-faena-miami-residences.png';
+import IconDevelopmentFaenaTulum from '../images/Logo/developments/icon-developments-faena-tulum-residences.png';
+import IconDevelopmentMareaMissoni from '../images/Logo/developments/icon-developments-marea-residences.png';
+import IconDevelopmentMgallery from '../images/Logo/developments/icon-developments-mgallery-tulum-residences.png';
+import IconDevelopmentNautica from '../images/Logo/developments/icon-developments-nautica-residences.png';
+import IconDevelopmentThompsonPuertoCancun from '../images/Logo/developments/icon-developments-thompson-puerto-cancun-residences.png';
+import IconDevelopmentThompsonMexicoCity from '../images/Logo/developments/icon-developments-thompson-mexico-city-residences.png';
+import IconDevelopmentTierraViva from '../images/Logo/developments/icon-developments-tierra-viva-esidences.png';
+import IconDevelopmentTrumpTower from '../images/Logo/developments/icon-developments-trump-tower-residences.png';
+
+
+
+//Banner Brandeds
+import BannerStRegis from '../images/banner/branded-residences/banner-st-regis.png';
+import BannerBrandedStRegisResidences from '../images/banner/branded-residences/banner-st-regis-residences.png';
+import BannerBrandedLamborghini from '../images/banner/branded-residences/banner-lamborghini-residences.png';
+import BannerBrandedMgallery from '../images/banner/branded-residences/banner-mgallery-residences.png';
+import BannerBrandedMissoni from '../images/banner/branded-residences/banner-missoni-residences.png';
+import BannerBrandedNautica from '../images/banner/branded-residences/banner-nautica-residences.png';
+import BannerBrandedPagani from '../images/banner/branded-residences/banner-pagani-residences.png';
+import BannerBrandedRitzCarlton from '../images/banner/branded-residences/banner-ritz-carlton-residences.png';
+import BannerBrandedThompson from '../images/banner/branded-residences/banner-thompson-residences.png';
+import BannerBrandedTrumpTower from '../images/banner/branded-residences/banner-trump-tower-residences.png';
+import BannerBrandedFaena from '../images/banner/branded-residences/banner-faena-residences.png';
+
 
 export const images = {
     Logo: Logo,
@@ -80,6 +116,16 @@ export const images = {
     BannerStregis: BannerStregis,
     BannerThompson: BannerThompson,
     BannerInna: BannerInna,
+
+    BannerDevelopmentDaVinci: BannerDevelopmentDaVinci,
+    BannerDevelopmentFaenaMiami: BannerDevelopmentFaenaMiami,
+    BannerDevelopmentMgallery: BannerDevelopmentMgallery,
+    BannerDevelopmentNauticaCancun: BannerDevelopmentNauticaCancun,
+    BannerDevelopmentThompsonPuertoCancun: BannerDevelopmentThompsonPuertoCancun,
+    BannerDevelopmentThompsonMexicoCity: BannerDevelopmentThompsonMexicoCity,
+    BannerDevelopmentTierraViva: BannerDevelopmentTierraViva,
+    BannerDevelopmentTrumpTower:BannerDevelopmentTrumpTower,
+    BannerDevelopmentRitzCarlton:BannerDevelopmentRitzCarlton,
 
     Aflora: Aflora,
     BayView: BayView,
@@ -110,12 +156,34 @@ export const images = {
     IconBrandedResidenceThompson: IconBrandedResidenceThompson,
     IconBrandedResidenceTrumpTower: IconBrandedResidenceTrumpTower,
 
+    BannerGranViaMar: BannerGranViaMar,
+
+
+    BannerBrandedLamborghini: BannerBrandedLamborghini,
+    BannerBrandedMgallery: BannerBrandedMgallery,
+    BannerBrandedMissoni: BannerBrandedMissoni,
+    BannerBrandedNautica: BannerBrandedNautica,
+    BannerBrandedPagani: BannerBrandedPagani,
+    BannerBrandedRitzCarlton: BannerBrandedRitzCarlton,
+    BannerBrandedThompson: BannerBrandedThompson,
+    BannerBrandedTrumpTower: BannerBrandedTrumpTower,
+    BannerBrandedStRegisResidences: BannerBrandedStRegisResidences,
+    BannerBrandedFaena: BannerBrandedFaena,
+
+
     IconDevelopmentThe1428: IconDevelopmentThe1428,
     IconDevelopmentStRegisKanai: IconDevelopmentStRegisKanai,
     IconDevelopmentStRegisCostaMujeres: IconDevelopmentStRegisCostaMujeres,
     IconDevelopmentRitzCarlton: IconDevelopmentRitzCarlton,
-
-    BannerGranViaMar: BannerGranViaMar,
-
+    IconDevelopmentDaVinci: IconDevelopmentDaVinci,
+    IconDevelopmentFaenaMiami: IconDevelopmentFaenaMiami,
+    IconDevelopmentFaenaTulum: IconDevelopmentFaenaTulum,
+    IconDevelopmentMareaMissoni: IconDevelopmentMareaMissoni,
+    IconDevelopmentMgallery: IconDevelopmentMgallery,
+    IconDevelopmentNautica: IconDevelopmentNautica,
+    IconDevelopmentThompsonPuertoCancun: IconDevelopmentThompsonPuertoCancun,
+    IconDevelopmentThompsonMexicoCity: IconDevelopmentThompsonMexicoCity,
+    IconDevelopmentTierraViva: IconDevelopmentTierraViva,
+    IconDevelopmentTrumpTower: IconDevelopmentTrumpTower,
 
 };

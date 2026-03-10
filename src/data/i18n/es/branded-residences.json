@@ -3,7 +3,7 @@
     {
       "brandedResidentId": "dev-st-regis",
       "brandedResidentName": "St. Regis",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedStRegisResidences",
       "brandedResidentAlt": "St. Regis",
       "brandedResidentSrc": "IconBrandedResidenceStRegis",
       "brandedResidentUrl": "st-regis",
@@ -13,7 +13,7 @@
     {
       "brandedResidentId": "dev-the-ritz",
       "brandedResidentName": "The Ritz",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedRitzCarlton",
       "brandedResidentAlt": "The Ritz",
       "brandedResidentSrc": "IconBrandedResidenceRitzCarlton",
       "brandedResidentUrl": "ritz-carlton",
@@ -23,7 +23,7 @@
     {
       "brandedResidentId": "dev-faena",
       "brandedResidentName": "Faena",
-      "brandedResidentBanner": "BannerFaena",
+      "brandedResidentBanner": "BannerBrandedFaena",
       "brandedResidentAlt": "Faena",
       "brandedResidentSrc": "IconBrandedResidenceFaena",
       "brandedResidentUrl": "faena",
@@ -33,7 +33,7 @@
     {
       "brandedResidentId": "dev-thompson",
       "brandedResidentName": "Thompson",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedThompson",
       "brandedResidentAlt": "Thompson",
       "brandedResidentSrc": "IconBrandedResidenceThompson",
       "brandedResidentUrl": "thompson",
@@ -43,7 +43,7 @@
     {
       "brandedResidentId": "dev-mgallery",
       "brandedResidentName": "Mgallery",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedMgallery",
       "brandedResidentAlt": "Mgallery",
       "brandedResidentSrc": "IconBrandedResidenceMgallery",
       "brandedResidentUrl": "mgallery-residences",
@@ -53,7 +53,7 @@
     {
       "brandedResidentId": "dev-nautica",
       "brandedResidentName": "Nautica",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedNautica",
       "brandedResidentAlt": "Nautica",
       "brandedResidentSrc": "IconBrandedResidenceNautica",
       "brandedResidentUrl": "nautica-residences",
@@ -63,7 +63,7 @@
     {
       "brandedResidentId": "dev-pagani",
       "brandedResidentName": "Pagani",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedPagani",
       "brandedResidentAlt": "Pagani",
       "brandedResidentSrc": "IconBrandedResidencePagani",
       "brandedResidentUrl": "pagani-residences",
@@ -73,7 +73,7 @@
     {
       "brandedResidentId": "dev-trump-tower",
       "brandedResidentName": "Trump Tower",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedTrumpTower",
       "brandedResidentAlt": "Trump Tower",
       "brandedResidentSrc": "IconBrandedResidenceTrumpTower",
       "brandedResidentUrl": "trump-tower-residences",
@@ -83,7 +83,7 @@
     {
       "brandedResidentId": "dev-missoni",
       "brandedResidentName": "Missoni",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedMissoni",
       "brandedResidentAlt": "Missoni",
       "brandedResidentSrc": "IconBrandedResidenceMissoni",
       "brandedResidentUrl": "missoni-residences",
@@ -93,7 +93,7 @@
     {
       "brandedResidentId": "dev-lamborghini",
       "brandedResidentName": "Lamborghini",
-      "brandedResidentBanner": "BannerStRegis",
+      "brandedResidentBanner": "BannerBrandedLamborghini",
       "brandedResidentAlt": "Lamborghini",
       "brandedResidentSrc": "IconBrandedResidenceLamborghini",
       "brandedResidentUrl": "lamborghini-residences",
