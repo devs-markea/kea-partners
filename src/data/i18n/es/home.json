@@ -17,7 +17,7 @@
       "destination": "riviera_maya",
       "destination_img": "top-destination-riviera-maya",
       "destination_title": "Riviera Maya",
-      "destination_description": "3 propiedades",
+      "destination_description": "2 propiedades",
       "destination_url": "riviera-maya"
     },
     {
@@ -31,7 +31,7 @@
       "destination": "cancun",
       "destination_img": "top-destination-cancun",
       "destination_title": "Cancún",
-      "destination_description": "5 propiedades",
+      "destination_description": "4 propiedades",
       "destination_url": "cancun"
     },
     {
@@ -59,21 +59,15 @@
       "destination": "costa_del_sol",
       "destination_img": "top-destination-marbella-costa-del-sol",
       "destination_title": "Costa del Sol",
-      "destination_description": "1 propiedad",
+      "destination_description": "2 propiedad",
       "destination_url": "costa-del-sol"
     },
-    {
-      "destination": "mexico_city",
-      "destination_img": "top-destination-mexico-city",
-      "destination_title": "Ciudad de México",
-      "destination_description": "1 propiedad",
-      "destination_url": "ciudad-de-mexico"
-    },
+
     {
       "destination": "dubai",
       "destination_img": "top-destination-dubai",
       "destination_title": "Dubai",
-      "destination_description": "1 propiedad",
+      "destination_description": "2 propiedad",
       "destination_url": "dubai"
     }
   ],

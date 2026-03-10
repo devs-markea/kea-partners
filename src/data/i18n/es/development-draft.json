@@ -1,0 +1,61 @@
+[
+
+
+
+
+
+  {
+    "developmentId": "dev-st-regis-kanai",
+    "developmentName": "The St. Regis Kanai",
+    "developmentBanner": "BannerFaena",
+    "developmentContent": "stregis-kanai",
+    "developmentAlt": "The St. Regis Kanai",
+    "developmentDestination": "riviera-maya",
+    "developmentLocation": "Riviera Maya",
+    "developmentGroup": "st-regis",
+    "developmentCategory": "branded-residences",
+    "developmentSrc": "IconDevelopmentStRegisKanai",
+    "developmentLink": "st-regis-kanai",
+    "developmentHasPadding": false,
+    "developmentHasZoom": false
+  },
+
+  {
+    "developmentId": "dev-thompson-mexico-city",
+    "developmentName": "Thompson Residences",
+    "developmentBanner": "BannerFaena",
+    "developmentContent": "thompson-mexico-city",
+    "developmentAlt": "Thompson Residences",
+    "developmentDestination": "ciudad-de-mexico",
+    "developmentLocation": "Ciudad de mexico",
+    "developmentGroup": "thompson",
+    "developmentCategory": "branded-residences",
+    "developmentSrc": "Faena",
+    "developmentLink": "thompson-residences-mexico-city",
+    "developmentHasPadding": false,
+    "developmentHasZoom": false
+  },
+  {
+    "destination": "mexico_city",
+    "destination_img": "top-destination-mexico-city",
+    "destination_title": "Ciudad de México",
+    "destination_description": "1 propiedad",
+    "destination_url": "ciudad-de-mexico"
+  }
+
+,
+  {
+    "developmentId": "dev-mayakoba",
+    "developmentName": "The Reserve Mayakoba",
+    "developmentBanner": "BannerMayakoba",
+    "developmentContent": "mayakoba",
+    "developmentAlt": "The Reserve At Mayakoba",
+    "developmentDestination": "riviera-maya",
+    "developmentLocation": "Riviera Maya",
+    "developmentCategory": "high-end-resort",
+    "developmentSrc": "Aflora",
+    "developmentLink": "the-reserve-mayakoba-residences",
+    "developmentHasPadding": false,
+    "developmentHasZoom": false
+  }
+]

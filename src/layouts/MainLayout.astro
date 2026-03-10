@@ -24,6 +24,8 @@ const { title, lang , t } = Astro.props;
             <slot />
         </main>
         <Footer lang={lang} t={t} />
-        <script src="/src/scripts/main.js" type="module"></script>
+        <script>
+            import "../scripts/main.js";
+        </script>
 </body>
 </html>
