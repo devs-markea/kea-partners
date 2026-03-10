@@ -12,7 +12,7 @@
     },
     {
       "brandedResidentId": "dev-the-ritz",
-      "brandedResidentName": "The Ritz",
+      "brandedResidentName": "Ritz-Carlton",
       "brandedResidentBanner": "BannerBrandedRitzCarlton",
       "brandedResidentAlt": "The Ritz",
       "brandedResidentSrc": "IconBrandedResidenceRitzCarlton",
@@ -52,9 +52,9 @@
     },
     {
       "brandedResidentId": "dev-nautica",
-      "brandedResidentName": "Nautica",
+      "brandedResidentName": "Nautica Residences",
       "brandedResidentBanner": "BannerBrandedNautica",
-      "brandedResidentAlt": "Nautica",
+      "brandedResidentAlt": "Nautica Residences",
       "brandedResidentSrc": "IconBrandedResidenceNautica",
       "brandedResidentUrl": "nautica-residences",
       "brandedResidentHasPadding": false,
