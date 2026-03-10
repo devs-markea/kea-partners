@@ -92,7 +92,7 @@ const siteTag = '';
 
                             <!-- BUTTON + MESSAGES -->
                             <div>
-                                <button type="submit" id="submitBtn" class="flex items-center justify-center w-[175px] h-[44px] px-4 py-3 gap-2 bg-brand-400 text-white text-sm font-medium rounded-[100px] transition duration-300 hover:opacity-90">
+                                <button type="submit" id="submitBtn" class="flex items-center justify-center w-full md:w-[175px]  h-[44px] px-4 py-3 gap-2 bg-brand-400 text-white text-sm font-medium rounded-[100px] transition duration-300 hover:opacity-90">
                                     Enviar
                                 </button>
                                 <div>
@@ -314,7 +314,7 @@ const siteTag = '';
     flex-direction: column;
     align-items: start;
     padding: 4px 16px 4px 148px;
-    border-radius: 0 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
     position: relative;
     background-color: #FFF;
     width: 100%;
@@ -331,7 +331,7 @@ const siteTag = '';
     background-color: var(--secondary-900);
     z-index: -1;
     box-shadow: 0 0 8px var(--neutral-300);
-    border-radius: 0 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
     }
 
 .broker-person .bottom-contact h3 {
@@ -371,7 +371,12 @@ const siteTag = '';
 
 /* Desktop styles (992px and up) */
 @media (min-width: 992px) {
-
+    .bottom-contact {
+        border-radius: 0px 8px 8px 8px;
+    }
+    .bottom-contact:before {
+        border-radius: 0px 8px 8px 8px;
+    }
     .pointer-events {
         pointer-events: auto;
     }
