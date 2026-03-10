@@ -26,7 +26,7 @@ import BannerDevelopmentThompsonMexicoCity from '../images/banner/developments/b
 import BannerDevelopmentTierraViva from '../images/banner/developments/banner-tierra-viva-residences.png';
 import BannerDevelopmentTrumpTower from '../images/banner/developments/banner-trump-tower-residences.png';
 import BannerDevelopmentRitzCarlton from '../images/banner/developments/banner-ritz-carlton-residences.png';
-
+import BannerDevelopmentMissoni from '../images/banner/developments/banner-missoni-residences.png';
 
 
 import Aflora from '../images/Logo/developments/icon-developments-aflora.png';
@@ -126,6 +126,8 @@ export const images = {
     BannerDevelopmentTierraViva: BannerDevelopmentTierraViva,
     BannerDevelopmentTrumpTower:BannerDevelopmentTrumpTower,
     BannerDevelopmentRitzCarlton:BannerDevelopmentRitzCarlton,
+    BannerDevelopmentMissoni: BannerDevelopmentMissoni,
+
 
     Aflora: Aflora,
     BayView: BayView,
