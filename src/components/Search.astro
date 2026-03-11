@@ -118,15 +118,15 @@ import SvgIcon from "./SvgIcon.astro";
 
         suggestions.innerHTML = results.length
             ? results.map(item => `
-          <li>
-            <a href="${item.slug}" class="block px-4 py-2 hover:bg-gray-100" target="_blank">
-              <span class="text-xs uppercase text-gray-500">${item.type}</span><br>
-              <strong>${item.title}</strong>
-              <p class="text-sm text-gray-600">${item.description}</p>
-            </a>
-          </li>
-        `).join("")
-            : `<li class="p-2 text-gray-500">No se encontraron resultados</li>`;
+      <li class="text-left">
+        <a href="${item.slug}" class="block px-4 py-2 hover:bg-gray-100 text-left" target="_blank">
+          <span class="text-xs uppercase text-gray-500">${item.type}</span><br>
+          <strong>${item.title}</strong>
+          <p class="text-sm text-gray-600">${item.description}</p>
+        </a>
+      </li>
+    `).join("")
+            : `<li class="p-2 text-gray-500 text-left">No se encontraron resultados</li>`;
 
         suggestions.classList.remove("hidden");
     });
