@@ -50,7 +50,10 @@ const switchLangUrl = lang === "es" ? "/en" : "/";
         <nav class="hidden md:block">
             <ul class="flex gap-6 text-brand-50">
                 <li>
-                    <a href={resolveUrl(t.nav.home.url)} class="hover:text-blue-600 tracking-[10%]">
+                    <a
+                        href={resolveUrl(t.nav.home.url)}
+                        class="tracking-[10%] hover:text-white hover:opacity-80 transition-opacity"
+                    >
                         {t.nav.home.label}
                     </a>
                 </li>
@@ -62,7 +65,10 @@ const switchLangUrl = lang === "es" ? "/en" : "/";
                 </li>-->
 
                 <li>
-                    <a href={"/" + resolveUrl(t.nav.faq.url)} class="hover:text-blue-600 tracking-[10%]">
+                    <a
+                        href={resolveUrl(t.nav.home.url)}
+                        class="tracking-[10%] hover:text-white hover:opacity-80 transition-opacity"
+                    >
                         {t.nav.faq.label}
                     </a>
                 </li>
