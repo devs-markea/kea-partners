@@ -3,13 +3,35 @@ import {images} from "@assets/images";
 import {Image} from "astro:assets";
 import ArticleCard from "../ArticleCard.astro";
 import PageCard from "../PageCard.astro";
-const {t, lang } = Astro.props;
+interface Props {
+    t: {
+        bannerKey: string
+        title: string
+        alt: string
+    }
+    link?: string
+    lang: string
+}
+const {t, link, lang } = Astro.props;
 const bannerImage = images[t.bannerKey];
+
+const words = t.title.split(" ");
+const title = t.title;
+const firstLine = words.slice(0, 2).join(" ");
+const secondLine = words.slice(2).join(" ");
 ---
 <section class="relative py-16 md:py-28">
     <Image class="absolute inset-0 w-full h-full object-cover" src={bannerImage} alt={t.alt} quality={90}  loading="eager"/>
     <div class="absolute inset-0 w-full h-full bg-black/50 opacity-20"></div>
     <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
-        <h1  class="text-[32px] md:text-5xl text-brand-50 font-cormorant font-medium uppercase md:mt-5 mb-0">{t.title}</h1>
+        <h1 class="text-[32px] md:text-5xl text-brand-50 font-cormorant font-medium uppercase md:mt-5 mb-0">
+            {title}
+        </h1>
+        {link && (
+                <PageCard
+                        class=""
+                        link={link}
+                />
+        )}
     </div>
 </section>

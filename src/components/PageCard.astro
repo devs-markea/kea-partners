@@ -1,0 +1,41 @@
+---
+interface Props {
+    link: string,
+    class: string,
+}
+
+const {link,  class: customClass = "" } = Astro.props;
+---
+
+<div class={`group border border-white bg-white rounded-xl min-h-[40px]
+    hover:border-brand-300 hover:bg-brand-300 transition-colors duration-200 ${customClass} mt-4`} >
+
+    <a
+            class="flex items-center gap-2 w-full h-full py-2 px-4"
+            href={link}
+            target="_blank"
+    >
+
+
+        <span class="text-base text-brand-700 group-hover:text-white transition-colors duration-200 w-[91px]">
+            Ir al Sitio
+        </span>
+        <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="text-[#464648] group-hover:text-white transition-colors duration-200"
+        >
+            <path
+                    d="M15.125 2.0625H19.9375V6.875M18.9062 3.09375L13.75 8.25M11.6875 3.4375H5.5C4.95299 3.4375 4.42839 3.6548 4.04159 4.04159C3.6548 4.42839 3.4375 4.95299 3.4375 5.5V16.5C3.4375 17.047 3.6548 17.5716 4.04159 17.9584C4.42839 18.3452 4.95299 18.5625 5.5 18.5625H16.5C17.047 18.5625 17.5716 18.3452 17.9584 17.9584C18.3452 17.5716 18.5625 17.047 18.5625 16.5V10.3125"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class=" group-hover:opacity-100 transition-opacity duration-200"
+            />
+        </svg>
+    </a>
+</div>
