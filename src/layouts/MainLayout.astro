@@ -5,7 +5,7 @@ import Header from '../partials/Header.astro';
 import Footer from '../partials/Footer.astro';
 
 
-const { title, lang , t } = Astro.props;
+const { lang , t } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -19,7 +19,7 @@ const { title, lang , t } = Astro.props;
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} >
 <title>
-  {title ? `${title} | ${t?.site?.name || 'Kea Partners'}` : t?.site?.name || 'Kea Partners'}
+  {t?.site?.name || 'Kea Partners'}
 </title>
 </head>
 <body class="flex flex-col min-h-screen bg-brand-50">

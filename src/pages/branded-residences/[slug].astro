@@ -6,6 +6,7 @@ import Common from '../../data/i18n/es/common.json';
 import DestinationData from '../../data/i18n/es/branded-residences.json';
 import DevelopmentsData from '../../data/i18n/es/developments.json';
 import DestinationSection from "../../components/sections/article/DestinationSection.astro";
+import HeroBannerSection from "../../components/sections/HeroBannerSection.astro";
 
 export async function getStaticPaths() {
     return DestinationData.listBrandedResidents.map((destination) => ({
@@ -39,7 +40,7 @@ const filteredDevelopments = DevelopmentsData.listDevelopments.filter(
 ---
 
 <MainLayout title="KEA Partners" lang="es" t={Common}>
-    <HeroArticleSection t={heroData} lang="es" />
+    <HeroBannerSection t={heroData} lang="es" />
     <DestinationSection
             breadcrumbItems={breadcrumbItems}
             developments={filteredDevelopments}
