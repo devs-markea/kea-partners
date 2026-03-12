@@ -42,7 +42,7 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
                 <div class="destinations">
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            {destinations.map((destination) => {
+                            {destinations.map((destination, index) => {
                                 const imagePath = `/src/assets/images/destinations/${destination.destination_img}.webp`;
                                 const imageModule = images[imagePath];
                                 const image = imageModule?.default;
@@ -60,6 +60,7 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
                                                     title={destination.destination_title}
                                                     subtitle={destination.destination_description}
                                                     url={withLang(destination.destination_url)}
+                                                    priority={index === 0}
                                             />
                                         </div>
                                 );

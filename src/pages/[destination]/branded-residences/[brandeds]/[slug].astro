@@ -49,9 +49,11 @@ const breadcrumbItems = [
     { name: nameGroup },
     { name: dev.developmentName }
 ]; //heroData.title
+
+const devLink = dev.developmentPagelink;
 ---
 <MainLayout title="KEA Partners" lang="es" t={Common}>
-    <HeroBannerSection t={heroData} lang="es" />
+    <HeroBannerSection t={heroData} lang="es" link={devLink} />
 
     <ResourceArticleSection
             breadcrumbItems={breadcrumbItems}
