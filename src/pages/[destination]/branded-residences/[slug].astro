@@ -6,6 +6,7 @@ import DestinationData from '../../../data/i18n/es/branded-residences.json';
 
 import Common from '../../../data/i18n/es/common.json';
 import DevelopmentsData from '../../../data/i18n/es/developments.json';
+import HeroBannerSection from "../../../components/sections/HeroBannerSection.astro";
 
 export async function getStaticPaths() {
 
@@ -63,7 +64,7 @@ const breadcrumbItems = [
 ];
 ---
 <MainLayout title="KEA Partners" lang="es" t={Common}>
-    <HeroArticleSection t={heroData} lang="es" />
+    <HeroBannerSection t={heroData} lang="es" />
 
     <DestinationSection
             breadcrumbItems={breadcrumbItems}
