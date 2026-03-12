@@ -1,25 +1,28 @@
 ---
 import { Image } from "astro:assets";
-const {title, subtitle, url, src, alt} = Astro.props;
 
+const { title, subtitle, url, src, alt, priority = false } = Astro.props;
 ---
+
 <div class="top-destination">
     <Image
             src={src}
             alt={alt}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
+            fetchpriority={priority ? "high" : "auto"}
     />
+
     <div class="content">
         <a href={`/destinations${url}`}>
             <div class="float-card">
                 <div class="heading">
-                    <h3>{ title }</h3>
+                    <h3>{title}</h3>
                 </div>
+
                 <div class="paragraph">
-                    <p>{ subtitle }</p>
+                    <p>{subtitle}</p>
                 </div>
             </div>
         </a>
-
     </div>
 </div>
