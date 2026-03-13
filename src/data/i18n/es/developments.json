@@ -13,7 +13,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentFaenaTulum",
       "developmentLink": "faena-tulum",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -29,7 +29,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentMgallery",
       "developmentLink": "mgallery-residences-tulum",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -45,7 +45,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentRitzCarlton",
       "developmentLink": "ritz-carlton-riviera-maya",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": true
     },
@@ -61,7 +61,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentStRegisCostaMujeres",
       "developmentLink": "st-regis",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },    {
@@ -76,7 +76,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentThompsonPuertoCancun",
       "developmentLink": "thompson",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },{
@@ -91,7 +91,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentNautica",
       "developmentLink": "nautica-residences-cancun",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },{
@@ -106,7 +106,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentFaenaMiami",
       "developmentLink": "faena-residences-miami-brickell",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },{
@@ -121,7 +121,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentDaVinci",
       "developmentLink": "pagani",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },{
@@ -136,7 +136,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentTrumpTower",
       "developmentLink": "trump-tower-residences",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },{
@@ -151,7 +151,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentMareaMissoni",
       "developmentLink": "marea-residences-missoni",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },{
@@ -166,7 +166,7 @@
       "developmentCategory": "branded-residences",
       "developmentSrc": "IconDevelopmentTierraViva",
       "developmentLink": "tierra-viva-lamborghini-residences",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -182,7 +182,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "Marietta",
       "developmentLink": "marietta-isla-mujeres",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": true,
       "developmentHasZoom": false
     },
@@ -198,7 +198,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "BayView",
       "developmentLink": "bay-view-grand-residences",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -213,7 +213,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "OneLaguna",
       "developmentLink": "one-laguna-residences-cancun",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -228,7 +228,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "Inna",
       "developmentLink": "inna-beach-condos",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -243,7 +243,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "Aflora",
       "developmentLink": "aflora-residences-tulum",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     },
@@ -258,7 +258,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "GranViaDelMar",
       "developmentLink": "gran-via-del-mar-tenerife",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": true,
       "developmentHasZoom": false
     },
@@ -273,7 +273,7 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "IconDevelopmentThe1428",
       "developmentLink": "the-1428-residences-miami-brickell",
-      "developmentPagelink": "/",
+      "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
     }
