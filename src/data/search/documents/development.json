@@ -1,4 +1,238 @@
 [
+
+    {
+      "type": "Artículo",
+      "image": "faena",
+      "destination": "México",
+      "microDestination": "Tulum",
+      "project": "Faena Tulum",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Faena Tulum con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/tulum/faena-tulum"
+    },
+    {
+      "type": "Artículo",
+      "image": "aflora",
+      "destination": "México",
+      "microDestination": "Tulum",
+      "project": "Aflora",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Aflora con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/tulum/aflora-residences-tulum"
+    },
+    {
+      "type": "Artículo",
+      "image": "mgallery",
+      "destination": "México",
+      "microDestination": "Tulum",
+      "project": "Mgallery",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Mgallery con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/tulum/mgallery-residences-tulum"
+    },
+    {
+      "type": "Artículo",
+      "image": "ritz-carlton",
+      "destination": "México",
+      "microDestination": "Riviera Maya",
+      "project": "Ritz Carlton",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Ritz Carlton Riviera Maya con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/riviera-maya/ritz-carlton-riviera-maya"
+    },
+    {
+      "type": "Artículo",
+      "image": "the-reserve-mayakoba",
+      "destination": "México",
+      "microDestination": "Riviera Maya",
+      "project": "The Reserve Mayakoba",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de The Reserve Mayakoba con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/riviera-maya/the-reserve-mayakoba-residences"
+    },
+    {
+      "type": "Artículo",
+      "image": "st-regis-kanai",
+      "destination": "México",
+      "microDestination": "Riviera Maya",
+      "project": "The St-regis Kanai",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de The St. Regis Kanai con información general del proyecto.",
+      "slug": "/"
+    },
+    {
+      "type": "Artículo",
+      "image": "st-regis-costa-mujeres",
+      "destination": "México",
+      "microDestination": "Costa Mujeres",
+      "project": "The St-regis Costa Mujeres",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de The St. Regis Costa Mujeres con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/costa-mujeres/st-regis"
+    },
+    {
+      "type": "Artículo",
+      "image": "marietta",
+      "destination": "México",
+      "microDestination": "Isla Mujeres",
+      "project": "Marietta",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Marietta Isla Mujeres con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/isla-mujeres/marietta-isla-mujeres"
+    },
+    {
+      "type": "Artículo",
+      "image": "thompson-puerto-cancun",
+      "destination": "México",
+      "microDestination": "cancun",
+      "project": "Thompson Puerto Cancun",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Thompson Puerto Cancún con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/cancun/thompson"
+    },
+    {
+      "type": "Artículo",
+      "image": "bay-view-grand",
+      "destination": "México",
+      "microDestination": "cancun",
+      "project": "Bay View Grand",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Bay View Grand con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/cancun/bay-view-grand-residences"
+    },
+    {
+      "type": "Artículo",
+      "image": "one-laguna",
+      "destination": "México",
+      "microDestination": "cancun",
+      "project": "One Laguna",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de One Laguna con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/cancun/one-laguna-residences-cancun"
+    },
+    {
+      "type": "Artículo",
+      "image": "nautica-cancun",
+      "destination": "México",
+      "microDestination": "cancun",
+      "project": "Nautica",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Nautica Cancún con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/cancun/nautica-residences-cancun"
+    },
+    {
+      "type": "Artículo",
+      "image": "inna-beach-condos",
+      "destination": "México",
+      "microDestination": "Puerto Morelos",
+      "project": "Inna Beach Condos",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Inna Beach Condos con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/riviera-maya/inna-beach-condos"
+    },
+    {
+      "type": "Artículo",
+      "image": "gran-via-del-mar-tenerife",
+      "destination": "México",
+      "microDestination": "Puerto Morelos",
+      "project": "Gran Via del Mar Tenerife",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Gran Via del Mar Tenerife con información general del proyecto.",
+      "slug": "/"
+    },
+    {
+      "type": "Artículo",
+      "image": "thompson-mexico-city",
+      "destination": "México",
+      "microDestination": "Ciudad de Mexico",
+      "project": "Thompson Mexico City",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Thompson Residences Mexico City con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/mexico-city/thompson-residences-mexico-city"
+    },
+    {
+      "type": "Artículo",
+      "image": "the-1428",
+      "destination": "Miami",
+      "microDestination": "Brickell",
+      "project": "The 1428",
+      "category": "High End & Resort Living",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de The 1428 Residences Miami Brickell con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/miami/the-1428-residences-miami-brickell"
+    },
+    {
+      "type": "Artículo",
+      "image": "faena-miami",
+      "destination": "Miami",
+      "microDestination": "Brickell",
+      "project": "Faena Miami",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Faena Residences Miami Brickell con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/miami/faena-residences-miami-brickell"
+    },
+    {
+      "type": "Artículo",
+      "image": "pagani-da-vinci-tower",
+      "destination": "Dubai",
+      "microDestination": "",
+      "project": "Pagani Da Vinci Tower",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Pagani Da Vinci Tower con información general del proyecto.",
+      "slug": "/"
+    },
+    {
+      "type": "Artículo",
+      "image": "trump-tower",
+      "destination": "Dubai",
+      "microDestination": "",
+      "project": "Trump Tower",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Trump Tower Residences con información general del proyecto.",
+      "slug": "/"
+    },
+    {
+      "type": "Artículo",
+      "image": "marea-missoni",
+      "destination": "España",
+      "microDestination": "Costa del Sol",
+      "project": "Marea Missoni",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Marea Residences Missoni con información general del proyecto.",
+      "slug": "https://kearealtors.com/developments/costa-del-sol/marea-residences-missoni"
+    },
+    {
+      "type": "Artículo",
+      "image": "tierra-viva-lamborghini",
+      "destination": "España",
+      "microDestination": "Costa del Sol",
+      "project": "Tierra Viva Lamborghini",
+      "category": "Branded Residences",
+      "title": "Sitio web",
+      "description": "Sitio web oficial de Tierra Viva Lamborghini Residences con información general del proyecto.",
+      "slug": "/"
+    },
+
+
   {
     "type": "Pagina de Recursos",
     "image": "faena",
