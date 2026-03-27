@@ -8,59 +8,30 @@ import Common from '../../../data/i18n/es/common.json';
 import DevelopmentsData from '../../../data/i18n/es/developments.json';
 import HeroBannerSection from "../../../components/sections/HeroBannerSection.astro";
 
-export async function getStaticPaths() {
+const { destination, slug } = Astro.params;
 
-    const branded = DevelopmentsData.listDevelopments
-        .filter(dev => dev.developmentCategory === "branded-residences");
-
-    // combinaciones únicas destino + grupo
-    const uniqueGroups = [
-        ...new Set(
-            branded.map(dev => `${dev.developmentDestination}::${dev.developmentGroup}`)
-        )
-    ];
-
-    return uniqueGroups.map(item => {
-        const [destination, group] = item.split("::");
-
-        return {
-            params: {
-                destination,
-                slug: group
-            },
-            props: {
-                destination,
-                group
-            }
-        };
-    });
-}
-
-const { destination, group } = Astro.props;
-
-// 🔥 FILTRO CORRECTO
 const relatedDevelopments = DevelopmentsData.listDevelopments.filter(
     dev =>
         dev.developmentCategory === "branded-residences" &&
         dev.developmentDestination === destination &&
-        dev.developmentGroup === group
+        dev.developmentGroup === slug
 );
 
 if (relatedDevelopments.length === 0) {
-    throw new Error("Group not found");
+    return Astro.redirect('/404');
 }
 
 const heroData = {
-    title: group,
+    title: slug,
     bannerKey: relatedDevelopments[0].developmentBanner,
-    alt: group
+    alt: slug
 };
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
     { name: destination },
     { name: 'Branded Residences' },
-    { name: group }
+    { name: slug }
 ];
 ---
 <MainLayout title="KEA Partners" lang="es" t={Common}>
