@@ -7,20 +7,18 @@ import Common from '../../../../data/i18n/es/common.json';
 import DevelopmentsData from '../../../../data/i18n/es/developments.json';
 import Article from "../../../../data/i18n/es/article.json";
 
-export async function getStaticPaths() {
-    return DevelopmentsData.listDevelopments
-        .filter(dev => dev.developmentCategory !== "high-end-resort")
-        .map(dev => ({
-            params: {
-                destination: dev.developmentDestination,
-                brandeds: dev.developmentGroup,
-                slug: dev.developmentLink
-            },
-            props: { dev }
-        }));
-}
+const { destination, brandeds, slug } = Astro.params;
 
-const { dev } = Astro.props;
+const dev = DevelopmentsData.listDevelopments.find(
+    d => d.developmentCategory !== "high-end-resort" &&
+         d.developmentDestination === destination &&
+         d.developmentGroup === brandeds &&
+         d.developmentLink === slug
+);
+
+if (!dev) {
+    return Astro.redirect('/404');
+}
 
 const heroData = {
     title: dev.developmentName,

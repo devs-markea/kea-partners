@@ -1,14 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import { fileURLToPath } from "node:url";
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-    output: 'static',
+    output: 'server',
+    adapter: vercel(),
     integrations: [
-        tailwind({
-            nesting: true,
-        }),
     ],
     vite: {
         resolve: {

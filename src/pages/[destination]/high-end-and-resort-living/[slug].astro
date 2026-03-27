@@ -7,20 +7,17 @@ import Common from '../../../data/i18n/es/common.json';
 import DevelopmentsData from '../../../data/i18n/es/developments.json';
 import Article from "../../../data/i18n/es/article.json";
 
-export async function getStaticPaths() {
+const { destination, slug } = Astro.params;
 
-    return DevelopmentsData.listDevelopments
-        .filter(dev => dev.developmentCategory == "high-end-resort")
-        .map(dev => ({
-            params: {
-                destination: dev.developmentDestination,
-                slug: dev.developmentLink
-            },
-            props: { dev }
-        }));
+const dev = DevelopmentsData.listDevelopments.find(
+    d => d.developmentCategory === "high-end-resort" &&
+         d.developmentDestination === destination &&
+         d.developmentLink === slug
+);
+
+if (!dev) {
+    return Astro.redirect('/404');
 }
-
-const { dev } = Astro.props;
 
 const heroData = {
     title: dev.developmentName,
@@ -41,9 +38,11 @@ const breadcrumbItems = [
     { name: 'High-End and Resort Living' },
     { name: dev.developmentName }
 ];
+const devLink = dev.developmentPagelink;
+
 ---
 <MainLayout title="KEA Partners"lang="es" t={Common}>
-    <HeroBannerSection t={heroData} lang="es" />
+    <HeroBannerSection t={heroData} lang="es" link={devLink}/>
 
     <ResourceArticleSection
             breadcrumbItems={breadcrumbItems}
