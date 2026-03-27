@@ -8,31 +8,30 @@ import DevelopmentsData from '../../data/i18n/es/developments.json';
 import DestinationSection from "../../components/sections/article/DestinationSection.astro";
 import HeroBannerSection from "../../components/sections/HeroBannerSection.astro";
 
-export async function getStaticPaths() {
-    return DestinationData.listBrandedResidents.map((destination) => ({
-        params: { slug: destination.brandedResidentUrl },
-        props: { destination }
-    }));
+const { slug } = Astro.params;
+
+const destination = DestinationData.listBrandedResidents.find(
+    (d) => d.brandedResidentUrl === slug
+);
+
+if (!destination) {
+    return Astro.redirect('/404');
 }
 
-const { destination } = Astro.props;
-
-// Normalizamos la estructura para que el componente no cambie
 const heroData = {
     title: destination.brandedResidentName,
     bannerKey: destination.brandedResidentBanner,
     alt: destination.brandedResidentAlt
 };
-// Breadcrumb dinámico
+
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
     { name: 'Branded Residences', url: '' },
     { name: destination.brandedResidentName }
 ];
-const currentSlug = destination.brandedResidentUrl;
 
 const filteredDevelopments = DevelopmentsData.listDevelopments.filter(
-    (dev) => dev.developmentGroup === currentSlug
+    (dev) => dev.developmentGroup === slug
 );
 
 
