@@ -117,13 +117,15 @@ const siteTag = '';
         </div>
     </div>
 </section>
-<script>
+<script is:inline define:vars={{ KEY_GOOGLE }}>
+    // Cargar reCAPTCHA dinámicamente con la site key correcta
+    (function () {
+        const script = document.createElement("script");
+        script.src = "https://www.google.com/recaptcha/api.js?render=" + KEY_GOOGLE;
+        script.async = true;
+        document.head.appendChild(script);
+    })();
 
-</script>
-<!-- reCAPTCHA: cargar script con tu site key -->
-<script src={`https://www.google.com/recaptcha/api.js?render=${KEY_GOOGLE}`}></script>
-
-<script define:vars={{ KEY_GOOGLE }}>
     window.addEventListener("load", () => {
 
         // Ocultar badge
@@ -194,7 +196,7 @@ const siteTag = '';
                     });
                 });
 
-                const response = await fetch("https://kearealtors.com/api/submit-contact", {
+                const response = await fetch("/api/submit-contact", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
