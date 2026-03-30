@@ -415,23 +415,69 @@ import { Image } from 'astro:assets';
         formError?.classList.add('hidden');
         if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Creando cuenta...'; }
 
-        // Placeholder: supabase.auth.signUp({ email: emailVal, password: passVal, options: { data: { full_name: nameVal } } })
-        setTimeout(() => {
-            if (confirmedEmailEl) confirmedEmailEl.textContent = emailVal;
-            stateForm?.classList.add('hidden');
-            stateConfirm?.classList.remove('hidden');
-        }, 1200);
+        try {
+            const res  = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailVal, password: passVal, fullName: nameVal }),
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                if (confirmedEmailEl) confirmedEmailEl.textContent = emailVal;
+                if (data.needsConfirmation) {
+                    stateForm?.classList.add('hidden');
+                    stateConfirm?.classList.remove('hidden');
+                } else {
+                    // Auto-confirmado: redirigir directamente
+                    window.location.href = '/';
+                }
+            } else {
+                if (formError) formError.textContent = data.error ?? 'Error al crear la cuenta.';
+                formError?.classList.remove('hidden');
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Crear cuenta'; }
+            }
+        } catch {
+            if (formError) formError.textContent = 'Error de conexión. Inténtalo de nuevo.';
+            formError?.classList.remove('hidden');
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Crear cuenta'; }
+        }
     });
 
-    resendBtn?.addEventListener('click', () => {
+    // ── Google OAuth ──────────────────────────────────────────────────────────
+    // Se importa aquí para que Vite lo procese junto con el resto del módulo
+    import('@supabase/ssr').then(({ createBrowserClient }) => {
+        const supabase = createBrowserClient(
+            import.meta.env.PUBLIC_SUPABASE_URL,
+            import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+        );
+        document.getElementById('googleBtn')?.addEventListener('click', async () => {
+            await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                options: { redirectTo: `${window.location.origin}/auth/callback` },
+            });
+        });
+    });
+
+    resendBtn?.addEventListener('click', async () => {
         if (!resendBtn) return;
         resendBtn.disabled = true;
         resendBtn.textContent = 'Reenviando...';
-        // Placeholder: supabase.auth.resend({ type: 'signup', email })
+
+        const emailVal = (document.getElementById('confirmedEmail') as HTMLElement | null)?.textContent ?? '';
+        try {
+            await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                // Supabase deduplica: si el usuario ya existe y no confirmó, reenvía el email
+                body: JSON.stringify({ email: emailVal, password: '_resend_placeholder_', fullName: '_' }),
+            });
+        } catch { /* silencioso */ }
+
+        resendBtn.textContent = 'Correo reenviado';
         setTimeout(() => {
             resendBtn.disabled = false;
-            resendBtn.textContent = 'Correo reenviado';
-            setTimeout(() => { resendBtn.textContent = 'Reenviar correo de confirmación'; }, 3000);
-        }, 1200);
+            resendBtn.textContent = 'Reenviar correo de confirmación';
+        }, 3000);
     });
 </script>

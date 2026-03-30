@@ -224,10 +224,18 @@ import { Image } from 'astro:assets';
 </html>
 
 <script>
-    // Toggle password visibility
-    const toggleBtn = document.getElementById('togglePassword');
+    import { createBrowserClient } from '@supabase/ssr';
+
+    // ── Supabase browser client (solo para OAuth) ─────────────────────────────
+    const supabase = createBrowserClient(
+        import.meta.env.PUBLIC_SUPABASE_URL,
+        import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+    );
+
+    // ── Toggle contraseña ─────────────────────────────────────────────────────
+    const toggleBtn    = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password') as HTMLInputElement | null;
-    const eyeIcon = document.getElementById('eyeIcon');
+    const eyeIcon      = document.getElementById('eyeIcon');
 
     toggleBtn?.addEventListener('click', () => {
         if (!passwordInput || !eyeIcon) return;
@@ -238,50 +246,65 @@ import { Image } from 'astro:assets';
             : `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;
     });
 
-    // Basic form validation (visual only)
-    const form = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email') as HTMLInputElement | null;
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const formError = document.getElementById('formError');
-    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+    // ── Google OAuth ──────────────────────────────────────────────────────────
+    document.getElementById('googleBtn')?.addEventListener('click', async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: `${window.location.origin}/auth/callback` },
+        });
+    });
 
-    form?.addEventListener('submit', (e) => {
+    // ── Formulario email + contraseña ─────────────────────────────────────────
+    const form        = document.getElementById('loginForm');
+    const emailInput  = document.getElementById('email') as HTMLInputElement | null;
+    const emailError  = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const formError   = document.getElementById('formError');
+    const submitBtn   = document.getElementById('submitBtn') as HTMLButtonElement | null;
+
+    emailInput?.addEventListener('input',  () => emailError?.classList.add('hidden'));
+    passwordInput?.addEventListener('input', () => passwordError?.classList.add('hidden'));
+
+    form?.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        const emailVal    = emailInput?.value.trim() ?? '';
+        const passwordVal = passwordInput?.value ?? '';
         let valid = true;
 
-        const emailVal = emailInput?.value.trim() ?? '';
-        const passwordVal = (passwordInput as HTMLInputElement | null)?.value ?? '';
-
         if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-            emailError?.classList.remove('hidden');
-            valid = false;
-        } else {
-            emailError?.classList.add('hidden');
-        }
+            emailError?.classList.remove('hidden'); valid = false;
+        } else { emailError?.classList.add('hidden'); }
 
         if (!passwordVal) {
-            passwordError?.classList.remove('hidden');
-            valid = false;
-        } else {
-            passwordError?.classList.add('hidden');
-        }
+            passwordError?.classList.remove('hidden'); valid = false;
+        } else { passwordError?.classList.add('hidden'); }
 
         if (!valid) return;
 
-        // Placeholder: auth logic will be connected via Supabase
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Verificando...';
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Iniciar sesión';
+        formError?.classList.add('hidden');
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Verificando...'; }
+
+        try {
+            const res  = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailVal, password: passwordVal }),
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                const params = new URLSearchParams(window.location.search);
+                window.location.href = params.get('redirect') ?? '/';
+            } else {
+                if (formError) formError.textContent = data.error ?? 'Error al iniciar sesión.';
                 formError?.classList.remove('hidden');
-            }, 1500);
+            }
+        } catch {
+            if (formError) formError.textContent = 'Error de conexión. Inténtalo de nuevo.';
+            formError?.classList.remove('hidden');
+        } finally {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Iniciar sesión'; }
         }
     });
-
-    // Hide errors on input
-    emailInput?.addEventListener('input', () => emailError?.classList.add('hidden'));
-    passwordInput?.addEventListener('input', () => passwordError?.classList.add('hidden'));
 </script>
