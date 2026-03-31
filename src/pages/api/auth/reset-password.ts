@@ -18,8 +18,17 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
     const { password } = body;
 
-    if (!password || password.length < 8) {
-        return json({ error: 'La contraseña debe tener al menos 8 caracteres.' }, 400);
+    // Validar la misma política configurada en Supabase:
+    // mínimo 8 caracteres, mayúscula, minúscula, número y símbolo
+    const meetsPolicy = (p: string) =>
+        p.length >= 8 &&
+        /[a-z]/.test(p) &&
+        /[A-Z]/.test(p) &&
+        /[0-9]/.test(p) &&
+        /[^A-Za-z0-9]/.test(p);
+
+    if (!password || !meetsPolicy(password)) {
+        return json({ error: 'La contraseña debe tener al menos 8 caracteres con mayúscula, minúscula, número y símbolo.' }, 400);
     }
 
     const supabase = createSupabaseClient(request, cookies);

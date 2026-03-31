@@ -10,6 +10,24 @@ npm install @supabase/supabase-js @supabase/ssr
 
 ## Variables de entorno
 
+**Dónde obtenerlas — opción más rápida:**
+
+En el dashboard ve a **Home → Connect → Framework → Astro**.
+En el paso 2 ("Add files") Supabase muestra directamente los valores de `SUPABASE_URL` y `SUPABASE_KEY` pre-rellenados con los datos de tu proyecto.
+
+Esos mismos valores son los que usamos, solo con distinto nombre de variable:
+
+| Variable del Connect guide | Variable en este proyecto |
+|---|---|
+| `SUPABASE_URL` | `PUBLIC_SUPABASE_URL` |
+| `SUPABASE_KEY` | `PUBLIC_SUPABASE_ANON_KEY` |
+
+El prefijo `PUBLIC_` es necesario para que Astro exponga la variable en el browser (requerido por `createBrowserClient` en el botón de Google OAuth).
+
+**Alternativa:** Project Settings → Data API → sección "Project API keys" → botón **"reveal"** junto a la key `anon`.
+
+> No uses la key `service_role` — tiene acceso total ignorando todas las políticas RLS. Solo se usa en backends de confianza, nunca con prefijo `PUBLIC_`.
+
 Agregar en `.env`:
 
 ```env
@@ -30,20 +48,51 @@ PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
 2. Elige organización, nombre, contraseña de base de datos y región
 3. No necesitas crear tablas manualmente — Supabase crea el esquema `auth.*` automáticamente
 
-### 2 — Auth → Providers → Email
+**Enable automatic RLS**
 
-**Authentication → Providers → Email**
+Durante la creación del proyecto aparece la opción:
+> *"Create an event trigger that automatically enables Row Level Security on all new tables in the public schema."*
 
-| Opción | Valor recomendado |
-|---|---|
-| Enable Email provider | ON |
-| Confirm email | ON |
-| Secure email change | ON |
-| Double confirm email changes | ON |
+**Seleccionar: ON ✓**
 
-> Con **Confirm email: ON**, al registrarse el usuario recibirá un correo de confirmación antes de poder iniciar sesión. El endpoint `/api/auth/register` ya maneja este caso devolviendo `needsConfirmation: true`.
+Dado que el proyecto manejará roles (ej. admin, agente, cliente), RLS es obligatorio. Sin él, cualquier usuario autenticado podría leer y escribir datos de otros usuarios directamente desde el cliente.
 
-### 3 — Auth → Providers → Google
+Con RLS activo, cada tabla nueva en el esquema `public` queda bloqueada por defecto — sin una policy explícita, nadie puede acceder a los datos aunque tenga el `anon key`. Las policies se definen por rol y por operación (`SELECT`, `INSERT`, `UPDATE`, `DELETE`).
+
+Ejemplo de lo que se configurará por tabla cuando se definan los roles:
+
+```sql
+-- Solo el propio usuario puede leer su perfil
+CREATE POLICY "usuario lee su perfil"
+ON profiles FOR SELECT
+USING (auth.uid() = user_id);
+
+-- Solo admins pueden ver todos los perfiles
+CREATE POLICY "admin lee todos los perfiles"
+ON profiles FOR SELECT
+USING (auth.jwt() ->> 'role' = 'admin');
+```
+
+> Las policies se gestionan en **Authentication → Configuration → Policies** o directamente en **Table Editor → [tabla] → RLS**.
+
+### 2 — Proveedor Email
+
+**Authentication → Configuration → Sign In / Providers → Email**
+
+| Opción | Valor recomendado | Notas |
+|---|---|---|
+| Enable email provider | ON | Habilita registro e inicio de sesión por correo |
+| Secure email change | ON | Requiere confirmar el cambio tanto en el correo viejo como en el nuevo |
+| Secure password change | ON | El usuario debe tener sesión reciente (< 24 h) para cambiar contraseña |
+| Prevent use of leaked passwords | —  | Solo disponible en plan Pro |
+| Minimum password length | `8` | El mínimo es 6, pero 8 o más es lo recomendado |
+| Password requirements | `Lowercase, uppercase letters, digits and symbols` | Recomendado por Supabase |
+| Email OTP expiration | `3600` | Segundos antes de que expire el enlace de confirmación/reset (1 hora) |
+| Email OTP length | `8` | Longitud del código OTP en correos |
+
+> El endpoint `/api/auth/register` devuelve `needsConfirmation: true` cuando Supabase requiere que el usuario confirme su correo antes de poder iniciar sesión. Esto ocurre por el flujo estándar de Supabase — no hay una opción llamada "Confirm email" en el panel; el envío de confirmación es automático al hacer `signUp`.
+
+### 3 — Proveedor Google (OAuth)
 
 **Paso A — Google Cloud Console**
 
@@ -60,14 +109,21 @@ PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
 
 **Paso B — Supabase Dashboard**
 
-1. **Authentication → Providers → Google**
-2. Habilitar Google ✓
-3. Pegar **Client ID** y **Client Secret** del paso anterior
-4. Guardar
+**Authentication → Configuration → Sign In / Providers → Google**
 
-### 4 — Auth → URL Configuration
+1. Habilitar **Enable Sign in with Google** ✓
+2. Copiar el valor del campo **Callback URL (for OAuth)** — este es el URI que debes registrar en Google Cloud Console en el paso A (Authorized redirect URIs)
+3. Pegar el **Client ID** del paso A en el campo **Client IDs**
+4. Pegar el **Client Secret** del paso A en el campo **Client Secret (for OAuth)**
+5. Dejar **Skip nonce checks** en OFF (más seguro)
+6. Dejar **Allow users without an email** en OFF (el proyecto requiere correo)
+7. Guardar
 
-**Authentication → URL Configuration**
+> **Orden importante:** primero copia el Callback URL de Supabase, luego regístralo en Google Cloud Console, y finalmente pega las credenciales de Google en Supabase. El Callback URL tiene la forma `https://xxxxxxxxxxxx.supabase.co/auth/v1/callback`.
+
+### 4 — URL Configuration
+
+**Authentication → Configuration → URL Configuration**
 
 | Campo | Valor |
 |---|---|
@@ -78,12 +134,25 @@ PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
 > Supabase rechaza cualquier `redirectTo` que no esté en la whitelist de Redirect URLs.
 > Agregar tanto el dominio de producción como el de desarrollo local.
 
-### 5 — Auth → Email Templates (opcional)
+### 5 — Plantillas de correo (opcional)
 
-**Authentication → Email Templates**
+**Authentication → Notifications → Email**
 
 Puedes personalizar los correos de **Confirm signup** y **Reset password**.
 Asegúrate de que el enlace del template use `{{ .ConfirmationURL }}` — Supabase lo rellena automáticamente con el `redirectTo` enviado desde el código.
+
+### 6 — Rate Limits (referencia)
+
+**Authentication → Configuration → Rate Limits**
+
+Supabase aplica límites por defecto. Los más relevantes para este proyecto:
+
+| Tipo | Límite por defecto |
+|---|---|
+| Emails enviados (signup, reset) | 4 por hora |
+| Intentos de login | 360 por hora |
+
+> Si en desarrollo necesitas más intentos, puedes subirlos temporalmente desde este panel.
 
 ---
 

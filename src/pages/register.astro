@@ -451,7 +451,7 @@ import { Image } from 'astro:assets';
             const res  = await fetch('/api/auth/register', {
                 method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body:    JSON.stringify({ email: emailVal, password: passVal, fullName: nameVal }),
+                body:    JSON.stringify({ email: emailVal, password: passVal, fullName: nameVal, termsAccepted: true }),
             });
             const data = await res.json();
 
