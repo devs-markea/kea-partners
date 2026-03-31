@@ -191,7 +191,7 @@ import { Image } from 'astro:assets';
                         </div>
 
                         <p class="text-red-500 text-xs mt-1 hidden" id="passwordError">
-                            La contraseña debe tener al menos 8 caracteres.
+                            Mínimo 8 caracteres con mayúscula, minúscula, número y símbolo.
                         </p>
                     </div>
 
@@ -319,14 +319,21 @@ import { Image } from 'astro:assets';
 </html>
 
 <script>
-    // — Toggle helpers —
-    const eyeOpen = `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;
+    import { createBrowserClient } from '@supabase/ssr';
+
+    const supabase = createBrowserClient(
+        import.meta.env.PUBLIC_SUPABASE_URL,
+        import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+    );
+
+    // ── Toggle helpers ────────────────────────────────────────────────────────
+    const eyeOpen   = `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;
     const eyeClosed = `<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />`;
 
     function makeToggle(btnId: string, inputId: string, iconId: string) {
-        const btn = document.getElementById(btnId);
+        const btn   = document.getElementById(btnId);
         const input = document.getElementById(inputId) as HTMLInputElement | null;
-        const icon = document.getElementById(iconId);
+        const icon  = document.getElementById(iconId);
         btn?.addEventListener('click', () => {
             if (!input || !icon) return;
             const isPass = input.type === 'password';
@@ -337,25 +344,38 @@ import { Image } from 'astro:assets';
     makeToggle('togglePassword1', 'password', 'eyeIcon1');
     makeToggle('togglePassword2', 'confirmPassword', 'eyeIcon2');
 
-    // — Strength bar —
+    // ── Indicador de fortaleza ────────────────────────────────────────────────
+    // Refleja la configuración de Supabase: min 8 chars + lower + upper + digit + symbol
     const passwordInput = document.getElementById('password') as HTMLInputElement | null;
-    const bars = ['bar1','bar2','bar3','bar4'].map(id => document.getElementById(id));
+    const bars          = ['bar1','bar2','bar3','bar4'].map(id => document.getElementById(id));
     const strengthLabel = document.getElementById('strengthLabel');
-    const strengthColors = ['bg-red-400','bg-orange-400','bg-yellow-400','bg-green-500'];
-    const strengthTexts  = ['Muy débil','Débil','Regular','Segura'];
+    const strengthColors     = ['bg-red-400','bg-orange-400','bg-yellow-400','bg-green-500'];
+    const strengthTexts      = ['Muy débil','Débil','Regular','Segura'];
     const strengthTextColors = ['text-red-400','text-orange-400','text-yellow-500','text-green-500'];
 
     function getStrength(val: string): number {
         let s = 0;
-        if (val.length >= 8) s++;
-        if (val.length >= 12) s++;
-        if (/[A-Z]/.test(val) && /[0-9]/.test(val)) s++;
-        if (/[^A-Za-z0-9]/.test(val)) s++;
-        return Math.min(s, 4);
+        if (val.length >= 8)              s++;
+        if (/[a-z]/.test(val))            s++;
+        if (/[A-Z]/.test(val))            s++;
+        if (/[0-9]/.test(val))            s++;
+        if (/[^A-Za-z0-9]/.test(val))     s++;
+        // Clamp a 4 niveles (5 criterios → 4 barras)
+        return Math.min(Math.floor(s * 4 / 5), 4);
+    }
+
+    function meetsSupabasePolicy(val: string): boolean {
+        return (
+            val.length >= 8        &&
+            /[a-z]/.test(val)      &&
+            /[A-Z]/.test(val)      &&
+            /[0-9]/.test(val)      &&
+            /[^A-Za-z0-9]/.test(val)
+        );
     }
 
     passwordInput?.addEventListener('input', () => {
-        const val = passwordInput.value;
+        const val   = passwordInput.value;
         const score = val ? getStrength(val) : 0;
         bars.forEach((bar, i) => {
             if (!bar) return;
@@ -364,16 +384,24 @@ import { Image } from 'astro:assets';
         });
         if (strengthLabel) {
             strengthLabel.textContent = val ? (strengthTexts[score - 1] ?? '') : '';
-            strengthLabel.className = `text-xs ${val ? (strengthTextColors[score - 1] ?? '') : 'text-gray-400'}`;
+            strengthLabel.className   = `text-xs ${val ? (strengthTextColors[score - 1] ?? '') : 'text-gray-400'}`;
         }
     });
 
-    // — Form —
-    const form = document.getElementById('registerForm');
-    const nameInput    = document.getElementById('fullName') as HTMLInputElement | null;
-    const emailInput   = document.getElementById('email') as HTMLInputElement | null;
+    // ── Google OAuth ──────────────────────────────────────────────────────────
+    document.getElementById('googleBtn')?.addEventListener('click', async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: `${window.location.origin}/auth/callback` },
+        });
+    });
+
+    // ── Formulario ────────────────────────────────────────────────────────────
+    const form      = document.getElementById('registerForm');
+    const nameInput = document.getElementById('fullName')         as HTMLInputElement | null;
+    const emailInput= document.getElementById('email')            as HTMLInputElement | null;
     const confirmInput = document.getElementById('confirmPassword') as HTMLInputElement | null;
-    const termsInput   = document.getElementById('terms') as HTMLInputElement | null;
+    const termsInput= document.getElementById('terms')            as HTMLInputElement | null;
 
     const nameError    = document.getElementById('nameError');
     const emailError   = document.getElementById('emailError');
@@ -382,33 +410,37 @@ import { Image } from 'astro:assets';
     const termsError   = document.getElementById('termsError');
     const formError    = document.getElementById('formError');
     const submitBtn    = document.getElementById('submitBtn') as HTMLButtonElement | null;
-
     const stateForm    = document.getElementById('stateForm');
     const stateConfirm = document.getElementById('stateConfirm');
     const confirmedEmailEl = document.getElementById('confirmedEmail');
     const resendBtn    = document.getElementById('resendBtn') as HTMLButtonElement | null;
 
-    // Clear errors on input
-    nameInput?.addEventListener('input',    () => nameError?.classList.add('hidden'));
-    emailInput?.addEventListener('input',   () => emailError?.classList.add('hidden'));
-    passwordInput?.addEventListener('input',() => passwordError?.classList.add('hidden'));
-    confirmInput?.addEventListener('input', () => confirmError?.classList.add('hidden'));
-    termsInput?.addEventListener('change',  () => termsError?.classList.add('hidden'));
+    nameInput?.addEventListener('input',     () => nameError?.classList.add('hidden'));
+    emailInput?.addEventListener('input',    () => emailError?.classList.add('hidden'));
+    passwordInput?.addEventListener('input', () => passwordError?.classList.add('hidden'));
+    confirmInput?.addEventListener('input',  () => confirmError?.classList.add('hidden'));
+    termsInput?.addEventListener('change',   () => termsError?.classList.add('hidden'));
 
-    form?.addEventListener('submit', (e) => {
+    async function handleSubmit(e: Event) {
         e.preventDefault();
-        const nameVal    = nameInput?.value.trim() ?? '';
+
+        const nameVal    = nameInput?.value.trim()  ?? '';
         const emailVal   = emailInput?.value.trim() ?? '';
-        const passVal    = passwordInput?.value ?? '';
-        const confirmVal = confirmInput?.value ?? '';
-        const termsVal   = termsInput?.checked ?? false;
+        const passVal    = passwordInput?.value      ?? '';
+        const confirmVal = confirmInput?.value        ?? '';
+        const termsVal   = termsInput?.checked        ?? false;
         let valid = true;
 
-        if (!nameVal) { nameError?.classList.remove('hidden'); valid = false; }
-        if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { emailError?.classList.remove('hidden'); valid = false; }
-        if (passVal.length < 8) { passwordError?.classList.remove('hidden'); valid = false; }
-        if (passVal !== confirmVal) { confirmError?.classList.remove('hidden'); valid = false; }
-        if (!termsVal) { termsError?.classList.remove('hidden'); valid = false; }
+        if (!nameVal)
+            { nameError?.classList.remove('hidden'); valid = false; }
+        if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal))
+            { emailError?.classList.remove('hidden'); valid = false; }
+        if (!meetsSupabasePolicy(passVal))
+            { passwordError?.classList.remove('hidden'); valid = false; }
+        if (passVal !== confirmVal)
+            { confirmError?.classList.remove('hidden'); valid = false; }
+        if (!termsVal)
+            { termsError?.classList.remove('hidden'); valid = false; }
 
         if (!valid) return;
 
@@ -417,9 +449,9 @@ import { Image } from 'astro:assets';
 
         try {
             const res  = await fetch('/api/auth/register', {
-                method: 'POST',
+                method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailVal, password: passVal, fullName: nameVal }),
+                body:    JSON.stringify({ email: emailVal, password: passVal, fullName: nameVal }),
             });
             const data = await res.json();
 
@@ -429,55 +461,38 @@ import { Image } from 'astro:assets';
                     stateForm?.classList.add('hidden');
                     stateConfirm?.classList.remove('hidden');
                 } else {
-                    // Auto-confirmado: redirigir directamente
                     window.location.href = '/';
                 }
             } else {
                 if (formError) formError.textContent = data.error ?? 'Error al crear la cuenta.';
                 formError?.classList.remove('hidden');
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Crear cuenta'; }
             }
         } catch {
             if (formError) formError.textContent = 'Error de conexión. Inténtalo de nuevo.';
             formError?.classList.remove('hidden');
+        } finally {
             if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Crear cuenta'; }
         }
-    });
+    }
 
-    // ── Google OAuth ──────────────────────────────────────────────────────────
-    // Se importa aquí para que Vite lo procese junto con el resto del módulo
-    import('@supabase/ssr').then(({ createBrowserClient }) => {
-        const supabase = createBrowserClient(
-            import.meta.env.PUBLIC_SUPABASE_URL,
-            import.meta.env.PUBLIC_SUPABASE_ANON_KEY
-        );
-        document.getElementById('googleBtn')?.addEventListener('click', async () => {
-            await supabase.auth.signInWithOAuth({
-                provider: 'google',
-                options: { redirectTo: `${window.location.origin}/auth/callback` },
-            });
-        });
-    });
+    form?.addEventListener('submit', handleSubmit);
 
-    resendBtn?.addEventListener('click', async () => {
+    // ── Reenviar email de confirmación ────────────────────────────────────────
+    async function handleResend() {
         if (!resendBtn) return;
         resendBtn.disabled = true;
         resendBtn.textContent = 'Reenviando...';
 
-        const emailVal = (document.getElementById('confirmedEmail') as HTMLElement | null)?.textContent ?? '';
+        const emailVal = confirmedEmailEl?.textContent?.trim() ?? '';
         try {
-            await fetch('/api/auth/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                // Supabase deduplica: si el usuario ya existe y no confirmó, reenvía el email
-                body: JSON.stringify({ email: emailVal, password: '_resend_placeholder_', fullName: '_' }),
-            });
+            await supabase.auth.resend({ type: 'signup', email: emailVal });
         } catch { /* silencioso */ }
 
         resendBtn.textContent = 'Correo reenviado';
         setTimeout(() => {
-            resendBtn.disabled = false;
-            resendBtn.textContent = 'Reenviar correo de confirmación';
+            if (resendBtn) { resendBtn.disabled = false; resendBtn.textContent = 'Reenviar correo de confirmación'; }
         }, 3000);
-    });
+    }
+
+    resendBtn?.addEventListener('click', handleResend);
 </script>

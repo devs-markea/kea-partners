@@ -11,6 +11,7 @@ const PUBLIC_ROUTES = [
     '/forgot-password',
     '/reset-password',
     '/auth',        // /auth/callback y cualquier sub-ruta
+    '/logout',
 ];
 
 /**

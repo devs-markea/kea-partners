@@ -1,310 +1,396 @@
 ---
-import '../styles/global.css';
-import { images } from '../assets/images';
-import { Image } from 'astro:assets';
+import "../styles/global.css";
+import { images } from "../assets/images";
+import { Image } from "astro:assets";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <title>Iniciar sesión — Kea Partners</title>
-</head>
-<body class="min-h-screen bg-brand-50 font-jost flex">
-
+  </head>
+  <body class="min-h-screen bg-brand-50 font-jost flex">
     <!-- LEFT PANEL — Brand -->
-    <div class="hidden lg:flex lg:w-1/2 bg-brand-400 relative flex-col justify-between p-12 overflow-hidden">
-
-        <!-- Decorative background elements -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-0 right-0 w-[600px] h-[600px] border border-brand-300 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] border border-brand-300 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+    <div
+      class="hidden lg:flex lg:w-1/2 bg-brand-400 relative flex-col justify-between p-12 overflow-hidden"
+    >
+      <!-- Decorative background elements -->
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-0 right-0 w-[600px] h-[600px] border border-brand-300 rounded-full translate-x-1/2 -translate-y-1/2"
+        >
         </div>
-        <div class="absolute bottom-24 right-0 w-[1px] h-48 bg-brand-300 opacity-30"></div>
-        <div class="absolute top-1/3 left-12 w-24 h-[1px] bg-brand-300 opacity-20"></div>
-
-        <!-- Logo -->
-        <div class="relative z-10 flex items-center gap-4">
-            <Image
-                src={images.Logo}
-                alt="Kea Partners"
-                class="w-[90px] h-auto"
-                quality={90}
-                loading="eager"
-            />
-            <span class="text-brand-50 text-sm font-medium tracking-[0.15em] uppercase opacity-90">
-                Kea Partners
-            </span>
+        <div
+          class="absolute bottom-0 left-0 w-[400px] h-[400px] border border-brand-300 rounded-full -translate-x-1/2 translate-y-1/2"
+        >
         </div>
+      </div>
+      <div
+        class="absolute bottom-24 right-0 w-[1px] h-48 bg-brand-300 opacity-30"
+      >
+      </div>
+      <div
+        class="absolute top-1/3 left-12 w-24 h-[1px] bg-brand-300 opacity-20"
+      >
+      </div>
 
-        <!-- Center content -->
-        <div class="relative z-10 flex-1 flex flex-col justify-center max-w-sm">
-            <div class="w-8 h-[1px] bg-brand-300 mb-6"></div>
-            <h1 class="font-cormorant text-brand-50 text-5xl font-light leading-tight mb-4">
-                Propiedades de<br />
-                <em class="text-brand-300 not-italic">alto nivel</em>,<br />
-                a tu alcance.
-            </h1>
-            <p class="text-brand-50 text-sm font-light opacity-60 leading-relaxed">
-                Accede a tu cuenta para explorar desarrollos exclusivos,<br />
-                gestionar tus favoritos y conectar con nuestros asesores.
-            </p>
-        </div>
+      <!-- Logo -->
+      <div class="relative z-10 flex items-center gap-4">
+        <Image
+          src={images.Logo}
+          alt="Kea Partners"
+          class="w-[90px] h-auto"
+          quality={90}
+          loading="eager"
+        />
+        <span
+          class="text-brand-50 text-sm font-medium tracking-[0.15em] uppercase opacity-90"
+        >
+          Kea Partners
+        </span>
+      </div>
 
-        <!-- Bottom tagline -->
-        <div class="relative z-10">
-            <p class="text-brand-50 text-xs opacity-30 tracking-[0.2em] uppercase">
-                Luxury Real Estate · México
-            </p>
-        </div>
+      <!-- Center content -->
+      <div class="relative z-10 flex-1 flex flex-col justify-center max-w-sm">
+        <div class="w-8 h-[1px] bg-brand-300 mb-6"></div>
+        <h1
+          class="font-cormorant text-brand-50 text-5xl font-light leading-tight mb-4"
+        >
+          Propiedades de<br />
+          <em class="text-brand-300 not-italic">alto nivel</em>,<br />
+          a tu alcance.
+        </h1>
+        <p class="text-brand-50 text-sm font-light opacity-60 leading-relaxed">
+          Accede a tu cuenta para explorar desarrollos exclusivos,<br />
+          gestionar tus favoritos y conectar con nuestros asesores.
+        </p>
+      </div>
 
-        <!-- Golden accent line -->
-        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-brand-300 to-transparent opacity-40"></div>
+      <!-- Bottom tagline -->
+      <div class="relative z-10">
+        <p class="text-brand-50 text-xs opacity-30 tracking-[0.2em] uppercase">
+          Luxury Real Estate · México
+        </p>
+      </div>
+
+      <!-- Golden accent line -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-brand-300 to-transparent opacity-40"
+      >
+      </div>
     </div>
 
     <!-- RIGHT PANEL — Login Form -->
-    <div class="flex-1 flex flex-col justify-center items-center px-6 py-12 lg:py-0">
+    <div
+      class="flex-1 flex flex-col justify-center items-center px-6 py-12 lg:py-0"
+    >
+      <!-- Mobile logo -->
+      <div class="flex lg:hidden items-center gap-3 mb-10">
+        <Image
+          src={images.Logo}
+          alt="Kea Partners"
+          class="w-[72px] h-auto"
+          quality={90}
+          loading="eager"
+        />
+        <span
+          class="text-brand-400 text-sm font-medium tracking-[0.15em] uppercase"
+        >
+          Kea Partners
+        </span>
+      </div>
 
-        <!-- Mobile logo -->
-        <div class="flex lg:hidden items-center gap-3 mb-10">
-            <Image
-                src={images.Logo}
-                alt="Kea Partners"
-                class="w-[72px] h-auto"
-                quality={90}
-                loading="eager"
-            />
-            <span class="text-brand-400 text-sm font-medium tracking-[0.15em] uppercase">
-                Kea Partners
-            </span>
+      <div class="w-full max-w-[400px]">
+        <!-- Heading -->
+        <div class="mb-8">
+          <p
+            class="text-brand-300 text-xs font-medium tracking-[0.2em] uppercase mb-2"
+          >
+            Bienvenido de vuelta
+          </p>
+          <h2 class="font-cormorant text-brand-400 text-4xl font-light">
+            Iniciar sesión
+          </h2>
         </div>
 
-        <div class="w-full max-w-[400px]">
+        <!-- Google OAuth Button -->
+        <button
+          type="button"
+          id="googleBtn"
+          class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 rounded-xl bg-white text-brand-700 text-sm font-medium hover:border-brand-300 hover:shadow-sm transition-all duration-200 mb-6"
+          aria-label="Continuar con Google"
+        >
+          <!-- Google icon SVG -->
+          <svg
+            class="w-5 h-5 flex-shrink-0"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              fill="#4285F4"></path>
+            <path
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+              fill="#34A853"></path>
+            <path
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+              fill="#FBBC05"></path>
+            <path
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+              fill="#EA4335"></path>
+          </svg>
+          Continuar con Google
+        </button>
 
-            <!-- Heading -->
-            <div class="mb-8">
-                <p class="text-brand-300 text-xs font-medium tracking-[0.2em] uppercase mb-2">
-                    Bienvenido de vuelta
-                </p>
-                <h2 class="font-cormorant text-brand-400 text-4xl font-light">
-                    Iniciar sesión
-                </h2>
-            </div>
+        <!-- Divider -->
+        <div class="flex items-center gap-3 mb-6">
+          <div class="flex-1 h-px bg-gray-200"></div>
+          <span class="text-brand-600 text-xs tracking-widest">O</span>
+          <div class="flex-1 h-px bg-gray-200"></div>
+        </div>
 
-            <!-- Google OAuth Button -->
-            <button
-                type="button"
-                class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 rounded-xl bg-white text-brand-700 text-sm font-medium hover:border-brand-300 hover:shadow-sm transition-all duration-200 mb-6"
-                aria-label="Continuar con Google"
+        <!-- Email / Password Form -->
+        <form id="loginForm" novalidate class="space-y-4">
+          <!-- Email -->
+          <div>
+            <label
+              for="email"
+              class="block text-xs font-medium text-brand-700 tracking-[0.1em] uppercase mb-1.5"
             >
-                <!-- Google icon SVG -->
-                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                </svg>
-                Continuar con Google
-            </button>
-
-            <!-- Divider -->
-            <div class="flex items-center gap-3 mb-6">
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-brand-600 text-xs tracking-widest">O</span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-            </div>
-
-            <!-- Email / Password Form -->
-            <form id="loginForm" novalidate class="space-y-4">
-
-                <!-- Email -->
-                <div>
-                    <label for="email" class="block text-xs font-medium text-brand-700 tracking-[0.1em] uppercase mb-1.5">
-                        Correo electrónico
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="tu@correo.com"
-                        autocomplete="email"
-                        class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand-700 placeholder-gray-400 bg-white focus:outline-none focus:border-brand-300 focus:ring-2 focus:ring-brand-300/20 transition-all duration-200"
-                    />
-                    <p class="text-red-500 text-xs mt-1 hidden" id="emailError">
-                        Ingresa un correo electrónico válido.
-                    </p>
-                </div>
-
-                <!-- Password -->
-                <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                        <label for="password" class="block text-xs font-medium text-brand-700 tracking-[0.1em] uppercase">
-                            Contraseña
-                        </label>
-                        <a
-                            href="#"
-                            class="text-xs text-brand-300 hover:text-brand-400 hover:underline transition-colors duration-200"
-                        >
-                            ¿Olvidaste tu contraseña?
-                        </a>
-                    </div>
-                    <div class="relative">
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="••••••••"
-                            autocomplete="current-password"
-                            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand-700 placeholder-gray-400 bg-white focus:outline-none focus:border-brand-300 focus:ring-2 focus:ring-brand-300/20 transition-all duration-200 pr-11"
-                        />
-                        <!-- Toggle password visibility -->
-                        <button
-                            type="button"
-                            id="togglePassword"
-                            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-400 transition-colors duration-200"
-                            aria-label="Mostrar u ocultar contraseña"
-                        >
-                            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <p class="text-red-500 text-xs mt-1 hidden" id="passwordError">
-                        La contraseña es obligatoria.
-                    </p>
-                </div>
-
-                <!-- Remember me -->
-                <div class="flex items-center gap-2 pt-1">
-                    <input
-                        type="checkbox"
-                        id="remember"
-                        name="remember"
-                        class="w-4 h-4 rounded border-gray-300 accent-brand-400 cursor-pointer"
-                    />
-                    <label for="remember" class="text-xs text-brand-500 cursor-pointer select-none">
-                        Mantener sesión iniciada
-                    </label>
-                </div>
-
-                <!-- Submit -->
-                <button
-                    type="submit"
-                    id="submitBtn"
-                    class="w-full flex items-center justify-center h-12 px-6 bg-brand-400 text-brand-50 text-sm font-medium rounded-full hover:opacity-90 active:scale-[0.98] transition-all duration-200 mt-2 tracking-[0.05em]"
-                >
-                    Iniciar sesión
-                </button>
-
-                <!-- Feedback messages -->
-                <p id="formError" class="hidden text-red-500 text-xs text-center mt-1">
-                    Correo o contraseña incorrectos. Inténtalo de nuevo.
-                </p>
-
-            </form>
-
-            <!-- Register link -->
-            <p class="text-center text-xs text-brand-500 mt-8">
-                ¿Aún no tienes cuenta?
-                <a href="#" class="text-brand-300 font-medium hover:underline transition-colors duration-200">
-                    Regístrate
-                </a>
+              Correo electrónico
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tu@correo.com"
+              autocomplete="email"
+              class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand-700 placeholder-gray-400 bg-white focus:outline-none focus:border-brand-300 focus:ring-2 focus:ring-brand-300/20 transition-all duration-200"
+            />
+            <p class="text-red-500 text-xs mt-1 hidden" id="emailError">
+              Ingresa un correo electrónico válido.
             </p>
+          </div>
 
+          <!-- Password -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label
+                for="password"
+                class="block text-xs font-medium text-brand-700 tracking-[0.1em] uppercase"
+              >
+                Contraseña
+              </label>
+              <a
+                href="/forgot-password"
+                class="text-xs text-brand-300 hover:text-brand-400 hover:underline transition-colors duration-200"
+              >
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand-700 placeholder-gray-400 bg-white focus:outline-none focus:border-brand-300 focus:ring-2 focus:ring-brand-300/20 transition-all duration-200 pr-11"
+              />
+              <!-- Toggle password visibility -->
+              <button
+                type="button"
+                id="togglePassword"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-400 transition-colors duration-200"
+                aria-label="Mostrar u ocultar contraseña"
+              >
+                <svg
+                  id="eyeIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="text-red-500 text-xs mt-1 hidden" id="passwordError">
+              La contraseña es obligatoria.
+            </p>
+          </div>
 
-        </div>
+          <!-- Remember me -->
+          <div class="flex items-center gap-2 pt-1">
+            <input
+              type="checkbox"
+              id="remember"
+              name="remember"
+              class="w-4 h-4 rounded border-gray-300 accent-brand-400 cursor-pointer"
+            />
+            <label
+              for="remember"
+              class="text-xs text-brand-500 cursor-pointer select-none"
+            >
+              Mantener sesión iniciada
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full flex items-center justify-center h-12 px-6 bg-brand-400 text-brand-50 text-sm font-medium rounded-full hover:opacity-90 active:scale-[0.98] transition-all duration-200 mt-2 tracking-[0.05em]"
+          >
+            Iniciar sesión
+          </button>
+
+          <!-- Feedback messages -->
+          <p
+            id="formError"
+            class="hidden text-red-500 text-xs text-center mt-1"
+          >
+            Correo o contraseña incorrectos. Inténtalo de nuevo.
+          </p>
+        </form>
+
+        <!-- Register link -->
+        <p class="text-center text-xs text-brand-500 mt-8">
+          ¿Aún no tienes cuenta?
+          <a
+            href="/register"
+            class="text-brand-300 font-medium hover:underline transition-colors duration-200"
+          >
+            Regístrate
+          </a>
+        </p>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
 
 <script>
-    import { createBrowserClient } from '@supabase/ssr';
+  import { createBrowserClient } from "@supabase/ssr";
 
-    // ── Supabase browser client (solo para OAuth) ─────────────────────────────
-    const supabase = createBrowserClient(
-        import.meta.env.PUBLIC_SUPABASE_URL,
-        import.meta.env.PUBLIC_SUPABASE_ANON_KEY
-    );
+  // ── Supabase browser client (solo para OAuth) ─────────────────────────────
+  const supabase = createBrowserClient(
+    import.meta.env.PUBLIC_SUPABASE_URL,
+    import.meta.env.PUBLIC_SUPABASE_ANON_KEY,
+  );
 
-    // ── Toggle contraseña ─────────────────────────────────────────────────────
-    const toggleBtn    = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password') as HTMLInputElement | null;
-    const eyeIcon      = document.getElementById('eyeIcon');
+  // ── Toggle contraseña ─────────────────────────────────────────────────────
+  const toggleBtn = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById(
+    "password",
+  ) as HTMLInputElement | null;
+  const eyeIcon = document.getElementById("eyeIcon");
 
-    toggleBtn?.addEventListener('click', () => {
-        if (!passwordInput || !eyeIcon) return;
-        const isPassword = passwordInput.type === 'password';
-        passwordInput.type = isPassword ? 'text' : 'password';
-        eyeIcon.innerHTML = isPassword
-            ? `<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />`
-            : `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;
+  toggleBtn?.addEventListener("click", () => {
+    if (!passwordInput || !eyeIcon) return;
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    eyeIcon.innerHTML = isPassword
+      ? `<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />`
+      : `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;
+  });
+
+  // ── Google OAuth ──────────────────────────────────────────────────────────
+  document.getElementById("googleBtn")?.addEventListener("click", async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
     });
+  });
 
-    // ── Google OAuth ──────────────────────────────────────────────────────────
-    document.getElementById('googleBtn')?.addEventListener('click', async () => {
-        await supabase.auth.signInWithOAuth({
-            provider: 'google',
-            options: { redirectTo: `${window.location.origin}/auth/callback` },
-        });
-    });
+  // ── Formulario email + contraseña ─────────────────────────────────────────
+  const form = document.getElementById("loginForm");
+  const emailInput = document.getElementById(
+    "email",
+  ) as HTMLInputElement | null;
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
+  const formError = document.getElementById("formError");
+  const submitBtn = document.getElementById(
+    "submitBtn",
+  ) as HTMLButtonElement | null;
 
-    // ── Formulario email + contraseña ─────────────────────────────────────────
-    const form        = document.getElementById('loginForm');
-    const emailInput  = document.getElementById('email') as HTMLInputElement | null;
-    const emailError  = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const formError   = document.getElementById('formError');
-    const submitBtn   = document.getElementById('submitBtn') as HTMLButtonElement | null;
+  emailInput?.addEventListener("input", () =>
+    emailError?.classList.add("hidden"),
+  );
+  passwordInput?.addEventListener("input", () =>
+    passwordError?.classList.add("hidden"),
+  );
 
-    emailInput?.addEventListener('input',  () => emailError?.classList.add('hidden'));
-    passwordInput?.addEventListener('input', () => passwordError?.classList.add('hidden'));
+  async function handleSubmit(e: Event) {
+    e.preventDefault();
 
-    form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    const emailVal = emailInput?.value.trim() ?? "";
+    const passwordVal = passwordInput?.value ?? "";
+    let valid = true;
 
-        const emailVal    = emailInput?.value.trim() ?? '';
-        const passwordVal = passwordInput?.value ?? '';
-        let valid = true;
+    if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      emailError?.classList.remove("hidden");
+      valid = false;
+    } else {
+      emailError?.classList.add("hidden");
+    }
 
-        if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-            emailError?.classList.remove('hidden'); valid = false;
-        } else { emailError?.classList.add('hidden'); }
+    if (!passwordVal) {
+      passwordError?.classList.remove("hidden");
+      valid = false;
+    } else {
+      passwordError?.classList.add("hidden");
+    }
 
-        if (!passwordVal) {
-            passwordError?.classList.remove('hidden'); valid = false;
-        } else { passwordError?.classList.add('hidden'); }
+    if (!valid) return;
 
-        if (!valid) return;
+    formError?.classList.add("hidden");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Verificando...";
+    }
 
-        formError?.classList.add('hidden');
-        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Verificando...'; }
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailVal, password: passwordVal }),
+      });
+      const data = await res.json();
 
-        try {
-            const res  = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailVal, password: passwordVal }),
-            });
-            const data = await res.json();
-
-            if (res.ok && data.success) {
-                const params = new URLSearchParams(window.location.search);
-                window.location.href = params.get('redirect') ?? '/';
-            } else {
-                if (formError) formError.textContent = data.error ?? 'Error al iniciar sesión.';
-                formError?.classList.remove('hidden');
-            }
-        } catch {
-            if (formError) formError.textContent = 'Error de conexión. Inténtalo de nuevo.';
-            formError?.classList.remove('hidden');
-        } finally {
-            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Iniciar sesión'; }
-        }
-    });
+      if (res.ok && data.success) {
+        const params = new URLSearchParams(window.location.search);
+        window.location.href = params.get("redirect") ?? "/";
+      } else {
+        if (formError)
+          formError.textContent = data.error ?? "Error al iniciar sesión.";
+        formError?.classList.remove("hidden");
+      }
+    } catch {
+      if (formError)
+        formError.textContent = "Error de conexión. Inténtalo de nuevo.";
+      formError?.classList.remove("hidden");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Iniciar sesión";
+      }
+    }
+  }
+  form?.addEventListener("submit", handleSubmit);
 </script>
