@@ -21,7 +21,12 @@
   "faq": {
     "label": "FAQS",
     "url": "/#faq"
+  },
+    "logout": {
+    "label": "Cerrar Sesion",
+    "url": "/logout"
   }
+
 },
   "footer": {
     "socialMedia": {

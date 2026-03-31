@@ -1,0 +1,37 @@
+---
+/**
+ * Manejador de callbacks de Supabase Auth.
+ * Cubre tres flujos:
+ *  1. OAuth (Google) — recibe ?code= y lo intercambia por sesión
+ *  2. Confirmación de email tras registro — mismo flujo
+ *  3. Recuperación de contraseña — intercambia código y redirige a /reset-password
+ *
+ * Supabase siempre usa PKCE: envía ?code= en lugar del fragmento #access_token.
+ */
+import { createSupabaseClient } from '../../lib/supabase';
+
+const code = Astro.url.searchParams.get('code');
+
+// Prevenir Open Redirect: solo se permiten rutas relativas internas.
+// "//evil.com" y "https://evil.com" quedan bloqueados.
+const rawNext = Astro.url.searchParams.get('next') ?? '/';
+const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/';
+
+if (!code) {
+    return Astro.redirect('/login?error=invalid_callback');
+}
+
+const supabase = createSupabaseClient(Astro.request, Astro.cookies);
+
+const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+if (error) {
+    // Enlace expirado o ya usado
+    const dest = next === '/reset-password'
+        ? '/forgot-password?error=link_expired'
+        : '/login?error=callback_failed';
+    return Astro.redirect(dest);
+}
+
+return Astro.redirect(next);
+---
