@@ -11,7 +11,11 @@
 import { createSupabaseClient } from '../../lib/supabase';
 
 const code = Astro.url.searchParams.get('code');
-const next = Astro.url.searchParams.get('next') ?? '/';
+
+// Prevenir Open Redirect: solo se permiten rutas relativas internas.
+// "//evil.com" y "https://evil.com" quedan bloqueados.
+const rawNext = Astro.url.searchParams.get('next') ?? '/';
+const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/';
 
 if (!code) {
     return Astro.redirect('/login?error=invalid_callback');
