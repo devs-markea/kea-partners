@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { createSupabaseClient } from '../../../lib/supabase';
 import { mapAuthError } from '../../../lib/auth-errors';
+import { checkRateLimit } from '../../../lib/rate-limiter';
 
 const json = (data: unknown, status: number) =>
     new Response(JSON.stringify(data), {
@@ -9,6 +10,15 @@ const json = (data: unknown, status: number) =>
     });
 
 export const POST: APIRoute = async ({ request, cookies }) => {
+    // Rate limit: 10 intentos por IP cada 15 minutos
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+            ?? request.headers.get('x-real-ip')
+            ?? 'unknown';
+    const rl = checkRateLimit(`login:${ip}`, 10, 15);
+    if (!rl.allowed) {
+        return json({ error: 'Demasiados intentos. Espera unos minutos antes de intentarlo de nuevo.' }, 429);
+    }
+
     let body: { email?: string; password?: string };
     try {
         body = await request.json();
@@ -24,7 +34,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
     const supabase = createSupabaseClient(request, cookies);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
         email: email.trim(),
         password,
     });
@@ -33,8 +43,5 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         return json({ error: mapAuthError(error) }, 401);
     }
 
-    return json({
-        success: true,
-        user: { id: data.user.id, email: data.user.email },
-    }, 200);
+    return json({ success: true }, 200);
 };
