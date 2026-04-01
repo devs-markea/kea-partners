@@ -23,15 +23,23 @@ if (!code) {
 
 const supabase = createSupabaseClient(Astro.request, Astro.cookies);
 
-const { error } = await supabase.auth.exchangeCodeForSession(code);
+const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
 if (error) {
     // Enlace expirado o ya usado
-    const dest = next === '/reset-password'
-        ? '/forgot-password?error=link_expired'
-        : '/login?error=callback_failed';
-    return Astro.redirect(dest);
+    return Astro.redirect(
+        next === '/reset-password'
+            ? '/forgot-password?error=link_expired'
+            : '/login?error=callback_failed'
+    );
 }
 
-return Astro.redirect(next);
+// Detectar usuario invitado:
+// - next === '/' → vino del Site URL (invite), no de forgot-password (?next= explícito)
+// - sin identidad 'email' → nunca ha establecido contraseña
+const isInvited =
+    next === '/' &&
+    data.user?.identities?.every(i => i.provider !== 'email');
+
+return Astro.redirect(isInvited ? '/reset-password' : next);
 ---

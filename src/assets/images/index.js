@@ -1,4 +1,5 @@
 import Logo from './logo-brand.png';
+import LogoGreen from './kea-realtors-logo-green.webp';
 
 
 //Banner Development
@@ -98,6 +99,7 @@ import BannerBrandedFaena from '../images/banner/branded-residences/banner-faena
 
 export const images = {
     Logo: Logo,
+    LogoGreen: LogoGreen,
     Faena: Faena,
     Nautica: Nautica,
     Marietta: Marietta,

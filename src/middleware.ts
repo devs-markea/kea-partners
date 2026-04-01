@@ -38,8 +38,8 @@ export const onRequest = defineMiddleware(async ({ request, cookies, redirect },
     // Las API routes manejan su propia autenticación — no interferir
     if (pathname.startsWith('/api/')) return next();
 
-    // Recursos estáticos de Astro — no interferir
-    if (pathname.startsWith('/_astro/')) return next();
+    // Recursos estáticos de Astro e imagen-service — no interferir
+    if (pathname.startsWith('/_astro/') || pathname.startsWith('/_image')) return next();
 
     const isPublicRoute  = isPublic(pathname);
     const isAuthOnlyRoute = isAuthOnly(pathname);
