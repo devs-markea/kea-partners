@@ -1,45 +1,95 @@
 ---
 /**
  * Manejador de callbacks de Supabase Auth.
- * Cubre tres flujos:
- *  1. OAuth (Google) — recibe ?code= y lo intercambia por sesión
- *  2. Confirmación de email tras registro — mismo flujo
- *  3. Recuperación de contraseña — intercambia código y redirige a /reset-password
+ * Cubre dos flujos:
  *
- * Supabase siempre usa PKCE: envía ?code= en lugar del fragmento #access_token.
+ *  1. PKCE  — recibe ?code= y lo intercambia por sesión server-side.
+ *             Usado por: forgot-password, OAuth (Google).
+ *
+ *  2. Implicit — recibe #access_token= en el fragmento de URL (solo client-side).
+ *               Usado por: invitaciones enviadas desde el dashboard de Supabase.
+ *               El servidor nunca ve el fragmento; el script cliente lo procesa.
  */
 import { createSupabaseClient } from '../../lib/supabase';
 
 const code = Astro.url.searchParams.get('code');
 
 // Prevenir Open Redirect: solo se permiten rutas relativas internas.
-// "//evil.com" y "https://evil.com" quedan bloqueados.
 const rawNext = Astro.url.searchParams.get('next') ?? '/';
 const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/';
 
-if (!code) {
-    return Astro.redirect('/login?error=invalid_callback');
-}
+// ── PKCE flow ─────────────────────────────────────────────────────────────────
+if (code) {
+    const supabase = createSupabaseClient(Astro.request, Astro.cookies);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
-const supabase = createSupabaseClient(Astro.request, Astro.cookies);
+    if (error) {
+        return Astro.redirect(
+            next === '/reset-password'
+                ? '/forgot-password?error=link_expired'
+                : '/login?error=callback_failed'
+        );
+    }
 
-const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-
-if (error) {
-    // Enlace expirado o ya usado
+    // Detectar usuario invitado:
+    // - next === '/' → vino del Site URL (invite), no de forgot-password (?next= explícito)
+    // - sin identidad 'email' → nunca ha establecido contraseña
     return Astro.redirect(
-        next === '/reset-password'
-            ? '/forgot-password?error=link_expired'
-            : '/login?error=callback_failed'
+        next === '/' && data.user?.identities?.every(i => i.provider !== 'email')
+            ? '/reset-password'
+            : next
     );
 }
 
-// Detectar usuario invitado:
-// - next === '/' → vino del Site URL (invite), no de forgot-password (?next= explícito)
-// - sin identidad 'email' → nunca ha establecido contraseña
-const isInvited =
-    next === '/' &&
-    data.user?.identities?.every(i => i.provider !== 'email');
-
-return Astro.redirect(isInvited ? '/reset-password' : next);
+// ── Implicit flow: sin ?code= ─────────────────────────────────────────────────
+// El fragmento #access_token= no llega al servidor.
+// Renderizamos una página mínima y dejamos que el script cliente maneje el token.
 ---
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Verificando — Kea Partners</title>
+    </head>
+    <body>
+        <script>
+            import { createBrowserClient } from "@supabase/ssr";
+
+            (async () => {
+                const hash          = new URLSearchParams(window.location.hash.slice(1));
+                const accessToken   = hash.get("access_token");
+                const refreshToken  = hash.get("refresh_token");
+                const type          = hash.get("type");
+
+                // Sin tokens en el fragmento → error real
+                if (!accessToken || !refreshToken) {
+                    window.location.replace("/login?error=invalid_callback");
+                    return;
+                }
+
+                const supabase = createBrowserClient(
+                    import.meta.env.PUBLIC_SUPABASE_URL,
+                    import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+                );
+
+                const { error } = await supabase.auth.setSession({
+                    access_token:  accessToken,
+                    refresh_token: refreshToken,
+                });
+
+                if (error) {
+                    window.location.replace("/login?error=callback_failed");
+                    return;
+                }
+
+                // invite o recovery → el usuario necesita establecer contraseña
+                const dest = type === "invite" || type === "recovery"
+                    ? "/reset-password"
+                    : "/";
+
+                window.location.replace(dest);
+            })();
+        </script>
+    </body>
+</html>
