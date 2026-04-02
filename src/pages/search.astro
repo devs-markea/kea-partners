@@ -10,8 +10,9 @@ import ArticleCard from "../components/ArticleCard.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 // import Search from "../components/Search.astro";
 import items from "../data/search/documents/development.json";
+import HideAttributes from "../data/i18n/es/hide-attributes-development.json";
 import Fuse from "fuse.js";
-import en from '../locales/en.json';
+import Common from '../data/i18n/es/common.json';
 import Search from "../components/Search.astro";
 import {floorToDivide} from "pdfjs-dist/types/web/ui_utils";
 
@@ -108,6 +109,19 @@ if (query) {
     ];
 }
 
+const hiddenByProject = Object.fromEntries(
+    HideAttributes.developments
+        .filter(d => d.developmentProject)
+        .map(d => [
+            d.developmentProject.toLowerCase(),
+            d.developmentAttribututes.map(a => a.attribute.toLowerCase())
+        ])
+);
+results = results.filter(item => {
+    const attrs = hiddenByProject[item.project?.toLowerCase()];
+    return !attrs || !attrs.includes(item.title?.toLowerCase());
+});
+
 
 const developmentResults = query ? fuseDevelopment.search(query).map(result => result.item) : [];
 
@@ -121,7 +135,7 @@ const breadcrumbItems = [
 const totalResults = results.length;
 ---
 
-<MainLayout title="Buscar" lang="es" t={en}>
+<MainLayout title="Buscar" lang="es" t={Common}>
 
     <!-- Hero -->
     <section class="bg-[#E2E2E2] py-16 md:py-24">
