@@ -1,0 +1,33 @@
+{
+  "team": {
+    "label": "Nuestro equipo",
+    "title": "Conecta con Nuestros\nMejores Agentes",
+    "description": "Nuestros agentes expertos están listos para guiarte en cada paso de tu viaje inmobiliario.",
+    "members": [
+      {
+        "id": 1,
+        "image": "broker-rodrigo-setien",
+        "name": "Rodrigo Setién",
+        "role": "Fundador & CEO",
+        "specialty": "Residencias de Lujo",
+        "zone": "Cancún & Riviera Maya",
+        "email": "rodrigo@kearealtors.com",
+        "emailRaw": "rodrigo@kearealtors.com",
+        "phone": "+52 998 126 4494",
+        "phoneRaw": "529981264494"
+      },
+      {
+        "id": 2,
+        "image": "broker-rodrigo-setien",
+        "name": "Michel Garay",
+        "role": "Asesor Inmobiliario",
+        "specialty": "Resort Living",
+        "zone": "Tulum & Costa Mujeres",
+        "email": "michel@kearealtors.com",
+        "emailRaw": "michel@kearealtors.com",
+        "phone": "+52 998 577 2631",
+        "phoneRaw": "529985772631"
+      }
+    ]
+  }
+}
