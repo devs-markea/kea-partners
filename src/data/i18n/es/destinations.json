@@ -31,6 +31,13 @@
       "destinationUrl": "ciudad-de-mexico"
     },
     {
+      "destinationTitle": "Puerto Vallarta",
+      "destinationLocation": "Mexico",
+      "destinationBannerKey": "BannerDestinationPuertoVallarta",
+      "destinationAlt": "Puerto Vallarta",
+      "destinationUrl": "puerto-vallarta"
+    },
+    {
       "destinationTitle": "Costa del Sol",
       "destinationLocation": "Mexico",
       "destinationBannerKey": "BannerCostaSol",

@@ -6,6 +6,7 @@ import ResourceArticleSection from "../../../components/sections/article/Resourc
 import Common from '../../../data/i18n/es/common.json';
 import DevelopmentsData from '../../../data/i18n/es/developments.json';
 import Article from "../../../data/i18n/es/article.json";
+import HideAttributes from '../../../data/i18n/es/hide-attributes-development.json';
 
 const { destination, slug } = Astro.params;
 
@@ -30,6 +31,14 @@ const Data = await modules[
     `../../../data/i18n/es/${dev.developmentContent}.json`
     ]();
 
+const hiddenAttrs = HideAttributes.developments.find(
+    d => d.developmentContent === dev.developmentContent
+)?.developmentAttribututes?.map(a => a.attribute) ?? [];
+
+const filteredData = hiddenAttrs.length > 0 && Data.article
+    ? { ...Data, article: Data.article.filter(item => !hiddenAttrs.includes(item.title)) }
+    : Data;
+
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
     { name: dev.developmentDestination
@@ -46,7 +55,7 @@ const devLink = dev.developmentPagelink;
 
     <ResourceArticleSection
             breadcrumbItems={breadcrumbItems}
-            article={Data}
+            article={filteredData}
             tArticle={Article}
             lang="es"
     />
