@@ -22,6 +22,16 @@ import SvgIcon from "./SvgIcon.astro";
 <script>
     import Fuse from "fuse.js";
     import items from "../data/search/documents/development.json";
+    import HideAttributes from "../data/i18n/es/hide-attributes-development.json";
+
+    const hiddenByProject = Object.fromEntries(
+        HideAttributes.developments
+            .filter((d: any) => d.developmentProject)
+            .map((d: any) => [
+                d.developmentProject.toLowerCase(),
+                d.developmentAttribututes.map((a: any) => a.attribute.toLowerCase())
+            ])
+    );
 
     const formSearch = document.getElementById("search-form");
     const input = document.getElementById("default-search-main");
@@ -108,13 +118,15 @@ import SvgIcon from "./SvgIcon.astro";
             !item.project?.toLowerCase().includes(normalizedQuery)
         );
 
-// Orden final
+// Orden final con filtro de atributos ocultos
         const results = [
             ...(mainResourceArticle ? [mainResourceArticle] : []),
             ...relatedProjectArticles,
             ...otherArticles
-        ];
-
+        ].filter(item => {
+            const attrs = hiddenByProject[item.project?.toLowerCase()];
+            return !attrs || !attrs.includes(item.title?.toLowerCase());
+        });
 
         suggestions.innerHTML = results.length
             ? results.map(item => `

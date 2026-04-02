@@ -2,6 +2,7 @@
   "developments": [
     {
       "developmentContent": "faena-tulum",
+      "developmentProject": "Faena Tulum",
       "developmentAttribututes":
       [
         {
@@ -16,6 +17,7 @@
       ]
     },{
       "developmentContent": "mgallery",
+      "developmentProject": "Mgallery",
       "developmentAttribututes":
       [
         {
@@ -30,6 +32,7 @@
       ]
     },{
       "developmentContent": "aflora",
+      "developmentProject": "Aflora",
       "developmentAttribututes":
       [
         {
@@ -44,6 +47,7 @@
       ]
     },{
       "developmentContent": "ritz-carlton",
+      "developmentProject": "Ritz Carlton",
       "developmentAttribututes":
       [
         {
@@ -59,6 +63,7 @@
     },
     {
       "developmentContent": "mayakoba",
+      "developmentProject": "The Reserve Mayakoba",
       "developmentAttribututes":
       [
         {
@@ -77,6 +82,7 @@
     },
     {
       "developmentContent": "stregis-costa-mujeres",
+      "developmentProject": "St Regis Costa Mujeres",
       "developmentAttribututes":
       [
         {
@@ -92,6 +98,7 @@
     },
     {
       "developmentContent": "marietta",
+      "developmentProject": "Marietta",
       "developmentAttribututes":
       [
         {
@@ -107,6 +114,7 @@
     },
     {
       "developmentContent": "thompson-puerto-cancun",
+      "developmentProject": "Thompson Puerto Cancún",
       "developmentAttribututes":
       [
         {
@@ -122,6 +130,7 @@
     },
     {
       "developmentContent": "bay-view-grand",
+      "developmentProject": "Bay View Grand",
       "developmentAttribututes":
       [
         {
@@ -140,6 +149,7 @@
     },
     {
       "developmentContent": "one-laguna",
+      "developmentProject": "One Laguna",
       "developmentAttribututes":
       [
         {
@@ -158,6 +168,7 @@
     },
     {
       "developmentContent": "nautica",
+      "developmentProject": "Nautica",
       "developmentAttribututes":
       [
         {
@@ -191,6 +202,7 @@
     },
     {
       "developmentContent": "inna-beach",
+      "developmentProject": "Inna Beach Condos",
       "developmentAttribututes":
       [
         {
@@ -206,27 +218,7 @@
     },
     {
       "developmentContent": "gran-via-del-mar-tenerife",
-      "developmentAttribututes":
-      [
-        {
-          "attribute": "Fact Sheet"
-        },
-        {
-          "attribute": "Price Ranges"
-        },
-        {
-          "attribute": "Master Plan"
-        },
-        {
-          "attribute": "Videos"
-        },
-        {
-          "attribute": "Sitio Web"
-        }
-      ]
-    },
-    {
-      "developmentContent": "thompson-puerto-vallarta",
+      "developmentProject": "Gran Via del Mar Tenerife",
       "developmentAttribututes":
       [
         {
@@ -278,6 +270,7 @@
     },
     {
       "developmentContent": "the-1428",
+      "developmentProject": "The 1428",
       "developmentAttribututes":
       [
         {
@@ -293,6 +286,7 @@
     },
     {
       "developmentContent": "faena-miami",
+      "developmentProject": "Faena Miami",
       "developmentAttribututes":
       [
         {
@@ -305,6 +299,7 @@
     },
     {
       "developmentContent": "da-vinci-tower-pagani",
+      "developmentProject": "Pagani Da Vinci Tower",
       "developmentAttribututes":
       [
         {
@@ -332,6 +327,7 @@
     },
     {
       "developmentContent": "trump-tower",
+      "developmentProject": "Trump Tower",
       "developmentAttribututes":
       [
         {
@@ -359,6 +355,7 @@
     },
     {
       "developmentContent": "marea-missoni",
+      "developmentProject": "Marea Missoni",
       "developmentAttribututes":
       [
         {
@@ -383,6 +380,7 @@
     },
     {
       "developmentContent": "tierra-vivia-lamborghini",
+      "developmentProject": "Tierra Viva Lamborghini",
       "developmentAttribututes":
       [
         {
