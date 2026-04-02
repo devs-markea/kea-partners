@@ -1,0 +1,412 @@
+{
+  "developments": [
+    {
+      "developmentContent": "faena-tulum",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },{
+      "developmentContent": "mgallery",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },{
+      "developmentContent": "aflora",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },{
+      "developmentContent": "ritz-carlton",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "mayakoba",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        }
+      ]
+    },
+    {
+      "developmentContent": "stregis-costa-mujeres",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "marietta",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "thompson-puerto-cancun",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "bay-view-grand",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        }
+      ]
+    },
+    {
+      "developmentContent": "one-laguna",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        }
+      ]
+    },
+    {
+      "developmentContent": "nautica",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "sls-ocean-beach-residences",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Contenido RRSS"
+        }
+      ]
+    },
+    {
+      "developmentContent": "inna-beach",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "gran-via-del-mar-tenerife",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Videos"
+        },
+        {
+          "attribute": "Sitio Web"
+        }
+      ]
+    },
+    {
+      "developmentContent": "thompson-puerto-vallarta",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Videos"
+        },
+        {
+          "attribute": "Sitio Web"
+        }
+      ]
+    },
+    {
+      "developmentContent": "thompson-puerto-vallarta",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Videos"
+        },
+        {
+          "attribute": "Renders"
+        },
+        {
+          "attribute": "Contenido RRSS"
+        },
+        {
+          "attribute": "Sitio Web"
+        },
+        {
+          "attribute": "Ubicacion"
+        }
+      ]
+    },
+    {
+      "developmentContent": "the-1428",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "faena-miami",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Master Plan"
+        }
+      ]
+    },
+    {
+      "developmentContent": "da-vinci-tower-pagani",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        },
+        {
+          "attribute": "Contenido RRSS"
+        },
+        {
+          "attribute": "Brochures"
+        },
+        {
+          "attribute": "Sitio Web"
+        }
+      ]
+    },
+    {
+      "developmentContent": "trump-tower",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        },
+        {
+          "attribute": "Contenido RRSS"
+        },
+        {
+          "attribute": "Brochures"
+        },
+        {
+          "attribute": "Sitio Web"
+        }
+      ]
+    },
+    {
+      "developmentContent": "marea-missoni",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        },
+        {
+          "attribute": "Contenido RRSS"
+        },
+        {
+          "attribute": "Brochures"
+        }
+      ]
+    },
+    {
+      "developmentContent": "tierra-vivia-lamborghini",
+      "developmentAttribututes":
+      [
+        {
+          "attribute": "Fact Sheet"
+        },
+        {
+          "attribute": "Price Ranges"
+        },
+        {
+          "attribute": "Master Plan"
+        },
+        {
+          "attribute": "Renders"
+        },
+        {
+          "attribute": "Contenido RRSS"
+        },
+        {
+          "attribute": "Brochures"
+        },
+        {
+          "attribute": "Sitio Web"
+        }
+      ]
+    }
+  ]
+}

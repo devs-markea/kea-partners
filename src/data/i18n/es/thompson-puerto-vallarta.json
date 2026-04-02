@@ -1,0 +1,43 @@
+{
+  "title": "Thompson Residences",
+  "bannerKey": "ImageTest",
+  "alt": "Thompson Residences",
+  "article" : [
+    {
+      "title": "Brochures",
+      "url": "https://drive.google.com/file/d/17xAhFKPiqy1rM_YrcEUvhHk5rd-NG6Bb/view?usp=drive_link"
+    },
+    {
+      "title": "Fact Sheet",
+      "url": "https://drive.google.com/file/d/13mfk8oAMDBlGyI8Nr-ZGvxuzdl23TcbZ/view?usp=sharing"
+    },
+    {
+      "title": "Renders",
+      "url": ""
+    },
+    {
+      "title": "Price Ranges",
+      "url": ""
+    },
+    {
+      "title": "Contenido RRSS",
+      "url": ""
+    },
+    {
+      "title": "Videos",
+      "url": ""
+    },
+    {
+      "title": "Ubicacion",
+      "url": "https://maps.app.goo.gl/28paY8t4eTxaSiWe7"
+    },
+    {
+      "title": "Master Plan",
+      "url": ""
+    },
+    {
+      "title": "Sitio Web",
+      "url": "/"
+    }
+  ]
+}

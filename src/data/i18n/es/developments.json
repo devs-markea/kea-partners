@@ -79,6 +79,22 @@
       "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
+    },
+    {
+      "developmentId": "dev-thompson-puerto-vallarta",
+      "developmentName": "Thompson Puerto Vallarta Residends",
+      "developmentBanner": "BannerDevelopmenThompsonPuertoVallarta",
+      "developmentContent": "thompson-puerto-vallarta",
+      "developmentAlt": "Thompson Puerto Vallarta Residends",
+      "developmentDestination": "puerto-vallarta",
+      "developmentLocation": "Puerto Vallarta",
+      "developmentGroup": "thompson",
+      "developmentCategory": "branded-residences",
+      "developmentSrc": "IconDevelopmentThompsonVallarta",
+      "developmentLink": "thompson-puerto-vallarta",
+      "developmentPagelink": "",
+      "developmentHasPadding": false,
+      "developmentHasZoom": false
     },{
       "developmentId": "dev-nautica-cancun",
       "developmentName": "Náutica Residences Cancún",
@@ -265,7 +281,7 @@
     {
       "developmentId": "dev-the-1428",
       "developmentName": "The 1428 Residences",
-      "developmentBanner": "BannerMayakoba",
+      "developmentBanner": "BannerDevelopmen1428",
       "developmentContent": "the-1428",
       "developmentAlt": "The 1428 Residences",
       "developmentDestination": "miami",

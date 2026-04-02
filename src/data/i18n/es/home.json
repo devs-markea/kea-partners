@@ -64,6 +64,13 @@
       "destination_title": "Dubai",
       "destination_description": "2 propiedad",
       "destination_url": "dubai"
+    },
+    {
+      "destination": "puerto-vallarta",
+      "destination_img": "top-destination-puerto-vallarta",
+      "destination_title": "Puerto Vallarta",
+      "destination_description": "1 propiedad",
+      "destination_url": "puerto-vallarta"
     }
   ],
 
