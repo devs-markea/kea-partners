@@ -43,8 +43,8 @@ export function initTeamSwiper() {
                 const hide = sw.slides.length < THRESHOLD;
                 const navWrap = document.querySelector('.team-nav');
                 const pag = document.querySelector('.swiper-pagination-team');
-                if (navWrap) navWrap.style.display = hide ? 'none' : '';
-                if (pag) pag.style.display = hide ? 'none' : '';
+                if (navWrap) navWrap.style.visibility = hide ? 'hidden' : '';
+                if (pag) pag.style.visibility = hide ? 'hidden' : '';
             },
         },
     });
