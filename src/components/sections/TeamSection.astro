@@ -41,7 +41,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         </div>
 
         <!-- ── Carousel ── -->
-        <div class="team-carousel overflow-hidden">
+        <div class="team-carousel overflow-hidden mx-auto" style="max-width: 972px;">
             <div class="swiper">
                 <div class="swiper-wrapper">
                     {team.members.map((member) => {
@@ -330,7 +330,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 .swiper-pagination-team .swiper-pagination-bullet-active {
     width: 24px;
     height: 8px;
-    background: #053F47;
+    background: var(--secondary-900);
     opacity: 1;
     border-radius: 12px;
 }
