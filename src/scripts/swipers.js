@@ -14,12 +14,21 @@ export function initTeamSwiper() {
     const swiper = new Swiper(el, {
         modules: [Navigation, Pagination],
 
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         spaceBetween: 24,
         centeredSlides: false,
         centerInsufficientSlides: true,
         grabCursor: true,
         speed: 500,
+
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 'auto',
+            },
+        },
 
         navigation: {
             prevEl: '.team-btn-prev',

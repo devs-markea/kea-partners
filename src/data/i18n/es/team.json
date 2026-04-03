@@ -27,54 +27,6 @@
         "emailRaw": "michel@kearealtors.com",
         "phone": "+52 998 577 2631",
         "phoneRaw": "529985772631"
-      },
-      {
-        "id": 3,
-        "image": "broker-rodrigo-setien",
-        "name": "Michel Garay",
-        "role": "Asesor Inmobiliario",
-        "properties": "45",
-        "experience": "8 años",
-        "email": "michel@kearealtors.com",
-        "emailRaw": "michel@kearealtors.com",
-        "phone": "+52 998 577 2631",
-        "phoneRaw": "529985772631"
-      },
-      {
-        "id": 4,
-        "image": "broker-rodrigo-setien",
-        "name": "Michel Garay",
-        "role": "Asesor Inmobiliario",
-        "properties": "45",
-        "experience": "8 años",
-        "email": "michel@kearealtors.com",
-        "emailRaw": "michel@kearealtors.com",
-        "phone": "+52 998 577 2631",
-        "phoneRaw": "529985772631"
-      },
-      {
-        "id": 5,
-        "image": "broker-rodrigo-setien",
-        "name": "Michel Garay",
-        "role": "Asesor Inmobiliario",
-        "properties": "45",
-        "experience": "8 años",
-        "email": "michel@kearealtors.com",
-        "emailRaw": "michel@kearealtors.com",
-        "phone": "+52 998 577 2631",
-        "phoneRaw": "529985772631"
-      },
-      {
-        "id": 6,
-        "image": "broker-rodrigo-setien",
-        "name": "Michel Garay",
-        "role": "Asesor Inmobiliario",
-        "properties": "45",
-        "experience": "8 años",
-        "email": "michel@kearealtors.com",
-        "emailRaw": "michel@kearealtors.com",
-        "phone": "+52 998 577 2631",
-        "phoneRaw": "529985772631"
       }
     ]
   }
