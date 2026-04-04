@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // ── 2. Rate limiting: 3 peticiones cada 10 minutos por IP ───────────────
-    const rateLimit = checkRateLimit(access.ip, 3, 10);
+    const rateLimit = await checkRateLimit(access.ip, 3, 10);
     if (!rateLimit.allowed) {
         return json({ error: 'Too many requests. Try again later.' }, 429);
     }

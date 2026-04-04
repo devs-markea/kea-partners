@@ -47,17 +47,17 @@ export const onRequest = defineMiddleware(async ({ request, cookies, redirect },
     // Si la ruta es completamente pública y no es una ruta de auth, pasar
     if (isPublicRoute && !isAuthOnlyRoute) return next();
 
-    // Obtener sesión
+    // Verificar usuario con el servidor (getUser valida el JWT, getSession no)
     const supabase = createSupabaseClient(request, cookies);
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { user } } = await supabase.auth.getUser();
 
     // Usuario autenticado intentando acceder a login/register/forgot → redirigir al inicio
-    if (isAuthOnlyRoute && session) {
+    if (isAuthOnlyRoute && user) {
         return redirect('/');
     }
 
     // Usuario no autenticado intentando acceder a una ruta protegida → redirigir al login
-    if (!isPublicRoute && !session) {
+    if (!isPublicRoute && !user) {
         const redirectParam = pathname !== '/' ? `?redirect=${encodeURIComponent(pathname)}` : '';
         return redirect(`/login${redirectParam}`);
     }

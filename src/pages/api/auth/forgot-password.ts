@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { createSupabaseClient } from '../../../lib/supabase';
+import { checkRateLimit } from '../../../lib/rate-limiter';
 
 const json = (data: unknown, status: number) =>
     new Response(JSON.stringify(data), {
@@ -8,6 +9,15 @@ const json = (data: unknown, status: number) =>
     });
 
 export const POST: APIRoute = async ({ request, cookies }) => {
+    // Rate limit: 3 solicitudes por IP cada 15 minutos
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+            ?? request.headers.get('x-real-ip')
+            ?? 'unknown';
+    const rl = await checkRateLimit(`forgot:${ip}`, 3, 15);
+    if (!rl.allowed) {
+        return json({ error: 'Demasiados intentos. Espera unos minutos antes de intentarlo de nuevo.' }, 429);
+    }
+
     let body: { email?: string };
     try {
         body = await request.json();
