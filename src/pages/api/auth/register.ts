@@ -14,7 +14,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
             ?? request.headers.get('x-real-ip')
             ?? 'unknown';
-    const rl = checkRateLimit(`register:${ip}`, 5, 60);
+    const rl = await checkRateLimit(`register:${ip}`, 5, 60);
     if (!rl.allowed) {
         return json({ error: 'Demasiados intentos. Espera unos minutos antes de intentarlo de nuevo.' }, 429);
     }
@@ -57,13 +57,8 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         return json({ error: mapAuthError(error) }, 400);
     }
 
-    // identities vacío → email ya registrado (Supabase no lo expone como error por seguridad)
-    if (data.user && data.user.identities?.length === 0) {
-        return json({ error: 'Ya existe una cuenta con este correo electrónico.' }, 400);
-    }
-
-    // Si email confirmation está habilitada en Supabase, session será null
-    const needsConfirmation = !data.session;
-
-    return json({ success: true, needsConfirmation }, 200);
+    // Siempre responder igual para no revelar si el email ya está registrado.
+    // Si identities está vacío, Supabase no creó una cuenta nueva (email ya existe),
+    // pero respondemos como si se hubiera enviado el correo de confirmación.
+    return json({ success: true, needsConfirmation: true }, 200);
 };

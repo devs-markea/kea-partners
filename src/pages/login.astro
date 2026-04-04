@@ -362,7 +362,10 @@ import { Image } from "astro:assets";
 
       if (res.ok && data.success) {
         const params = new URLSearchParams(window.location.search);
-        window.location.href = params.get("redirect") ?? "/";
+        const raw = params.get("redirect") ?? "/";
+        // Prevenir Open Redirect: solo permitir rutas relativas internas
+        const dest = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";
+        window.location.href = dest;
       } else {
         if (formError)
           formError.textContent = data.error ?? "Error al iniciar sesión.";
