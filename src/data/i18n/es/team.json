@@ -9,24 +9,12 @@
         "image": "broker-rodrigo-setien",
         "name": "Rodrigo Setién",
         "role": "Fundador & CEO",
-        "properties": "C",
-        "experience": "15 años",
+        "properties": "",
+        "experience": "",
         "email": "rodrigo@kearealtors.com",
         "emailRaw": "rodrigo@kearealtors.com",
         "phone": "+52 998 126 4494",
         "phoneRaw": "529981264494"
-      },
-      {
-        "id": 2,
-        "image": "broker-rodrigo-setien",
-        "name": "Michel Garay",
-        "role": "Asesor Inmobiliario",
-        "properties": "45",
-        "experience": "8 años",
-        "email": "michel@kearealtors.com",
-        "emailRaw": "michel@kearealtors.com",
-        "phone": "+52 998 577 2631",
-        "phoneRaw": "529985772631"
       }
     ]
   }
