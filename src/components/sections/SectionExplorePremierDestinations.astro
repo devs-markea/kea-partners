@@ -40,6 +40,16 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
 
                 <!-- Content -->
                 <div class="destinations">
+                    <div class="destinations-nav destinations-btn-prev" aria-label="Anterior">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"/>
+                        </svg>
+                    </div>
+                    <div class="destinations-nav destinations-btn-next" aria-label="Siguiente">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </div>
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             {destinations.map((destination, index) => {
@@ -107,7 +117,10 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
                 type: 'bullets'
             },
 
-            navigation: true,
+            navigation: {
+                prevEl: '.destinations-btn-prev',
+                nextEl: '.destinations-btn-next',
+            },
             grabCursor: true,
             speed: 500,
 
@@ -406,5 +419,67 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
     }
     .destinations {
         padding: 16px;
+        position: relative;
+    }
+
+    /* Nav buttons */
+    .destinations-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 9999px;
+        background-color: white;
+        border: none;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0.6;
+        color: #053F47;
+        transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .destinations-nav {
+            width: 48px;
+            height: 48px;
+        }
+        .destinations-nav svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .destinations-nav:hover {
+        opacity: 1;
+        background-color: #053F47;
+        color: white;
+    }
+
+    .destinations-btn-prev {
+        left: -12px;
+    }
+
+    .destinations-btn-next {
+        right: -12px;
+    }
+
+    .destinations-nav.swiper-button-disabled {
+        opacity: 0.25;
+        pointer-events: none;
+    }
+
+    @media (max-width: 767px) {
+        .destinations-btn-prev {
+            left: 4px;
+        }
+        .destinations-btn-next {
+            right: 4px;
+        }
     }
 </style>

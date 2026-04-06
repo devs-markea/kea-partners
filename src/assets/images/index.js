@@ -72,6 +72,7 @@ import IconBrandedResidencePagani from '../images/Logo/branded-residences/icon-b
 import IconBrandedResidenceRitzCarlton from '../images/Logo/branded-residences/icon-branded-residences-ritz-carlton.png';
 import IconBrandedResidenceThompson from '../images/Logo/branded-residences/icon-branded-residences-thompson.png';
 import IconBrandedResidenceTrumpTower from '../images/Logo/branded-residences/icon-branded-residences-trump-tower.png';
+import IconBrandedResidenceSls from '../images/Logo/branded-residences/icon-branded-residences-sls.png';
 
 import IconDevelopmentThe1428 from '../images/Logo/developments/icon-developments-the-1428.png';
 import IconDevelopmentStRegisKanai from '../images/Logo/developments/icon-developments-st-regis-riviera-maya.png';
@@ -89,6 +90,7 @@ import IconDevelopmentTierraViva from '../images/Logo/developments/icon-developm
 import IconDevelopmentTrumpTower from '../images/Logo/developments/icon-developments-trump-tower-residences.png';
 import IconDevelopmentMayakoba from '../images/Logo/developments/icon-developments-reserve-mayakoba.png';
 import IconDevelopmentThompsonVallarta from '../images/Logo/developments/icon-developments-thompson-vallarta.png';
+import IconDevelopmentSlsOceanBeach from '../images/Logo/developments/icon-developments-sls-ocean-beach.png';
 
 
 
@@ -174,6 +176,7 @@ export const images = {
     IconBrandedResidenceRitzCarlton: IconBrandedResidenceRitzCarlton,
     IconBrandedResidenceThompson: IconBrandedResidenceThompson,
     IconBrandedResidenceTrumpTower: IconBrandedResidenceTrumpTower,
+    IconBrandedResidenceSls: IconBrandedResidenceSls,
 
     BannerGranViaMar: BannerGranViaMar,
 
@@ -205,5 +208,6 @@ export const images = {
     IconDevelopmentTierraViva: IconDevelopmentTierraViva,
     IconDevelopmentTrumpTower: IconDevelopmentTrumpTower,
     IconDevelopmentMayakoba: IconDevelopmentMayakoba,
+    IconDevelopmentSlsOceanBeach: IconDevelopmentSlsOceanBeach,
 
 };
