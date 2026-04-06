@@ -74,21 +74,25 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                                     <div class="team-card__bottom">
 
                                         <!-- Stats row -->
-                                        <div class={`team-card__stats ${!member.properties ? 'team-card__stats--single' : ''}`}>
-                                            {member.properties && (
-                                                <>
+                                        {(member.properties || member.experience) && (
+                                            <div class={`team-card__stats ${(!member.properties || !member.experience) ? 'team-card__stats--single' : ''}`}>
+                                                {member.properties && (
+                                                    <>
+                                                        <div class="team-card__stat">
+                                                            <span class="team-card__stat-value">{member.properties}</span>
+                                                            <span class="team-card__stat-label">Propiedades</span>
+                                                        </div>
+                                                        {member.experience && <div class="team-card__stat-divider"></div>}
+                                                    </>
+                                                )}
+                                                {member.experience && (
                                                     <div class="team-card__stat">
-                                                        <span class="team-card__stat-value">{member.properties}</span>
-                                                        <span class="team-card__stat-label">Propiedades</span>
+                                                        <span class="team-card__stat-value">{member.experience}</span>
+                                                        <span class="team-card__stat-label">Experiencia</span>
                                                     </div>
-                                                    <div class="team-card__stat-divider"></div>
-                                                </>
-                                            )}
-                                            <div class="team-card__stat">
-                                                <span class="team-card__stat-value">{member.experience}</span>
-                                                <span class="team-card__stat-label">Experiencia</span>
+                                                )}
                                             </div>
-                                        </div>
+                                        )}
 
                                         <!-- Divider -->
                                         <div class="team-card__divider"></div>
