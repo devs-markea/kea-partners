@@ -15,6 +15,18 @@
         "emailRaw": "rodrigo@kearealtors.com",
         "phone": "+52 998 126 4494",
         "phoneRaw": "529981264494"
+      },
+      {
+        "id": 2,
+        "image": "broken-michae-garay-letter",
+        "name": "Michel Garay",
+        "role": "Asesor Inmobiliario",
+        "properties": "",
+        "experience": "",
+        "email": "michel@kearealtors.com",
+        "emailRaw": "michel@kearealtors.com",
+        "phone": "+52 998 577 2631",
+        "phoneRaw": "529985772631"
       }
     ]
   }
