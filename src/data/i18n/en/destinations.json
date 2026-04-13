@@ -21,13 +21,6 @@
       "destinationBannerKey": "BannerCancun",
       "destinationAlt": "Cancun",
       "destinationUrl": "cancun"
-    },
-    {
-      "destinationTitle": "Cancun",
-      "destinationLocation": "Mexico",
-      "destinationBannerKey": "BannerCancun",
-      "destinationAlt": "Cancun",
-      "destinationUrl": "cancun"
     }
   ]
 }

@@ -34,6 +34,7 @@ import BannerDevelopmentMissoni from '../images/banner/developments/banner-misso
 import BannerDevelopmentFaena from '../images/banner/developments/banner-faena-residences.png';
 import BannerDevelopmen1428 from '../images/banner/developments/banner-the-1428.png';
 import BannerDevelopmenThompsonPuertoVallarta from '../images/banner/developments/banner-thompson-puerto-vallarta.png';
+import BannerDevelopmenLegacy from '../images/banner/developments/banner-legacy.png';
 
 
 import Aflora from '../images/Logo/developments/icon-developments-aflora.png';
@@ -91,6 +92,7 @@ import IconDevelopmentTrumpTower from '../images/Logo/developments/icon-developm
 import IconDevelopmentMayakoba from '../images/Logo/developments/icon-developments-reserve-mayakoba.png';
 import IconDevelopmentThompsonVallarta from '../images/Logo/developments/icon-developments-thompson-vallarta.png';
 import IconDevelopmentSlsOceanBeach from '../images/Logo/developments/icon-developments-sls-ocean-beach.png';
+import IconDevelopmentLegacy from '../images/Logo/developments/icon-developments-legacy.png';
 
 
 
@@ -144,6 +146,7 @@ export const images = {
     BannerDevelopmentFaena: BannerDevelopmentFaena,
     BannerDevelopmen1428: BannerDevelopmen1428,
     BannerDevelopmenThompsonPuertoVallarta: BannerDevelopmenThompsonPuertoVallarta,
+    BannerDevelopmenLegacy: BannerDevelopmenLegacy,
 
     IconDevelopmentThompsonVallarta: IconDevelopmentThompsonVallarta,
 
@@ -209,5 +212,6 @@ export const images = {
     IconDevelopmentTrumpTower: IconDevelopmentTrumpTower,
     IconDevelopmentMayakoba: IconDevelopmentMayakoba,
     IconDevelopmentSlsOceanBeach: IconDevelopmentSlsOceanBeach,
+    IconDevelopmentLegacy: IconDevelopmentLegacy,
 
 };

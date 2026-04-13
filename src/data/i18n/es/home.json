@@ -1,7 +1,12 @@
 {
   "highEndResortLiving": {
     "title": "High-End & Resort Living",
-    "description": "Selecciona el High-End & Resort Living de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
+    "description": "Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
+    "none": "No hay datos disponibles"
+  },
+  "commercialProjects": {
+    "title": "Commercial Projects",
+    "description": "Selecciona el desarrollo de tu interés para acceder a todos los recursos disponibles: fichas técnicas, precios, brochures, contenido para redes y más.",
     "none": "No hay datos disponibles"
   },
 
@@ -26,7 +31,7 @@
       "destination": "cancun",
       "destination_img": "top-destination-cancun",
       "destination_title": "Cancún",
-      "destination_description": "4 propiedades",
+      "destination_description": "5 propiedades",
       "destination_url": "cancun"
     },
     {
