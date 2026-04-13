@@ -50,6 +50,22 @@
       "developmentHasZoom": false
     },
     {
+      "developmentId": "dev-mayakoba",
+      "developmentName": "The Reserve Mayakoba",
+      "developmentBanner": "BannerMayakoba",
+      "developmentContent": "mayakoba",
+      "developmentAlt": "The Reserve Mayakoba",
+      "developmentDestination": "riviera-maya",
+      "developmentLocation": "Riviera Maya",
+      "developmentGroup": "",
+      "developmentCategory": "high-end-resort",
+      "developmentSrc": "IconDevelopmentMayakoba",
+      "developmentLink": "the-reserve-mayakoba-residences",
+      "developmentPagelink": "",
+      "developmentHasPadding": false,
+      "developmentHasZoom": false
+    },
+    {
       "developmentId": "dev-ritz-carlton",
       "developmentName": "Ritz-Carlton Residences Riviera Maya",
       "developmentBanner": "BannerDevelopmentRitzCarlton",

@@ -8,7 +8,7 @@ import ImageTest from '../images/image.jpg';
 //Banner Development
 
 import BannerNautica from '../images/banner/developments/nautica-banner.png';
-import BannerMayakoba from '../images/banner/developments/mayakoba-banner.png';
+import BannerMayakoba from '../images/banner/developments/banner-mayakoba.png';
 import BannerMgallery from '../images/banner/developments/mgallery-banner.png';
 import BannerRitz from '../images/banner/developments/ritz-banner.png';
 import BannerThompson from './thompson-banner.png';

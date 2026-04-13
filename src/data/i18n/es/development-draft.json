@@ -27,22 +27,7 @@
     "brandedResidentHasPadding": false,
     "brandedResidentHasZoom": false
   },
-  {
-    "developmentId": "dev-mayakoba",
-    "developmentName": "The Reserve Mayakoba",
-    "developmentBanner": "ImageTest",
-    "developmentContent": "mayakoba",
-    "developmentAlt": "The Reserve Mayakoba",
-    "developmentDestination": "puerto-vallarta",
-    "developmentLocation": "Puerto Vallarta",
-    "developmentGroup": "",
-    "developmentCategory": "high-end-resort",
-    "developmentSrc": "IconDevelopmentMayakoba",
-    "developmentLink": "mayakoba",
-    "developmentPagelink": "",
-    "developmentHasPadding": false,
-    "developmentHasZoom": false
-  },
+
 
 
 
