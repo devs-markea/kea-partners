@@ -21,6 +21,10 @@
     "faq": {
       "label": "FAQs",
       "url": "#faq"
+    },
+    "logout": {
+      "label": "Logout",
+      "url": "/logout"
     }
   },
   "development": {

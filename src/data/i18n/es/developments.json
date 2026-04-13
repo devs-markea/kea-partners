@@ -34,6 +34,22 @@
       "developmentHasZoom": false
     },
     {
+      "developmentId": "dev-legacy-puerto-cancun",
+      "developmentName": "Legacy Puerto Cancun",
+      "developmentBanner": "BannerDevelopmenLegacy",
+      "developmentContent": "legacy-puerto-cancun",
+      "developmentAlt": "Legacy Puerto Cancun",
+      "developmentDestination": "cancun",
+      "developmentLocation": "cancun",
+      "developmentGroup": "",
+      "developmentCategory": "commercial-projects",
+      "developmentSrc": "IconDevelopmentLegacy",
+      "developmentLink": "legacy-puerto-cancun",
+      "developmentPagelink": "",
+      "developmentHasPadding": false,
+      "developmentHasZoom": false
+    },
+    {
       "developmentId": "dev-ritz-carlton",
       "developmentName": "Ritz-Carlton Residences Riviera Maya",
       "developmentBanner": "BannerDevelopmentRitzCarlton",
