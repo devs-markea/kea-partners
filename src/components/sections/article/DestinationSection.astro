@@ -20,7 +20,9 @@ const { breadcrumbItems, developments, lang } = Astro.props;
                                     ? `/${item.developmentDestination}/branded-residences/${item.developmentGroup}/${item.developmentLink}`
                                     : item.developmentCategory === "high-end-resort"
                                         ? `/${item.developmentDestination}/high-end-and-resort-living/${item.developmentLink}`
-                                        : `/${item.developmentDestination}/${item.developmentLink}`;
+                                        :  item.developmentCategory === "commercial-projects"
+                                            ? `/${item.developmentDestination}/commercial-projects/${item.developmentLink}`
+                                            : `/${item.developmentDestination}/${item.developmentLink}`;
 
                             return (
                                     <DevelopmentCard
