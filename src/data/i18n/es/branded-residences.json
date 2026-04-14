@@ -90,6 +90,7 @@
       "brandedResidentHasPadding": false,
       "brandedResidentHasZoom": false
     },
+
     {
       "brandedResidentId": "dev-lamborghini",
       "brandedResidentName": "Lamborghini",
@@ -97,6 +98,16 @@
       "brandedResidentAlt": "Lamborghini",
       "brandedResidentSrc": "IconBrandedResidenceLamborghini",
       "brandedResidentUrl": "lamborghini-residences",
+      "brandedResidentHasPadding": false,
+      "brandedResidentHasZoom": false
+    },
+    {
+      "brandedResidentId": "dev-sls",
+      "brandedResidentName": "SLS",
+      "brandedResidentBanner": "BannerBrandedSLs",
+      "brandedResidentAlt": "SLS",
+      "brandedResidentSrc": "IconBrandedResidenceSls",
+      "brandedResidentUrl": "sls",
       "brandedResidentHasPadding": false,
       "brandedResidentHasZoom": false
     }
