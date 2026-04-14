@@ -35,6 +35,7 @@ import BannerDevelopmentFaena from '../images/banner/developments/banner-faena-r
 import BannerDevelopmen1428 from '../images/banner/developments/banner-the-1428.png';
 import BannerDevelopmenThompsonPuertoVallarta from '../images/banner/developments/banner-thompson-puerto-vallarta.png';
 import BannerDevelopmenLegacy from '../images/banner/developments/banner-legacy.png';
+import BannerDevelopmenSlsOceanBeach from '../images/banner/developments/banner-sls-ocean-beach.png';
 
 
 import Aflora from '../images/Logo/developments/icon-developments-aflora.png';
@@ -108,6 +109,7 @@ import BannerBrandedRitzCarlton from '../images/banner/branded-residences/banner
 import BannerBrandedThompson from '../images/banner/branded-residences/banner-thompson-residences.png';
 import BannerBrandedTrumpTower from '../images/banner/branded-residences/banner-trump-tower-residences.png';
 import BannerBrandedFaena from '../images/banner/branded-residences/banner-faena-residences.png';
+import BannerBrandedSLs from '../images/banner/branded-residences/banner-sls.png';
 
 
 export const images = {
@@ -147,6 +149,7 @@ export const images = {
     BannerDevelopmen1428: BannerDevelopmen1428,
     BannerDevelopmenThompsonPuertoVallarta: BannerDevelopmenThompsonPuertoVallarta,
     BannerDevelopmenLegacy: BannerDevelopmenLegacy,
+    BannerDevelopmenSlsOceanBeach: BannerDevelopmenSlsOceanBeach,
 
     IconDevelopmentThompsonVallarta: IconDevelopmentThompsonVallarta,
 
@@ -194,6 +197,7 @@ export const images = {
     BannerBrandedTrumpTower: BannerBrandedTrumpTower,
     BannerBrandedStRegisResidences: BannerBrandedStRegisResidences,
     BannerBrandedFaena: BannerBrandedFaena,
+    BannerBrandedSLs: BannerBrandedSLs,
 
 
     IconDevelopmentThe1428: IconDevelopmentThe1428,
