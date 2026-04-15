@@ -184,6 +184,7 @@
     },
     {
       "developmentContent": "sls-ocean-beach-residences",
+      "developmentProject": "SLS Ocean Beach Residences",
       "developmentAttribututes":
       [
         {
@@ -404,9 +405,12 @@
       ]
     },{
       "developmentContent": "legacy-puerto-cancun",
-      "developmentProject": "Tierra Viva Lamborghini",
+      "developmentProject": "Legacy Puerto Cancun",
       "developmentAttribututes":
       [
+        {
+          "attribute": "Price Ranges"
+        },
         {
           "attribute": "Fact Sheet"
         },
