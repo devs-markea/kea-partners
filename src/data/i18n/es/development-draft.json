@@ -52,5 +52,123 @@
     "developmentLink": "the-reserve-mayakoba-residences",
     "developmentHasPadding": false,
     "developmentHasZoom": false
+  },
+
+  {
+    "developmentStatus": "De baja",
+    "developmentId": "dev-bay-view",
+    "developmentName": "Bay View Grand Residences",
+    "developmentBanner": "BannerBayView",
+    "developmentContent": "bay-view-grand",
+    "developmentAlt": "BayViewGrand",
+    "developmentDestination": "cancun",
+    "developmentlocation": "Cancún",
+    "developmentGroup": "",
+    "developmentCategory": "high-end-resort",
+    "developmentSrc": "BayView",
+    "developmentLink": "bay-view-grand-residences",
+    "developmentPagelink": "",
+    "data":[
+
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Brochures",
+        "description": "Brochures oficiales de Bay View Grand Residences con información general del desarrollo.",
+        "slug": "https://drive.google.com/drive/folders/1YS_mwBvrgPZsZpRMmq7iM5LM_rAtqAYJ?usp=drive_link"
+      },
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Fact Sheet",
+        "description": "Fact Sheet de Bay View Grand Residences con datos técnicos y especificaciones del proyecto.",
+        "slug": "https://drive.google.com/drive/folders/1hf-jSippgYLyDBUulaM_mfThUMyC__wI?usp=sharing"
+      },
+      {
+        "type": "Artículo",
+        "image": "BayView",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Renders",
+        "description": "Renders oficiales de Bay View Grand que muestran el diseño arquitectónico y los espacios del desarrollo.",
+        "slug": "https://drive.google.com/drive/folders/1rBhWodfCqiJsb5d1-XF-16K1QPE_6sd5?usp=sharing"
+      },
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Price Ranges",
+        "description": "Rangos de precios de Bay View Grand Residences como referencia comercial.",
+        "slug": "https://drive.google.com/drive/folders/1QNSpVh00VVSFYqTx3_bZRJ1r5jIl71AA?usp=drive_link"
+      },
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Contenido RRSS",
+        "description": "Material digital de Bay View Grand Residences para comunicación en redes sociales.",
+        "slug": "https://drive.google.com/drive/folders/1To3_5RidnmIlEvfVIW5BsuCsMAnwSPN1?usp=drive_link"
+      },
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Videos",
+        "description": "Videos oficiales de Bay View Grand Residences que muestran el proyecto y estilo de vida.",
+        "slug": "https://drive.google.com/drive/folders/17nZJMJwq2hi7bHdQRXAOudwU2VRRDZPF?usp=drive_link"
+      },
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Ubicacion",
+        "description": "Ubicación de Bay View Grand Residences con acceso directo a Google Maps.",
+        "slug": "https://maps.app.goo.gl/QKxG6bBW2rJGzfak6"
+      },
+      {
+        "type": "Artículo",
+        "image": "bayview",
+        "destination": "México",
+        "microDestination": "Puerto Cancún",
+        "project": "Bay View Grand",
+        "category": "High-End & Resort Living",
+        "title": "Master Plan",
+        "description": "Master Plan de Bay View Grand Residences con la distribución general del desarrollo.",
+        "slug": "https://drive.google.com/drive/folders/1ofSTCw9COvC1JYh2HoKWntZvNNjM9plu?usp=drive_link"
+      },
+      {
+        "type": "Artículo",
+        "image": "bay-view-grand",
+        "destination": "México",
+        "microDestination": "cancun",
+        "project": "Bay View Grand",
+        "category": "High End & Resort Living",
+        "title": "Sitio web",
+        "description": "Sitio web oficial de Bay View Grand con información general del proyecto.",
+        "slug": "https://kearealtors.com/developments/cancun/bay-view-grand-residences"
+      }
+    ]
   }
 ]
