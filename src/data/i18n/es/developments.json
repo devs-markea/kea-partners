@@ -251,22 +251,6 @@
       "developmentHasZoom": false
     },
     {
-      "developmentId": "dev-bay-view",
-      "developmentName": "Bay View Grand Residences",
-      "developmentBanner": "BannerBayView",
-      "developmentContent": "bay-view-grand",
-      "developmentAlt": "BayViewGrand",
-      "developmentDestination": "cancun",
-      "developmentlocation": "Cancún",
-      "developmentGroup": "",
-      "developmentCategory": "high-end-resort",
-      "developmentSrc": "BayView",
-      "developmentLink": "bay-view-grand-residences",
-      "developmentPagelink": "",
-      "developmentHasPadding": false,
-      "developmentHasZoom": false
-    },
-    {
       "developmentId": "dev-one-laguna",
       "developmentName": "One Laguna Residences",
       "developmentBanner": "BannerOneLaguna",
