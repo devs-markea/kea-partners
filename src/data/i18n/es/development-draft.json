@@ -53,7 +53,6 @@
     "developmentHasPadding": false,
     "developmentHasZoom": false
   },
-
   {
     "developmentStatus": "De baja",
     "developmentId": "dev-bay-view",
@@ -68,8 +67,7 @@
     "developmentSrc": "BayView",
     "developmentLink": "bay-view-grand-residences",
     "developmentPagelink": "",
-    "data":[
-
+    "data": [
       {
         "type": "Artículo",
         "image": "bayview",
@@ -168,6 +166,112 @@
         "title": "Sitio web",
         "description": "Sitio web oficial de Bay View Grand con información general del proyecto.",
         "slug": "https://kearealtors.com/developments/cancun/bay-view-grand-residences"
+      },
+
+      {
+        "type": "Artículo",
+        "image": "faena",
+        "title": "Brochures digitales y descargables (PDF)",
+        "description": "Brochure oficial de Faena Tulum.",
+        "slug": "faena-tulum/material-comercial/brochure"
+      },
+      {
+        "type": "Material comercial",
+        "image": "faena",
+        "title": "Hashtags recomendados y CTA efectivos",
+        "description": "Hashtags de Faena Tulum.",
+        "slug": "faena-tulum/material-comercial"
+      },
+      {
+        "type": "Material comercial",
+        "image": "faena",
+        "title": "Reels y videos cortos listos para publicar",
+        "description": "Reels y videos de Faena Tulum.",
+        "slug": "faena-tulum/material-comercial"
+      },
+      {
+        "type": "Material comercial",
+        "image": "faena",
+        "title": "Astro Performance",
+        "description": "Speed optimizations y buenas prácticas",
+        "slug": "astro-performance"
+      },
+      {
+        "type": "article",
+        "image": "faena-tulum",
+        "title": "Mejores prácticas con TailwindCSS",
+        "description": "Organización de clases y estilos",
+        "slug": "tailwind-practicas"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
+      },
+      {
+        "type": "topic",
+        "image": "faena",
+        "title": "CSS Tricks",
+        "description": "Layouts responsive fáciles",
+        "slug": "css-tricks"
       }
     ]
   }
