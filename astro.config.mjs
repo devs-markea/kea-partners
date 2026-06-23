@@ -8,6 +8,17 @@ export default defineConfig({
     adapter: vercel(),
     integrations: [
     ],
+    image: {
+        // Permite usar imágenes remotas servidas desde Supabase Storage
+        // (bucket `storage_partners`). El hostname coincide con
+        // PUBLIC_SUPABASE_URL. Si cambia el proyecto Supabase, actualizar aquí.
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'vzamuecxvaogwtygxksc.supabase.co',
+            },
+        ],
+    },
     vite: {
         resolve: {
             alias: {

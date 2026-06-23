@@ -1,9 +1,9 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import home from '../data/i18n/es/home.json';
-import common from '../data/i18n/es/common.json';
+import MainLayout from "../layouts/MainLayout.astro";
+import home from "../data/i18n/es/home.json";
+import common from "../data/i18n/es/common.json";
 import SvgIcon from "../components/SvgIcon.astro";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 import { images } from "../assets/images";
 import Search from "../components/Search.astro";
 import DevelopmentCard2 from "../components/DevelopmentCard2.astro";
@@ -16,21 +16,55 @@ import SectionExplorePremierDestinations from "../components/sections/SectionExp
 import TeamSection from "../components/sections/TeamSection.astro";
 import FormSection from "../components/sections/FormSection.astro";
 import CommercialProjectsSection from "@components/sections/CommercialProjectsSection.astro";
+import { getPublishedDestinations } from "@/lib/supabase/destinations";
+import { mergeHybrid } from "@/lib/hybrid";
 
 const lang = "es";
----
-<MainLayout lang={lang} t={common}>
-    <!-- Hero -->
-    <HeroSection t={common}/>
-    <!-- Resont Branded Resedents  -->
-    <SectionExplorePremierDestinations t={home} lang="es"/>
-    <BrandedResidencesSection t={home} lang="es"/>
-    <!-- Developments -->
 
-    <HighEndResortLivingSection t={home} lang="es"/>
-    <CommercialProjectsSection t={home} lang="es"/>
-    <!-- FAQs -->
-    <FaqSection t={home} />
-    <!-- Team -->
-    <TeamSection  t={home}/>
+// ── Híbrido legacy + Supabase para el carrusel de destinos ─────────────────
+// Solo aplica a esta sección (testeo de la base API). La lista visible la
+// fija el JSON legacy; la API gana campo a campo cuando el slug coincide.
+// Si la API falla o no hay match, el item legacy se conserva intacto.
+const apiDestinations = await getPublishedDestinations(lang, {
+    developmentsCount: true,
+}).catch((error) => {
+    console.error("[index] No se pudieron cargar destinos de Supabase:", error);
+    return [];
+});
+
+const formatPropertiesCount = (n: number) =>
+    `${n} ${n === 1 ? "propiedad" : "propiedades"}`;
+
+const mergedDestinations = mergeHybrid({
+    legacy:    home.highlights_destinations,
+    api:       apiDestinations,
+    legacyKey: (l) => l.destination_url,
+    apiKey:    (a) => a.slug,
+    merge: (legacy, api) => ({
+        title:         api?.title ?? legacy.destination_title,
+        url:           api?.slug  ?? legacy.destination_url,
+        alt:           api?.alt   ?? legacy.destination_title,
+        description:   api
+            ? formatPropertiesCount(api.developmentsCount ?? 0)
+            : legacy.destination_description,
+        bannerUrl:     api?.bannerUrl ?? null,
+        legacyImgName: legacy.destination_img,
+    }),
+});
+---
+
+<MainLayout lang={lang} t={common}>
+  <!-- Hero -->
+  <HeroSection t={common} />
+  <!-- Resont Branded Resedents  -->
+  <SectionExplorePremierDestinations t={home} lang="es" destinations={mergedDestinations} />
+  <BrandedResidencesSection t={home} lang="es" />
+  <!-- Developments -->
+
+  <HighEndResortLivingSection t={home} lang="es" />
+  <CommercialProjectsSection t={home} lang="es" />
+  <!-- FAQs -->
+  <FaqSection t={home} />
+  <!-- Team -->
+  <FormSection t={home} />
 </MainLayout>

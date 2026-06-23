@@ -1,21 +1,56 @@
 ---
+import type { ImageMetadata } from "astro";
 import TopDestinationCard from "../TopDestinationCard.astro";
 
 
-const { t, lang } = Astro.props;
+const { t, lang, destinations: provided } = Astro.props;
 
 const basePath = lang === "en" ? "/en" : "";
-const withLang = (path) => `${basePath}/${path}`;
+const withLang = (path: string) => `${basePath}/${path}`;
 
-const images = import.meta.glob(
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/images/destinations/*.webp",
     { eager: true }
 );
 
-const destinations = [...t.highlights_destinations].sort((a, b) =>
-    a.destination_title.localeCompare(b.destination_title, undefined, {
+/** Item unificado que renderiza el carrusel — viene del JSON legacy o del
+ *  merge híbrido (legacy + overlay de Supabase). */
+interface CarouselItem {
+    title:          string;
+    url:            string;
+    description:    string | null;
+    alt:            string;
+    bannerUrl:      string | null;
+    legacyImgName:  string | null;
+}
+
+// Compatibilidad legacy: si no recibimos un array `destinations` ya mergeado
+// (overlay con la API), derivamos los items del JSON local como se venía
+// haciendo. Cuando llegan mergeados, el overlay ya se aplicó campo a campo.
+const items: CarouselItem[] = provided ?? t.highlights_destinations.map((d: any) => ({
+    title:         d.destination_title,
+    url:           d.destination_url,
+    description:   d.destination_description,
+    alt:           d.destination_title,
+    bannerUrl:     null,
+    legacyImgName: d.destination_img,
+}));
+
+// La API gana sobre el asset local cuando trae `bannerUrl`; si no, se busca
+// el asset en la carpeta `destinations/`. Devolver `null` deja el item fuera.
+function resolveSrc(item: CarouselItem): ImageMetadata | string | null {
+    if (item.bannerUrl) return item.bannerUrl;
+    if (item.legacyImgName) {
+        const path = `/src/assets/images/destinations/${item.legacyImgName}.webp`;
+        return localImages[path]?.default ?? null;
+    }
+    return null;
+}
+
+const destinations = [...items].sort((a, b) =>
+    a.title.localeCompare(b.title, undefined, {
         sensitivity: "base",
-        numeric: true
+        numeric: true,
     })
 );
 
@@ -52,24 +87,22 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
                     </div>
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            {destinations.map((destination, index) => {
-                                const imagePath = `/src/assets/images/destinations/${destination.destination_img}.webp`;
-                                const imageModule = images[imagePath];
-                                const image = imageModule?.default;
+                            {destinations.map((item, index) => {
+                                const src = resolveSrc(item);
 
-                                if (!image) {
-                                    console.error("Imagen no encontrada:", imagePath);
+                                if (!src) {
+                                    console.error("Imagen no encontrada para destino:", item.title);
                                     return null;
                                 }
 
                                 return (
                                         <div class="swiper-slide w-auto">
                                             <TopDestinationCard
-                                                    src={image}
-                                                    alt={destination.destination_title}
-                                                    title={destination.destination_title}
-                                                    subtitle={destination.destination_description}
-                                                    url={withLang(destination.destination_url)}
+                                                    src={src}
+                                                    alt={item.alt}
+                                                    title={item.title}
+                                                    subtitle={item.description ?? ""}
+                                                    url={withLang(item.url)}
                                                     priority={index === 0}
                                             />
                                         </div>
