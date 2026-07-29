@@ -16,41 +16,135 @@ import SectionExplorePremierDestinations from "../components/sections/SectionExp
 import TeamSection from "../components/sections/TeamSection.astro";
 import FormSection from "../components/sections/FormSection.astro";
 import CommercialProjectsSection from "@components/sections/CommercialProjectsSection.astro";
-import { getPublishedDestinations } from "@/lib/supabase/destinations";
+import {
+  getDestinations,
+  getBrandedResidences,
+  getDevelopments,
+} from "@/lib/supabase/resilient";
+import brandedResidences from "../data/i18n/es/branded-residences.json";
+import developments from "../data/i18n/es/developments.json";
 import { mergeHybrid } from "@/lib/hybrid";
+import type { PublishStatus } from "@/lib/supabase/types";
 
 const lang = "es";
 
-// ── Híbrido legacy + Supabase para el carrusel de destinos ─────────────────
-// Solo aplica a esta sección (testeo de la base API). La lista visible la
-// fija el JSON legacy; la API gana campo a campo cuando el slug coincide.
-// Si la API falla o no hay match, el item legacy se conserva intacto.
-const apiDestinations = await getPublishedDestinations(lang, {
-    developmentsCount: true,
+// ── Reglas de visualización y prioridad de datos ───────────────────────────
+// (doc/KEA_Partners/db → "Reglas de visualización y prioridad de datos")
+//
+// Prioridad API > legacy: la EXISTENCIA de un registro en la API invalida su
+// homónimo legacy, en CUALQUIER estado (`published`, `inactive` o `draft`). Por
+// eso la reconciliación trae los tres estados. Visibilidad final:
+//   · API `published` (y, en agrupaciones, con ≥1 desarrollo) → se muestra.
+//   · API `inactive` / `draft` → no se muestra y tampoco cae al legacy (lo invalida).
+//   · sin contraparte en la API → se usa el legacy de respaldo.
+// El filtro `keepApi` de `mergeHybrid` aplica exactamente esta semántica.
+const RECONCILE_STATUSES: readonly PublishStatus[] = ["published", "inactive", "draft"];
+const isPublished = (status: PublishStatus) => status === "published";
+
+const formatPropertiesCount = (n: number) =>
+    `${n} ${n === 1 ? "propiedad" : "propiedades"}`;
+
+// ── Carrusel de destinos del home ──────────────────────────────────────────
+// Agrupación: un destino solo es visible si está `published` y tiene ≥1
+// desarrollo publicado asociado (conteo dinámico vía `developmentsCount`).
+const apiDestinations = await getDestinations({
+    language: lang,
+    statuses: RECONCILE_STATUSES,
+    include: { developmentsCount: true },
 }).catch((error) => {
     console.error("[index] No se pudieron cargar destinos de Supabase:", error);
     return [];
 });
-
-const formatPropertiesCount = (n: number) =>
-    `${n} ${n === 1 ? "propiedad" : "propiedades"}`;
 
 const mergedDestinations = mergeHybrid({
     legacy:    home.highlights_destinations,
     api:       apiDestinations,
     legacyKey: (l) => l.destination_url,
     apiKey:    (a) => a.slug,
+    keepApi:   (a) => isPublished(a.status) && (a.developmentsCount ?? 0) >= 1,
     merge: (legacy, api) => ({
-        title:         api?.title ?? legacy.destination_title,
-        url:           api?.slug  ?? legacy.destination_url,
-        alt:           api?.alt   ?? legacy.destination_title,
+        title:         api?.title ?? legacy?.destination_title ?? "",
+        url:           api?.slug  ?? legacy?.destination_url ?? "",
+        alt:           api?.alt   ?? legacy?.destination_title
+                                  ?? api?.title ?? "",
+        // Con API: "N propiedades" (conteo dinámico). Solo legacy: su texto.
         description:   api
-            ? formatPropertiesCount(api.developmentsCount ?? 0)
-            : legacy.destination_description,
-        bannerUrl:     api?.bannerUrl ?? null,
-        legacyImgName: legacy.destination_img,
+                         ? formatPropertiesCount(api.developmentsCount ?? 0)
+                         : (legacy?.destination_description ?? null),
+        // Imagen de la tarjeta: `card_image_key` manda; si no tiene, cae al
+        // `banner_key`. (doc/KEA_Partners/db/destinations.md)
+        imageUrl:      api?.cardImageUrl ?? api?.bannerUrl ?? null,
+        legacyImgName: legacy?.destination_img ?? null,
     }),
 });
+
+// ── Grilla de branded residences ───────────────────────────────────────────
+// Agrupación: visible solo si está `published` y tiene ≥1 desarrollo publicado
+// de categoría `branded-residences` asociado (FK developments.group_id).
+const apiBrandedResidences = await getBrandedResidences({
+    language: lang,
+    statuses: RECONCILE_STATUSES,
+    include: { developmentsCount: true },
+}).catch((error) => {
+    console.error("[index] No se pudieron cargar branded residences de Supabase:", error);
+    return [];
+});
+
+const mergedBrandedResidences = mergeHybrid({
+    legacy:    brandedResidences.listBrandedResidents,
+    api:       apiBrandedResidences,
+    legacyKey: (l) => l.brandedResidentUrl,
+    apiKey:    (a) => a.slug,
+    keepApi:   (a) => isPublished(a.status) && (a.developmentsCount ?? 0) >= 1,
+    merge: (legacy, api) => ({
+        name:          api?.name ?? legacy?.brandedResidentName ?? "",
+        url:           api?.slug ?? legacy?.brandedResidentUrl ?? "",
+        alt:           api?.alt  ?? legacy?.brandedResidentAlt
+                                 ?? api?.name ?? legacy?.brandedResidentName ?? "",
+        iconUrl:       api?.iconUrl ?? null,
+        legacyIconKey: legacy?.brandedResidentSrc ?? null,
+        hasPadding:    legacy?.brandedResidentHasPadding ?? false,
+        hasZoom:       legacy?.brandedResidentHasZoom ?? false,
+    }),
+});
+
+// ── Desarrollos directos por categoría ─────────────────────────────────────
+// Las secciones "High-End & Resort Living" y "Commercial Projects" muestran
+// desarrollos (hojas, no agrupaciones): visibles si están `published`. El
+// destino se trae embebido (FK developments→destinations) para componer la
+// URL `/{destino}/{seccion}/{slug}`.
+const apiDevelopments = await getDevelopments({
+    language: lang,
+    statuses: RECONCILE_STATUSES,
+    include: { destination: true },
+}).catch((error) => {
+    console.error("[index] No se pudieron cargar desarrollos de Supabase:", error);
+    return [];
+});
+
+const mergeDevelopmentsByCategory = (category: string) =>
+    mergeHybrid({
+        legacy: developments.listDevelopments.filter(
+            (d) => d.developmentCategory === category,
+        ),
+        api: apiDevelopments.filter((d) => d.category === category),
+        legacyKey: (l) => l.developmentLink,
+        apiKey:    (a) => a.slug,
+        keepApi:   (a) => isPublished(a.status),
+        merge: (legacy, api) => ({
+            name:          api?.name ?? legacy?.developmentName ?? "",
+            slug:          api?.slug ?? legacy?.developmentLink ?? "",
+            destination:   api?.destination?.slug ?? legacy?.developmentDestination ?? "",
+            alt:           api?.alt  ?? legacy?.developmentAlt
+                                     ?? api?.name ?? legacy?.developmentName ?? "",
+            iconUrl:       api?.iconUrl ?? null,
+            legacyIconKey: legacy?.developmentSrc ?? null,
+            hasZoom:       legacy?.developmentHasZoom ?? false,
+        }),
+    });
+
+const highEndDevelopments    = mergeDevelopmentsByCategory("high-end-resort");
+const commercialDevelopments = mergeDevelopmentsByCategory("commercial-projects");
 ---
 
 <MainLayout lang={lang} t={common}>
@@ -58,11 +152,11 @@ const mergedDestinations = mergeHybrid({
   <HeroSection t={common} />
   <!-- Resont Branded Resedents  -->
   <SectionExplorePremierDestinations t={home} lang="es" destinations={mergedDestinations} />
-  <BrandedResidencesSection t={home} lang="es" />
+  <BrandedResidencesSection t={home} lang="es" brandedResidences={mergedBrandedResidences} />
   <!-- Developments -->
 
-  <HighEndResortLivingSection t={home} lang="es" />
-  <CommercialProjectsSection t={home} lang="es" />
+  <HighEndResortLivingSection t={home} lang="es" developments={highEndDevelopments} />
+  <CommercialProjectsSection t={home} lang="es" developments={commercialDevelopments} />
   <!-- FAQs -->
   <FaqSection t={home} />
   <!-- Team -->

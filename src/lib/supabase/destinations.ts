@@ -26,7 +26,7 @@ const TABLE = 'destinations';
 
 /** Columnas solicitadas a PostgREST (explícito para no transferir de más). */
 const COLUMNS =
-    'id, title, location, banner_key, alt, slug, language, status, created_at, updated_at';
+    'id, title, location, banner_key, alt, card_image_key, slug, language, status, created_at, updated_at';
 
 /**
  * Convierte una fila cruda de `destinations` al modelo de dominio.
@@ -44,6 +44,8 @@ export function mapDestination(row: DestinationRow): Destination {
         status: normalizeStatus(row.status, 'destinations'),
         bannerKey: row.banner_key,
         bannerUrl: getPublicImageUrl(row.banner_key),
+        cardImageKey: row.card_image_key,
+        cardImageUrl: getPublicImageUrl(row.card_image_key),
         createdAt: row.created_at,
         updatedAt: row.updated_at,
     };
@@ -63,6 +65,12 @@ export interface DestinationInclude {
 export interface DestinationQuery {
     /** Filtra por estado de publicación. Omitir para traer todos los estados. */
     status?: PublishStatus;
+    /**
+     * Filtra por un conjunto de estados (`status IN (...)`). Útil para la
+     * reconciliación legacy/API, que necesita considerar también los `inactive`.
+     * Tiene prioridad sobre `status` si ambos se indican.
+     */
+    statuses?: readonly PublishStatus[];
     /** Filtra por idioma. Omitir para traer todos los idiomas. */
     language?: Language;
     /** Número máximo de filas a devolver. */
@@ -127,7 +135,11 @@ export async function getDestinations(query: DestinationQuery = {}): Promise<Des
         .select(COLUMNS)
         .order('title', { ascending: true });
 
-    if (query.status)   request = request.eq('status', query.status);
+    if (query.statuses && query.statuses.length > 0) {
+        request = request.in('status', query.statuses as string[]);
+    } else if (query.status) {
+        request = request.eq('status', query.status);
+    }
     if (query.language) request = request.eq('language', query.language);
     if (query.limit)    request = request.limit(query.limit);
 

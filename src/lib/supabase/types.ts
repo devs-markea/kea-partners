@@ -59,6 +59,7 @@ export interface DestinationRow {
     location: string;
     banner_key: string | null;
     alt: string | null;
+    card_image_key: string | null;
     slug: string;
     language: string;
     status: string;
@@ -83,6 +84,10 @@ export interface Destination {
     bannerKey: string | null;
     /** URL pública del banner ya resuelta contra Storage. `null` si no tiene imagen. */
     bannerUrl: string | null;
+    /** Key cruda de la imagen de tarjeta (listados) en Storage. `null` si no tiene. */
+    cardImageKey: string | null;
+    /** URL pública de la imagen de tarjeta ya resuelta contra Storage. `null` si no tiene. */
+    cardImageUrl: string | null;
     createdAt: string;
     updatedAt: string;
     /**
@@ -130,6 +135,12 @@ export interface BrandedResidence {
     iconUrl: string | null;
     createdAt: string;
     updatedAt: string;
+    /**
+     * Conteo de desarrollos publicados de categoría `branded-residences`
+     * asociados a este grupo (FK `developments.group_id`).
+     * Solo presente cuando la consulta lo pidió con `include.developmentsCount`.
+     */
+    developmentsCount?: number;
 }
 
 // ── developments ───────────────────────────────────────────────────────────
@@ -223,6 +234,30 @@ export interface Development {
 // ── development_articles ───────────────────────────────────────────────────
 
 /**
+ * Tipo de contenido de un artículo. En DB se persiste la *key* (nunca la
+ * etiqueta visible):
+ *   - `article`       → «Artículo» (default)
+ *   - `page_resource` → «Página de Recursos»
+ * Ver doc/KEA_Partners/db/development-articles.md → «Valores de type».
+ */
+export type ArticleType = 'article' | 'page_resource';
+
+export const ARTICLE_TYPES = ['article', 'page_resource'] as const;
+
+/** Type guard: ¿es `value` un `ArticleType` conocido? */
+export function isArticleType(value: unknown): value is ArticleType {
+    return typeof value === 'string'
+        && (ARTICLE_TYPES as readonly string[]).includes(value);
+}
+
+/** Normaliza `type`; ante un valor desconocido cae a `article` (default defensivo). */
+export function normalizeArticleType(raw: string, ctx: string): ArticleType {
+    if (isArticleType(raw)) return raw;
+    console.warn(`[supabase/${ctx}] article type desconocido: "${raw}" — se asume "article".`);
+    return 'article';
+}
+
+/**
  * Fila cruda de la tabla `development_articles` tal como la devuelve PostgREST.
  * Ver doc/db/production.md → «Tabla development_articles».
  */
@@ -231,6 +266,12 @@ export interface DevelopmentArticleRow {
     development_id: string;
     title: string;
     url: string;
+    /** Descripción libre del artículo. `null` si no tiene. */
+    description: string | null;
+    /** Tipo de contenido (key sin normalizar). Ver `ArticleType`. */
+    type: string;
+    /** Visibilidad del artículo: `true` se muestra, `false` se oculta. */
+    is_visible: boolean;
     created_at: string;
     updated_at: string;
 }
@@ -247,6 +288,12 @@ export interface DevelopmentArticle {
     developmentId: string;
     title: string;
     url: string;
+    /** Descripción libre del artículo. `null` si no tiene. */
+    description: string | null;
+    /** Tipo de contenido ya normalizado. Ver `ArticleType`. */
+    type: ArticleType;
+    /** Visibilidad del artículo: `true` se muestra, `false` se oculta. */
+    isVisible: boolean;
     createdAt: string;
     updatedAt: string;
 }

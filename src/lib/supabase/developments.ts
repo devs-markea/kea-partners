@@ -108,6 +108,12 @@ export function mapDevelopment(row: DevelopmentRow): Development {
 export interface DevelopmentQuery {
     /** Filtra por estado de publicación. */
     status?: PublishStatus;
+    /**
+     * Filtra por un conjunto de estados (`status IN (...)`). Útil para la
+     * reconciliación legacy/API, que necesita considerar también los `inactive`.
+     * Tiene prioridad sobre `status` si ambos se indican.
+     */
+    statuses?: readonly PublishStatus[];
     /** Filtra por idioma. */
     language?: Language;
     /**
@@ -136,7 +142,11 @@ export async function getDevelopments(query: DevelopmentQuery = {}): Promise<Dev
         .select(buildSelect(query.include))
         .order('name', { ascending: true });
 
-    if (query.status)        request = request.eq('status', query.status);
+    if (query.statuses && query.statuses.length > 0) {
+        request = request.in('status', query.statuses as string[]);
+    } else if (query.status) {
+        request = request.eq('status', query.status);
+    }
     if (query.language)      request = request.eq('language', query.language);
     if (query.category)      request = request.eq('category', query.category);
     if (query.destinationId) request = request.eq('destination_id', query.destinationId);

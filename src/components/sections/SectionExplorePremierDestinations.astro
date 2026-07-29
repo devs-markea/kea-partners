@@ -20,7 +20,8 @@ interface CarouselItem {
     url:            string;
     description:    string | null;
     alt:            string;
-    bannerUrl:      string | null;
+    /** Imagen remota ya resuelta (card_image_key con fallback a banner_key). */
+    imageUrl:       string | null;
     legacyImgName:  string | null;
 }
 
@@ -32,14 +33,14 @@ const items: CarouselItem[] = provided ?? t.highlights_destinations.map((d: any)
     url:           d.destination_url,
     description:   d.destination_description,
     alt:           d.destination_title,
-    bannerUrl:     null,
+    imageUrl:      null,
     legacyImgName: d.destination_img,
 }));
 
-// La API gana sobre el asset local cuando trae `bannerUrl`; si no, se busca
+// La API gana sobre el asset local cuando trae `imageUrl`; si no, se busca
 // el asset en la carpeta `destinations/`. Devolver `null` deja el item fuera.
 function resolveSrc(item: CarouselItem): ImageMetadata | string | null {
-    if (item.bannerUrl) return item.bannerUrl;
+    if (item.imageUrl) return item.imageUrl;
     if (item.legacyImgName) {
         const path = `/src/assets/images/destinations/${item.legacyImgName}.webp`;
         return localImages[path]?.default ?? null;
@@ -47,16 +48,27 @@ function resolveSrc(item: CarouselItem): ImageMetadata | string | null {
     return null;
 }
 
-const destinations = [...items].sort((a, b) =>
-    a.title.localeCompare(b.title, undefined, {
-        sensitivity: "base",
-        numeric: true,
+// Se resuelve la imagen en el frontmatter para descartar los items sin asset:
+// así el ocultamiento de la sección (regla 1) refleja los items realmente
+// renderizables, no solo la longitud del array de entrada.
+const renderable = items
+    .map((item) => ({ item, src: resolveSrc(item) }))
+    .filter((entry): entry is { item: CarouselItem; src: ImageMetadata | string } => {
+        if (!entry.src) {
+            console.error("Imagen no encontrada para destino:", entry.item.title);
+            return false;
+        }
+        return true;
     })
-);
-
-
+    .sort((a, b) =>
+        a.item.title.localeCompare(b.item.title, undefined, {
+            sensitivity: "base",
+            numeric: true,
+        }),
+    );
 ---
 
+{renderable.length > 0 && (
 <section class="section-highlights pt-11 md:pt-16">
     <div class="highlights container mx-auto px-5 md:px-8">
 
@@ -87,27 +99,18 @@ const destinations = [...items].sort((a, b) =>
                     </div>
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            {destinations.map((item, index) => {
-                                const src = resolveSrc(item);
-
-                                if (!src) {
-                                    console.error("Imagen no encontrada para destino:", item.title);
-                                    return null;
-                                }
-
-                                return (
-                                        <div class="swiper-slide w-auto">
-                                            <TopDestinationCard
-                                                    src={src}
-                                                    alt={item.alt}
-                                                    title={item.title}
-                                                    subtitle={item.description ?? ""}
-                                                    url={withLang(item.url)}
-                                                    priority={index === 0}
-                                            />
-                                        </div>
-                                );
-                            })}
+                            {renderable.map(({ item, src }, index) => (
+                                <div class="swiper-slide w-auto">
+                                    <TopDestinationCard
+                                            src={src}
+                                            alt={item.alt}
+                                            title={item.title}
+                                            subtitle={item.description ?? ""}
+                                            url={withLang(item.url)}
+                                            priority={index === 0}
+                                    />
+                                </div>
+                            ))}
                         </div>
 
                         <div class="swiper-pagination-destinations mt-8 flex justify-center"></div>
@@ -119,6 +122,7 @@ const destinations = [...items].sort((a, b) =>
 
     </div>
 </section>
+)}
 
 <script>
     import Swiper from 'swiper';

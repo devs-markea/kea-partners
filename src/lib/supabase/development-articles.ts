@@ -9,13 +9,14 @@
 
 import { getServiceClient } from './client';
 import {
+    normalizeArticleType,
     type DevelopmentArticle,
     type DevelopmentArticleRow,
 } from './types';
 
 const TABLE = 'development_articles';
 
-const COLUMNS = 'id, development_id, title, url, created_at, updated_at';
+const COLUMNS = 'id, development_id, title, url, description, type, is_visible, created_at, updated_at';
 
 /**
  * Convierte una fila cruda de `development_articles` al modelo de dominio.
@@ -27,6 +28,9 @@ export function mapDevelopmentArticle(row: DevelopmentArticleRow): DevelopmentAr
         developmentId: row.development_id,
         title: row.title,
         url: row.url,
+        description: row.description ?? null,
+        type: normalizeArticleType(row.type, 'development-articles'),
+        isVisible: row.is_visible,
         createdAt: row.created_at,
         updatedAt: row.updated_at,
     };
