@@ -20,60 +20,22 @@ import SvgIcon from "./SvgIcon.astro";
 
 
 <script>
-    import Fuse from "fuse.js";
-    import items from "../data/search/documents/development.json";
-    import HideAttributes from "../data/i18n/es/hide-attributes-development.json";
-
-    const hiddenByProject = Object.fromEntries(
-        HideAttributes.developments
-            .filter((d: any) => d.developmentProject)
-            .map((d: any) => [
-                d.developmentProject.toLowerCase(),
-                d.developmentAttribututes.map((a: any) => a.attribute.toLowerCase())
-            ])
-    );
+    // El buscador en vivo ya NO consulta datos en el cliente: la búsqueda
+    // (legacy + Supabase reconciliado) corre en el servidor vía /api/search.
 
     const formSearch = document.getElementById("search-form");
     const input = document.getElementById("default-search-main");
     const suggestions = document.getElementById("suggestions-main");
 
-    let FUSE_OPTIONS = {
-        includeScore: true,
-        threshold: 0.4,
-        shouldSort: true,
-        keys: [
-            {
-                name: "project",
-                weight: 1.2,
-            },
-            {
-                name: "type",
-                weight: 1,
-            },
-            {
-                name: "destination",
-                weight: 0.75,
-            },
-            {
-                name: "microDestination",
-                weight: 0.5,
-            },        {
-                name: "title",
-                weight: 0.25,
-            },
-            {
-                name: "description",
-                weight: 0.1,
-            }
-        ]
-    }
-    let SEARCH_DATA = items;
-    let lang = "es";
-
     const params = new URLSearchParams(window.location.search);
     const queryParam = params.get("q");
 
-    const fuse = new Fuse(SEARCH_DATA, FUSE_OPTIONS);
+    // Escapa texto antes de inyectarlo en innerHTML (el contenido ahora viene
+    // del CRM/API, editable por usuarios → evita XSS).
+    const escapeHtml = (value) =>
+        String(value ?? "").replace(/[&<>"']/g, (c) => ({
+            "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+        })[c]);
 
     // Manejar el submit del formulario
     formSearch.addEventListener("submit", (e) => {
@@ -81,66 +43,57 @@ import SvgIcon from "./SvgIcon.astro";
         const query = input.value.trim();
         if (query) {
             window.location.href = `/search?q=${encodeURIComponent(query)}`;
-
         }
     });
 
+    function renderSuggestions(results) {
+        suggestions.innerHTML = results.length
+            ? results.map((item) => `
+      <li class="text-left">
+        <a href="${escapeHtml(item.slug)}" class="block px-4 py-2 hover:bg-gray-100 text-left" target="_blank">
+          <span class="text-xs uppercase text-gray-500">${escapeHtml(item.type)}</span><br>
+          <strong>${escapeHtml(item.title)}</strong>
+          <p class="text-sm text-gray-600">${escapeHtml(item.description)}</p>
+        </a>
+      </li>
+    `).join("")
+            : `<li class="p-2 text-gray-500 text-left">No se encontraron resultados</li>`;
+        suggestions.classList.remove("hidden");
+    }
+
+    // Contador de secuencia: descarta respuestas que lleguen fuera de orden.
+    let requestSeq = 0;
+    let debounceTimer;
+
+    async function fetchSuggestions(query) {
+        const seq = ++requestSeq;
+        try {
+            const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            if (seq !== requestSeq) return; // llegó una búsqueda más nueva
+            renderSuggestions(data.results ?? []);
+        } catch (error) {
+            if (seq !== requestSeq) return;
+            console.error("[Search] Error al buscar sugerencias:", error);
+            suggestions.innerHTML =
+                `<li class="p-2 text-gray-500 text-left">No se pudo buscar. Intenta de nuevo.</li>`;
+            suggestions.classList.remove("hidden");
+        }
+    }
+
     input.addEventListener("input", () => {
         const query = input.value.trim();
+        clearTimeout(debounceTimer);
 
         if (!query) {
+            requestSeq++; // invalida respuestas en vuelo
             suggestions.innerHTML = "";
             suggestions.classList.add("hidden");
             return;
         }
 
-        const rawResults = fuse.search(query);
-        const itemsFound = rawResults.map(r => r.item);
-
-        const normalizedQuery = query.toLowerCase();
-
-// Buscar artículo principal de Recursos
-        const mainResourceArticle = itemsFound.find(item =>
-            item.title?.toLowerCase() === "recursos" &&
-            item.type?.toLowerCase() === "pagina de recursos" &&
-            item.project?.toLowerCase().includes(normalizedQuery)
-        );
-
-// Otros artículos del mismo proyecto
-        const relatedProjectArticles = itemsFound.filter(item =>
-            item.project?.toLowerCase().includes(normalizedQuery) &&
-            item !== mainResourceArticle
-        );
-
-// Resto
-        const otherArticles = itemsFound.filter(item =>
-            item !== mainResourceArticle &&
-            !item.project?.toLowerCase().includes(normalizedQuery)
-        );
-
-// Orden final con filtro de atributos ocultos
-        const results = [
-            ...(mainResourceArticle ? [mainResourceArticle] : []),
-            ...relatedProjectArticles,
-            ...otherArticles
-        ].filter(item => {
-            const attrs = hiddenByProject[item.project?.toLowerCase()];
-            return !attrs || !attrs.includes(item.title?.toLowerCase());
-        });
-
-        suggestions.innerHTML = results.length
-            ? results.map(item => `
-      <li class="text-left">
-        <a href="${item.slug}" class="block px-4 py-2 hover:bg-gray-100 text-left" target="_blank">
-          <span class="text-xs uppercase text-gray-500">${item.type}</span><br>
-          <strong>${item.title}</strong>
-          <p class="text-sm text-gray-600">${item.description}</p>
-        </a>
-      </li>
-    `).join("")
-            : `<li class="p-2 text-gray-500 text-left">No se encontraron resultados</li>`;
-
-        suggestions.classList.remove("hidden");
+        debounceTimer = setTimeout(() => fetchSuggestions(query), 250);
     });
 
     input.addEventListener("blur", () => {

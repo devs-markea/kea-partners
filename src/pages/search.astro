@@ -1,129 +1,38 @@
 ---
-import Faena from '../assets/images/faena.png';
-import StRegis from '../assets/images/st-regis.png';
-
-
 import {images} from "../assets/images";
 import {Image} from "astro:assets";
 import MainLayout from '../layouts/MainLayout.astro';
 import ArticleCard from "../components/ArticleCard.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 // import Search from "../components/Search.astro";
-import items from "../data/search/documents/development.json";
-import HideAttributes from "../data/i18n/es/hide-attributes-development.json";
-import Fuse from "fuse.js";
 import Common from '../data/i18n/es/common.json';
 import Search from "../components/Search.astro";
 import {floorToDivide} from "pdfjs-dist/types/web/ui_utils";
+import {searchDocuments, searchDevelopments} from "../lib/search";
+import {getSearchDocuments} from "../lib/search-data";
 
 
 
 const url = new URL(Astro.request.url);
-const query = url.searchParams.get('q') || ''.toLowerCase();
+const query = (url.searchParams.get('q') || '').toLowerCase();
 
-export const imagesArray = [
-    {name: 'Faena Tulum Residences', src: Faena},
-    {name: 'The St Regis Residences', src: StRegis}
-];
+// Set reconciliado legacy + Supabase (prioridad API). Server-only.
+const documents = await getSearchDocuments("es");
 
+// Búsqueda, orden y filtro legacy unificados en src/lib/search.ts
+const results = searchDocuments(query, documents);
 
-
-let fuseOptionsDevelopment = {
-    includeScore: true,
-    threshold: 0.3,
-    shouldSort: true,
-    keys: [
-        {name: "name", weight: 2}
-    ]
-}
-
-let fuseOptions = {
-    includeScore: true,
-    threshold: 0.4,
-    shouldSort: true,
-    keys: [
-        {
-            name: "project",
-            weight: 1.2,
-        },
-        {
-            name: "type",
-            weight: 1,
-        },
-        {
-            name: "destination",
-            weight: 0.75,
-        },
-        {
-            name: "microDestination",
-            weight: 0.5,
-        },
-        {
-            name: "title",
-            weight: 0.25,
-        },
-        {
-            name: "description",
-            weight: 0.1,
-        }
-    ]
-}
-
-const fuse = new Fuse(items, fuseOptions);
-
-const fuseDevelopment = new Fuse(imagesArray, fuseOptionsDevelopment);
-
-const rawResults = query ? fuse.search(query) : [];
-
-let results = [];
-
-if (query) {
-    const itemsFound = rawResults.map(result => result.item);
-
-    const normalizedQuery = query.toLowerCase();
-
-    // Buscar artículo principal de Recursos del proyecto
-    const mainResourceArticle = itemsFound.find(item =>
-        item.title?.toLowerCase() === "recursos" &&
-        item.type?.toLowerCase() === "pagina de recursos" &&
-        item.project?.toLowerCase().includes(normalizedQuery)
-    );
-
-    // Buscar otros artículos del mismo proyecto
-    const relatedProjectArticles = itemsFound.filter(item =>
-        item.project?.toLowerCase().includes(normalizedQuery) &&
-        item !== mainResourceArticle
-    );
-
-    // Resto de artículos
-    const otherArticles = itemsFound.filter(item =>
-        item !== mainResourceArticle &&
-        !item.project?.toLowerCase().includes(normalizedQuery)
-    );
-
-    // Construcción final ordenada
-    results = [
-        ...(mainResourceArticle ? [mainResourceArticle] : []),
-        ...relatedProjectArticles,
-        ...otherArticles
-    ];
-}
-
-const hiddenByProject = Object.fromEntries(
-    HideAttributes.developments
-        .filter(d => d.developmentProject)
-        .map(d => [
-            d.developmentProject.toLowerCase(),
-            d.developmentAttribututes.map(a => a.attribute.toLowerCase())
-        ])
-);
-results = results.filter(item => {
-    const attrs = hiddenByProject[item.project?.toLowerCase()];
-    return !attrs || !attrs.includes(item.title?.toLowerCase());
-});
-
-
-const developmentResults = query ? fuseDevelopment.search(query).map(result => result.item) : [];
+// Desarrollos encontrados: solo los que coinciden por NOMBRE con la búsqueda
+// (no todos los proyectos que aparezcan en los artículos por coincidencia
+// difusa). Cada desarrollo aporta `project` (antes `name`) e `image` (antes
+// `src`), que aquí se resuelve a su asset del mapa `images`.
+// NOTA: la muestra de logos se oculta temporalmente (se terminará en otra
+// fase). Para reactivarla, basta poner SHOW_DEVELOPMENT_LOGOS en true.
+const SHOW_DEVELOPMENT_LOGOS = false;
+const imageMap = images as Record<string, ImageMetadata>;
+const developmentResults = SHOW_DEVELOPMENT_LOGOS
+    ? searchDevelopments(query, documents).map((dev) => ({ ...dev, logo: imageMap[dev.image] }))
+    : [];
 
 
 const breadcrumbItems = [
@@ -200,19 +109,21 @@ const totalResults = results.length;
                                 Tulum”, “Site plan”, “Brochure”.</h3>
                     ) : (
                         developmentResults.length > 0 && (
-                            developmentResults.map((img) => (
-
+                            developmentResults.map((dev) => (
                                     <a class="flex items-center justify-center border border-brand-700 rounded-xl min-h-[100px] md:min-h-[140px]"
                                        href="/">
-                                        <Image
-                                                class="w-[80px] md:w-[100px]"
-                                                src={img.src}
-                                                alt={img.name}
-                                                quality={90}
-                                                loading="eager"
-                                        />
+                                        {dev.logo ? (
+                                            <Image
+                                                    class="w-[80px] md:w-[100px]"
+                                                    src={dev.logo}
+                                                    alt={dev.project}
+                                                    quality={90}
+                                                    loading="eager"
+                                            />
+                                        ) : (
+                                            <span class="text-xs text-center text-brand-700 px-2">{dev.project}</span>
+                                        )}
                                     </a>
-
                             ))
                         )
                     )}

@@ -1,27 +1,41 @@
 ---
-import {images} from "@assets/images";
-import {Image} from "astro:assets";
-import ArticleCard from "../ArticleCard.astro";
+import { images } from "@assets/images";
+import HybridImage from "../HybridImage.astro";
 import PageCard from "../PageCard.astro";
+
 interface Props {
     t: {
-        bannerKey: string
-        title: string
-        alt: string
-    }
-    link?: string
-    lang: string
+        /** URL remota del banner (Supabase Storage). Tiene prioridad. */
+        bannerUrl?: string | null;
+        /** Key del banner en el mapa local `images` (respaldo legacy). */
+        bannerKey?: keyof typeof images | string | null;
+        title: string;
+        alt: string;
+    };
+    link?: string;
+    lang: string;
 }
-const {t, link, lang } = Astro.props;
-const bannerImage = images[t.bannerKey];
 
-const words = t.title.split(" ");
+const { t, link } = Astro.props;
+
+// Banner: URL remota (Supabase) o, en su defecto, asset local por key.
+const bannerImage =
+    t.bannerUrl ?? (t.bannerKey && t.bannerKey in images
+        ? images[t.bannerKey as keyof typeof images]
+        : undefined);
+
 const title = t.title;
-const firstLine = words.slice(0, 2).join(" ");
-const secondLine = words.slice(2).join(" ");
 ---
 <section class="relative py-16 md:py-28">
-    <Image class="absolute inset-0 w-full h-full object-cover" src={bannerImage} alt={t.alt} quality={90}  loading="eager"/>
+    {bannerImage && (
+        <HybridImage
+                class="absolute inset-0 w-full h-full object-cover"
+                src={bannerImage}
+                alt={t.alt}
+                width={1920}
+                height={1080}
+        />
+    )}
     <div class="absolute inset-0 w-full h-full bg-black/50 opacity-20"></div>
     <div class="relative z-10 container mx-auto flex flex-col items-center md:items-start">
         <h1 class="text-[32px] md:text-5xl text-brand-50 font-cormorant font-medium uppercase md:mt-5 mb-0">
