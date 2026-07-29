@@ -1,0 +1,30 @@
+---
+/**
+ * Renderiza una imagen que puede venir de dos fuentes:
+ *   - `ImageMetadata` → asset local importado (Astro deduce width/height).
+ *   - `string`        → URL remota (p. ej. Supabase Storage); Astro exige
+ *                       width/height explícitos.
+ *
+ * Encapsula esa bifurcación para las grillas híbridas (legacy + API) de la
+ * home, donde el ícono puede resolverse a un asset local o a una URL remota.
+ */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+    src: ImageMetadata | string;
+    alt: string;
+    class?: string;
+    /** Tamaño usado solo para URLs remotas. */
+    width?: number;
+    height?: number;
+}
+
+const { src, alt, class: className, width = 217, height = 190 } = Astro.props;
+---
+
+{typeof src === "string" ? (
+    <Image src={src} alt={alt} width={width} height={height} class={className} quality={90} loading="eager" />
+) : (
+    <Image src={src} alt={alt} class={className} quality={90} loading="eager" />
+)}

@@ -1,37 +1,120 @@
 ---
 import MainLayout from "../../../layouts/MainLayout.astro";
-import HeroArticleSection from "../../../components/sections/article/HeroArticleSection.astro";
+import HeroBannerSection from "../../../components/sections/HeroBannerSection.astro";
 import DestinationSection from "../../../components/sections/article/DestinationSection.astro";
-import DestinationData from '../../../data/i18n/es/branded-residences.json';
 
 import Common from '../../../data/i18n/es/common.json';
+import DestinationData from '../../../data/i18n/es/branded-residences.json';
 import DevelopmentsData from '../../../data/i18n/es/developments.json';
-import HeroBannerSection from "../../../components/sections/HeroBannerSection.astro";
+
+import {
+  getBrandedResidenceBySlug,
+  getDestinationBySlug,
+  getDevelopments,
+} from "@/lib/supabase/resilient";
+import { mergeHybrid } from "@/lib/hybrid";
 
 const { destination, slug } = Astro.params;
+const lang = "es";
+const CATEGORY = "branded-residences";
 
-const relatedDevelopments = DevelopmentsData.listDevelopments.filter(
-    dev =>
-        dev.developmentCategory === "branded-residences" &&
-        dev.developmentDestination === destination &&
-        dev.developmentGroup === slug
+// ── Grupo (branded residence) ───────────────────────────────────────────────
+// El "sujeto" de la página es el grupo. Su nombre/banner alimentan el hero.
+const apiGroup = await getBrandedResidenceBySlug(slug!, lang).catch((error) => {
+    console.error(`[branded-group/${slug}] No se pudo cargar el grupo:`, error);
+    return null;
+});
+const legacyGroup = DestinationData.listBrandedResidents.find(
+    (b) => b.brandedResidentUrl === slug,
 );
 
-if (relatedDevelopments.length === 0) {
+// Si el grupo existe en la API pero no está publicado (draft/inactive), se
+// oculta: redirige al home (la API invalida el respaldo legacy).
+if (apiGroup && apiGroup.status !== 'published') {
+    return Astro.redirect('/');
+}
+
+// El destino de la URL también condiciona la página: si existe en la API pero
+// no está publicado (draft/inactive), el grupo se oculta y redirige al home.
+const apiDestination = await getDestinationBySlug(destination!, lang).catch((error) => {
+    console.error(`[branded-group/${slug}] No se pudo cargar el destino "${destination}":`, error);
+    return null;
+});
+if (apiDestination && apiDestination.status !== 'published') {
+    return Astro.redirect('/');
+}
+
+// ── Desarrollos del grupo en este destino (relación real en Supabase) ───────
+// Se filtran por grupo + categoría + publicados; el destino se trae embebido
+// para acotar a la URL y para componer los enlaces.
+let apiDevelopments = apiGroup
+    ? await getDevelopments({
+          statuses: ['published', 'inactive', 'draft'],
+          language: lang,
+          category: CATEGORY,
+          groupId: apiGroup.id,
+          include: { destination: true, group: true },
+      }).catch((error) => {
+          console.error(`[branded-group/${slug}] No se pudieron cargar desarrollos:`, error);
+          return [];
+      })
+    : [];
+apiDevelopments = apiDevelopments.filter((d) => d.destination?.slug === destination);
+
+// Respaldo legacy: desarrollos branded del JSON para este grupo + destino.
+const legacyDevelopments = DevelopmentsData.listDevelopments.filter(
+    (d) => d.developmentCategory === CATEGORY &&
+           d.developmentDestination === destination &&
+           d.developmentGroup === slug,
+);
+
+// Unión con prioridad de la API, normalizada a la forma de DestinationSection.
+// Prioridad por estado: la API solo se muestra si está `published`; `inactive`
+// o `draft` ocultan el desarrollo e INVALIDAN su homónimo legacy (sin respaldo).
+const developments = mergeHybrid({
+    legacy:    legacyDevelopments,
+    api:       apiDevelopments,
+    legacyKey: (l) => l.developmentLink,
+    apiKey:    (a) => a.slug,
+    keepApi:   (a) => a.status === 'published',
+    merge: (legacy, api) => ({
+        developmentId:          api?.id ?? legacy?.developmentId,
+        developmentCategory:    CATEGORY,
+        developmentDestination: api?.destination?.slug ?? legacy?.developmentDestination ?? destination,
+        developmentGroup:       api?.group?.slug ?? legacy?.developmentGroup ?? slug,
+        developmentLink:        api?.slug ?? legacy?.developmentLink ?? "",
+        developmentAlt:         api?.alt ?? legacy?.developmentAlt
+                                         ?? api?.name ?? legacy?.developmentName ?? "",
+        developmentIconUrl:     api?.iconUrl ?? null,
+        developmentSrc:         legacy?.developmentSrc ?? null,
+        developmentHasPadding:  legacy?.developmentHasPadding ?? false,
+    }),
+});
+
+// Si no existe el grupo en ninguna fuente y no hay desarrollos, no hay página.
+if (!apiGroup && !legacyGroup && developments.length === 0) {
     return Astro.redirect('/404');
 }
 
+const groupName = apiGroup?.name ?? legacyGroup?.brandedResidentName ?? slug ?? "";
+
 const heroData = {
-    title: slug,
-    bannerKey: relatedDevelopments[0].developmentBanner,
-    alt: slug
+    title:     groupName,
+    bannerUrl: apiGroup?.bannerUrl ?? null,
+    // Respaldo legacy: banner del grupo y, si no, el del primer desarrollo.
+    bannerKey: legacyGroup?.brandedResidentBanner ?? legacyDevelopments[0]?.developmentBanner ?? null,
+    alt:       apiGroup?.alt ?? legacyGroup?.brandedResidentAlt ?? groupName,
 };
+
+const destinationName =
+    apiDevelopments[0]?.destination?.title ??
+    destination?.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
-    { name: destination },
+    { name: destinationName },
     { name: 'Branded Residences' },
-    { name: slug }
+    { name: groupName },
 ];
 ---
 <MainLayout title="KEA Partners" lang="es" t={Common}>
@@ -39,7 +122,7 @@ const breadcrumbItems = [
 
     <DestinationSection
             breadcrumbItems={breadcrumbItems}
-            developments={relatedDevelopments}
+            developments={developments}
             lang="es"
     />
 </MainLayout>

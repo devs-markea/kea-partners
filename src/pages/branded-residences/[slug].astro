@@ -1,48 +1,105 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import HeroArticleSection from "../../components/sections/article/HeroArticleSection.astro";
+import HeroBannerSection from "../../components/sections/HeroBannerSection.astro";
+import DestinationSection from "../../components/sections/article/DestinationSection.astro";
 
 import Common from '../../data/i18n/es/common.json';
 import DestinationData from '../../data/i18n/es/branded-residences.json';
 import DevelopmentsData from '../../data/i18n/es/developments.json';
-import DestinationSection from "../../components/sections/article/DestinationSection.astro";
-import HeroBannerSection from "../../components/sections/HeroBannerSection.astro";
+
+import { getBrandedResidenceBySlug, getDevelopments } from "@/lib/supabase/resilient";
+import { mergeHybrid } from "@/lib/hybrid";
 
 const { slug } = Astro.params;
+const lang = "es";
+const CATEGORY = "branded-residences";
 
-const destination = DestinationData.listBrandedResidents.find(
-    (d) => d.brandedResidentUrl === slug
+// ── Grupo (branded residence) ───────────────────────────────────────────────
+// El "sujeto" de la página es el grupo; su nombre/banner alimentan el hero.
+const apiGroup = await getBrandedResidenceBySlug(slug!, lang).catch((error) => {
+    console.error(`[branded-group/${slug}] No se pudo cargar el grupo:`, error);
+    return null;
+});
+const legacyGroup = DestinationData.listBrandedResidents.find(
+    (b) => b.brandedResidentUrl === slug,
 );
 
-if (!destination) {
+// Si el grupo existe en la API pero no está publicado (draft/inactive), se
+// oculta: redirige al home (la API invalida el respaldo legacy).
+if (apiGroup && apiGroup.status !== 'published') {
+    return Astro.redirect('/');
+}
+
+// ── Todos los desarrollos del grupo (en cualquier destino) ──────────────────
+// A diferencia de /[destination]/branded-residences/[slug], aquí NO se acota a
+// un destino: se listan todos los del grupo. El destino se trae embebido para
+// componer el enlace de cada desarrollo a su propio destino.
+const apiDevelopments = apiGroup
+    ? await getDevelopments({
+          statuses: ['published', 'inactive', 'draft'],
+          language: lang,
+          category: CATEGORY,
+          groupId: apiGroup.id,
+          include: { destination: true, group: true },
+      }).catch((error) => {
+          console.error(`[branded-group/${slug}] No se pudieron cargar desarrollos:`, error);
+          return [];
+      })
+    : [];
+
+// Respaldo legacy: desarrollos branded del JSON para este grupo.
+const legacyDevelopments = DevelopmentsData.listDevelopments.filter(
+    (d) => d.developmentGroup === slug,
+);
+
+// Unión con prioridad de la API, normalizada a la forma de DestinationSection.
+// Prioridad por estado: la API solo se muestra si está `published`; `inactive`
+// o `draft` ocultan el desarrollo e INVALIDAN su homónimo legacy (sin respaldo).
+const developments = mergeHybrid({
+    legacy:    legacyDevelopments,
+    api:       apiDevelopments,
+    legacyKey: (l) => l.developmentLink,
+    apiKey:    (a) => a.slug,
+    keepApi:   (a) => a.status === 'published',
+    merge: (legacy, api) => ({
+        developmentId:          api?.id ?? legacy?.developmentId,
+        developmentCategory:    api?.category ?? legacy?.developmentCategory ?? CATEGORY,
+        developmentDestination: api?.destination?.slug ?? legacy?.developmentDestination ?? "",
+        developmentGroup:       api?.group?.slug ?? legacy?.developmentGroup ?? slug,
+        developmentLink:        api?.slug ?? legacy?.developmentLink ?? "",
+        developmentAlt:         api?.alt ?? legacy?.developmentAlt
+                                         ?? api?.name ?? legacy?.developmentName ?? "",
+        developmentIconUrl:     api?.iconUrl ?? null,
+        developmentSrc:         legacy?.developmentSrc ?? null,
+        developmentHasPadding:  legacy?.developmentHasPadding ?? false,
+    }),
+});
+
+// Si no existe el grupo en ninguna fuente y no hay desarrollos, no hay página.
+if (!apiGroup && !legacyGroup && developments.length === 0) {
     return Astro.redirect('/404');
 }
 
+const groupName = apiGroup?.name ?? legacyGroup?.brandedResidentName ?? slug ?? "";
+
 const heroData = {
-    title: destination.brandedResidentName,
-    bannerKey: destination.brandedResidentBanner,
-    alt: destination.brandedResidentAlt
+    title:     groupName,
+    bannerUrl: apiGroup?.bannerUrl ?? null,
+    bannerKey: legacyGroup?.brandedResidentBanner ?? legacyDevelopments[0]?.developmentBanner ?? null,
+    alt:       apiGroup?.alt ?? legacyGroup?.brandedResidentAlt ?? groupName,
 };
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
     { name: 'Branded Residences', url: '' },
-    { name: destination.brandedResidentName }
+    { name: groupName },
 ];
-
-const filteredDevelopments = DevelopmentsData.listDevelopments.filter(
-    (dev) => dev.developmentGroup === slug
-);
-
-
-
 ---
-
 <MainLayout title="KEA Partners" lang="es" t={Common}>
     <HeroBannerSection t={heroData} lang="es" />
     <DestinationSection
             breadcrumbItems={breadcrumbItems}
-            developments={filteredDevelopments}
+            developments={developments}
             lang="es"
     />
 </MainLayout>

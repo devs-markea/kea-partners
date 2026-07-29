@@ -1,21 +1,71 @@
 ---
-import DevelopmentCard from "../../components/DevelopmentCard.astro";
+import type { ImageMetadata } from "astro";
+import HybridImage from "../HybridImage.astro";
+import { images } from "../../assets/images";
 import data from "../../data/i18n/es/developments.json";
 
-const { listDevelopments } = data;
-const { t, lang } = Astro.props;
+const { t, lang, developments: provided } = Astro.props;
 
-const basePath = lang === 'en' ? '/en' : '';
-//const withLang = (path) => `/category/${basePath}${path}`;
-const withLang = (path) => `/high-end-and-resort-living/${basePath}${path}`;
+const basePath = lang === "en" ? "/en" : "";
+const withLang = (path: string) => `/high-end-and-resort-living/${basePath}${path}`;
 
 const category = "high-end-resort";
 
-const filteredDevelopments = listDevelopments?.filter(
-    (item) => item.developmentCategory === category
-);
+/** Item unificado que renderiza la grilla — viene del JSON legacy o del merge
+ *  híbrido (legacy + overlay de Supabase, con prioridad de la API). */
+interface DevelopmentItem {
+    name:          string;
+    /** Slug / path del desarrollo dentro de la sección. */
+    slug:          string;
+    /** Slug del destino, para componer la URL. */
+    destination:   string;
+    alt:           string;
+    /** URL remota del ícono resuelta desde Supabase Storage. `null` si no hay. */
+    iconUrl:       string | null;
+    /** Key del ícono en el mapa local `images` (respaldo legacy). `null` si no hay. */
+    legacyIconKey: string | null;
+    hasZoom:       boolean;
+}
+
+// Compatibilidad legacy: si no recibimos un array `developments` ya mergeado
+// (overlay con la API), derivamos los items del JSON local filtrando por
+// categoría, como se venía haciendo.
+const items: DevelopmentItem[] = provided ?? (data.listDevelopments ?? [])
+    .filter((d: any) => d.developmentCategory === category)
+    .map((d: any) => ({
+        name:          d.developmentName,
+        slug:          d.developmentLink,
+        destination:   d.developmentDestination,
+        alt:           d.developmentAlt,
+        iconUrl:       null,
+        legacyIconKey: d.developmentSrc,
+        hasZoom:       d.developmentHasZoom ?? false,
+    }));
+
+// La API gana sobre el asset local cuando trae `iconUrl`; si no, se busca el
+// ícono en el mapa local `images`. Devolver `null` deja el item fuera.
+function resolveIcon(item: DevelopmentItem): ImageMetadata | string | null {
+    if (item.iconUrl) return item.iconUrl;
+    if (item.legacyIconKey && item.legacyIconKey in images) {
+        return images[item.legacyIconKey as keyof typeof images];
+    }
+    return null;
+}
+
+// Se resuelve el ícono en el frontmatter para descartar los items sin asset:
+// la sección se oculta (regla 1) si no queda ningún item renderizable.
+const renderable = items
+    .map((item) => ({ item, icon: resolveIcon(item) }))
+    .filter((entry): entry is { item: DevelopmentItem; icon: ImageMetadata | string } => {
+        if (!entry.icon) {
+            console.error("Ícono no encontrado para desarrollo:", entry.item.name);
+            return false;
+        }
+        return true;
+    });
 ---
 
+{renderable.length > 0 && (
 <section id="development" class="scroll-mt-24 pt-11 pb-16 md:pt-16 md:pb-20">
     <div class="container mx-auto flex flex-col items-start">
         <div class="development-heading mb-4">
@@ -30,25 +80,22 @@ const filteredDevelopments = listDevelopments?.filter(
             </p>
         </div>
 
-        {filteredDevelopments && filteredDevelopments.length > 0 ? (
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    {filteredDevelopments.map((item) => (
-                            <DevelopmentCard
-                                    key={item.developmentId ?? item.developmentSrc}
-                                    alt={item.developmentAlt}
-                                    src={item.developmentSrc}
-                                    link={`/${item.developmentDestination}${withLang(item.developmentLink)}`}
-                                    //hasPadding={item.developmentHasPadding}
-                                    hasZoom={item.developmentHasZoom}
-                            />
-                    ))}
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {renderable.map(({ item, icon }) => (
+                <div class="w-full min-w-[161.5px] md:min-w-[217px] h-[190px] grid place-items-center border border-gray-200 rounded-xl overflow-hidden">
+                    <a
+                            href={`/${item.destination}${withLang(item.slug)}`}
+                            class="grid place-items-center w-full h-full"
+                    >
+                        <HybridImage
+                                class={`max-w-full max-h-full object-contain ${item.hasZoom ? "scale-125" : ""}`}
+                                src={icon}
+                                alt={item.alt}
+                        />
+                    </a>
                 </div>
-        ) : (
-                <div class="flex justify-center min-h-[40vh]">
-                    <h1 class="text-2xl font-semibold text-center">
-                        {t.brandedResidences.none}
-                    </h1>
-                </div>
-        )}
+            ))}
+        </div>
     </div>
 </section>
+)}

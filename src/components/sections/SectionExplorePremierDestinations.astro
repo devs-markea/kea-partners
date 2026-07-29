@@ -1,27 +1,74 @@
 ---
+import type { ImageMetadata } from "astro";
 import TopDestinationCard from "../TopDestinationCard.astro";
 
 
-const { t, lang } = Astro.props;
+const { t, lang, destinations: provided } = Astro.props;
 
 const basePath = lang === "en" ? "/en" : "";
-const withLang = (path) => `${basePath}/${path}`;
+const withLang = (path: string) => `${basePath}/${path}`;
 
-const images = import.meta.glob(
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/images/destinations/*.webp",
     { eager: true }
 );
 
-const destinations = [...t.highlights_destinations].sort((a, b) =>
-    a.destination_title.localeCompare(b.destination_title, undefined, {
-        sensitivity: "base",
-        numeric: true
+/** Item unificado que renderiza el carrusel — viene del JSON legacy o del
+ *  merge híbrido (legacy + overlay de Supabase). */
+interface CarouselItem {
+    title:          string;
+    url:            string;
+    description:    string | null;
+    alt:            string;
+    /** Imagen remota ya resuelta (card_image_key con fallback a banner_key). */
+    imageUrl:       string | null;
+    legacyImgName:  string | null;
+}
+
+// Compatibilidad legacy: si no recibimos un array `destinations` ya mergeado
+// (overlay con la API), derivamos los items del JSON local como se venía
+// haciendo. Cuando llegan mergeados, el overlay ya se aplicó campo a campo.
+const items: CarouselItem[] = provided ?? t.highlights_destinations.map((d: any) => ({
+    title:         d.destination_title,
+    url:           d.destination_url,
+    description:   d.destination_description,
+    alt:           d.destination_title,
+    imageUrl:      null,
+    legacyImgName: d.destination_img,
+}));
+
+// La API gana sobre el asset local cuando trae `imageUrl`; si no, se busca
+// el asset en la carpeta `destinations/`. Devolver `null` deja el item fuera.
+function resolveSrc(item: CarouselItem): ImageMetadata | string | null {
+    if (item.imageUrl) return item.imageUrl;
+    if (item.legacyImgName) {
+        const path = `/src/assets/images/destinations/${item.legacyImgName}.webp`;
+        return localImages[path]?.default ?? null;
+    }
+    return null;
+}
+
+// Se resuelve la imagen en el frontmatter para descartar los items sin asset:
+// así el ocultamiento de la sección (regla 1) refleja los items realmente
+// renderizables, no solo la longitud del array de entrada.
+const renderable = items
+    .map((item) => ({ item, src: resolveSrc(item) }))
+    .filter((entry): entry is { item: CarouselItem; src: ImageMetadata | string } => {
+        if (!entry.src) {
+            console.error("Imagen no encontrada para destino:", entry.item.title);
+            return false;
+        }
+        return true;
     })
-);
-
-
+    .sort((a, b) =>
+        a.item.title.localeCompare(b.item.title, undefined, {
+            sensitivity: "base",
+            numeric: true,
+        }),
+    );
 ---
 
+{renderable.length > 0 && (
 <section class="section-highlights pt-11 md:pt-16">
     <div class="highlights container mx-auto px-5 md:px-8">
 
@@ -52,29 +99,18 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
                     </div>
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            {destinations.map((destination, index) => {
-                                const imagePath = `/src/assets/images/destinations/${destination.destination_img}.webp`;
-                                const imageModule = images[imagePath];
-                                const image = imageModule?.default;
-
-                                if (!image) {
-                                    console.error("Imagen no encontrada:", imagePath);
-                                    return null;
-                                }
-
-                                return (
-                                        <div class="swiper-slide w-auto">
-                                            <TopDestinationCard
-                                                    src={image}
-                                                    alt={destination.destination_title}
-                                                    title={destination.destination_title}
-                                                    subtitle={destination.destination_description}
-                                                    url={withLang(destination.destination_url)}
-                                                    priority={index === 0}
-                                            />
-                                        </div>
-                                );
-                            })}
+                            {renderable.map(({ item, src }, index) => (
+                                <div class="swiper-slide w-auto">
+                                    <TopDestinationCard
+                                            src={src}
+                                            alt={item.alt}
+                                            title={item.title}
+                                            subtitle={item.description ?? ""}
+                                            url={withLang(item.url)}
+                                            priority={index === 0}
+                                    />
+                                </div>
+                            ))}
                         </div>
 
                         <div class="swiper-pagination-destinations mt-8 flex justify-center"></div>
@@ -86,6 +122,7 @@ const destinations = [...t.highlights_destinations].sort((a, b) =>
 
     </div>
 </section>
+)}
 
 <script>
     import Swiper from 'swiper';

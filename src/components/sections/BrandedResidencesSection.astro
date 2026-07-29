@@ -1,12 +1,64 @@
 ---
-import DevelopmentCard from "../../components/DevelopmentCard.astro";
-import data from "../../data/i18n/es/branded-residences.json";
-const { listBrandedResidents } = data;
-const {t, lang} = Astro.props
-const basePath = lang === 'en' ? '/en' : '';
-const withLang = (path) => `/branded-residences/${basePath}${path}`;
+import type { ImageMetadata } from "astro";
+import HybridImage from "../HybridImage.astro";
+import { images } from "../../assets/images";
+import legacyData from "../../data/i18n/es/branded-residences.json";
+
+const { t, lang, brandedResidences: provided } = Astro.props;
+const basePath = lang === "en" ? "/en" : "";
+const withLang = (slug: string) => `/branded-residences${basePath}/${slug}`;
+
+/** Item unificado que renderiza la grilla — viene del JSON legacy o del merge
+ *  híbrido (legacy + overlay de Supabase, con prioridad de la API). */
+interface BrandedItem {
+    name:          string;
+    url:           string;
+    alt:           string;
+    /** URL remota del ícono resuelta desde Supabase Storage. `null` si no hay. */
+    iconUrl:       string | null;
+    /** Key del ícono en el mapa local `images` (respaldo legacy). `null` si no hay. */
+    legacyIconKey: string | null;
+    hasPadding:    boolean;
+    hasZoom:       boolean;
+}
+
+// Compatibilidad legacy: si no recibimos un array `brandedResidences` ya
+// mergeado (overlay con la API), derivamos los items del JSON local como se
+// venía haciendo. Cuando llegan mergeados, el overlay ya se aplicó campo a campo.
+const items: BrandedItem[] = provided ?? legacyData.listBrandedResidents.map((d: any) => ({
+    name:          d.brandedResidentName,
+    url:           d.brandedResidentUrl,
+    alt:           d.brandedResidentAlt,
+    iconUrl:       null,
+    legacyIconKey: d.brandedResidentSrc,
+    hasPadding:    d.brandedResidentHasPadding ?? false,
+    hasZoom:       d.brandedResidentHasZoom ?? false,
+}));
+
+// La API gana sobre el asset local cuando trae `iconUrl`; si no, se busca el
+// ícono en el mapa local `images`. Devolver `null` deja el item fuera.
+function resolveIcon(item: BrandedItem): ImageMetadata | string | null {
+    if (item.iconUrl) return item.iconUrl;
+    if (item.legacyIconKey && item.legacyIconKey in images) {
+        return images[item.legacyIconKey as keyof typeof images];
+    }
+    return null;
+}
+
+// Se resuelve el ícono en el frontmatter para descartar los items sin asset:
+// la sección se oculta (regla 1) si no queda ningún item renderizable.
+const renderable = items
+    .map((item) => ({ item, icon: resolveIcon(item) }))
+    .filter((entry): entry is { item: BrandedItem; icon: ImageMetadata | string } => {
+        if (!entry.icon) {
+            console.error("Ícono no encontrado para branded residence:", entry.item.name);
+            return false;
+        }
+        return true;
+    });
 ---
 
+{renderable.length > 0 && (
 <section class="pb-16  md:pb-1">
     <div class="container mx-auto flex flex-col items-start">
         <div class="development-heading mb-4">
@@ -15,26 +67,22 @@ const withLang = (path) => `/branded-residences/${basePath}${path}`;
         <div class="development-paragraph mb-6">
             <p class="text-brand-700 font-normal">{t.brandedResidences.description}</p>
         </div>
-        {listBrandedResidents && listBrandedResidents.length > 0 ? (
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 w-full">
-                    {listBrandedResidents.map((item) => (
-                            <DevelopmentCard
-                                    key={item.brandedResidentId ?? item.brandedResidentSrc}
-                                    alt={item.brandedResidentAlt}
-                                    src={item.brandedResidentSrc}
-                                    link={withLang(item.brandedResidentUrl)}
-                                    hasPadding={item.brandedResidentHasPadding}
-                                    hasZoom={item.brandedResidentHasZoom}
-                            />
-                    ))}
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 w-full">
+            {renderable.map(({ item, icon }) => (
+                <div class="w-full min-w-[161.5px] md:min-w-[217px] h-[190px] grid place-items-center border border-gray-200 rounded-xl overflow-hidden">
+                    <a
+                            href={withLang(item.url)}
+                            class={`grid place-items-center w-full h-full ${item.hasPadding ? "p-10" : ""}`}
+                    >
+                        <HybridImage
+                                class={`max-w-full max-h-full object-contain ${item.hasZoom ? "scale-125" : ""}`}
+                                src={icon}
+                                alt={item.alt}
+                        />
+                    </a>
                 </div>
-        ) : (
-                <div class="flex justify-center min-h-[40vh]">
-                    <h1 class="text-2xl font-semibold text-center">
-                        {t.development.none}
-                    </h1>
-                </div>
-        )}
-
+            ))}
+        </div>
     </div>
 </section>
+)}
