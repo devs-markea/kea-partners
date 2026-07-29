@@ -1,46 +1,105 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import HeroBannerSection from "../../components/sections/HeroBannerSection.astro";
+import DestinationSection from "../../components/sections/article/DestinationSection.astro";
 
 import Common from '../../data/i18n/es/common.json';
 import DestinationData from '../../data/i18n/es/destinations.json';
-import DevelopmentsData from '../../data/i18n/es/developments.json'; // 👈 IMPORTAR
-import DestinationSection from "../../components/sections/article/DestinationSection.astro";
+import DevelopmentsData from '../../data/i18n/es/developments.json';
+
+import { getDestinationBySlug, getDevelopments } from "@/lib/supabase/resilient";
+import { mergeHybrid } from "@/lib/hybrid";
 
 const { slug } = Astro.params;
+const lang = "es";
 
-const destination = DestinationData.listDestinations.find(
-    (d) => d.destinationUrl === slug
+// Destino: API primero (atributos según doc destinations), legacy de respaldo
+// para el hero. Un error de la API no debe romper la página.
+const apiDestination = await getDestinationBySlug(slug!, lang).catch((error) => {
+    console.error(`[destinations/${slug}] No se pudo cargar el destino:`, error);
+    return null;
+});
+const legacyDestination = DestinationData.listDestinations.find(
+    (d) => d.destinationUrl === slug,
 );
 
-if (!destination) {
+// Si el destino existe en la API pero no está publicado (draft/inactive),
+// se oculta: redirige al home (la API invalida el respaldo legacy).
+if (apiDestination && apiDestination.status !== 'published') {
+    return Astro.redirect('/');
+}
+
+// Si el destino no existe en ninguna fuente, no hay página que mostrar.
+if (!apiDestination && !legacyDestination) {
     return Astro.redirect('/404');
 }
 
 const heroData = {
-    title: destination.destinationTitle,
-    bannerKey: destination.destinationBannerKey,
-    alt: destination.destinationAlt
+    title:     apiDestination?.title ?? legacyDestination?.destinationTitle ?? "",
+    bannerUrl: apiDestination?.bannerUrl ?? null,
+    bannerKey: legacyDestination?.destinationBannerKey ?? null,
+    alt:       apiDestination?.alt ?? legacyDestination?.destinationAlt
+                                   ?? apiDestination?.title ?? "",
 };
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
     { name: 'Destinos', url: '' },
-    { name: destination.destinationTitle }
+    { name: heroData.title },
 ];
 
-const filteredDevelopments = DevelopmentsData.listDevelopments.filter(
-    (dev) => dev.developmentDestination === slug
+// Desarrollos publicados relacionados al destino (relación real en Supabase).
+// El grupo se trae embebido para componer el enlace de los branded. Si la
+// consulta falla, se devuelve [] (no se muestra un error, sino el estado vacío).
+const apiDevelopments = apiDestination
+    ? await getDevelopments({
+          statuses: ['published', 'inactive', 'draft'],
+          language: lang,
+          destinationId: apiDestination.id,
+          include: { group: true },
+      }).catch((error) => {
+          console.error(`[destinations/${slug}] No se pudieron cargar desarrollos:`, error);
+          return [];
+      })
+    : [];
+
+// Respaldo legacy: desarrollos del JSON asociados a este destino.
+const legacyDevelopments = DevelopmentsData.listDevelopments.filter(
+    (dev) => dev.developmentDestination === slug,
 );
 
-
+// Unión con prioridad de la API (mismo criterio que el resto de la home).
+// Se normaliza a la forma legacy (developmentXxx) que consume DestinationSection,
+// añadiendo `developmentIconUrl` para el ícono remoto de Supabase.
+// Prioridad por estado: un desarrollo de la API solo se muestra si está
+// `published`; si está `inactive` o `draft` se oculta e INVALIDA su homónimo
+// legacy (no se usa de respaldo). El legacy sin contraparte en la API se conserva.
+const developments = mergeHybrid({
+    legacy:    legacyDevelopments,
+    api:       apiDevelopments,
+    legacyKey: (l) => l.developmentLink,
+    apiKey:    (a) => a.slug,
+    keepApi:   (a) => a.status === 'published',
+    merge: (legacy, api) => ({
+        developmentId:          api?.id ?? legacy?.developmentId,
+        developmentCategory:    api?.category ?? legacy?.developmentCategory ?? "",
+        developmentDestination: slug,
+        developmentGroup:       api?.group?.slug ?? legacy?.developmentGroup ?? "",
+        developmentLink:        api?.slug ?? legacy?.developmentLink ?? "",
+        developmentAlt:         api?.alt ?? legacy?.developmentAlt
+                                         ?? api?.name ?? legacy?.developmentName ?? "",
+        developmentIconUrl:     api?.iconUrl ?? null,
+        developmentSrc:         legacy?.developmentSrc ?? null,
+        developmentHasPadding:  legacy?.developmentHasPadding ?? false,
+    }),
+});
 ---
 
 <MainLayout title="KEA Partners" lang="es" t={Common}>
     <HeroBannerSection t={heroData} lang="es" />
     <DestinationSection
             breadcrumbItems={breadcrumbItems}
-            developments={filteredDevelopments}
+            developments={developments}
             lang="es"
     />
 </MainLayout>

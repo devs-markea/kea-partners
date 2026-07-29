@@ -1,10 +1,35 @@
 ---
+import type { ImageMetadata } from "astro";
 import Breadcrumb from "../../Breadcrumb.astro";
-import ArticleCard from "../../ArticleCard.astro";
-import TopicCard from "../../TopicCard.astro";
-import DevelopmentCard from "../../DevelopmentCard.astro";
-const { breadcrumbItems, developments, lang } = Astro.props;
+import HybridImage from "../../HybridImage.astro";
+import { images } from "../../../assets/images";
 
+const { breadcrumbItems, developments } = Astro.props;
+
+// El ícono puede venir como URL remota (`developmentIconUrl`, Supabase) o como
+// key de asset local (`developmentSrc`, legacy). La remota tiene prioridad.
+function resolveIcon(item: any): ImageMetadata | string | null {
+    if (item.developmentIconUrl) return item.developmentIconUrl;
+    if (item.developmentSrc && item.developmentSrc in images) {
+        return images[item.developmentSrc as keyof typeof images];
+    }
+    return null;
+}
+
+function buildLink(item: any): string {
+    const dest = item.developmentDestination;
+    const link = item.developmentLink;
+    switch (item.developmentCategory) {
+        case "branded-residences":
+            return `/${dest}/branded-residences/${item.developmentGroup}/${link}`;
+        case "high-end-resort":
+            return `/${dest}/high-end-and-resort-living/${link}`;
+        case "commercial-projects":
+            return `/${dest}/commercial-projects/${link}`;
+        default:
+            return `/${dest}/${link}`;
+    }
+}
 ---
 <section class="mb-16 md:mb-[124px] min-h-[calc(80vh-88px)]">
     <div class="container">
@@ -14,31 +39,34 @@ const { breadcrumbItems, developments, lang } = Astro.props;
         <div class="articles">
             {developments && developments.length > 0 ? (
                     <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                        {developments.map((item) => {
-                            const link =
-                                item.developmentCategory === "branded-residences"
-                                    ? `/${item.developmentDestination}/branded-residences/${item.developmentGroup}/${item.developmentLink}`
-                                    : item.developmentCategory === "high-end-resort"
-                                        ? `/${item.developmentDestination}/high-end-and-resort-living/${item.developmentLink}`
-                                        :  item.developmentCategory === "commercial-projects"
-                                            ? `/${item.developmentDestination}/commercial-projects/${item.developmentLink}`
-                                            : `/${item.developmentDestination}/${item.developmentLink}`;
+                        {developments.map((item: any) => {
+                            const icon = resolveIcon(item);
+
+                            if (!icon) {
+                                console.error("Ícono no encontrado para desarrollo:", item.developmentId ?? item.developmentLink);
+                                return null;
+                            }
 
                             return (
-                                    <DevelopmentCard
-                                            key={item.developmentId}
-                                            alt={item.developmentAlt}
-                                            src={item.developmentSrc}
-                                            link={link}
-                                            hasPadding={item.developmentHasPadding}
-                                    />
+                                    <div class="w-full min-w-[161.5px] md:min-w-[217px] h-[190px] grid place-items-center border border-gray-200 rounded-xl overflow-hidden">
+                                        <a
+                                                href={buildLink(item)}
+                                                class={`grid place-items-center w-full h-full ${item.developmentHasPadding ? "p-10" : ""}`}
+                                        >
+                                            <HybridImage
+                                                    class="max-w-full max-h-full object-contain"
+                                                    src={icon}
+                                                    alt={item.developmentAlt}
+                                            />
+                                        </a>
+                                    </div>
                             );
                         })}
                     </div>
             ) : (
                     <div class="flex justify-center min-h-[40vh]">
                         <h1 class="text-2xl font-semibold text-center">
-                            No hay desarrollos disponibles para este destino
+                            No hay información de desarrollos disponibles
                         </h1>
                     </div>
             )}

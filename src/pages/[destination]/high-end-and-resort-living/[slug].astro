@@ -8,54 +8,99 @@ import DevelopmentsData from '../../../data/i18n/es/developments.json';
 import Article from "../../../data/i18n/es/article.json";
 import HideAttributes from '../../../data/i18n/es/hide-attributes-development.json';
 
-const { destination, slug } = Astro.params;
+import { getDevelopmentBySlug } from "@/lib/supabase/resilient";
 
-const dev = DevelopmentsData.listDevelopments.find(
-    d => d.developmentCategory === "high-end-resort" &&
-         d.developmentDestination === destination &&
-         d.developmentLink === slug
+const { destination, slug } = Astro.params;
+const lang = "es";
+// La carpeta de ruta es "high-end-and-resort-living", pero la categoría en la
+// base es "high-end-resort" (ver doc/db/developments.md → valores de category).
+const CATEGORY = "high-end-resort";
+
+// ── Desarrollo desde Supabase (info + destino + artículos en una consulta) ──
+// El destino y los artículos se traen embebidos vía las FK reales. Un error de
+// la API no debe romper la página: se cae al respaldo legacy.
+const apiDev = await getDevelopmentBySlug(slug!, lang, {
+    destination: true,
+    articles: true,
+}).catch((error) => {
+    console.error(`[high-end/${slug}] No se pudo cargar el desarrollo:`, error);
+    return null;
+});
+
+// Válido solo si es de esta categoría y de este destino (URL canónica).
+const apiDevValid =
+    apiDev && apiDev.category === CATEGORY && apiDev.destination?.slug === destination
+        ? apiDev
+        : null;
+
+// Respaldo legacy: mismo criterio (categoría + destino + slug).
+const legacyDev = DevelopmentsData.listDevelopments.find(
+    (d) => d.developmentCategory === CATEGORY &&
+           d.developmentDestination === destination &&
+           d.developmentLink === slug,
 );
 
-if (!dev) {
+// Si el desarrollo existe en la API pero no está publicado (draft/inactive),
+// se oculta: redirige al home (la API invalida el respaldo legacy).
+if (apiDevValid && apiDevValid.status !== 'published') {
+    return Astro.redirect('/');
+}
+
+// Si no existe en ninguna fuente, no hay desarrollo que mostrar.
+if (!apiDevValid && !legacyDev) {
     return Astro.redirect('/404');
 }
 
 const heroData = {
-    title: dev.developmentName,
-    bannerKey: dev.developmentBanner,
-    alt: dev.developmentAlt
+    title:     apiDevValid?.name ?? legacyDev?.developmentName ?? "",
+    bannerUrl: apiDevValid?.bannerUrl ?? null,
+    bannerKey: legacyDev?.developmentBanner ?? null,
+    alt:       apiDevValid?.alt ?? legacyDev?.developmentAlt ?? apiDevValid?.name ?? "",
 };
 
-const modules = import.meta.glob('../../../data/i18n/es/*.json');
-const Data = await modules[
-    `../../../data/i18n/es/${dev.developmentContent}.json`
-    ]();
+// ── Artículos del desarrollo ────────────────────────────────────────────────
+// API: tabla development_articles (title, url). Legacy: el JSON de contenido
+// del desarrollo, filtrando atributos ocultos. La forma final es la que espera
+// ResourceArticleSection: { article: [{ title, url }] }.
+let articleItems: { title: string; url: string }[] = [];
+if (apiDevValid) {
+    // API: solo artículos con `is_visible = true`; los `false` se ignoran.
+    articleItems = (apiDevValid.articles ?? [])
+        .filter((a) => a.isVisible)
+        .map((a) => ({ title: a.title, url: a.url }));
+} else if (legacyDev) {
+    const modules = import.meta.glob('../../../data/i18n/es/*.json');
+    const loader = modules[`../../../data/i18n/es/${legacyDev.developmentContent}.json`];
+    const Data: any = loader ? await loader() : {};
+    const hiddenAttrs = HideAttributes.developments.find(
+        (d) => d.developmentContent === legacyDev.developmentContent,
+    )?.developmentAttribututes?.map((a) => a.attribute) ?? [];
+    articleItems = (Data.article ?? []).filter(
+        (item: any) => !hiddenAttrs.includes(item.title),
+    );
+}
+const article = { article: articleItems };
 
-const hiddenAttrs = HideAttributes.developments.find(
-    d => d.developmentContent === dev.developmentContent
-)?.developmentAttribututes?.map(a => a.attribute) ?? [];
-
-const filteredData = hiddenAttrs.length > 0 && Data.article
-    ? { ...Data, article: Data.article.filter(item => !hiddenAttrs.includes(item.title)) }
-    : Data;
+const destinationName =
+    apiDevValid?.destination?.title ??
+    destination?.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 const breadcrumbItems = [
     { name: 'Inicio', url: '/' },
-    { name: dev.developmentDestination
-            ?.replace(/-/g, " ")
-            .replace(/\b\w/g, c => c.toUpperCase()) },
+    { name: destinationName },
     { name: 'High-End and Resort Living' },
-    { name: dev.developmentName }
+    { name: heroData.title },
 ];
-const devLink = dev.developmentPagelink;
 
+// PageCard del hero: solo legacy define un pagelink; la API no tiene este campo.
+const devLink = legacyDev?.developmentPagelink || undefined;
 ---
-<MainLayout title="KEA Partners"lang="es" t={Common}>
+<MainLayout title="KEA Partners" lang="es" t={Common}>
     <HeroBannerSection t={heroData} lang="es" link={devLink}/>
 
     <ResourceArticleSection
             breadcrumbItems={breadcrumbItems}
-            article={filteredData}
+            article={article}
             tArticle={Article}
             lang="es"
     />

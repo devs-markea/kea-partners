@@ -2,12 +2,20 @@
 import { Image } from "astro:assets";
 
 const { title, subtitle, url, src, alt, priority = false } = Astro.props;
+
+// `<Image>` exige width/height explícitos para URLs remotas (string);
+// para módulos locales (ImageMetadata) los deduce solo del asset, así que
+// pasamos el size solo en el caso remoto para no alterar el comportamiento
+// legacy. Los valores son orientativos: el render final lo fija el CSS
+// (`width: 100%; height: 400px; object-fit: cover`).
+const remoteSize = typeof src === "string" ? { width: 800, height: 500 } : {};
 ---
 <a href={`/destinations${url}`}>
     <div class="top-destination">
         <Image
                 src={src}
                 alt={alt}
+                {...remoteSize}
                 loading={priority ? "eager" : "lazy"}
                 fetchpriority={priority ? "high" : "auto"}
         />
