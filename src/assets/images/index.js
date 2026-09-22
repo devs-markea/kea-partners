@@ -17,8 +17,6 @@ import BannerOneLaguna from '../images/banner/developments/banner-one-laguna.png
 import BannerAflora from '../images/banner/developments/banner-aflora.png';
 import BannerBayView from '../images/banner/developments/banner-bay-view-grand.png';
 import BannerFaena from '../images/banner/developments/banner-faena-tulum.png';
-import BannerStregis from '../images/banner/developments/banner-st-regis-costa-mujeres.png';
-import BannerInna from '../images/banner/developments/banner-inna.png';
 import BannerMarietta from '../images/banner/developments/banner-marietta.png';
 import BannerGranViaMar from '../images/banner/developments/banner-marietta.png';
 import BannerDevelopmentDaVinci from '../images/banner/developments/banner-da-vinci-tower-residences.png';
@@ -40,7 +38,6 @@ import BannerDevelopmenSlsOceanBeach from '../images/banner/developments/banner-
 
 import Aflora from '../images/Logo/developments/icon-developments-aflora.png';
 import BayView from '../images/Logo/developments/icon-developments-bay-view-grand.png';
-import Inna from '../images/Logo/developments/icon-developments-inna.png';
 import Mgallery from '../images/Logo/developments/MGallery.png';
 import OneLaguna from '../images/Logo/developments/icon-developments-one-laguna.png';
 import Thompson from '../images/Logo/developments/thompson.png';
@@ -64,7 +61,6 @@ import BannerMiami from '../images/banner/destinations/banner-miami.png';
 import BannerDestinationPuertoVallarta from '../images/banner/destinations/banner-puerto-vallarta.png';
 
 
-import IconBrandedResidenceStRegis from '../images/Logo/branded-residences/icon-branded-residences-stregis.png';
 import IconBrandedResidenceFaena from '../images/Logo/branded-residences/icon-branded-residences-faena.png';
 import IconBrandedResidenceLamborghini from '../images/Logo/branded-residences/icon-branded-residences-lamborghini.png';
 import IconBrandedResidenceMgallery from '../images/Logo/branded-residences/icon-branded-residences-mgallery.png';
@@ -77,8 +73,6 @@ import IconBrandedResidenceTrumpTower from '../images/Logo/branded-residences/ic
 import IconBrandedResidenceSls from '../images/Logo/branded-residences/icon-branded-residences-sls.png';
 
 import IconDevelopmentThe1428 from '../images/Logo/developments/icon-developments-the-1428.png';
-import IconDevelopmentStRegisKanai from '../images/Logo/developments/icon-developments-st-regis-riviera-maya.png';
-import IconDevelopmentStRegisCostaMujeres from '../images/Logo/developments/icon-developments-st-regis-costa-mujeres.png';
 import IconDevelopmentRitzCarlton from '../images/Logo/developments/icon-developments-the-ritz-carlton.png';
 import IconDevelopmentDaVinci from '../images/Logo/developments/icon-developments-davinvi-pagani-residences.png';
 import IconDevelopmentFaenaMiami from '../images/Logo/developments/icon-developments-faena-miami-residences.png';
@@ -98,8 +92,6 @@ import IconDevelopmentLegacy from '../images/Logo/developments/icon-developments
 
 
 //Banner Brandeds
-import BannerStRegis from '../images/banner/branded-residences/banner-st-regis.png';
-import BannerBrandedStRegisResidences from '../images/banner/branded-residences/banner-st-regis-residences.png';
 import BannerBrandedLamborghini from '../images/banner/branded-residences/banner-lamborghini-residences.png';
 import BannerBrandedMgallery from '../images/banner/branded-residences/banner-mgallery-residences.png';
 import BannerBrandedMissoni from '../images/banner/branded-residences/banner-missoni-residences.png';
@@ -131,9 +123,7 @@ export const images = {
     BannerMayakoba: BannerMayakoba,
     BannerMgallery: BannerMgallery,
     BannerRitz: BannerRitz,
-    BannerStregis: BannerStregis,
     BannerThompson: BannerThompson,
-    BannerInna: BannerInna,
 
     BannerDevelopmentDaVinci: BannerDevelopmentDaVinci,
     BannerDevelopmentFaenaMiami: BannerDevelopmentFaenaMiami,
@@ -155,7 +145,6 @@ export const images = {
 
     Aflora: Aflora,
     BayView: BayView,
-    Inna: Inna,
     Mgallery: Mgallery,
     OneLaguna: OneLaguna,
     Thompson: Thompson,
@@ -171,8 +160,6 @@ export const images = {
     BannerMiami: BannerMiami,
     BannerDestinationPuertoVallarta: BannerDestinationPuertoVallarta,
 
-    BannerStRegis: BannerStRegis,
-    IconBrandedResidenceStRegis: IconBrandedResidenceStRegis,
     IconBrandedResidenceFaena: IconBrandedResidenceFaena,
     IconBrandedResidenceLamborghini: IconBrandedResidenceLamborghini,
     IconBrandedResidenceMgallery: IconBrandedResidenceMgallery,
@@ -195,14 +182,11 @@ export const images = {
     BannerBrandedRitzCarlton: BannerBrandedRitzCarlton,
     BannerBrandedThompson: BannerBrandedThompson,
     BannerBrandedTrumpTower: BannerBrandedTrumpTower,
-    BannerBrandedStRegisResidences: BannerBrandedStRegisResidences,
     BannerBrandedFaena: BannerBrandedFaena,
     BannerBrandedSLs: BannerBrandedSLs,
 
 
     IconDevelopmentThe1428: IconDevelopmentThe1428,
-    IconDevelopmentStRegisKanai: IconDevelopmentStRegisKanai,
-    IconDevelopmentStRegisCostaMujeres: IconDevelopmentStRegisCostaMujeres,
     IconDevelopmentRitzCarlton: IconDevelopmentRitzCarlton,
     IconDevelopmentDaVinci: IconDevelopmentDaVinci,
     IconDevelopmentFaenaMiami: IconDevelopmentFaenaMiami,

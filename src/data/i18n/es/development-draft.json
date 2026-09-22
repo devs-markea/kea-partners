@@ -1,19 +1,4 @@
 [
-  {
-    "developmentId": "dev-st-regis-kanai",
-    "developmentName": "The St. Regis Kanai",
-    "developmentBanner": "BannerFaena",
-    "developmentContent": "stregis-kanai",
-    "developmentAlt": "The St. Regis Kanai",
-    "developmentDestination": "riviera-maya",
-    "developmentLocation": "Riviera Maya",
-    "developmentGroup": "st-regis",
-    "developmentCategory": "branded-residences",
-    "developmentSrc": "IconDevelopmentStRegisKanai",
-    "developmentLink": "st-regis-kanai",
-    "developmentHasPadding": false,
-    "developmentHasZoom": false
-  },
 
   {
     "developmentId": "dev-thompson-mexico-city",

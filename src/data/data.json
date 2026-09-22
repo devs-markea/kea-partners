@@ -25,14 +25,6 @@
       "hasPadding": false
     },
     {
-      "id": "dev-inna",
-      "name": "",
-      "alt": "InnaBeach",
-      "src": "Inna",
-      "link": "/inna-beach-condos",
-      "hasPadding": false
-    },
-    {
       "id": "dev-aflora",
       "name": "",
       "alt": "Aflora",
@@ -48,14 +40,6 @@
       "alt": "Faena Tulum",
       "src": "Faena",
       "link": "faena-tulum",
-      "hasPadding": false
-    },
-    {
-      "id": "dev-st-regis",
-      "name": "",
-      "alt": "St. Regis",
-      "src": "StRegis",
-      "link": "st-regis",
       "hasPadding": false
     },
     {
