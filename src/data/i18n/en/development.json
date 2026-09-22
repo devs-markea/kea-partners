@@ -34,17 +34,6 @@
       "developmentHasPadding": false
     },
     {
-      "developmentId": "dev-inna",
-      "developmentName": "",
-      "developmentAlt": "InnaBeach",
-      "developmentDestination": "riviera-maya",
-      "developmentLocation": "Riviera Maya",
-      "developmentCategory": "hightResort",
-      "developmentSrc": "Inna",
-      "developmentLink": "/inna-beach-condos",
-      "developmentHasPadding": false
-    },
-    {
       "developmentId": "dev-aflora",
       "developmentName": "",
       "developmentAlt": "Aflora",

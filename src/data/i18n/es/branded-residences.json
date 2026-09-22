@@ -1,16 +1,6 @@
 {
   "listBrandedResidents": [
     {
-      "brandedResidentId": "dev-st-regis",
-      "brandedResidentName": "St. Regis",
-      "brandedResidentBanner": "BannerBrandedStRegisResidences",
-      "brandedResidentAlt": "St. Regis",
-      "brandedResidentSrc": "IconBrandedResidenceStRegis",
-      "brandedResidentUrl": "st-regis",
-      "brandedResidentHasPadding": false,
-      "brandedResidentHasZoom": false
-    },
-    {
       "brandedResidentId": "dev-the-ritz",
       "brandedResidentName": "Ritz-Carlton",
       "brandedResidentBanner": "BannerBrandedRitzCarlton",
