@@ -35,13 +35,6 @@
       "destination_url": "cancun"
     },
     {
-      "destination": "costa_mujeres",
-      "destination_img": "top-destination-costa-mujeres",
-      "destination_title": "Costa Mujeres",
-      "destination_description": "1 propiedad",
-      "destination_url": "costa-mujeres"
-    },
-    {
       "destination": "isla_mujeres",
       "destination_img": "top-destination-isla-mujeres",
       "destination_title": "Isla Mujeres",

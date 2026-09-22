@@ -81,22 +81,6 @@
       ]
     },
     {
-      "developmentContent": "stregis-costa-mujeres",
-      "developmentProject": "St Regis Costa Mujeres",
-      "developmentAttribututes":
-      [
-        {
-          "attribute": "Fact Sheet"
-        },
-        {
-          "attribute": "Price Ranges"
-        },
-        {
-          "attribute": "Master Plan"
-        }
-      ]
-    },
-    {
       "developmentContent": "marietta",
       "developmentProject": "Marietta",
       "developmentAttribututes":
@@ -198,22 +182,6 @@
         },
         {
           "attribute": "Contenido RRSS"
-        }
-      ]
-    },
-    {
-      "developmentContent": "inna-beach",
-      "developmentProject": "Inna Beach Condos",
-      "developmentAttribututes":
-      [
-        {
-          "attribute": "Fact Sheet"
-        },
-        {
-          "attribute": "Price Ranges"
-        },
-        {
-          "attribute": "Master Plan"
         }
       ]
     },

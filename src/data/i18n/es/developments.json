@@ -98,21 +98,6 @@
       "developmentHasZoom": true
     },
     {
-      "developmentId": "dev-st-regis",
-      "developmentName": "The St. Regis Residences",
-      "developmentBanner": "BannerStregis",
-      "developmentContent": "stregis-costa-mujeres",
-      "developmentAlt": "The St. Regis Residences",
-      "developmentDestination": "costa-mujeres",
-      "developmentLocation": "Costa Mujeres",
-      "developmentGroup": "st-regis",
-      "developmentCategory": "branded-residences",
-      "developmentSrc": "IconDevelopmentStRegisCostaMujeres",
-      "developmentLink": "st-regis",
-      "developmentPagelink": "",
-      "developmentHasPadding": false,
-      "developmentHasZoom": false
-    },    {
       "developmentId": "dev-thompson-puerto-cancun",
       "developmentName": "Thompson Residences Puerto Cancun",
       "developmentBanner": "BannerDevelopmentThompsonPuertoCancun",
@@ -261,21 +246,6 @@
       "developmentCategory": "high-end-resort",
       "developmentSrc": "OneLaguna",
       "developmentLink": "one-laguna-residences-cancun",
-      "developmentPagelink": "",
-      "developmentHasPadding": false,
-      "developmentHasZoom": false
-    },
-    {
-      "developmentId": "dev-inna",
-      "developmentName": "INNA Beach Condos",
-      "developmentBanner": "BannerInna",
-      "developmentContent": "inna-beach",
-      "developmentAlt": "InnaBeach",
-      "developmentDestination": "riviera-maya",
-      "developmentLocation": "Riviera Maya",
-      "developmentCategory": "high-end-resort",
-      "developmentSrc": "Inna",
-      "developmentLink": "inna-beach-condos",
       "developmentPagelink": "",
       "developmentHasPadding": false,
       "developmentHasZoom": false
